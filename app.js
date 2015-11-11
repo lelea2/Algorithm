@@ -7,6 +7,8 @@ var express = require('express'),
   methodOverride = require('method-override'),
   errorHandler = require('error-handler'),
   morgan = require('morgan'),
+  cookieParser = require('cookie-parser'),
+  csrfCrypto = require('csrf-crypto'),
   expressHbs = require('express-handlebars'),
   routes = require('./routes'),
   http = require('http'),
@@ -46,6 +48,17 @@ app.use(function(req, res, next) {
 });
 app.use(function(req, res, next) {
     methodOverride()
+    next();
+});
+/** CSRF enforcer */
+app.use(cookieParser('group8272'));
+app.use(csrfCrypto({ key: 'group8cmpe272' }));
+app.use(csrfCrypto.enforcer());
+
+app.use(function(req, res, next) {
+    if(res.getFormToken !== undefined) {
+        res.locals._csrf = res.getFormToken();
+    }
     next();
 });
 

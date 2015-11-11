@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' />
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/main_style.css" />
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <title>Course Registration System</title>
@@ -21,14 +22,13 @@
         <div class="clear"></div>
     </div>
     <!--Main Body Begin-->
-    <div class="centerBox">
-        {{{body}}}
-    </div>
+    {{{body}}}
     <!--Main Body End-->
     <!--Footer Begin-->
     <div class="footer">
 
     </div>
+    <input type="hidden" name="_csrf" value="{{_csrf}}" />
     <!--Footer End-->
     <!--Top Menu Bar End-->
 </div>

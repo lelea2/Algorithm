@@ -1,34 +1,36 @@
-<form class="inputBox">
-    <div class="firstNameRow marginTop">
-        <span>First Name:</span><input id="firstName" type="text" />
-        <div class="clear"></div>
-    </div>
-    <div class="lastNameRow marginTop">
-        <span>Last Name:</span><input id="lastName" type="password" />
-        <div class="clear"></div>
-    </div>
-    <div class="emailRow marginTop">
-        <span>Email:</span><input id="email" type="email" />
-        <div class="clear"></div>
-    </div>
-    <div class="passwordRow marginTop">
-        <span>Password:</span><input id="password" type="password" />
-        <div class="clear"></div>
-    </div>
-    <div class="rePasswordRow marginTop">
-        <span>Re-password:</span><input id="rePassword" type="password" />
-        <div class="clear"></div>
-    </div>
-    <div class="majorRow marginTop">
-        <span>Major:</span>
-        <select>
-            {{#each majors}}
-            <option value="{{majorId}}">{{majorName}}</option>
-            {{/each}}
-        </select>
-    </div>
-    <div class="buttonRow">
-        <button type="submit" id="submitButton">Submit</button>
-        <button type="reset" id="resetButton">Reset</button>
-    </div>
-</form>
+<div class="centerBox">
+    <form class="inputBox">
+        <div class="firstNameRow marginTop">
+            <span>First Name:</span><input id="firstName" type="text" />
+            <div class="clear"></div>
+        </div>
+        <div class="lastNameRow marginTop">
+            <span>Last Name:</span><input id="lastName" type="password" />
+            <div class="clear"></div>
+        </div>
+        <div class="emailRow marginTop">
+            <span>Email:</span><input id="email" type="email" />
+            <div class="clear"></div>
+        </div>
+        <div class="passwordRow marginTop">
+            <span>Password:</span><input id="password" type="password" />
+            <div class="clear"></div>
+        </div>
+        <div class="rePasswordRow marginTop">
+            <span>Re-password:</span><input id="rePassword" type="password" />
+            <div class="clear"></div>
+        </div>
+        <div class="majorRow marginTop">
+            <span>Major:</span>
+            <select>
+                {{#each majors}}
+                <option value="{{majorId}}">{{majorName}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="buttonRow">
+            <button type="submit" id="submitButton">Submit</button>
+            <button type="reset" id="resetButton">Reset</button>
+        </div>
+    </form>
+</div>
