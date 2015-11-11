@@ -51,7 +51,8 @@ app.use(function(req, res, next) {
  * Handle Routing
  */
 // serve index and view partials
-app.get('/', routes.index);
+app.get('/signin', routes.signin);
+app.get('/signup', routes.signup);
 app.get('/user', routes.user);
 
 // redirect all others to the index (HTML5 history)
