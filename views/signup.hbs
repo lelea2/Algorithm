@@ -22,10 +22,9 @@
     <div class="majorRow marginTop">
         <span>Major:</span>
         <select>
-            <option value="computer science">Computer Science</option>
-            <option value="software engineering">Software Engineering</option>
-            <option value="Maths">Maths</option>
-            <option value="Literature">Literature</option>
+            {{#each majors}}
+            <option value="{{majorId}}">{{majorName}}</option>
+            {{/each}}
         </select>
     </div>
     <div class="buttonRow">

@@ -9,7 +9,6 @@ var express = require('express'),
   morgan = require('morgan'),
   expressHbs = require('express-handlebars'),
   routes = require('./routes'),
-  api = require('./routes/api'),
   http = require('http'),
   path = require('path');
 
@@ -38,7 +37,11 @@ app.use(function(req, res, next) {
     next();
 });
 app.use(function(req, res, next) {
-    bodyParser();
+    bodyParser.json()
+    next();
+});
+app.use(function(req, res, next) {
+    bodyParser.urlencoded({"extended": true})
     next();
 });
 app.use(function(req, res, next) {
@@ -46,14 +49,14 @@ app.use(function(req, res, next) {
     next();
 });
 
-
 /**
  * Handle Routing
  */
 // serve index and view partials
+app.get('/', routes.signin);
 app.get('/signin', routes.signin);
 app.get('/signup', routes.signup);
-app.get('/user', routes.user);
+app.get('/profile', routes.profile);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', express.static(path.join(__dirname, 'public')));

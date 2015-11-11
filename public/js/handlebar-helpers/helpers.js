@@ -23,9 +23,7 @@
     // client
     if (typeof window !== "undefined") {
         register(Handlebars);
-    }
-    // server
-    else {
+    } else { // server
         module.exports.register = register;
         module.exports.helpers = register(null);
     }
