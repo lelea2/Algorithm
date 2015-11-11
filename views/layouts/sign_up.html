@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/sign_up.css" />
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="js/centerControler.js"></script>
+    <title>Course Registration System</title>
+</head>
+<body>
+<!--Wrap Begin-->
+<div class="wrap">
+    <!--Top Menu Bar Begin-->
+    <div class="topMenuBar">
+        <ul id="title">
+            <li><h4>Course Registration System</h4></li>
+        </ul>
+        <!--userInfo (userName) & sign out Begin-->
+        <!--userInfo (userName) & sign out End-->
+        <div class="clear"></div>
+    </div>
+    <!--Main Body Begin-->
+    <div class="centerBox">
+        <form class="inputBox">
+            <div class="firstNameRow marginTop">
+                <span>First Name:</span><input id="firstName" type="text" />
+                <div class="clear"></div>
+            </div>
+            <div class="lastNameRow marginTop">
+                <span>Last Name:</span><input id="lastName" type="password" />
+                <div class="clear"></div>
+            </div>
+            <div class="emailRow marginTop">
+                <span>Email:</span><input id="email" type="email" />
+                <div class="clear"></div>
+            </div>
+            <div class="passwordRow marginTop">
+                <span>Password:</span><input id="password" type="password" />
+                <div class="clear"></div>
+            </div>
+            <div class="rePasswordRow marginTop">
+                <span>Re-password:</span><input id="rePassword" type="password" />
+                <div class="clear"></div>
+            </div>
+            <div class="majorRow marginTop">
+                <span>Major:</span>
+                <select>
+                    <option value="computer science">Computer Science</option>
+                    <option value="software engineering">Software Engineering</option>
+                    <option value="Maths">Maths</option>
+                    <option value="Literature">Literature</option>
+                </select>
+            </div>
+            <div class="buttonRow">
+                <button type="submit" id="submitButton">Submit</button>
+                <button type="reset" id="resetButton">Reset</button>
+            </div>
+        </form>
+    </div>
+    <!--Main Body End-->
+    <!--Footer Begin-->
+    <div class="footer">
+
+    </div>
+    <!--Footer End-->
+    <!--Top Menu Bar End-->
+</div>
+<!--Wrap End-->
+</body>
+</html>
