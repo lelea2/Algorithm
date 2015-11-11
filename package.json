@@ -1,0 +1,15 @@
+{ 
+  "name": "studentreg-group5", 
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.0.2",
+    "error-handler": "^0.1.4",
+    "express": "~4.1.1",
+    "method-override": "^1.0.0",
+    "express-handlebars": "2.0.1",
+    "request": "^2.65.0",
+    "q": "^1.0.0",
+    "morgan": "^1.0.0",
+    "html-minifier": "^0.7.2"
+  }
+}
