@@ -35,8 +35,8 @@ exports.signup = function(req, res, next) {
     );
 };
 
-exports.profile = function(req, res, next) {
-    res.render('profile', {}, function (err, html) {
+exports.mycourse = function(req, res, next) {
+    res.render('mycourse', {}, function (err, html) {
         if (err) { return next(err); }
         res.send(minifyHTML(html));
     });

@@ -69,7 +69,7 @@ app.use(function(req, res, next) {
 app.get('/', routes.signin);
 app.get('/signin', routes.signin);
 app.get('/signup', routes.signup);
-app.get('/profile', routes.profile);
+app.get('/mycourse', routes.mycourse);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', express.static(path.join(__dirname, 'public')));
