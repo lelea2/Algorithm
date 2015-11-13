@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/sign_up.css" />
     <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="js/centerControler.js"></script>
     <title>Course Registration System</title>
 </head>
@@ -17,33 +16,54 @@
         <ul id="title">
             <li><h4>Course Registration System</h4></li>
         </ul>
-        <!--userInfo (userName) & sign out Begin-->
-        <!--userInfo (userName) & sign out End-->
+
         <div class="clear"></div>
     </div>
+    <!--Top Menu Bar End-->
+
     <!--Main Body Begin-->
     <div class="centerBox">
+
+        <!--User Register Input Form Begin-->
+        <!--Class Name: "marginTop" is public css margin-top position maker-->
         <form class="inputBox">
+
+            <!--First Name Begin-->
             <div class="firstNameRow marginTop">
                 <span>First Name:</span><input id="firstName" type="text" />
                 <div class="clear"></div>
             </div>
+            <!--First Name End-->
+
+            <!--Last Name Begin-->
             <div class="lastNameRow marginTop">
                 <span>Last Name:</span><input id="lastName" type="password" />
                 <div class="clear"></div>
             </div>
+            <!--Last Name End-->
+
+            <!--Email Begin-->
             <div class="emailRow marginTop">
                 <span>Email:</span><input id="email" type="email" />
                 <div class="clear"></div>
             </div>
+            <!--Email End-->
+
+            <!--Password Begin-->
             <div class="passwordRow marginTop">
                 <span>Password:</span><input id="password" type="password" />
                 <div class="clear"></div>
             </div>
+            <!--Password End-->
+
+            <!--Repassword Beign-->
             <div class="rePasswordRow marginTop">
                 <span>Re-password:</span><input id="rePassword" type="password" />
                 <div class="clear"></div>
             </div>
+            <!--Repassword End-->
+
+            <!--Major Options Begin-->
             <div class="majorRow marginTop">
                 <span>Major:</span>
                 <select>
@@ -53,11 +73,17 @@
                     <option value="Literature">Literature</option>
                 </select>
             </div>
+            <!--Major Options End-->
+
+            <!--Submit and Reset Button Begin-->
             <div class="buttonRow">
                 <button type="submit" id="submitButton">Submit</button>
                 <button type="reset" id="resetButton">Reset</button>
             </div>
+            <!--Submit and Reset Button Begin-->
         </form>
+        <!--User Register Input Form End-->
+
     </div>
     <!--Main Body End-->
     <!--Footer Begin-->
@@ -65,7 +91,7 @@
 
     </div>
     <!--Footer End-->
-    <!--Top Menu Bar End-->
+
 </div>
 <!--Wrap End-->
 </body>
