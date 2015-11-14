@@ -63,6 +63,7 @@ module.exports = (function() {
         } catch(ex) {}
     }
 
+    /** Interface for user class **/
     return {
         setUserCookie: setUserCookie,
         getUserId: getUserId,

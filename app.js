@@ -61,7 +61,12 @@ app.get('/mycourse', routes.mycourse);
 app.get('/courselist', routes.courselist);
 app.get('/searchcourse', routes.searchcourse);
 app.get('/signout', routes.signout);
+
+//Handle ajax post
 app.post('/ajax/signin', routes.ajaxLogin);
+app.post('/ajax/signup', routes.ajaxSignup);
+app.post('/ajax/searchcourse', routes.ajaxSearchCourse);
+
 
 // redirect all others to the index (HTML5 history)
 app.get('*', express.static(path.join(__dirname, 'public')));

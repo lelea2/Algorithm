@@ -1,32 +1,34 @@
 <div class="centerBox">
-    <form class="signup inputBox" ng-submit="processSignin()">
+    <form class="signup inputBox" ng-submit="processSignup()">
         <div class="firstNameRow marginTop">
-            <span>First Name:</span><input id="firstName" type="text" />
+            <div class="err hidden">Please provide first name</div>
+            <span>First Name:</span><input id="firstName" type="text" ng-model="formSignupData.firstName"/>
             <div class="clear"></div>
         </div>
         <div class="lastNameRow marginTop">
-            <span>Last Name:</span><input id="lastName" type="password" />
+            <div class="err hidden">Please provide last name</div>
+            <span>Last Name:</span><input id="lastName" type="text" ng-model="formSignupData.lastName"/>
             <div class="clear"></div>
         </div>
         <div class="emailRow marginTop">
-            <span>Email:</span><input id="email" type="email" />
+            <div class="err hidden">Please provide email</div>
+            <span>Email:</span><input id="email" type="email" ng-model="formSignupData.userEmail" />
             <div class="clear"></div>
         </div>
         <div class="passwordRow marginTop">
-            <span>Password:</span><input id="password" type="password" />
+            <div class="err hidden">Please provide password</div>
+            <span>Password:</span><input id="password" type="password" ng-model="formSignupData.userPassword" />
             <div class="clear"></div>
         </div>
         <div class="rePasswordRow marginTop">
+            <div class="err hidden">Please provide matching password</div>
             <span>Re-password:</span><input id="rePassword" type="password" />
             <div class="clear"></div>
         </div>
         <div class="majorRow marginTop">
+            <div class="err hidden">Please select major</div>
             <span>Major:</span>
-            <select>
-                {{#each majors}}
-                <option value="{{majorId}}">{{majorName}}</option>
-                {{/each}}
-            </select>
+            {{>majors }}
         </div>
         <div class="buttonRow">
             <button type="submit" id="submitButton">Submit</button>

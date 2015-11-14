@@ -13,8 +13,8 @@
                 <div class="pageBoxPosition">
                     <table>
                         {{>coursetableheadline }}
-                        <tbody>
                         {{#each users_courses}}
+                        <tbody>
                         <tr data-id="{{courseId}}">
                             <td>{{courseName}}</td>
                             <td>{{courseNumber}}</td>
@@ -27,8 +27,8 @@
                             <td>{{totalHeadCount}}</td>
                             <td><div class="redButton" ng-click="handleDropCourse()">Drop</div></td>
                         </tr>
-                        {{/each}}
                         </tbody>
+                        {{/each}}
                     </table>
                 </div>
             </div>

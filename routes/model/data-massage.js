@@ -116,10 +116,14 @@ module.exports = (function() {
         });
     }
 
-    //Generate REST url
+    /**
+     * Generate REST url
+     * @return {String} url
+     */
     function getFinalURL(url, obj) {
         var reqObj = obj || {};
-        return url.replace('{HOST}', 'http://localhost:8080') //('{HOST}', 'http://54.172.186.84:8080')
+        //return url.replace('{HOST}', http://54.172.186.84:8080')
+        return url.replace('{HOST}', 'http://localhost:8080')
                 .replace('{userId}', reqObj.userId)
                 .replace('{majorId}', reqObj.majorId)
                 .replace('{courseId}', reqObj.courseId);
@@ -148,7 +152,7 @@ module.exports = (function() {
         request(obj, function(error, response, body) {
             var result = getReturnObj(error, response, body);
             //console.log(result);
-            if (!result.errorCode) {
+            if (!!result && !result.errorCode) {
                 //console.log('Sucessful response');
                 d.resolve(result);
             } else {

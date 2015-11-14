@@ -1,0 +1,16 @@
+<script id="course-template" type="text/x-handlebars-template">
+<tbody>
+    <tr data-id="{{courseId}}">
+        <td>{{courseName}}</td>
+        <td>{{courseNumber}}</td>
+        <td>{{description}}</td>
+        <td class="schedule" data-scheduleid="{{schedule.scheduleId}}">
+        {{schedule.day}}: {{schedule.startTime}} ~ {{schedule.endTime}}
+        </td>
+        <td>{{stateId}}</td>
+        <td>{{professor}}</td>
+        <td>{{totalHeadCount}}</td>
+        <td></td>
+    </tr>
+</tbody>
+</script>

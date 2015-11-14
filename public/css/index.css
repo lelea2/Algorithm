@@ -43,6 +43,7 @@ h4{
     width: 100%;
     background-color: #353535;
     z-index: 999;
+    top: 0;
 }
 #title{
     margin-left: 150px;
@@ -140,14 +141,14 @@ input{
     float:left;
 }
 
-.footer{
+/*.footer{
     bottom: 0;
     position: fixed;
-    height: 150px;
+    height: 20px;
     width: 100%;
     background-color: #353535;
     z-index: 999;
-}
+}*/
 
 /*Animation*/
 #loginButton:hover{

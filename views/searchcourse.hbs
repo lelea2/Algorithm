@@ -9,24 +9,10 @@
                     <h2>Course Serach & Add</h2>
                 </div>
                 <div class="pageBoxPosition">
-                    <!--Search Bar Begin-->
-                    <input type="text" id="searchBar" placeholder="Plase type Course Code " />
-                    <div id="searchButton">Search</div>
-                    <div class="clear"></div>
-                    <!--Search Bar End-->
+                    {{>searchform }}
                     <table>
                         {{>coursetableheadline }}
-                        <tbody>
-                        <tr>
-                            <td>Ent Software Platforms 2</td>
-                            <td>270</td>
-                            <td>Software Engineering</td>
-                            <td>Mon: 9:00 am~ 11:00 am</td>
-                            <td>On</td>
-                            <td>Staff</td>
-                            <td><div class="greenButton">Add</div></td>
-                        </tr>
-                        </tbody>
+                        {{>courseRow }}
                     </table>
                 </div>
             </div>

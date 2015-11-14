@@ -4,18 +4,10 @@
 
 var dataSrc = require('./model/data-massage'),
     user = require('./model/user'),
+    helper = require('./model/helper'),
     Q = require('q'),
-    minify = require('html-minifier').minify,
     Cookies = require('cookies');
 
-//Helper function minify html response
-function minifyHTML(html) {
-    return minify(html, {
-        collapseWhitespace: true,
-        minifyJS: true,
-        minifyCSS: true
-    });
-}
 /************************************************************************/
 /**                            Handle Routing                          **/
 /************************************************************************/
@@ -26,7 +18,7 @@ function minifyHTML(html) {
 exports.signin = function(req, res, next) {
     res.render('signin', {}, function (err, html) {
         if (err) { console.log(err); return next(err); }
-        res.send(minifyHTML(html));
+        res.send(helper.minifyHTML(html));
     });
 };
 
@@ -38,7 +30,7 @@ exports.signup = function(req, res, next) {
         function(result) { //promise resolved
             res.render('signup', {'majors': result}, function (err, html) {
                 if (err) { return next(err); }
-                res.send(minifyHTML(html));
+                res.send(helper.minifyHTML(html));
             });
         },
         function(err) { //promise rejected
@@ -63,7 +55,7 @@ exports.mycourse = function(req, res, next) {
     ]).then(function(result) {
         res.render('mycourse', {'userinfo': result[0], 'users_courses': result[1]}, function (err, html) {
             if (err) { return next(err); }
-            res.send(minifyHTML(html));
+            res.send(helper.minifyHTML(html));
         });
     });
 };
@@ -91,7 +83,7 @@ exports.courselist = function(req, res, next) {
                 'courselist': result2
             }, function (err, html) {
                 if (err) { return next(err); }
-                res.send(minifyHTML(html));
+                res.send(helper.minifyHTML(html));
             });
         });
     });
@@ -101,9 +93,20 @@ exports.courselist = function(req, res, next) {
  * Display course search page
  */
 exports.searchcourse = function(req, res, next) {
-    res.render('searchcourse', {}, function (err, html) {
-        if (err) { return next(err); }
-        res.send(minifyHTML(html));
+    var userId = user.getUserId(req);
+    if (userId === '' || userId.length !== 36) {
+        //invalid userId, log user out
+        user.logout(req);
+        res.redirect(302, '/signin'); //redirect to signin page
+        return;
+    }
+    Q.all([
+        dataSrc.getUserById(userId)
+    ]).then(function(result) {
+        res.render('searchcourse', {'userinfo': result[0]}, function (err, html) {
+            if (err) { return next(err); }
+            res.send(helper.minifyHTML(html));
+        });
     });
 };
 
@@ -120,14 +123,47 @@ exports.signout = function(req, res, next) {
  */
 exports.ajaxLogin = function(req, res, next) {
     var name = req.body.name,
-        pwd = req.body.password,
-        cookies;
+        pwd = req.body.password;
     dataSrc.logIn(name, pwd).then(function(result) {
         if (result && result.userId) {
             user.setUserCookie(req, result.userId);
             res.status(200).json(result);
         } else {
-            res.status(500).json(err);
+            res.status(500).json(result);
+        }
+    }, function(err) {
+        res.status(500).json(err);
+    });
+};
+
+/**
+ * Handle signin ajax post
+ */
+exports.ajaxSignup = function(req, res, next) {
+    var obj = req.body;
+    console.log(obj);
+    dataSrc.registerUser(obj).then(function(result) {
+        if (result && result.userId) {
+            user.setUserCookie(req, result.userId);
+            res.status(200).json(result);
+        } else {
+            res.status(500).json(result);
+        }
+    }, function(err) {
+        res.status(500).json(err);
+    });
+};
+
+/**
+ * Handle search course by course number
+ */
+exports.ajaxSearchCourse = function(req, res, next) {
+    var courseId = req.body.courseNumber;
+    dataSrc.getCourseById(courseId).then(function(result) {
+        if (result && result.courseId) {
+            res.status(200).json(result);
+        } else {
+            res.status(500).json(result);
         }
     }, function(err) {
         res.status(500).json(err);
