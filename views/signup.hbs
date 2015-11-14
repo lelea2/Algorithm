@@ -1,5 +1,5 @@
 <div class="centerBox">
-    <form class="inputBox">
+    <form class="signup inputBox" ng-submit="processSignin()">
         <div class="firstNameRow marginTop">
             <span>First Name:</span><input id="firstName" type="text" />
             <div class="clear"></div>
@@ -30,7 +30,7 @@
         </div>
         <div class="buttonRow">
             <button type="submit" id="submitButton">Submit</button>
-            <button type="reset" id="resetButton">Reset</button>
+            <button type="reset" id="resetButton" ng-click="handleSignupReset()">Reset</button>
         </div>
     </form>
 </div>

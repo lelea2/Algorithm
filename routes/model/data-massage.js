@@ -119,7 +119,7 @@ module.exports = (function() {
     //Generate REST url
     function getFinalURL(url, obj) {
         var reqObj = obj || {};
-        return url.replace('{HOST}', 'http://54.172.186.84:8080')
+        return url.replace('{HOST}', 'http://localhost:8080') //('{HOST}', 'http://54.172.186.84:8080')
                 .replace('{userId}', reqObj.userId)
                 .replace('{majorId}', reqObj.majorId)
                 .replace('{courseId}', reqObj.courseId);
@@ -142,13 +142,21 @@ module.exports = (function() {
 
     //Helper function get data from REST
     function getData(calltype, reqObj) {
-        var d = Q.defer();
-        request(generateReqBody(calltype, reqObj), function(error, response, body) {
+        var d = Q.defer(),
+            obj = generateReqBody(calltype, reqObj);
+        console.log('Request obj=' + JSON.stringify(obj));
+        request(obj, function(error, response, body) {
             var result = getReturnObj(error, response, body);
+            //console.log(result);
             if (!result.errorCode) {
+                //console.log('Sucessful response');
                 d.resolve(result);
             } else {
-                d.reject();
+                if (obj.method === 'GET') {
+                    d.resolve({}); //Return with empty obj for get
+                } else {
+                    d.reject(result)
+                }
             }
         });
         return d.promise;
@@ -157,7 +165,7 @@ module.exports = (function() {
     //Helper function generate default failure response (404 NOT FOUND url)
     function getFailureResp(response) {
         return {
-            errorCode: response.statusCode
+            errorCode: (response && response.statusCode) ? response.statusCode : 500 /** default server error **/
         };
     }
 
@@ -171,8 +179,9 @@ module.exports = (function() {
                 return body.data;
             }
         } catch(ex) { /* istanbul ignore next */
+            console.log(ex);
         }
-        return (!body) ? getFailureResp(response) : body;
+        return getFailureResp(response);
     }
 
     return {

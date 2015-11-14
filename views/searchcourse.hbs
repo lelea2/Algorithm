@@ -1,0 +1,36 @@
+<!--Main Body Begin-->
+<div class="mainBody">
+    {{>navigation }}
+    <div class="rightSide">
+        <!-- Course Search & Add page Begin-->
+        <div class="pageSize" id="pageB" >
+            <div class="page_style">
+                <div class="pageTitle">
+                    <h2>Course Serach & Add</h2>
+                </div>
+                <div class="pageBoxPosition">
+                    <!--Search Bar Begin-->
+                    <input type="text" id="searchBar" placeholder="Plase type Course Code " />
+                    <div id="searchButton">Search</div>
+                    <div class="clear"></div>
+                    <!--Search Bar End-->
+                    <table>
+                        {{>coursetableheadline }}
+                        <tbody>
+                        <tr>
+                            <td>Ent Software Platforms 2</td>
+                            <td>270</td>
+                            <td>Software Engineering</td>
+                            <td>Mon: 9:00 am~ 11:00 am</td>
+                            <td>On</td>
+                            <td>Staff</td>
+                            <td><div class="greenButton">Add</div></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Course Search & Add page End-->
+    </div>
+</div>

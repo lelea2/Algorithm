@@ -43,9 +43,8 @@ h4{
     width: 100%;
     background-color: #353535;
     z-index: 999;
-    top: 0;
 }
-#title {
+#title{
     margin-left: 150px;
     color: #FFF;
     font-family: "Lato";
@@ -81,13 +80,11 @@ h4{
     height:400px;
     background-color: #eceaea;
     border-radius: 10px;
-    margin: auto;
 }
 .inputBox{
     margin-top:100px;
     margin-left:50px;
-    width:700px;
-    padding: 20px;
+    width:700px
 }
 span{
     float:left;
@@ -146,7 +143,7 @@ input{
 .footer{
     bottom: 0;
     position: fixed;
-    height: 80px;
+    height: 150px;
     width: 100%;
     background-color: #353535;
     z-index: 999;

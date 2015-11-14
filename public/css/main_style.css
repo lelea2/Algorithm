@@ -24,6 +24,13 @@ a{
     width: 100%;
     height: 100%;
 }
+.hidden {
+    display: none;
+}
+.err {
+    color: #e3473f;
+    font-weight: bold;
+}
 h2{
     font-style: inherit;
     font-size: 30px;

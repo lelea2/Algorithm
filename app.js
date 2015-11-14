@@ -19,6 +19,21 @@ var app = module.exports = express();
 /**
  * Configuration
  */
+app.use(bodyParser.urlencoded({"extended": false}));
+app.use(bodyParser.json())
+app.use(methodOverride());
+
+/** CSRF enforcer */
+app.use(cookieParser('group8272'));
+app.use(csrfCrypto({ key: 'group8cmpe272' }));
+app.use(csrfCrypto.enforcer());
+
+app.use(function(req, res, next) {
+    if(res.getFormToken !== undefined) {
+        res.locals._csrf = res.getFormToken();
+    }
+    next();
+});
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -34,33 +49,6 @@ app.engine('hbs', expressHbs({
 }));
 app.set('view engine', 'hbs');
 
-app.use(function(req, res, next) {
-    morgan('dev');
-    next();
-});
-app.use(function(req, res, next) {
-    bodyParser.json()
-    next();
-});
-app.use(function(req, res, next) {
-    bodyParser.urlencoded({"extended": true})
-    next();
-});
-app.use(function(req, res, next) {
-    methodOverride()
-    next();
-});
-/** CSRF enforcer */
-app.use(cookieParser('group8272'));
-app.use(csrfCrypto({ key: 'group8cmpe272' }));
-app.use(csrfCrypto.enforcer());
-
-app.use(function(req, res, next) {
-    if(res.getFormToken !== undefined) {
-        res.locals._csrf = res.getFormToken();
-    }
-    next();
-});
 
 /**
  * Handle Routing
@@ -70,6 +58,10 @@ app.get('/', routes.signin);
 app.get('/signin', routes.signin);
 app.get('/signup', routes.signup);
 app.get('/mycourse', routes.mycourse);
+app.get('/courselist', routes.courselist);
+app.get('/searchcourse', routes.searchcourse);
+app.get('/signout', routes.signout);
+app.post('/ajax/signin', routes.ajaxLogin);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', express.static(path.join(__dirname, 'public')));

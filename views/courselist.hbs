@@ -1,0 +1,37 @@
+<!--Main Body Begin-->
+<div class="mainBody">
+    {{>navigation }}
+    <!--<div class="leftSideBlock o_hFunction"></div>-->
+    <div class="rightSide">
+        <div class="pageSize" id="pageA">
+            <div class="page_style">
+                <div class="pageTitle">
+                    <h2>Course List</h2>
+                </div>
+                <div class="pageBoxPosition">
+                    <table>
+                        {{>coursetableheadline }}
+                        {{#each courselist}}
+                        <tbody>
+                            <tr data-id="{{courseId}}">
+                                <td>{{courseName}}</td>
+                                <td>{{courseNumber}}</td>
+                                <td>{{description}}</td>
+                                <td class="schedule" data-scheduleid="{{schedule.scheduleId}}">
+                                {{schedule.day}}: {{schedule.startTime}} ~ {{schedule.endTime}}
+                                </td>
+                                <td>{{stateId}}</td>
+                                <td>{{professor}}</td>
+                                <td>{{totalHeadCount}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Course List page End-->
+    </div>
+    <div class="clear"></div>
+</div>
