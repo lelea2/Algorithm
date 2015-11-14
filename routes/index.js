@@ -51,6 +51,7 @@ exports.mycourse = function(req, res, next) {
         dataSrc.getUserById(userId),
         dataSrc.getUsersCourses(userId)
     ]).then(function(result) {
+        console.log(result[1]);
         res.render('mycourse', {
             'userinfo': result[0],
             'users_courses': result[1]

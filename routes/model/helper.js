@@ -33,7 +33,7 @@ module.exports = (function() {
         for (var i = 0; i < courseList.length; i++) {
             arr.push(courseList[i].courseId);
         }
-        return courseList;
+        return arr;
     }
 
     return {
