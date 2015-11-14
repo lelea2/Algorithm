@@ -1,3 +1,6 @@
+/**
+ * Angular studentReg app controllers
+ */
 angular.module('studentregApp', [])
   .controller('StudentRegAppController', ['$scope', '$http', function ($scope, $http) {
 
