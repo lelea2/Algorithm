@@ -32,8 +32,6 @@ exports.signup = function(req, res, next) {
                 if (err) { return next(err); }
                 res.send(helper.minifyHTML(html));
             });
-        },
-        function(err) { //promise rejected
         }
     );
 };
@@ -53,7 +51,10 @@ exports.mycourse = function(req, res, next) {
         dataSrc.getUserById(userId),
         dataSrc.getUsersCourses(userId)
     ]).then(function(result) {
-        res.render('mycourse', {'userinfo': result[0], 'users_courses': result[1]}, function (err, html) {
+        res.render('mycourse', {
+            'userinfo': result[0],
+            'users_courses': result[1]
+        }, function (err, html) {
             if (err) { return next(err); }
             res.send(helper.minifyHTML(html));
         });
@@ -78,9 +79,11 @@ exports.courselist = function(req, res, next) {
         var major = result1[0].major,
             majorId = major.majorId;
         dataSrc.getMajorCourses(majorId).then(function(result2) {
+            //console.log(result1[1]);
             res.render('courselist', {
                 'userinfo': result1[0],
-                'courselist': result2
+                'courselist': result2,
+                'usercourses': helper.getUserCourseArr(result1[1])
             }, function (err, html) {
                 if (err) { return next(err); }
                 res.send(helper.minifyHTML(html));
@@ -101,9 +104,13 @@ exports.searchcourse = function(req, res, next) {
         return;
     }
     Q.all([
-        dataSrc.getUserById(userId)
+        dataSrc.getUserById(userId),
+        dataSrc.getUsersCourses(userId)
     ]).then(function(result) {
-        res.render('searchcourse', {'userinfo': result[0]}, function (err, html) {
+        res.render('searchcourse', {
+            'userinfo': result[0],
+            'usercourses': helper.getUserCourseArr(result[1])
+        }, function (err, html) {
             if (err) { return next(err); }
             res.send(helper.minifyHTML(html));
         });
@@ -168,4 +175,18 @@ exports.ajaxSearchCourse = function(req, res, next) {
     }, function(err) {
         res.status(500).json(err);
     });
+};
+
+/**
+ * Handle add courses (based on courseId)
+ */
+exports.ajaxAddcourses = function(req, res, next) {
+
+};
+
+/**
+ * Handle drop courses (based on courseId)
+ */
+exports.ajaxDropcourses = function(req, res, next) {
+
 };

@@ -10,6 +10,7 @@ module.exports = (function() {
 
     /**
      * Function minify HTML response
+     * @method  minifyHTML
      */
     function minifyHTML(html) {
         return minify(html, {
@@ -19,8 +20,25 @@ module.exports = (function() {
         });
     }
 
+    /**
+     * Helper function get back array list of courses Id for user
+     * @method  getUserCourseArr
+     */
+    function getUserCourseArr(courseList) {
+        console.log('Generate corseIds array per user from courseList=' + JSON.stringify(courseList));
+        if (!courseList || courseList.length === 0) {
+            return [];
+        }
+        var arr = [];
+        for (var i = 0; i < courseList.length; i++) {
+            arr.push(courseList[i].courseId);
+        }
+        return courseList;
+    }
+
     return {
-        minifyHTML: minifyHTML
+        minifyHTML: minifyHTML,
+        getUserCourseArr: getUserCourseArr
     };
 
 }());

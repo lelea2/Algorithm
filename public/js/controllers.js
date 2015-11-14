@@ -125,8 +125,17 @@ angular.module('studentregApp', [])
 
     /**
      * Function handle DropCourse
+     * @method handleDropCourse
      */
     $scope.handleDropCourse = function() {
         alert('handle drop course');
+    };
+
+    /**
+     * Fucntion handle addcourse
+     * @method  handleAddCourse
+     */
+    $scope.handleAddCourse = function() {
+        alert('handle add course');
     };
 }]);

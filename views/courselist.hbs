@@ -22,7 +22,11 @@
                                 <td>{{stateId}}</td>
                                 <td>{{professor}}</td>
                                 <td>{{totalHeadCount}}</td>
-                                <td></td>
+                                {{#ifIn courseId ../usercourses}}
+                                <td><div class="redButton" ng-click="handleDropCourse()">Drop</div></td>
+                                {{else}}
+                                <td><div class="greenButton" ng-click="handleAddCourse()">Add</div></td>
+                                {{/ifIn}}
                             </tr>
                         </tbody>
                         {{/each}}

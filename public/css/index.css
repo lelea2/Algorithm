@@ -77,10 +77,12 @@ h4{
 }
 
 .centerBox{
-    width:800px;
-    height:400px;
+    width: 70%;
+    height: auto;
     background-color: #eceaea;
     border-radius: 10px;
+    margin: auto;
+    padding: 20px;
 }
 .inputBox{
     margin-top:100px;

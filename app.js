@@ -49,7 +49,6 @@ app.engine('hbs', expressHbs({
 }));
 app.set('view engine', 'hbs');
 
-
 /**
  * Handle Routing
  */
