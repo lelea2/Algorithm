@@ -30,6 +30,10 @@ a {
 .hidden {
     display: none;
 }
+table {
+    margin-top: 20px;
+    display: block;
+}
 h4 {
     font-style: normal;
     font-weight: lighter;

@@ -3,6 +3,7 @@
  */
 
 var express = require('express'),
+  compression = require('compression'),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override'),
   errorHandler = require('error-handler'),
@@ -68,9 +69,13 @@ app.post('/ajax/searchcourse', routes.ajaxSearchCourse);
 app.post('/ajax/dropcourse', routes.ajaxDropcourses);
 app.post('/ajax/addcourse', routes.ajaxAddcourses);
 
+/**** Handle static files loaded ****/
+var oneDay = 86400000; //caching time
+// New call to compress content
+app.use(compression());
 
 // redirect all others to the index (HTML5 history)
-app.get('*', express.static(path.join(__dirname, 'public')));
+app.get('*', express.static(path.join(__dirname, 'public'), { maxAge: oneDay }));
 
 /**
  * Start Server

@@ -23,7 +23,17 @@
                             <td>{{stateId}}</td>
                             <td>{{professor}}</td>
                             <td>{{totalHeadCount}}</td>
-                            <td><div class="redButton" ng-click="handleDropCourse('{{courseId}}')">Drop</div></td>
+                            {{#ifIn courseId ../usercourses}}
+                            <td>
+                                <div class="button greenButton hidden" ng-click="handleAddCourse('{{courseId}}')">Add</div>
+                                <div class="button redButton" ng-click="handleDropCourse('{{courseId}}')">Drop</div>
+                            </td>
+                            {{else}}
+                            <td>
+                                <div class="button greenButton" ng-click="handleAddCourse('{{courseId}}')">Add</div>
+                                <div class="button redButton hidden" ng-click="handleDropCourse('{{courseId}}')">Drop</div>
+                            </td>
+                            {{/ifIn}}
                         </tr>
                         </tbody>
                         {{/each}}
@@ -35,3 +45,6 @@
     </div>
     <div class="clear"></div>
 </div>
+<script>
+window.mycourses = {{{json usercourses}}}
+</script>

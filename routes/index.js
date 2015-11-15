@@ -54,7 +54,8 @@ exports.mycourse = function(req, res, next) {
         console.log(result[1]);
         res.render('mycourse', {
             'userinfo': result[0],
-            'users_courses': result[1]
+            'users_courses': result[1],
+            'usercourses': helper.getUserCourseArr(result[1])
         }, function (err, html) {
             if (err) { return next(err); }
             res.send(helper.minifyHTML(html));

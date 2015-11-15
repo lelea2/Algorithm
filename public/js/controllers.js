@@ -10,6 +10,8 @@ angular.module('studentregApp', [])
     };
     $scope.formSearchData = {};
 
+    $scope.courseIdsArr = [];
+
     /**
      * Function handle signin
      * Log user in and redirect for success cases
@@ -119,6 +121,7 @@ angular.module('studentregApp', [])
             }  // set the headers so angular passing info as form data (not request payload)
         }).then(function(data) {
             //console.log(data);
+            $('#searchBar').val('');
             $('.course-search').append(data.data.view);
         }, function(err) {
             alert('Fail to search course. Please try again');
@@ -172,4 +175,56 @@ angular.module('studentregApp', [])
             alert('Fail to add course. Please try again');
         });
     };
+
+    /**
+     * Function handle state change input checkbox
+     */
+    $scope.stateChanged = function(courseId) {
+        var index = $.inArray(courseId, $scope.courseIdsArr),
+            arr = [];
+        if (index > -1) {
+            arr = $scope.courseIdsArr.slice(index, 1);
+        } else {
+            arr = $scope.courseIdsArr.push(courseId);
+        }
+        $scope.courseIdsArr = arr;
+    };
+
+    function getCourseIds() {
+        var arr = [],
+            elem = $('.courseIds-search');
+        for (var i = 0; i < $(elem).length; i++) {
+            if ($(elem).prop('checked')) {
+                arr.push($($(elem)[i]).data('id'));
+            }
+        }
+        return arr;
+    }
+
+    /**
+     * Function handle addcourses
+     */
+    $scope.addCourses = function() {
+        var courseArr = getCourseIds();
+        //console.log(courseArr);
+        $http({
+            method  : 'POST',
+            url     : '/ajax/addcourse',
+            data    : $.param({
+                courseIds: courseArr.join('~') //$scope.courseIdsArr.join("~")
+            }),
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'x-csrf-token': $('input[name="_csrf"]').val()
+            }  // set the headers so angular passing info as form data (not request payload)
+        }).then(function(data) {
+            alert('Add all course successfully')
+            for (var i = 0; i < courseArr.length; i++) {
+                $(".course-state[data-id='" + courseArr[i] + "']").html('Added');
+            }
+        }, function(err) {
+            alert('Fail to add course. Please try again');
+        });
+    };
+
 }]);
