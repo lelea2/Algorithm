@@ -182,12 +182,26 @@ exports.ajaxSearchCourse = function(req, res, next) {
  * Handle add courses (based on courseId)
  */
 exports.ajaxAddcourses = function(req, res, next) {
-
+    var courseIds = req.body.courseIds.split('~'),
+        userId = user.getUserId(req);
+    //console.log(courseIds);
+    dataSrc.registerCourses(courseIds, userId).then(function(result) {
+        res.status(200).json(result);
+    }, function(err) {
+        res.status(500).json(err);
+    });
 };
 
 /**
  * Handle drop courses (based on courseId)
  */
 exports.ajaxDropcourses = function(req, res, next) {
-
+    var courseIds = req.body.courseIds.split('~'),
+        userId = user.getUserId(req);
+    //console.log(courseIds);
+    dataSrc.dropCourses(courseIds, userId).then(function(result) {
+        res.status(200).json(result);
+    }, function(err) {
+        res.status(500).json(err);
+    });
 };

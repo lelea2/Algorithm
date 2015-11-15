@@ -94,6 +94,7 @@ module.exports = (function() {
      * @params GUUID userId
      */
     function registerCourses(courseIds, userId) {
+        console.log(courseIds);
         return getData('REGISTER_COURSES', {
             'userId': userId,
             'reqBody': {
@@ -108,6 +109,7 @@ module.exports = (function() {
      * @params GUUID userId
      */
     function dropCourses(courseIds, userId) {
+        console.log(courseIds);
         return getData('DROP_COURSES', {
             'userId': userId,
             'reqBody': {
@@ -179,8 +181,9 @@ module.exports = (function() {
      */
     function getReturnObj(error, response, body) {
         try {
-            if (!error && response && (response.statusCode === 200 || response.statusCode === 201 )) {
-                return body.data;
+            //console.log(response.statusCode);
+            if (!error && response && (response.statusCode === 200 || response.statusCode === 201)) {
+                return (body && body.data) ? body.data : body;
             }
         } catch(ex) { /* istanbul ignore next */
             console.log(ex);

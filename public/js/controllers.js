@@ -127,15 +127,47 @@ angular.module('studentregApp', [])
      * Function handle DropCourse
      * @method handleDropCourse
      */
-    $scope.handleDropCourse = function() {
-        alert('handle drop course');
+    $scope.handleDropCourse = function(courseId) {
+        //alert('handle drop course, courseId=' + courseId);
+        $http({
+            method  : 'POST',
+            url     : '/ajax/dropcourse',
+            data    : $.param({
+                courseIds: courseId
+            }),
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'x-csrf-token': $('input[name="_csrf"]').val()
+            }  // set the headers so angular passing info as form data (not request payload)
+        }).then(function(data) {
+            $('tr[data-id="' + courseId + '"] .greenButton').removeClass('hidden');
+            $('tr[data-id="' + courseId + '"] .redButton').addClass('hidden');
+        }, function(err) {
+            alert('Fail to drop course. Please try again');
+        });
     };
 
     /**
      * Fucntion handle addcourse
      * @method  handleAddCourse
      */
-    $scope.handleAddCourse = function() {
-        alert('handle add course');
+    $scope.handleAddCourse = function(courseId) {
+        //alert('handle add course');
+        $http({
+            method  : 'POST',
+            url     : '/ajax/addcourse',
+            data    : $.param({
+                courseIds: courseId
+            }),
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'x-csrf-token': $('input[name="_csrf"]').val()
+            }  // set the headers so angular passing info as form data (not request payload)
+        }).then(function(data) {
+            $('tr[data-id="' + courseId + '"] .greenButton').addClass('hidden');
+            $('tr[data-id="' + courseId + '"] .redButton').removeClass('hidden');
+        }, function(err) {
+            alert('Fail to add course. Please try again');
+        });
     };
 }]);
