@@ -45,5 +45,9 @@ module.exports = {
     "GET_COURSE_BY_ID": {
         "url": "{HOST}/services/courses/course/?id={courseId}&type=courseNumber",
         "method": "GET"
+    },
+    "GET_ALL_USER": {
+        "url": "{HOST}/services/users/all",
+        "method": "GET"
     }
 };

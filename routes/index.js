@@ -128,6 +128,33 @@ exports.signout = function(req, res, next) {
 };
 
 /**
+ * Handle admin page
+ */
+exports.admin = function(req, res, next) {
+    var userId = user.getUserId(req);
+    if (userId === '' || userId.length !== 36) {
+        //invalid userId, log user out
+        user.logout(req);
+        res.redirect(302, '/signin'); //redirect to signin page
+        return;
+    }
+    dataSrc.getUserById(userId).then(function(result1) {
+        if (result1.role.roleId === 1) { //admin
+            dataSrc.getUsers().then(function(result) {
+                res.render('admin', {
+                    'users': result
+                }, function (err, html) {
+                    if (err) { return next(err); }
+                    res.send(helper.minifyHTML(html));
+                });
+            });
+        } else {
+            res.status(403).send('Forbidden access');
+        }
+    });
+};
+
+/**
  * Handle signin ajax post
  */
 exports.ajaxLogin = function(req, res, next) {
@@ -150,7 +177,7 @@ exports.ajaxLogin = function(req, res, next) {
  */
 exports.ajaxSignup = function(req, res, next) {
     var obj = req.body;
-    console.log(obj);
+    //console.log(obj);
     dataSrc.registerUser(obj).then(function(result) {
         if (result && result.userId) {
             user.setUserCookie(req, result.userId);

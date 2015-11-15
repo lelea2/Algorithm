@@ -25,6 +25,15 @@ module.exports = (function() {
     }
 
     /**
+     * Get All users
+     * @return data for all users
+     */
+    function getUsers() {
+        return getData('GET_ALL_USER');
+    }
+
+
+    /**
      * Function to get courses per major
      * @param  Interger MajorId
      * @return data of all courses for major
@@ -194,6 +203,7 @@ module.exports = (function() {
     return {
         getCourses: getCourses,
         getMajors: getMajors,
+        getUsers: getUsers,
         getMajorCourses: getMajorCourses,
         getCourseById: getCourseById,
         getUserById: getUserById,
