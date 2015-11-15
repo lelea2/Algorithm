@@ -108,6 +108,7 @@ angular.module('studentregApp', [])
             $('.searchform .err').removeClass('hidden');
             return false;
         }
+        $scope.formSearchData.usercourses  = (window.mycourses || []).join('~');
         $http({
             method  : 'POST',
             url     : '/ajax/searchcourse',
@@ -117,7 +118,8 @@ angular.module('studentregApp', [])
                 'x-csrf-token': $('input[name="_csrf"]').val()
             }  // set the headers so angular passing info as form data (not request payload)
         }).then(function(data) {
-            console.log(data);
+            //console.log(data);
+            $('.course-search').append(data.data.view);
         }, function(err) {
             alert('Fail to search course. Please try again');
         });

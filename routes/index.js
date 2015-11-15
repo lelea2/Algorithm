@@ -166,10 +166,21 @@ exports.ajaxSignup = function(req, res, next) {
  * Handle search course by course number
  */
 exports.ajaxSearchCourse = function(req, res, next) {
-    var courseId = req.body.courseNumber;
+    var courseId = req.body.courseNumber,
+        usercourses = req.body.usercourses;
+    console.log(usercourses);
     dataSrc.getCourseById(courseId).then(function(result) {
         if (result && result.courseId) {
-            res.status(200).json(result);
+            //res.status(200).json(result);
+            res.render('partials/courseRow', {
+                'layout': false,
+                'course': result,
+                'usercourses': usercourses.split('~')
+            }, function(err, viewString) {
+                var response = {};
+                response.view = viewString;
+                res.json(response);
+            });
         } else {
             res.status(500).json(result);
         }

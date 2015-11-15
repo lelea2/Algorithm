@@ -1,4 +1,4 @@
-<script id="course-template" type="text/x-handlebars-template">
+{{#course}}
 <tbody>
     <tr data-id="{{courseId}}">
         <td>{{courseName}}</td>
@@ -10,7 +10,11 @@
         <td>{{stateId}}</td>
         <td>{{professor}}</td>
         <td>{{totalHeadCount}}</td>
-        <td></td>
+        {{#ifIn courseId ../usercourses}}
+        <td>
+            <div>Added</div>
+        </td>
+        {{/ifIn}}
     </tr>
 </tbody>
-</script>
+{{/course}}
