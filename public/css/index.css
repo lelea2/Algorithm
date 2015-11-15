@@ -18,15 +18,19 @@ body {
 ol,ul{
     list-style:none;
 }
-a{
-    text-decroation:none;
+a {
+    text-decoration:none;
+    color: #fff;
 }
 .wrap {
     margin: auto;
     width: 100%;
     height: 100%;
 }
-h4{
+.hidden {
+    display: none;
+}
+h4 {
     font-style: normal;
     font-weight: lighter;
     line-height: 60px;
@@ -77,7 +81,7 @@ h4{
 }
 
 .centerBox{
-    width: 70%;
+    width: 750px;
     height: auto;
     background-color: #eceaea;
     border-radius: 10px;
@@ -85,9 +89,7 @@ h4{
     padding: 20px;
 }
 .inputBox{
-    margin-top:100px;
-    margin-left:50px;
-    width:700px
+    margin-left: 50px;
 }
 span{
     float:left;
@@ -143,15 +145,6 @@ input{
     float:left;
 }
 
-/*.footer{
-    bottom: 0;
-    position: fixed;
-    height: 20px;
-    width: 100%;
-    background-color: #353535;
-    z-index: 999;
-}*/
-
 /*Animation*/
 #loginButton:hover{
     opacity: 0.7;
@@ -161,5 +154,5 @@ input{
 }
 
 .centerBox{
-    margin-top:25%;
+    margin-top: 90px;
 }

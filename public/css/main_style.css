@@ -1,32 +1,3 @@
-@charset "utf-8";
-/* Main Style CSS Document */
-/* Basic Style */
-
-body,ul,ol,li,p,div,dl,dt,dd,img,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,th,td{
-    margin: 0;
-    padding: 0;
-    font-family: "Lato", serif;
-}
-html body{
-    position:absolute;
-    height:100%;
-    width:100%;
-}
-ol,ul{
-    list-style:none;
-}
-a{
-    text-decoration-line: none;
-    color: white;
-}
-.wrap {
-    margin: auto;
-    width: 100%;
-    height: 100%;
-}
-.hidden {
-    display: none;
-}
 .err {
     color: #e3473f;
     font-weight: bold;
@@ -230,37 +201,25 @@ td{
     border-radius: 1%;
     cursor:pointer;
 }
-.greenButton{
-    margin-top: 10px;
+.redButton,
+.greenButton {
     padding-right: 5px;
     padding-left: 5px;
-    float:left;
+    margin: 10px auto;
     height: 25px;
     width:60px;
     color: white;
-    background-color: green;
+    background-color: #ff3e3e;
     line-height: 25px;
     text-align: center;
     border: solid 1px;
     border-radius: 1%;
     cursor:pointer;
-}
-
-.redButton{
-     margin-top: 10px;
-     padding-right: 5px;
-     padding-left: 5px;
-     float:left;
-     height: 25px;
-     width:60px;
-     color: white;
-     background-color: #ff3e3e;
-     line-height: 25px;
-     text-align: center;
-     border: solid 1px;
-     border-radius: 1%;
-     cursor:pointer;
  }
+
+.greenButton {
+    background-color: green;
+}
 /*Right Side Page Style End*/
 
 /*Animation */
@@ -333,9 +292,7 @@ td{
     width:900px;
 }
 .inputBox{
-    margin-top:100px;
     margin-left:50px;
-    width:880px;
 }
 .createBox span{
     float:left;
@@ -370,7 +327,6 @@ td{
 
 }
 #createButton{
-
     margin-right:10px;
     float:right;
     height: 50px;
@@ -404,14 +360,6 @@ td{
     float:left;
 }
 
-/*.footer{
-    bottom: 0;
-    position: fixed;
-    height: 150px;
-    width: 100%;
-    background-color: #353535;
-    z-index: 999;
-}*/
 
 /*Animation*/
 #submitButton:hover , #resetButton:hover{
