@@ -36,7 +36,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-// all environments
+//Setting default port to run node client
 app.set('port', process.env.PORT || 3000);
 
 //Using handlebar helper on both client and server side
@@ -50,9 +50,10 @@ app.engine('hbs', expressHbs({
 }));
 app.set('view engine', 'hbs');
 
-/**
- * Handle Routing
- */
+/***************************************************/
+/***************** Handle Routing ******************/
+/***************************************************/
+
 // serve index and view partials
 app.get('/', routes.signin);
 app.get('/signin', routes.signin);
@@ -72,16 +73,17 @@ app.post('/ajax/searchcourse', routes.ajaxSearchCourse);
 app.post('/ajax/dropcourse', routes.ajaxDropcourses);
 app.post('/ajax/addcourse', routes.ajaxAddcourses);
 
-/**** Handle static files loaded ****/
-var oneDay = 86400000; //caching time
+
+/**** Handle static files loaded, include caching, gzip ****/
+var oneWeek = 7 * 24 * 3600 * 1000; //caching time in miliseconds
 // New call to compress content
 app.use(compression());
 
 // redirect all others to the index (HTML5 history)
-app.get('*', express.static(path.join(__dirname, 'public'), { maxAge: oneDay }));
+app.get('*', express.static(path.join(__dirname, 'public'), { maxAge: oneWeek }));
 
 /**
- * Start Server
+ * Start Server on port given or default port
  */
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
