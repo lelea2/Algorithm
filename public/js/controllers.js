@@ -15,7 +15,9 @@ angular.module('studentregApp', [])
         'firstName': user.firstName,
         'lastName': user.lastName,
         'email': user.email,
-        'majorId': user.major.majorId
+        'majorId': user.major.majorId,
+        'userPassword': 'default',
+        'roleId': 2
     };
 
     $scope.courseIdsArr = [];

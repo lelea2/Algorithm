@@ -15,6 +15,11 @@
             <span>Email:</span><input id="email" readonly value="{{email}}" type="email" ng-model="formUser.userEmail" />
             <div class="clear"></div>
         </div>
+        <div class="pwdRow marginTop">
+            <div class="err hidden">Please provide password</div>
+            <span>Password:</span><input id="password" value="default" type="password" ng-model="formUser.userPassword" />
+            <div class="clear"></div>
+        </div>
         <div class="majorRow marginTop">
             <span>Major:</span>
             <select value="{{major.majorId}}" ng-model="formUser.majorId">
