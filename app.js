@@ -11,6 +11,7 @@ var express = require('express'),
   cookieParser = require('cookie-parser'),
   csrfCrypto = require('csrf-crypto'),
   expressHbs = require('express-handlebars'),
+  interceptor = require('./routes/util/interceptor'),
   routes = require('./routes'),
   http = require('http'),
   path = require('path');
@@ -18,13 +19,13 @@ var express = require('express'),
 var app = module.exports = express();
 
 /**
- * Configuration
+ * Middleware for JSON-ify MessageBodyReader
  */
 app.use(bodyParser.urlencoded({"extended": false}));
 app.use(bodyParser.json())
 app.use(methodOverride());
 
-/** CSRF enforcer */
+/** Middleware interceptor enforce CSRF on every request */
 app.use(cookieParser('group8272'));
 app.use(csrfCrypto({ key: 'group8cmpe272' }));
 app.use(csrfCrypto.enforcer());
@@ -54,16 +55,18 @@ app.set('view engine', 'hbs');
 /***************** Handle Routing ******************/
 /***************************************************/
 
-// serve index and view partials
-app.get('/', routes.signin);
-app.get('/signin', routes.signin);
-app.get('/signup', routes.signup);
-app.get('/mycourse', routes.mycourse);
-app.get('/courselist', routes.courselist);
-app.get('/searchcourse', routes.searchcourse);
-app.get('/profile', routes.profile);
-app.get('/signout', routes.signout);
-app.get('/admin', routes.admin);
+/** Handle user on login/signup pages **/
+app.get('/', interceptor.userAuthenticated(), routes.signin);
+app.get('/signin', interceptor.userAuthenticated(), routes.signin);
+app.get('/signup', interceptor.userAuthenticated(), routes.signup);
+
+/*** Middleware inteceptor, authenticate user before display the page ***/
+app.get('/mycourse', interceptor.authenticate(), routes.mycourse);
+app.get('/courselist', interceptor.authenticate(), routes.courselist);
+app.get('/searchcourse', interceptor.authenticate(), routes.searchcourse);
+app.get('/profile', interceptor.authenticate(), routes.profile);
+app.get('/signout', interceptor.authenticate(), routes.signout);
+app.get('/admin', interceptor.authenticate(), routes.admin);
 
 
 //Handle ajax post
@@ -78,8 +81,6 @@ app.post('/ajax/addcourse', routes.ajaxAddcourses);
 var oneWeek = 7 * 24 * 3600 * 1000; //caching time in miliseconds
 // New call to compress content
 app.use(compression());
-
-// redirect all others to the index (HTML5 history)
 app.get('*', express.static(path.join(__dirname, 'public'), { maxAge: oneWeek }));
 
 /**

@@ -3,8 +3,8 @@
  */
 
 var dataSrc = require('./model/data-massage'),
-    user = require('./model/user'),
-    helper = require('./model/helper'),
+    user = require('./util/user'),
+    helper = require('./util/helper'),
     Q = require('q'),
     Cookies = require('cookies');
 
@@ -41,17 +41,11 @@ exports.signup = function(req, res, next) {
  */
 exports.mycourse = function(req, res, next) {
     var userId = user.getUserId(req);
-    if (userId === '' || userId.length !== 36) {
-        //invalid userId, log user out
-        user.logout(req);
-        res.redirect(302, '/signin'); //redirect to signin page
-        return;
-    }
     Q.all([
         dataSrc.getUserById(userId),
         dataSrc.getUsersCourses(userId)
     ]).then(function(result) {
-        console.log(result[1]);
+        //console.log(result[1]);
         res.render('mycourse', {
             'userinfo': result[0],
             'users_courses': result[1],
@@ -68,12 +62,6 @@ exports.mycourse = function(req, res, next) {
  */
 exports.courselist = function(req, res, next) {
     var userId = user.getUserId(req);
-    if (userId === '' || userId.length !== 36) {
-        //invalid userId, log user out
-        user.logout(req);
-        res.redirect(302, '/signin'); //redirect to signin page
-        return;
-    }
     Q.all([
         dataSrc.getUserById(userId),
         dataSrc.getUsersCourses(userId)
@@ -99,12 +87,6 @@ exports.courselist = function(req, res, next) {
  */
 exports.searchcourse = function(req, res, next) {
     var userId = user.getUserId(req);
-    if (userId === '' || userId.length !== 36) {
-        //invalid userId, log user out
-        user.logout(req);
-        res.redirect(302, '/signin'); //redirect to signin page
-        return;
-    }
     Q.all([
         dataSrc.getUserById(userId),
         dataSrc.getUsersCourses(userId)
@@ -124,12 +106,6 @@ exports.searchcourse = function(req, res, next) {
  */
 exports.profile = function(req, res, next) {
     var userId = user.getUserId(req);
-    if (userId === '' || userId.length !== 36) {
-        //invalid userId, log user out
-        user.logout(req);
-        res.redirect(302, '/signin'); //redirect to signin page
-        return;
-    }
     Q.all([
         dataSrc.getMajors(),
         dataSrc.getUserById(userId)
@@ -158,12 +134,6 @@ exports.signout = function(req, res, next) {
  */
 exports.admin = function(req, res, next) {
     var userId = user.getUserId(req);
-    if (userId === '' || userId.length !== 36) {
-        //invalid userId, log user out
-        user.logout(req);
-        res.redirect(302, '/signin'); //redirect to signin page
-        return;
-    }
     dataSrc.getUserById(userId).then(function(result1) {
         if (result1.role.roleId === 1) { //admin
             dataSrc.getUsers().then(function(result) {
@@ -222,7 +192,7 @@ exports.ajaxSignup = function(req, res, next) {
 exports.ajaxSearchCourse = function(req, res, next) {
     var courseId = req.body.courseNumber,
         usercourses = req.body.usercourses;
-    console.log(usercourses);
+    //console.log(usercourses);
     dataSrc.getCourseById(courseId).then(function(result) {
         if (result && result.courseId) {
             //res.status(200).json(result);

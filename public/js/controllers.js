@@ -10,15 +10,17 @@ angular.module('studentregApp', [])
     };
     $scope.formSearchData = {};
 
-    var User = window.user || {};
-    $scope.formUser = {
-        'firstName': user.firstName,
-        'lastName': user.lastName,
-        'email': user.email,
-        'majorId': user.major.majorId,
-        'userPassword': 'default',
-        'roleId': 2
-    };
+    if (window.user) {
+        var user = window.user;
+        $scope.formUser = {
+            'firstName': user.firstName,
+            'lastName': user.lastName,
+            'email': user.email,
+            'majorId': user.major.majorId,
+            'userPassword': 'default',
+            'roleId': 2
+        };
+    }
 
     $scope.courseIdsArr = [];
 
