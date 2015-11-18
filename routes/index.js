@@ -120,6 +120,32 @@ exports.searchcourse = function(req, res, next) {
 };
 
 /**
+ * Display user profile page
+ */
+exports.profile = function(req, res, next) {
+    var userId = user.getUserId(req);
+    if (userId === '' || userId.length !== 36) {
+        //invalid userId, log user out
+        user.logout(req);
+        res.redirect(302, '/signin'); //redirect to signin page
+        return;
+    }
+    Q.all([
+        dataSrc.getMajors(),
+        dataSrc.getUserById(userId)
+    ]).then(function(result) {
+        console.log(result);
+        res.render('user', {
+            'majors': result[0],
+            'profile': result[1]
+        }, function (err, html) {
+            if (err) { return next(err); }
+            res.send(helper.minifyHTML(html));
+        });
+    });
+};
+
+/**
  * Handle user sign-out, clear cookie and redirect user to signin page
  */
 exports.signout = function(req, res, next) {

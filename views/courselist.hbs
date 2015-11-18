@@ -12,10 +12,10 @@
                         {{>coursetableheadline }}
                         {{#each courselist}}
                         <tbody>
-                            <tr data-id="{{courseId}}">
+                            <tr data-id="{{courseId}}" data-desc="{{description}}">
                                 <td>{{courseName}}</td>
                                 <td>{{courseNumber}}</td>
-                                <td>{{description}}</td>
+                                <td>{{major.majorName}}</td>
                                 <td class="schedule" data-scheduleid="{{schedule.scheduleId}}">
                                 {{schedule.day}}: {{schedule.startTime}} ~ {{schedule.endTime}}
                                 </td>

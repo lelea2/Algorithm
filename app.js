@@ -60,8 +60,10 @@ app.get('/signup', routes.signup);
 app.get('/mycourse', routes.mycourse);
 app.get('/courselist', routes.courselist);
 app.get('/searchcourse', routes.searchcourse);
+app.get('/profile', routes.profile);
 app.get('/signout', routes.signout);
 app.get('/admin', routes.admin);
+
 
 //Handle ajax post
 app.post('/ajax/signin', routes.ajaxLogin);

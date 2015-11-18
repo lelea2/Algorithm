@@ -10,6 +10,14 @@ angular.module('studentregApp', [])
     };
     $scope.formSearchData = {};
 
+    var User = window.user || {};
+    $scope.formUser = {
+        'firstName': user.firstName,
+        'lastName': user.lastName,
+        'email': user.email,
+        'majorId': user.major.majorId
+    };
+
     $scope.courseIdsArr = [];
 
     /**
@@ -91,6 +99,14 @@ angular.module('studentregApp', [])
         }, function(err) {
             alert('Fail to signup. Please try again');
         });
+    };
+
+    /**
+     * Function handle profile page
+     * @method processProfileUpdate
+     */
+    $scope.processProfileUpdate = function() {
+
     };
 
     /**

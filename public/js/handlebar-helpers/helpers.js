@@ -12,8 +12,20 @@
                     return options.fn(this);
                 }
                 return options.inverse(this);
+            },
+            equal: function(lvalue, rvalue, options) {
+                //console.log(lvalue);
+                //console.log(rvalue);
+                if (arguments.length < 3)
+                    throw new Error("Handlebars Helper equal needs 2 parameters");
+                if( lvalue != rvalue ) {
+                    return options.inverse(this);
+                } else {
+                    return options.fn(this);
+                }
             }
         };
+
         /************* END HELPERS *************/
 
         if (Handlebars && typeof Handlebars.registerHelper === "function") {
