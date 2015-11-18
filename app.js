@@ -72,10 +72,14 @@ app.get('/admin', interceptor.authenticate(), routes.admin);
 //Handle ajax post
 app.post('/ajax/signin', routes.ajaxLogin);
 app.post('/ajax/signup', routes.ajaxSignup);
+app.post('/ajax/updateuser', routes.ajaxUpdateUser);
 app.post('/ajax/searchcourse', routes.ajaxSearchCourse);
 app.post('/ajax/dropcourse', routes.ajaxDropcourses);
 app.post('/ajax/addcourse', routes.ajaxAddcourses);
 
+
+//Handle pagination (REST has HATEOAS to get specific paging, here is the corresponding client call for it)
+app.get('/paginate/getUsers', interceptor.authenticate(), routes.getUsers);
 
 /**** Handle static files loaded, include caching, gzip ****/
 var oneWeek = 7 * 24 * 3600 * 1000; //caching time in miliseconds

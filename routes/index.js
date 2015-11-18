@@ -5,8 +5,7 @@
 var dataSrc = require('./model/data-massage'),
     user = require('./util/user'),
     helper = require('./util/helper'),
-    Q = require('q'),
-    Cookies = require('cookies');
+    Q = require('q');
 
 /************************************************************************/
 /**                            Handle Routing                          **/
@@ -110,7 +109,7 @@ exports.profile = function(req, res, next) {
         dataSrc.getMajors(),
         dataSrc.getUserById(userId)
     ]).then(function(result) {
-        console.log(result);
+        //console.log(result);
         res.render('user', {
             'majors': result[0],
             'profile': result[1]
@@ -187,6 +186,18 @@ exports.ajaxSignup = function(req, res, next) {
 };
 
 /**
+ * Handle update user
+ */
+exports.ajaxUpdateUser = function(req, res, next) {
+    var userId = user.getUserId(req);
+    dataSrc.updateUser(obj, userId).then(function(result) {
+         res.status(200).json(result);
+    }, function(err) {
+        res.status(500).json(err);
+    });
+};
+
+/**
  * Handle search course by course number
  */
 exports.ajaxSearchCourse = function(req, res, next) {
@@ -200,7 +211,7 @@ exports.ajaxSearchCourse = function(req, res, next) {
                 'layout': false,
                 'course': result,
                 'usercourses': usercourses.split('~')
-            }, function(err, viewString) {
+            }, function(err, viewString) { //return html view
                 var response = {};
                 response.view = viewString;
                 res.json(response);
@@ -238,5 +249,25 @@ exports.ajaxDropcourses = function(req, res, next) {
         res.status(200).json(result);
     }, function(err) {
         res.status(500).json(err);
+    });
+};
+
+/**
+ * Handle get user
+ */
+exports.getUsers = function(req, res, next) {
+    var startIndex = req.query.startIndex,
+        pageSize = req.query.pageSize;
+    //console.log(startIndex);
+    //console.log(pageSize);
+    dataSrc.getUsers(startIndex, pageSize).then(function(result) {
+        res.render('partials/userdetail', {
+            'layout': false,
+            'users': result
+        }, function(err, viewString) { //return html view
+            var response = {};
+            response.view = viewString;
+            res.json(response);
+        });
     });
 };

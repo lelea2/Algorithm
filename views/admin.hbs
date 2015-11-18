@@ -7,22 +7,14 @@
                     <h2>Admin view users</h2>
                 </div>
                 <div class="pageBoxPosition">
-                    <table>
+                    <table class="users">
                         {{>usertableheadline }}
                         <tbody>
-                        {{#each users}}
-                        <tr>
-                            <td>{{userId}}</td>
-                            <td>{{email}}</td>
-                            <td>{{firstName}}</td>
-                            <td>{{lastName}}</td>
-                            <td>{{role.roleName}}</td>
-                            <td>{{major.majorName}}</td>
-                            <td>{{coursesCount}}</td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
+                        {{>userdetail }}
+                        </tbody>
                     </table>
+                    <div class="clear"></div>
+                    <button type="button" class="view-more" ng-click="getMoreUser()">View More</button>
                 </div>
             </div>
         </div>

@@ -47,7 +47,7 @@ module.exports = {
         "method": "GET"
     },
     "GET_ALL_USER": {
-        "url": "{HOST}/services/users/all",
+        "url": "{HOST}/services/users/all?startIndex={startIndex}&number={pageSize}",
         "method": "GET"
     }
 };

@@ -24,6 +24,11 @@ angular.module('studentregApp', [])
 
     $scope.courseIdsArr = [];
 
+    $scope.paginationInfo = {
+        'startIndex': 1,
+        'pageSize': 3
+    };
+
     /**
      * Function handle signin
      * Log user in and redirect for success cases
@@ -92,7 +97,7 @@ angular.module('studentregApp', [])
         $http({
             method  : 'POST',
             url     : '/ajax/signup',
-            data    : $.param($scope.formSignupData),  // pass in data as strings
+            data    : $.param($scope.formUser),  // pass in data as strings
             headers : {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'x-csrf-token': $('input[name="_csrf"]').val()
@@ -110,7 +115,19 @@ angular.module('studentregApp', [])
      * @method processProfileUpdate
      */
     $scope.processProfileUpdate = function() {
-
+        $http({
+            method  : 'POST',
+            url     : '/ajax/userupdate',
+            data    : $.param($scope.formSignupData),  // pass in data as strings
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'x-csrf-token': $('input[name="_csrf"]').val()
+            }  // set the headers so angular passing info as form data (not request payload)
+        }).then(function(data) {
+            alert('user update successfully');
+        }, function(err) {
+            alert('Fail to signup. Please try again');
+        });
     };
 
     /**
@@ -244,6 +261,21 @@ angular.module('studentregApp', [])
             }
         }, function(err) {
             alert('Fail to add course. Please try again');
+        });
+    };
+
+    /**
+     * Function handle get more user
+     */
+    $scope.getMoreUser = function() {
+        $scope.paginationInfo.startIndex = $scope.paginationInfo.startIndex + 1;
+        $http({
+            method: 'GET',
+            url: '/paginate/getUsers?' + $.param($scope.paginationInfo)
+        }).then(function(data) {
+            $('.users tbody').append(data.data.view);
+        }, function(err) {
+            alert('No user returned');
         });
     };
 

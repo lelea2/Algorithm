@@ -28,10 +28,9 @@ module.exports = (function() {
      * Get All users
      * @return data for all users
      */
-    function getUsers() {
-        return getData('GET_ALL_USER');
+    function getUsers(starteIndex, pageSize) {
+        return getData('GET_ALL_USER', {startIndex: starteIndex, pageSize: pageSize});
     }
-
 
     /**
      * Function to get courses per major
@@ -137,7 +136,9 @@ module.exports = (function() {
         return url.replace('{HOST}', 'http://54.172.186.84:8080')
                 .replace('{userId}', reqObj.userId)
                 .replace('{majorId}', reqObj.majorId)
-                .replace('{courseId}', reqObj.courseId);
+                .replace('{courseId}', reqObj.courseId)
+                .replace('{startIndex}', reqObj.startIndex || 1)
+                .replace('{pageSize}', reqObj.pageSize || 3);
     }
 
     //Helper function to get current partnerId (default walgreen)
