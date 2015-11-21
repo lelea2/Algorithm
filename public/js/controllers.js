@@ -97,7 +97,7 @@ angular.module('studentregApp', [])
         $http({
             method  : 'POST',
             url     : '/ajax/signup',
-            data    : $.param($scope.formUser),  // pass in data as strings
+            data    : $.param($scope.formSignupData),  // pass in data as strings
             headers : {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'x-csrf-token': $('input[name="_csrf"]').val()
@@ -118,7 +118,7 @@ angular.module('studentregApp', [])
         $http({
             method  : 'POST',
             url     : '/ajax/userupdate',
-            data    : $.param($scope.formSignupData),  // pass in data as strings
+            data    : $.param($scope.formUser),  // pass in data as strings
             headers : {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'x-csrf-token': $('input[name="_csrf"]').val()
