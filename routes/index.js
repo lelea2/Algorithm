@@ -189,7 +189,8 @@ exports.ajaxSignup = function(req, res, next) {
  * Handle update user
  */
 exports.ajaxUpdateUser = function(req, res, next) {
-    var userId = user.getUserId(req);
+    var userId = user.getUserId(req),
+        obj = req.body;
     dataSrc.updateUser(obj, userId).then(function(result) {
          res.status(200).json(result);
     }, function(err) {

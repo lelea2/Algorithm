@@ -14,6 +14,9 @@ var express = require('express'),
   interceptor = require('./routes/util/interceptor'),
   routes = require('./routes'),
   http = require('http'),
+  https = require('https'),
+  cluster = require('cluster'), //Create node cluster for load balancing
+  numCPUs = require('os').cpus().length,
   path = require('path');
 
 var app = module.exports = express();
@@ -38,7 +41,7 @@ app.use(function(req, res, next) {
 });
 
 //Setting default port to run node client
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8000);
 
 //Using handlebar helper on both client and server side
 //http://codyrushing.com/using-handlebars-helpers-on-both-client-and-server/
@@ -90,7 +93,24 @@ app.get('*', express.static(path.join(__dirname, 'public'), { maxAge: oneWeek })
 /**
  * Start Server on port given or default port
  */
-http.createServer(app).listen(app.get('port'), function () {
+/*http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
-});
+});*/
+if (cluster.isMaster) {
+  //Initiate workers
+  for (var i = 0; i < numCPUs; i++) {
+      cluster.fork();
+  }
+  cluster.on('exit', function(worker, code, signal) {
+      console.log('worker ' + worker.process.pid + ' died');
+  });
+} else { //http connection per port given
+  http.createServer(app).listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
+  });
+}
 
+//SSL
+/*https.createServer(app).listen(443, function () {
+    console.log('HTTPS: Express server listening on port 443');
+});*/

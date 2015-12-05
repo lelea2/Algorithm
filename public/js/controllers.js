@@ -117,7 +117,7 @@ angular.module('studentregApp', [])
     $scope.processProfileUpdate = function() {
         $http({
             method  : 'POST',
-            url     : '/ajax/userupdate',
+            url     : '/ajax/updateuser',
             data    : $.param($scope.formUser),  // pass in data as strings
             headers : {
                 'Content-Type': 'application/x-www-form-urlencoded',
