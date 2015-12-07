@@ -39,6 +39,10 @@ angular.module('studentregApp', [])
             $('.signin .userNameRow .err').removeClass('hidden');
             return false;
         }
+        var b = new Base64();
+        //var str = b.encode($scope.formSigninData.name);
+        //alert(str);
+        //$scope.formSigninData.name = str;
         if (!$scope.formSigninData.password) {
             $('.signin .passwordNameRow .err').removeClass('hidden');
             return false;
@@ -46,7 +50,8 @@ angular.module('studentregApp', [])
         $http({
             method  : 'POST',
             url     : '/ajax/signin',
-            data    : $.param($scope.formSigninData),  // pass in data as strings
+            //data    : $.param($scope.formSigninData),  // pass in data as strings
+            data : b.encode(JSON.stringify($scope.formSigninData)),
             headers : {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'x-csrf-token': $('input[name="_csrf"]').val()

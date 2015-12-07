@@ -70,6 +70,7 @@ module.exports = (function() {
      * @return user token
      */
     function logIn(email, password) {
+        console.log("data_msg pwd:"+password);
         return getData('LOGIN', {
             'reqBody': {
                 'userName': email,
@@ -132,8 +133,8 @@ module.exports = (function() {
      */
     function getFinalURL(url, obj) {
         var reqObj = obj || {};
-        //return url.replace('{HOST}', 'http://localhost:8080')
-        return url.replace('{HOST}', 'http://54.172.186.84:8080')
+        return url.replace('{HOST}', 'http://localhost:8080')
+        //return url.replace('{HOST}', 'http://54.172.186.84:8080')
                 .replace('{userId}', reqObj.userId)
                 .replace('{majorId}', reqObj.majorId)
                 .replace('{courseId}', reqObj.courseId)
@@ -160,7 +161,7 @@ module.exports = (function() {
     function getData(calltype, reqObj) {
         var d = Q.defer(),
             obj = generateReqBody(calltype, reqObj);
-        console.log('Request obj=' + JSON.stringify(obj));
+        console.log('last Request obj=' + JSON.stringify(obj));
         request(obj, function(error, response, body) {
             var result = getReturnObj(error, response, body);
             //console.log(result);

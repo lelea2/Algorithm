@@ -153,8 +153,14 @@ exports.admin = function(req, res, next) {
  * Handle signin ajax post
  */
 exports.ajaxLogin = function(req, res, next) {
-    var name = req.body.name,
-        pwd = req.body.password;
+    //var encription = JSON.stringify(req.body);
+    var info = new Buffer(JSON.stringify(req.body), 'base64').toString('ascii');
+
+    var user = JSON.parse(info);
+    req.body = user;
+
+    var name = user.name,
+        pwd = user.password;
     dataSrc.logIn(name, pwd).then(function(result) {
         if (result && result.userId) {
             user.setUserCookie(req, result.userId);
