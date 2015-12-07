@@ -70,7 +70,6 @@ module.exports = (function() {
      * @return user token
      */
     function logIn(email, password) {
-        console.log("data_msg pwd:"+password);
         return getData('LOGIN', {
             'reqBody': {
                 'userName': email,
@@ -161,10 +160,11 @@ module.exports = (function() {
     function getData(calltype, reqObj) {
         var d = Q.defer(),
             obj = generateReqBody(calltype, reqObj);
-        console.log('last Request obj=' + JSON.stringify(obj));
+        //console.log('last Request obj=' + JSON.stringify(obj));
+        console.log(obj);
         request(obj, function(error, response, body) {
             var result = getReturnObj(error, response, body);
-            //console.log(result);
+            console.log(result);
             if (!!result && !result.errorCode) {
                 //console.log('Sucessful response');
                 d.resolve(result);
