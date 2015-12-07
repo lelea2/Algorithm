@@ -22,7 +22,7 @@
         </div>
         <div class="majorRow marginTop">
             <span>Major:</span>
-            <select value="{{major.majorId}}" ng-model="formUser.majorId">
+            <select value="{{major.majorName}}" ng-model="formUser.majorId">
                 {{#each ../majors}}
                     {{#equal majorId ../major.majorId}}
                     <option selected value="{{majorId}}">{{majorName}}</option>

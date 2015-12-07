@@ -15,8 +15,8 @@ angular.module('studentregApp', [])
         $scope.formUser = {
             'firstName': user.firstName,
             'lastName': user.lastName,
-            'email': user.email,
-            'majorId': user.major.majorId,
+            'userEmail': user.email,
+            'majorId': user.major.majorId.toString(),
             'userPassword': 'default',
             'roleId': 2
         };
