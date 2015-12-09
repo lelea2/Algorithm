@@ -132,8 +132,8 @@ module.exports = (function() {
      */
     function getFinalURL(url, obj) {
         var reqObj = obj || {};
-        return url.replace('{HOST}', 'http://localhost:8080')
-        //return url.replace('{HOST}', 'http://54.172.186.84:8080')
+        //return url.replace('{HOST}', 'http://localhost:8080')
+        return url.replace('{HOST}', 'http://10.15.94.208:8080')
                 .replace('{userId}', reqObj.userId)
                 .replace('{majorId}', reqObj.majorId)
                 .replace('{courseId}', reqObj.courseId)
