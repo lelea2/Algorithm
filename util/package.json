@@ -1,0 +1,17 @@
+{
+  "name": "test-util",
+  "version": "1.0.0",
+  "author": {
+    "name": "Khanh Dao",
+    "email": "daomaikhanh1988@yahoo.com"
+  },
+  "license": "proprietary",
+  "publishConfig": {
+    "registry": "https://www.npmjs.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+  }
+}
