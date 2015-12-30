@@ -1,0 +1,49 @@
+<!--Main Body Begin-->
+<div class="mainBody">
+    {{>navigation }}
+    <div class="rightSide">
+        <div class="pageSize" id="pageA">
+            <div class="page_style">
+                <div class="pageTitle">
+                    <h2>Course List</h2>
+                </div>
+                <div class="pageBoxPosition">
+                    <table>
+                        {{>coursetableheadline }}
+                        {{#each courselist}}
+                        <tbody>
+                            <tr data-id="{{courseId}}" data-desc="{{description}}">
+                                <td>{{courseName}}</td>
+                                <td>{{courseNumber}}</td>
+                                <td>{{major.majorName}}</td>
+                                <td class="schedule" data-scheduleid="{{schedule.scheduleId}}">
+                                {{schedule.day}}: {{schedule.startTime}} ~ {{schedule.endTime}}
+                                </td>
+                                <td>{{stateId}}</td>
+                                <td>{{professor}}</td>
+                                <td>{{totalHeadCount}}</td>
+                                {{#ifIn courseId ../usercourses}}
+                                <td>
+                                    <div class="button greenButton hidden" ng-click="handleAddCourse('{{courseId}}')">Add</div>
+                                    <div class="button redButton" ng-click="handleDropCourse('{{courseId}}')">Drop</div>
+                                </td>
+                                {{else}}
+                                <td>
+                                    <div class="button greenButton" ng-click="handleAddCourse('{{courseId}}')">Add</div>
+                                    <div class="button redButton hidden" ng-click="handleDropCourse('{{courseId}}')">Drop</div>
+                                </td>
+                                {{/ifIn}}
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Course List page End-->
+    </div>
+    <div class="clear"></div>
+</div>
+<script>
+window.mycourses = {{{json usercourses}}}
+</script>

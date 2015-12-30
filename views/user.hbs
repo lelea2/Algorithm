@@ -1,0 +1,44 @@
+<div class="centerBox">
+    <form class="signup inputBox" ng-submit="processProfileUpdate()">
+        {{#profile}}
+        <div class="firstNameRow marginTop">
+            <div class="err hidden">Please provide first name</div>
+            <span>First Name:</span><input id="firstName" value="{{firstName}}" type="text" ng-model="formUser.firstName"/>
+            <div class="clear"></div>
+        </div>
+        <div class="lastNameRow marginTop">
+            <div class="err hidden">Please provide last name</div>
+            <span>Last Name:</span><input id="lastName" value="{{lastName}}" type="text" ng-model="formUser.lastName"/>
+            <div class="clear"></div>
+        </div>
+        <div class="emailRow marginTop">
+            <span>Email:</span><input id="email" readonly value="{{email}}" type="email" ng-model="formUser.userEmail" />
+            <div class="clear"></div>
+        </div>
+        <div class="pwdRow marginTop">
+            <div class="err hidden">Please provide password</div>
+            <span>Password:</span><input id="password" value="default" type="password" ng-model="formUser.userPassword" />
+            <div class="clear"></div>
+        </div>
+        <div class="majorRow marginTop">
+            <span>Major:</span>
+            <select value="{{major.majorName}}" ng-model="formUser.majorId">
+                {{#each ../majors}}
+                    {{#equal majorId ../major.majorId}}
+                    <option selected value="{{majorId}}">{{majorName}}</option>
+                    {{else}}
+                    <option value="{{majorId}}">{{majorName}}</option>
+                    {{/equal}}
+                {{/each}}
+            </select>
+        </div>
+        <div class="buttonRow">
+            <button type="submit" id="submitButton">Submit</button>
+        </div>
+        {{/profile}}
+    </form>
+    <div class="clear"></div>
+</div>
+<script>
+window.user = {{{json profile}}}
+</script>

@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* Main Style CSS Document */
+/* Basic Style */
+
+body,ul,ol,li,p,div,dl,dt,dd,img,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,th,td{
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", serif;
+}
+html body{
+    position:absolute;
+    height:100%;
+    width:100%;
+}
+body {
+    text-align: center;
+}
+ol,ul{
+    list-style:none;
+}
+a {
+    text-decoration:none;
+    color: #fff;
+}
+.wrap {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+.hidden {
+    display: none;
+}
+table {
+    margin-top: 20px;
+    display: block;
+}
+h4 {
+    font-style: normal;
+    font-weight: lighter;
+    line-height: 60px;
+    font-size: 25px;
+}
+.clear{
+    clear: both;
+}
+
+.topMenuBar{
+    margin: auto;
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    background-color: #353535;
+    z-index: 999;
+    top: 0;
+}
+#title{
+    margin-left: 150px;
+    color: #FFF;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: bold;
+    line-height: 60px;
+    text-align: center;
+}
+#title li{
+    margin-right:5px;
+    float:left;
+}
+#title img{
+    margin-top:24px;
+}
+#userWho{
+    margin-right:150px;
+    float: right;
+    color: white;
+}
+#userWho li{
+    margin-left:5px;
+    float: left;
+    line-height: 60px;
+}
+.topMenuBar img{
+    margin-top: 19px;
+    cursor:pointer;
+}
+
+.centerBox{
+    width: 750px;
+    height: auto;
+    background-color: #eceaea;
+    border-radius: 10px;
+    margin: auto;
+    padding: 20px;
+}
+.inputBox{
+    margin-left: 50px;
+}
+span{
+    float:left;
+    font-size:30px;
+    color: #8c8c8c;
+    line-height: 50px;
+}
+input{
+    margin-left:10px;
+    float:right;
+    width:500px;
+    height:50px;
+    border-radius: 10px;
+    font-size:35px;
+    color:#8c8c8c;
+}
+.passwordRow{
+    margin-top:20px;
+}
+.buttonRow{
+    margin-top:40px;
+}
+#loginButton{
+    float:right;
+    height: 50px;
+    width:200px;
+    color: white;
+    font-size:25px;
+    background-color: green;
+    line-height: 50px;
+    text-align: center;
+    border: solid 1px;
+    border-color: green;
+    border-radius: 10px;
+    cursor:pointer;
+}
+#registerButton{
+    margin-right:10px;
+    float:right;
+    height: 50px;
+    width:200px;
+    color: white;
+    font-size:25px;
+    background-color: dodgerblue;
+    line-height: 50px;
+    text-align: center;
+    border: solid 1px;
+    border-color: dodgerblue;
+    border-radius: 10px;
+    cursor:pointer;
+}
+.floatA{
+    float:left;
+}
+
+/*Animation*/
+#loginButton:hover{
+    opacity: 0.7;
+}
+#registerButton:hover{
+    opacity: 0.7;
+}
+
+.centerBox{
+    margin-top: 90px;
+}

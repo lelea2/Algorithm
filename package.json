@@ -1,6 +1,21 @@
-{ 
-  "name": "studentreg-group5", 
+{
+  "name": "studentreg-group8",
   "version": "1.0.0",
+  "author": {
+    "name": "CMPE272_Group8",
+    "email": "daomaikhanh1988@yahoo.com"
+  },
+  "license": "proprietary",
+  "publishConfig": {
+    "registry": "https://www.npmjs.com"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "dependencies": {
     "body-parser": "^1.0.2",
     "error-handler": "^0.1.4",
@@ -10,6 +25,10 @@
     "request": "^2.65.0",
     "q": "^1.0.0",
     "morgan": "^1.0.0",
-    "html-minifier": "^0.7.2"
+    "html-minifier": "^0.7.2",
+    "cookies": "^0.5.0",
+    "csrf-crypto": "^1.0.0",
+    "cookie-parser": "^1.3.1",
+    "compression": "^1.0.0"
   }
 }

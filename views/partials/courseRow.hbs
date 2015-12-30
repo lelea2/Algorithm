@@ -1,0 +1,23 @@
+{{#course}}
+<tbody>
+    <tr data-id="{{courseId}}">
+        <td>{{courseName}}</td>
+        <td>{{courseNumber}}</td>
+        <td>{{description}}</td>
+        <td class="schedule" data-scheduleid="{{schedule.scheduleId}}">
+        {{schedule.day}}: {{schedule.startTime}} ~ {{schedule.endTime}}
+        </td>
+        <td>{{stateId}}</td>
+        <td>{{professor}}</td>
+        <td>{{totalHeadCount}}</td>
+        <td class="course-state" data-id="{{courseId}}">
+        {{#ifIn courseId ../usercourses}}
+            <div>Added</div>
+        {{else}}
+            <!--<input data-id="{{courseId}}" type="checkbox" ng-model="coursesearch" ng-change="stateChanged('{{courseId}}')">-->
+            <input data-id="{{courseId}}" type="checkbox" class="courseIds-search">
+        {{/ifIn}}
+        </td>
+    </tr>
+</tbody>
+{{/course}}
