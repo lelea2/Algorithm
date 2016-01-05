@@ -19,7 +19,7 @@ function walkFiles(dir, cb) {
         if (fs.statSync(name).isDirectory()) {
             walkFiles(name, callback);
         } else { //Excute callback function for current file
-            callback(name, files[i]);
+            cb(name, files[i]);
         }
     }
 }
