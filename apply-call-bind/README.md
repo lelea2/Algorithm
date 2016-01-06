@@ -9,7 +9,7 @@ The headline says it all. We will experiment with JS apply(), call(), bind() and
 someFunction.call(objectToUseAsThis, arg1, arg2);
 ```
 
-**.apply()** - calls the same function with the arguments specified in an array
+**.apply()** - calls the same function with the arguments specified in an array (Want to know one trick, EASY! :) 'a' stands for 'array')
 ```javascript
 someFunction.apply(objectToUseAsThis, [arg1, arg2]);
 ```
