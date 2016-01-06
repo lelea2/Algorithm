@@ -2,19 +2,22 @@
 
 Playing with closure in JS
 
-* Definition:
+#### Definition:
 - a closure is a function, along with all variables or functions that were in-scope
 - a closure is implemented as an “inner function”;
   Eg: a function defined within the body of another function.
 - An important feature of closures is that an inner function still has access to the outer function’s variables.
 
-* 3 scopes in a closure
+- 3 scopes in a closure
+
 (1) variable in its own scope
+
 (2) variables in the enclosing function’s scope
+
 (3) global variables.
 
-
-- One of the main question can be asked for a closure, is how an inside loop will be implemented
+#### Highlight
+One of the main question can be asked for a closure, is how an inside loop will be implemented
 => inside-loop closure with the use of IIFE (Intermediate invoke function expression)
 
 Eg: function below will print out i=# of button available
