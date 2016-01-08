@@ -7,6 +7,7 @@
 //Loop through the remaining array to check for same value
 //Result the third array which is intersection of these 2 array
 //Assume that indexOf works (not encounter for IE8)
+//Yes, according to jsperf, this is the faster way on browser (compare to any other js library :))
 function arrayIntersect(arr1, arr2) {
     var hashArr = {}, //hash value obj
         arr = [];//result array
