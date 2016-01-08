@@ -19,6 +19,9 @@ function swapNumber(a, b) {
 
 /**
  * This method is using bit manipulation
+ * Ways to remember: (both side: a to b)
+ * Left side: a-b-a
+ * Right side: a to b
  */
 function swapNumber2(a, b) {
     a = a ^ b;

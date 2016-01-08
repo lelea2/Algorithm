@@ -2,6 +2,8 @@
  * Function to merge 2 sorted array, return a final sorted array
  */
 
+//Loop through array 1 and arry2, can use while loop
+//Since both arr are sorted, increment array with smaller number and continue
 function mergeSortedArray(arr1, arr2) {
     if (arr1.length === 0) {
         return arr2;

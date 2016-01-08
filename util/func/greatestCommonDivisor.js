@@ -2,6 +2,8 @@
  * Find the greatest common divisor between 2 number
  */
 
+//Idea: keep local variable as great common devisor
+//and continuously loop (divisor incremented by 1, has to safisfy < n1 & < n2)
 function getGreatestCommonDivisor(n1, n2) {
     if (n1 < 2 || n2 < 2) {
         return 1;
@@ -21,8 +23,8 @@ module.exports = getGreatestCommonDivisor;
 
 
 /** I still it from online note, using recursion */
-
-function greatestCommonDivisor2(a, b){
+//Shorter version, using recursive
+function greatestCommonDivisor2(a, b) {
     if(b == 0) {
         return a;
     } else {
