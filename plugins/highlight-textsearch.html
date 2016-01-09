@@ -1,0 +1,54 @@
+<!-- Simple javscript highlight the character being search -->
+<!-- Credited to: http://jsfiddle.net/FutureWebDev/HfS7e/ -->
+<!-- Testing: Regex in JS, Doing global replace -->
+<html>
+    <head>
+        <title>Hightlight Textsearch</title>
+        <style>
+        #searchtext span{
+            background-color: #ff69b4;
+            color:#555;
+        }
+        div {
+            padding: 10px;
+        }
+        </style>
+    </head>
+    <body>
+        <form action="" method="" id="search" name="search">
+            <input name="query" id="query" type="text" size="30" maxlength="30">
+            <input name="searchit" type="button" value="Search" onClick="highlightSearch()">
+        </form>
+        <div id="searchtext">
+            <p>JavaScript is the programming language of the Web. The overwhelming majority of
+        modern websites use JavaScript, and all modern web browsers—on desktops, game
+        consoles, tablets, and smart phones—include JavaScript interpreters, making Java-
+        Script the most ubiquitous programming language in history. JavaScript is part of the
+        triad of technologies that all Web developers must learn: HTML to specify the content
+        of web pages, CSS to specify the presentation of web pages, and JavaScript to specify
+        the behavior of web pages. This book will help you master the language.</p>
+        <p>If you are already familiar with other programming languages, it may help you to know
+        that JavaScript is a high-level, dynamic, untyped interpreted programming language
+        that is well-suited to object-oriented and functional programming styles. JavaScript
+        derives its syntax from Java, its first-class functions from Scheme, and its prototypebased
+        inheritance from Self. But you do not need to know any of those languages, or
+        be familiar with those terms, to use this book and learn JavaScript.</p>
+        <p>The name "JavaScript" is actually somewhat misleading. <span>Except</span> for a superficial syntactic
+        resemblance, JavaScript is completely different from the Java programming language.
+        And JavaScript has long since outgrown its scripting-language roots to become
+        a robust and efficient general-purpose language. The latest version of the language (see
+        the sidebar) defines new features for serious large-scale software development.</p>
+        </div>
+        <script>
+        function highlightSearch() {
+            var text = document.getElementById("query").value;
+            var query = new RegExp("(\\b" + text + "\\b)", "gim"); //global replacement
+            var e = document.getElementById("searchtext").innerHTML;
+            var enew = e.replace(/(<span>|<\/span>)/igm, "");
+            document.getElementById("searchtext").innerHTML = enew;
+            var newe = enew.replace(query, "<span>$1</span>"); //replace current query with span div for highlighted
+            document.getElementById("searchtext").innerHTML = newe;
+        }
+        </script>
+    </body>
+</html>
