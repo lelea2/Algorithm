@@ -35,6 +35,10 @@
 <body>
     <!--Start container calss for autocomplete-->
     <h1>Prototype for autocomplete, using pure Javascript</h1>
+    <h3>Example Test case</h3>
+    <p>Type u: Result: usa, uk, uruguay</p>
+    <p>Type i: Result: china, vietnam</p>
+    <p>Type us: Result: usa</p>
     <div id="container">
         <input type="text" autofocus="true" name="autocomplete" placeholder="search countries" id="autocomplete"></input>
         <ul id="results">
@@ -57,13 +61,13 @@
             var requestVal = (val || '').toLowerCase();
             for(var i = 0; i < countries.length; i++) {
                 var currVal = (countries[i] || '').toLowerCase(); //To handle bad input, making sure string before manipulate
+                //This is to search for all position of availble char in input given
                 if (currVal.indexOf(requestVal) > -1) {
                     results.push(countries[i]);
                 }
             }
             return results;
         }
-
         /**
          * Handle click on result list, should make the chosen value become input choose,
          * And clear the list dropdown
@@ -75,7 +79,6 @@
             resultElem.innerHTML = '';
             resultElem.style.display  = 'none';
         }
-
         //Handle key up even,
         inputElem.onkeyup = function(e) {
             var inputVal = this.value; // updates the variable on each ocurrence
