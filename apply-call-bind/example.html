@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Example to use call/appy</title>
+    </head>
+    <body>
+        <script>
+            var name = 'Khanh';
+            var nerd = {
+                name: 'Nick'
+            };
+
+            var face = {
+                name: 'Stupid'
+            };
+
+            function printName(string, adj){
+                alert(string + ': ' + this.name + ' is ' + adj);
+            }
+
+            // this refers to window (or apparently CodePen has a little something already set!)
+            printName('example1', 'awesome');
+
+            // Note how this now refers to the nerd object
+            // and call receives comma separated parameters
+            printName.call(nerd, 'example2', 'lame'); //Nick is lame
+
+            // apply receives parameters as an array
+            printName.apply(face, ['example3', 'cool']); //Stupid is cool
+        </script>
+    </body>
+</html>

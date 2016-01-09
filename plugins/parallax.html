@@ -1,0 +1,93 @@
+<!--
+ * Simple explain for plugin called parallax
+ * Apply javascript scrolling
+ * Inspired from: http://codepen.io/N00R_alhassan1/pen/MYyVeo
+ *
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parallax simple prototype</title>
+        <link rel="stylesheet" type="text/css" href="css/parallax.css">
+    </head>
+    <body>
+        <h1> JavaScript Plugin For Scroll Animation </h1>
+        <nav>
+            <a href="#one" to="one">One</a>
+            <a href="#two" to="two">Two</a>
+            <a href="#three" to="three">Three</a>
+            <a href="#four" to="four">Four</a>
+            <a href="#five" to="five">Five</a>
+        </nav>
+        <section id="one">
+            <article>
+                <div />
+            </article>
+        </section>
+        <section id="two">
+            <article>
+                <div />
+            </article>
+        </section>
+        <section id="three">
+            <article>
+                <div />
+            </article>
+        </section>
+        <section id="four">
+            <article>
+                <div />
+            </article>
+        </section>
+        <section id="five">
+            <article>
+                <div />
+            </article>
+        </section>
+        <h2> End Of Page </h2>
+        <script>
+        var init = function() {
+            var S = new Scroll(1000, 1000 / 60);
+            S.init();
+        }
+        //Init on dom ready
+        document.addEventListener('DOMContentLoaded', init, false);
+        function Scroll(time, step) {
+            var S = this;
+            S.time = time;
+            S.step = step;
+            S.ease = function(n, h, w, t) {
+                n /= t / 2;
+                if (n < 1) return w / 2 * n * n + h;
+                n--;
+                return -w / 2 * (n * (n - 2) - 1) + h;
+            }
+            S.run = function() {
+                S.now += S.step;
+                document.body.scrollTop = S.ease(S.now, S.top, S.way, S.time);
+                if (S.now < S.time) setTimeout(S.run, S.step);
+            }
+            S.start = function() {
+                var to = this.getAttribute('to');
+                var el = document.getElementById(to);
+                S.top = document.body.scrollTop;
+                S.way = el.offsetTop - S.top;
+                S.now = 0;
+                S.run();
+            }
+            S.bind = function(a) {
+                for (var i = 0; i < a.length; i++) {
+                    var to = a[i].getAttribute('to');
+                    if (to) {
+                        a[i].addEventListener('click', S.start, false);
+                    }
+                }
+            }
+            S.init = function() {
+                var a = document.getElementsByTagName('a');
+                S.bind(a);
+            }
+        };
+        </script>
+    </body>
+</html>

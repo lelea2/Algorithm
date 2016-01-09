@@ -1,0 +1,73 @@
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,900);
+
+body{
+  background-color:#f6c45b;
+}
+h1{
+  font-family: 'Ruda', sans-serif;
+  text-align:center;
+  color:#e34;
+  text-shadow:1px 2px 3px #111;
+}
+
+nav {
+    position:fixed;
+    right:20px; top:50%;
+    margin-top:-112px;
+}
+nav a {
+    display:block;
+    background:#faf9f7;
+    border:1px solid #edeceb;
+    border-radius:3px;
+    padding:12px 4px 12px 4px;
+    margin:0 0 10px 0;
+    text-transform:uppercase;
+    text-align:center;
+    font-size:10px;
+    color:#999;
+    cursor:pointer;
+}
+nav a:hover {
+    color:#000;
+}
+section {
+    width:2000px;
+    margin:0 auto;
+}
+section article {
+    background:#faf9f7;
+    border:1px solid #edeceb;
+    border-radius:3px;
+    padding:3px;
+}
+section article div {
+    border-radius:2px;
+}
+#one div {
+    height:600px;
+    background:#69D2E7;
+}
+#two div {
+    height:400px;
+    background:#A7DBDB;
+}
+#three div {
+    height:400px;
+    background:#E0E4CC;
+}
+#four div {
+    height:400px;
+    background:#6da;
+}
+#five div {
+    height:600px;
+    background:#EEC134;
+}
+h2{
+  font-family: 'Ruda';
+  text-align:center;
+  font-size:2.5em;
+  color:gray;
+
+}
