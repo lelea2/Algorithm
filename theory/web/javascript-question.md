@@ -1,3 +1,5 @@
+Reference from: https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95#.gh7cuu59z
+
 ### 1. Name two programming paradigms important for JavaScript app developers?
 
 * OOP programming -- Prototypal inheritance (also: prototypes, OLOO).

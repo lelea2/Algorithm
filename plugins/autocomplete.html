@@ -1,9 +1,10 @@
-<!--Writing simple autocomplete with pure JS -->
+<!--Writing simple autocomplete with pure JS, handle strng case insensitive -->
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Autocomplete pure javascript</title>
+    <!--Simple css style for my dropdown -->
     <style>
     input {
         width: 300px;
@@ -26,73 +27,79 @@
         border-top: 1px solid #ddd;
         padding: 12px;
     }
+    #results li:first-child {
+        border-top: none;
+    }
     </style>
 </head>
 <body>
     <!--Start container calss for autocomplete-->
-    <div id="autocomplete-container">
-        <input type="text" autofocus="true" name="autocomplete" placeholder="search people" id="autocomplete"></input>
+    <h1>Prototype for autocomplete, using pure Javascript</h1>
+    <div id="container">
+        <input type="text" autofocus="true" name="autocomplete" placeholder="search countries" id="autocomplete"></input>
         <ul id="results">
         </ul>
     </div>
 
     <script>
-    // variables
-    var input = document.querySelector('input'); //input box
-    var people = ['john doe', 'maria', 'paul', 'george', 'jimmy'];
-    var results;
+    (function() { //Put everything in closure because i don't want it gotten overwritten
+        //Construct variable
+        var inputElem = document.querySelector('input'); //input box, or document.getElementById('autocomplete');
+        var resultElem = document.getElementById("results");
+        var countries = ['usa', 'uk', 'japan', 'china', 'uruguay', 'vietnam']; //array list of country input
+        /**
+         * Function handle autocomplete
+         * @param  {String} val input string that we want to search for
+         * @return {Array}     list of result that match with input string
+         */
+        function autocomplete(val) {
+            var results = []; //array of countries that will have character mapping
+            var requestVal = (val || '').toLowerCase();
+            for(var i = 0; i < countries.length; i++) {
+                var currVal = (countries[i] || '').toLowerCase(); //To handle bad input, making sure string before manipulate
+                if (currVal.indexOf(requestVal) > -1) {
+                    results.push(countries[i]);
+                }
+            }
+            return results;
+        }
 
-    // functions
-    function autocomplete(val) {
-        var people_return = []; //array of people name that has name map to typing
-        /*for (i = 0; i < people.length; i++) {
-            if (val === people[i].slice(0, val.length)) { //This has to map the first character
-                people_return.push(people[i]);
-            }
-        }*/
-        //for (var i = 0; i < people.lent)
-        //Using array map with return the same length of the array, probaly not what we want in this case
-        /*var people_return = people.map(function(value) {
-            if (value.indexOf(val) > -1) {
-                return value;
-            }
-        });*/
-        for(var i = 0; i < people.length; i++) {
-            if (people[i].indexOf(val) > -1) {
-                people_return.push(people[i]);
+        /**
+         * Handle click on result list, should make the chosen value become input choose,
+         * And clear the list dropdown
+         */
+        function handleListOnClick(e) {
+            var target = e.target;
+            var text = target.innerHTML;
+            inputElem.value = text;
+            resultElem.innerHTML = '';
+            resultElem.style.display  = 'none';
+        }
+
+        //Handle key up even,
+        inputElem.onkeyup = function(e) {
+            var inputVal = this.value; // updates the variable on each ocurrence
+            var countries_to_show = [];
+            if (inputVal.length > 0) {
+                resultElem.innerHTML = '';
+                countries_to_show = autocomplete(inputVal);
+                for (var i = 0; i < countries_to_show.length; i++) { //Create list of results
+                    var listElem = document.createElement("li");
+                    var node = document.createTextNode(countries_to_show[i]);
+                    listElem.addEventListener('click', function(e) {
+                        handleListOnClick(e)
+                    });
+                    listElem.appendChild(node);
+                    resultElem.appendChild(listElem);
+                }
+                resultElem.style.display = 'block';
+            } else { //Empty input value, clear input and clear ul list
+                countries_to_show = [];
+                resultElem.innerHTML = '';
+                resultElem.style.display = 'none';
             }
         }
-        return people_return;
-    }
-
-    function handleListOnClick(e) {
-        var target = e.target;
-        var text = target.innerHTML;
-        var autocomplete_results = document.getElementById("results");
-        var autocomplete = document.getElementById('autocomplete');
-        autocomplete.value = text;
-        autocomplete_results.innerHTML = '';
-        autocomplete_results.style.display  = 'none';
-    }
-
-    // events
-    input.onkeyup = function(e) {
-        var input_val = this.value; // updates the variable on each ocurrence
-        var autocomplete_results = document.getElementById("results");
-        var people_to_show = [];
-        if (input_val.length > 0) {
-            autocomplete_results.innerHTML = '';
-            people_to_show = autocomplete(input_val);
-            for (i = 0; i < people_to_show.length; i++) { //Create list of results
-                autocomplete_results.innerHTML += '<li onclick="handleListOnClick(event)">' + people_to_show[i] + '</li>';
-            }
-            autocomplete_results.style.display = 'block';
-        } else { //Empty input value, clear input and clear ul list
-            people_to_show = [];
-            autocomplete_results.innerHTML = '';
-            autocomplete_results.style.display = 'none';
-        }
-    }
+    }());
     </script>
 </body>
 </html>
