@@ -1,0 +1,98 @@
+<!--Writing simple autocomplete with pure JS -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autocomplete pure javascript</title>
+    <style>
+    input {
+        width: 300px;
+        padding: 12px;
+        color: #444;
+    }
+    #results {
+        display: none; /** initial display none **/
+        width: 300px;
+        list-style-type: none;
+        padding: 0;
+        border: 1px solid #ddd;
+        border-top: 0;
+        padding: 14px;
+        margin-top: 0;
+        background: #fff;
+        cursor: pointer;
+    }
+    #results li {
+        border-top: 1px solid #ddd;
+        padding: 12px;
+    }
+    </style>
+</head>
+<body>
+    <!--Start container calss for autocomplete-->
+    <div id="autocomplete-container">
+        <input type="text" autofocus="true" name="autocomplete" placeholder="search people" id="autocomplete"></input>
+        <ul id="results">
+        </ul>
+    </div>
+
+    <script>
+    // variables
+    var input = document.querySelector('input'); //input box
+    var people = ['john doe', 'maria', 'paul', 'george', 'jimmy'];
+    var results;
+
+    // functions
+    function autocomplete(val) {
+        var people_return = []; //array of people name that has name map to typing
+        /*for (i = 0; i < people.length; i++) {
+            if (val === people[i].slice(0, val.length)) { //This has to map the first character
+                people_return.push(people[i]);
+            }
+        }*/
+        //for (var i = 0; i < people.lent)
+        //Using array map with return the same length of the array, probaly not what we want in this case
+        /*var people_return = people.map(function(value) {
+            if (value.indexOf(val) > -1) {
+                return value;
+            }
+        });*/
+        for(var i = 0; i < people.length; i++) {
+            if (people[i].indexOf(val) > -1) {
+                people_return.push(people[i]);
+            }
+        }
+        return people_return;
+    }
+
+    function handleListOnClick(e) {
+        var target = e.target;
+        var text = target.innerHTML;
+        var autocomplete_results = document.getElementById("results");
+        var autocomplete = document.getElementById('autocomplete');
+        autocomplete.value = text;
+        autocomplete_results.innerHTML = '';
+        autocomplete_results.style.display  = 'none';
+    }
+
+    // events
+    input.onkeyup = function(e) {
+        var input_val = this.value; // updates the variable on each ocurrence
+        var autocomplete_results = document.getElementById("results");
+        var people_to_show = [];
+        if (input_val.length > 0) {
+            autocomplete_results.innerHTML = '';
+            people_to_show = autocomplete(input_val);
+            for (i = 0; i < people_to_show.length; i++) { //Create list of results
+                autocomplete_results.innerHTML += '<li onclick="handleListOnClick(event)">' + people_to_show[i] + '</li>';
+            }
+            autocomplete_results.style.display = 'block';
+        } else { //Empty input value, clear input and clear ul list
+            people_to_show = [];
+            autocomplete_results.innerHTML = '';
+            autocomplete_results.style.display = 'none';
+        }
+    }
+    </script>
+</body>
+</html>
