@@ -49,11 +49,35 @@
 
 ### 4. Explain the following request and response headers:
 
+Helpful document: http://www.symkat.com/understanding-http-caching
+
+**Origin Server**
+* The HTTP server that the entity is originally served from and hosted on.
+
+**Caching Server**
+* An HTTP server that exists between the client and the origin server.
+* This could be a CDN caching server or caching proxy used on the client's network.
+* If it is used, then the origin server is not directly contacted by the Client, instead, the Client contacts the caching server, which in turn contacts the Origin.
+
+**Client**
+* The HTTP client that makes requests against a caching server or an origin server.
+
+**Entity/Entity Body** (Eg: An image, JavaScript, css, an HTML document)
+* The document being accessed.
+* An **entity** includes the headers, where the **entity-body** is only the asset being returned by the HTTP request. A
+
 **Diff. between Expires, Date, Age and If-Modified-...**
 
+
 **Do Not Track**
+* HTTP header, enables users to opt out of tracking by websites they do not visit, including analytics services, advertising networks, and social platforms
 
 **Cache-Control**
+
+Provides a mechanism for a server to give caching information about an asset to a client or to a caching server. Include:
+* max-age
+* s-age
+* must-revalidate
 
 **Transfer-Encoding**
 
