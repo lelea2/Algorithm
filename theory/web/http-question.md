@@ -26,14 +26,30 @@
 
 **Long-Polling (Ajax Polling)**
 
+* Client send HTTP request to server
+* The requested webpage executes JS which requests a file from the server.
+* The server waits until there's new information available, and response
+* The client receives the new information and immediately sends another request to the server, re-starting the process.
+
 **Websockets**
 
-**Server-Sent Events**
+* Client requests a webpage from a server using regular HTTP.
+* The requested webpage executes JS which opens a connection with the server.
+* Server and client sends each other messages when data available.
+* Real-time traffic from the server to the client, and from the client to the server
+* Need server that has an event loop
+* possible to **connect with a server from another domain**.
 
+**Server-Sent Events (HTML5 EventSource)**
+
+* Client requests a webpage from a server using regular HTTP .
+* Requested webpage executes javascript which opens a connection to the server.
+* The server sends an event to the client when there's new information available.
+* Real time traffic server, server will need an event loop
 
 ### 4. Explain the following request and response headers:
 
-** Diff. between Expires, Date, Age and If-Modified-...**
+**Diff. between Expires, Date, Age and If-Modified-...**
 
 **Do Not Track**
 
