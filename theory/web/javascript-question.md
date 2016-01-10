@@ -14,15 +14,10 @@ Reference from: https://medium.com/javascript-scene/10-interview-questions-every
 
 
 ### 3. What is the difference between classical inheritance and prototypal inheritance?
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
 
 First of, interesting comparison
 | Java           | JavaScript    |
-| ---            | ---           |
+| -------------- |:-------------:|
 | Strongly-typed | Loosely-typed |
 | Static         | Dynamic       |
 | Classical      | Prototypal    |
