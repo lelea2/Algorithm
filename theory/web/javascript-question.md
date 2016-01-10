@@ -188,10 +188,12 @@ App is made up of lots of smaller, independent applications capable of running i
 ### 10. What is asynchronous programming, and why is it important in JavaScript?
 
 **Synchrounous**
-Barring conditionals and function calls, code is executed sequentially from top-to-bottom, blocking on long-running tasks such as network requests and disk I/O.
+* Barring conditionals and function calls, code is executed sequentially from top-to-bottom, blocking on long-running tasks such as network requests and disk I/O.
 
 **Asynchrounous**
 * Engine runs in an event loop.
 * When a blocking operation is needed, the request is started, and the code keeps running without blocking for the result.
 * When the response is ready, an interrupt is fired, which causes an event handler to be run, where the control flow continues.
 * A single program thread can handle many concurrent operations.
+
+
