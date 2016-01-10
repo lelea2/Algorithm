@@ -197,3 +197,6 @@ App is made up of lots of smaller, independent applications capable of running i
 * A single program thread can handle many concurrent operations.
 
 
+### 11. Concurrency model and Event Loop in Javascript
+
+
