@@ -1,0 +1,23 @@
+.box1, .box2 {
+    width: 48%;
+    padding: 10px;
+    color: white;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+.box1 {
+    background-color: red;
+}
+.box2 {
+    background-color: pink;
+}
+.draggable {
+    background-color: orange;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid white;
+}
+.last {
+    background-color: lightblue;
+}
