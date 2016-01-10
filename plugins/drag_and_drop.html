@@ -40,7 +40,7 @@
         function drop(ev) { //Drop handling
             ev.preventDefault();
             var lastElement = document.getElementsByClassName('last');
-            for (var i=0; i<lastElement.length; i++){
+            for (var i=0; i < lastElement.length; i++) {
                 var elem = lastElement[i];
                 elem.className = elem.className.replace('last',"");
             }
