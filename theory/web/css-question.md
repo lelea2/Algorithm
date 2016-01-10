@@ -5,7 +5,7 @@
 * Margin
 
 ### 2. Explain what elements will match each of the following CSS selectors:
-
+```
 **div, p** - Selects all <div> elements and all <p> elements
 
 **div p** - Selects all <p> elements that are anywhere inside a <div> element
@@ -15,6 +15,7 @@
 **div + p** - Selects all <p> elements that are placed immediately after a <div> element
 
 **div ~ p** - Selects all <p> elements that are anywhere preceded by a <div> element
+```
 
 ### 3. CSS selectors (Begin with, end with, contains)
 
