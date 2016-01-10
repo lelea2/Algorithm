@@ -16,14 +16,14 @@ Reference from: https://medium.com/javascript-scene/10-interview-questions-every
 ### 3. What is the difference between classical inheritance and prototypal inheritance?
 
 First of, interesting comparison
-|Java | JavaScript |
-|--- | --- |
-|Strongly-typed | Loosely-typed |
-| Static | Dynamic |
-| Classical | Prototypal |
-| Classes | Functions |
-| Constructors | Functions |
-| Methods | Functions |
+| Java           | JavaScript    |
+| ---            | ---           |
+| Strongly-typed | Loosely-typed |
+| Static         | Dynamic       |
+| Classical      | Prototypal    |
+| Classes        | Functions     |
+| Constructors   | Functions     |
+| Methods        | Functions     |
 
 **Classical Inheritance**
 
@@ -141,7 +141,7 @@ Useful for:
 ### 9. What are the pros and cons of monolithic vs microservice architectures?
 
 
-### 10.
+### 10. What is asynchronous programming, and why is it important in JavaScript?
 
 
 
