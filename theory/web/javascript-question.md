@@ -14,21 +14,17 @@ Reference from: https://medium.com/javascript-scene/10-interview-questions-every
 
 
 ### 3. What is the difference between classical inheritance and prototypal inheritance?
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
 
 First of, interesting comparison
-| Java           | JavaScript    |   |
-| -------------- |:-------------:| -:|
-| Strongly-typed | Loosely-typed |   |
-| Static         | Dynamic       |   |
-| Classical      | Prototypal    |   |
-| Classes        | Functions     |   |
-| Constructors   | Functions     |   |
-| Methods        | Functions     |   |
+
+| Java           | JavaScript    |
+| -------------- |:-------------:|
+| Strongly-typed | Loosely-typed |
+| Static         | Dynamic       |
+| Classical      | Prototypal    |
+| Classes        | Functions     |
+| Constructors   | Functions     |
+| Methods        | Functions     |
 
 **Classical Inheritance**
 
@@ -132,16 +128,36 @@ Useful for:
 ### Functional Programming
 
 **Pros**
-
+* avoid any shared state or side-effects, which eliminates bugs caused by multiple functions competing for the same resources.
+* easy to scale across multiple processors, or across distributed computing clusters
 
 **Cons**
+* Steeper learning curve
 
 ### 7. What does “favor object composition over class inheritance” mean?
 
+use **can-do**, **has-a**, or **uses-a** relationships INSTEAD OF **is-a** relationships.
+
+* Avoid class hierarchies.
+* Avoid brittle base class problem.
+* Avoid tight coupling.
+* Avoid rigid taxonomy (forced is-a relationships that are eventually wrong for new use cases).
+* Make code more flexible.
 
 ### 8. What are two-way data binding and one-way data flow, and how are they different?
 
+*One way data flows are deterministic, whereas two-way binding can cause side-effects which are harder to follow and understand.*
 
+**Two-way data binding**
+
+* UI fields are bound to model data dynamically such that when a UI field changes, the model data changes with it and vice-versa.
+* Eg: AngularJS
+
+**One-way data flow**
+
+* Model is the single source of truth. Changes in the UI trigger messages that signal user intent to the model
+* Only the model has the access to change the app’s state.
+* The effect is that data always flows in a single direction, which makes it easier to understand.
 
 ### 9. What are the pros and cons of monolithic vs microservice architectures?
 
