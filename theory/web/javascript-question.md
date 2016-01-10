@@ -12,7 +12,6 @@ Reference from: https://medium.com/javascript-scene/10-interview-questions-every
 * Simple function composition.
 * Feature support Functional programming: first-class functions, higher order functions, functions as arguments/values.
 
-
 ### 3. What is the difference between classical inheritance and prototypal inheritance?
 
 First of, interesting comparison
@@ -112,10 +111,9 @@ Useful for:
 * Concatenative (i.e. mixins, `Object.assign()`).
 * Functional (Not to be confused with functional programming. A function used to create a closure for private state/encapsulation).
 
-
 ### 6. What are the pros and cons of functional programming vs object-oriented programming?
 
-### OOP
+#### OOP
 
 **Pros**
 * Basic concept of objects, easy to interpret the meaning of method calls
@@ -125,7 +123,7 @@ Useful for:
 * OOP Typically depends on shared state.
 * Objects and behaviors are typically tacked together on the same entity, which may be accessed at random by any number of functions with non-deterministic order, which may lead to undesirable behavior such as race conditions.
 
-### Functional Programming
+#### Functional Programming
 
 **Pros**
 * avoid any shared state or side-effects, which eliminates bugs caused by multiple functions competing for the same resources.
@@ -151,18 +149,49 @@ use **can-do**, **has-a**, or **uses-a** relationships INSTEAD OF **is-a** relat
 **Two-way data binding**
 
 * UI fields are bound to model data dynamically such that when a UI field changes, the model data changes with it and vice-versa.
-* Eg: AngularJS
+* *Eg*: AngularJS
 
 **One-way data flow**
 
 * Model is the single source of truth. Changes in the UI trigger messages that signal user intent to the model
 * Only the model has the access to change the app’s state.
 * The effect is that data always flows in a single direction, which makes it easier to understand.
+* *Eg*: ReactJs
 
 ### 9. What are the pros and cons of monolithic vs microservice architectures?
 
+####Monolithic
+
+App is written as one cohesive unit of code whose components are designed to work together, sharing the same memory space and resources.
+
+**Pros**
+* Cross-cutting concerns: logging, rate limiting, and security features such audit trails and DOS protection.
+* Easy to hook up on the same app level
+* Can be performance advantages, since shared-memory access is faster than inter-process communication (IPC).
+
+**Cons**
+* Tightly couple
+* Dedependecies, side-effects
+
+####Micro Service
+
+App is made up of lots of smaller, independent applications capable of running in their own memory space and scaling independently from each other across potentially many separate machines.
+
+**Pros**
+* Better organized, decoupled services, easy to re-compose or re-configured
+* Better performance, able to isolate hot services, scale them independently
+
+**Cons**
+* Incur the overhead of separate module
+* Higher cost for operation
 
 ### 10. What is asynchronous programming, and why is it important in JavaScript?
 
+**Synchrounous**
+Barring conditionals and function calls, code is executed sequentially from top-to-bottom, blocking on long-running tasks such as network requests and disk I/O.
 
-
+**Asynchrounous**
+* Engine runs in an event loop.
+* When a blocking operation is needed, the request is started, and the code keeps running without blocking for the result.
+* When the response is ready, an interrupt is fired, which causes an event handler to be run, where the control flow continues.
+* A single program thread can handle many concurrent operations.
