@@ -28,4 +28,36 @@ a[href*="css"] /** <a> tag contains substring css **/
 ```
 
 ### 4. CSS automatic numbering
-* Technique: using
+* Technique: using **counter-** property
+Eg:
+Markup
+```html
+<div id="page">
+  <h1>Heading Title</h1>
+  <h2>Subheading Title</h2>
+  <h2>Subheading Title</h2>
+  <h1>Heading Title</h1>
+  <h2>Subheading Title</h2>
+  <h1>Heading Title</h1>
+</div>
+```
+CSS
+```css
+#page {
+  counter-reset: heading;
+}
+
+h1:before {
+  content: counter(heading)") ";
+  counter-increment: heading;
+}
+
+h1 {
+  counter-reset: subheading;
+}
+
+h2:before {
+  content: counter(heading)"." counter(subheading)") ";
+  counter-increment: subheading;
+}
+```
