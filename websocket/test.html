@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+var ws;
+
+if ("WebSocket" in window) {
+ alert("WebSocket is supported by your Browser!");
+} else {
+ alert("WebSocket NOT supported by your Browser!");
+}
+
+function OpenWebSocket() {
+    ws = new WebSocket("ws://127.0.0.1:2687");
+    //ws = new WebSocket("wss://printer.cpnprt.com:4004");
+    ws.onopen = function() {
+        alert("Web socket has been opened");
+    };
+
+    ws.onmessage = function (evt) {
+        var received_msg = evt.data;
+        var obj = JSON.parse(received_msg);
+        if (obj.GetDeviceID) {
+            var deviceID = obj.GetDeviceID; //trim();
+            /*if (deviceID === '' || deviceID === null) {
+                alert("empty deviceid");
+            }*/
+            if (isNaN(parseInt(deviceID))) {
+                alert("Message Received: " + received_msg);
+            } else {
+                alert("Valid deviceID: " + deviceID);
+            }
+        } else {
+            alert("Message Received: " + received_msg);
+        }
+    };
+
+    ws.onclose = function() {
+        alert("Connection is closed");
+    };
+
+    ws.onerror = function(evt) {
+        alert("Error connecting to socket..." + evt.data);
+    };
+}
+</script>
+</body>
+</html>
+
