@@ -68,4 +68,80 @@ querySlectorAll is a generic purpose method. It is optimized for different kinds
 
 ### 6. How come, I can't use forEach or similar array methods on a NodeList?
 
+Not the same object,
+```javascript
+
+myArray --> Array.prototype --> Object.prototype --> null
+
+myNodeList --> NodeList.prototype --> Object.prototype --> null
+```
+
+Loop through nodelist as following
+
+```javascript
+var myNodeList = document.querySelectorAll('.my-class');
+var nodesArray = Array.prototype.slice.call(myNodeList);
+
+//use array method on nodeList
+nodesArray.forEach(function(el, idx){
+  console.log(idx, el);
+});
+```
+
+7. If you need to implement getElementByAttribute, how would you implement it?
+
+```javascript
+//Idea: get all the element in DOM, and find element that has attribute required
+function getElementsByAttribute(attribute) {
+    var allElements = document.getElementsByTagName('*'),
+        elm,
+        found=[];
+    for (var i = 0; i < allElements.length; i++) {
+        elm = allElements[i];
+        if (elm.getAttribute(attribute)) {
+            found.push(elm);
+        }
+    }
+    return found;
+}
+
+You CANNOT extend getElementsByAttribute to DOM, the explanation could be found in:
+http://perfectionkills.com/whats-wrong-with-extending-the-dom/
+
+8. Add class with no jQuery
+
+```javascript
+function addClass(selector, className) {
+   var elm = document.querySelector(selector);
+   if (elm) {
+      elm.classList.add(className);
+   }
+}
+
+//In IE9+
+el.classList.remove('my-class'); //removing a class
+el.classList.toggle('my-class');  // toggling a class
+el.classList.contains('my-class'); // checking whether class exists
+```
+
+9. How could I verify whether one element is child of another?
+
+Idea: First check whether the passed parent is the direct parent of the child. If not, keep moving upward to the root of the tree.
+
+```javascript
+function isDescendant(parent, child) {
+    while(child.parentNode) {
+        if(child.parentNode == parent) {
+            return true;
+        } else {
+            child = child.parentNode; //walk upward
+        }
+    }
+    return false;
+}
+```
+
+10. innerHTML vs appendChild
+
+
 
