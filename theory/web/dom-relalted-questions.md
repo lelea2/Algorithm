@@ -200,3 +200,25 @@ document.body.appendChild(fragment);
 * apply animation to the elements that are positioned fixed or absolute
 * avoid tables for layout
 
+### 13. How could you make sure to run some javaScript when DOM is ready like $(document).ready?
+
+**(1)** Put your script in the last tag of html body element. DOM would be ready by the time browser hits the script tag.
+
+**(2)** Place your code inside a DOMContentLoaded handler. This event will be fired when DOM is completely loaded.
+```javascript
+document.addEventListener('DOMContentLoaded', function(){
+   //put your script here
+});
+```
+**(3)** Watch changes in the readyState of the document. And the last state is "complete" state, you can put your code there.
+```javascript
+document.onreadystatechange = function () {
+    if (document.readyState == "complete") {
+        //put your script here
+    }
+}
+```
+
+### 14. Event bubble vs. Event capture
+
+
