@@ -221,4 +221,12 @@ document.onreadystatechange = function () {
 
 ### 14. Event bubble vs. Event capture
 
+**Event bubble**
 
+After an event triggers on the deepest possible element, it then triggers on parents in nesting order.
+
+**Event capture**
+
+2 stages of event processing
+
+The event first goes down - that’s called capturing, and then bubbles up. This behavior is standartized in W3C specification.
