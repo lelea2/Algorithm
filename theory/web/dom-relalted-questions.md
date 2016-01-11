@@ -88,7 +88,7 @@ nodesArray.forEach(function(el, idx){
 });
 ```
 
-7. If you need to implement getElementByAttribute, how would you implement it?
+### 7. If you need to implement getElementByAttribute, how would you implement it?
 
 ```javascript
 //Idea: get all the element in DOM, and find element that has attribute required
@@ -104,11 +104,12 @@ function getElementsByAttribute(attribute) {
     }
     return found;
 }
+```
 
 You CANNOT extend getElementsByAttribute to DOM, the explanation could be found in:
 http://perfectionkills.com/whats-wrong-with-extending-the-dom/
 
-8. Add class with no jQuery
+### 8. Add class with no jQuery
 
 ```javascript
 function addClass(selector, className) {
@@ -124,7 +125,7 @@ el.classList.toggle('my-class');  // toggling a class
 el.classList.contains('my-class'); // checking whether class exists
 ```
 
-9. How could I verify whether one element is child of another?
+### 9. How could I verify whether one element is child of another?
 
 Idea: First check whether the passed parent is the direct parent of the child. If not, keep moving upward to the root of the tree.
 
@@ -141,7 +142,61 @@ function isDescendant(parent, child) {
 }
 ```
 
-10. innerHTML vs appendChild
+### 10. innerHTML vs appendChild
 
+**innerHTML**
 
+* Browser removes all the current children of the elements. Parse the string and assign the parsed string to the element as children.
+* nnerHTML could be slow while parsing a string. Browser has to deal with the string (invalid html)
+
+```javascript
+var ul = document.getElementById('myList');
+
+el.innerHTML = '<li>Only one item</li>';
+```
+
+**appendChild**
+
+* create a new Element. Since you are creating it, browser doesnt have to parse string and there is no invalid html. And you can pass the child to the parent and child will be appended to the parent.
+
+* pass by reference: The reference you are passing will be removed from the current parent and will be added to the new parent you are appending to.
+
+```javascript
+
+var li = document.createElement("li");
+var text = document.createTextNode('Only one Item');
+
+li.appendChild(text);
+ul.appendChild(li);
+```
+
+### 11. What is createDocumentFragment and why you might use it?
+
+* **documentFragment** a very lightweight or minimal part of a DOM or a subtree of a DOM tree. It is very helpful when you are manipulating a part of DOM for multiple times. It becomes expensive to hit a certain portion of DOM for hundreds time. You might cause reflow for hundred times.
+
+```javascript
+//good practice. you causing reflow one time
+var fragment = document.createDocumentFragment(), //document fragment to access the DOM
+    list = ['foo', 'bar', 'baz', ...],
+    el, text;
+for (var i = 0; i < list.length; i++) {
+    el = document.createElement('li');
+    text = document.createTextNode(list[i]);
+    el.appendChild(text);
+    fragment.appendChild(el);
+}
+document.body.appendChild(fragment);
+```
+
+### 12. Reflow and why is it bad?
+
+* When you change size or position of an element in the page, all the elements after it has to change their position according to the changes you made. For example, if you change height on an element, all the elements under it has to move down in the page to accomodate a change in height. Hence, flow of the elements in the page is changed and this is called reflow.
+
+* Reflows could be very expensive and it might have a performance hit specially in the smaller devices like phone. As it might causes changes in the portion (or whole) layout of the page.
+
+**How to avoid**
+
+* avoid setting multiple inline style
+* apply animation to the elements that are positioned fixed or absolute
+* avoid tables for layout
 
