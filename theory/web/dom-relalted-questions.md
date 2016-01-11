@@ -249,3 +249,13 @@ $(<root-element>).delegate(<selector>, <event>, <event-handler>)
 * **Delegate** saves CPU when binding event handlers. Since it binds to "root" element, instead of potentially many more single descendant elements. Delegate will incur more CPU overhead when actual events occurs, since they have to bubble up to the DOM of the root element
 * **Bind** saves CPU when events trigger
 
+### 16. Defer vs Async in JS tag
+
+* HTML parser will ignore defer and async keyword for inline script (script that does not have a src attribute).
+
+* **normal:** When you have a plain script tag (no defer or async keyword), parser will pause parsing, script would be downloaded and exectuted. After that parsing resume.
+
+* **defer:** defer keyword in the script tag will defer the execution of the script. Hence script will be executed when DOM is available. Important point is, defer is not supported by all major major browsers.
+
+* **async:** If possible, set the execution of the script, asynchronously. async keyword has no effect on inline script
+Readmore on: https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/
