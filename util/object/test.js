@@ -82,3 +82,26 @@ function extendObj(obj1, obj2, clone) {
     }
     return origObj;
 }
+
+/**
+ * Checking object equality
+ * Notice: this only check for the first level of the object
+ */
+function isEqual(a, b) {
+    var aProps = Object.getOwnPropertyNames(a),
+        bProps = Object.getOwnPropertyNames(b);
+
+    if (aProps.length != bProps.length) {
+        return false;
+    }
+
+    for (var i = 0; i < aProps.length; i++) {
+        var propName = aProps[i];
+
+        if (a[propName] !== b[propName]) {
+            return false;
+        }
+    }
+    return true;
+}
+
