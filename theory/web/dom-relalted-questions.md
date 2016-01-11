@@ -221,12 +221,31 @@ document.onreadystatechange = function () {
 
 ### 14. Event bubble vs. Event capture
 
-**Event bubble**
+**Event bubble** (inner -> outer element)
 
 After an event triggers on the deepest possible element, it then triggers on parents in nesting order.
 
-**Event capture**
+**Event capture** (outer -> inner element)
 
 2 stages of event processing
 
 The event first goes down - that’s called capturing, and then bubbles up. This behavior is standartized in W3C specification.
+
+
+### 15. Event delegation vs. direct binding
+
+* Talk about adding complexity of elements on the page
+* CPU time effect
+
+```javascript
+//Direct binding
+$(<selector>).on(<event>, <event-handler>)
+//Delegate binding
+$(<root-element>).on(<event>, <selector>)
+$(<root-element>).delegate(<selector>, <event>, <event-handler>)
+
+```
+
+* **Delegate** saves CPU when binding event handlers. Since it binds to "root" element, instead of potentially many more single descendant elements. Delegate will incur more CPU overhead when actual events occurs, since they have to bubble up to the DOM of the root element
+* **Bind** saves CPU when events trigger
+
