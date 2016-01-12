@@ -200,3 +200,8 @@ App is made up of lots of smaller, independent applications capable of running i
 ### 11. Concurrency model and Event Loop in Javascript
 
 
+### 12. null vs. undefined
+
+
+
+

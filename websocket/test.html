@@ -6,27 +6,23 @@
 <script type="text/javascript">
 var ws;
 
-if ("WebSocket" in window) {
- alert("WebSocket is supported by your Browser!");
+if ("WebSocket" in window) { //Checking websocket is supported by browser
+    alert("WebSocket is supported by your Browser!");
 } else {
- alert("WebSocket NOT supported by your Browser!");
+    alert("WebSocket NOT supported by your Browser!");
 }
 
 function OpenWebSocket() {
-    ws = new WebSocket("ws://127.0.0.1:2687");
+    ws = new WebSocket("ws://127.0.0.1:2687"); //connect websocket to service
     //ws = new WebSocket("wss://printer.cpnprt.com:4004");
     ws.onopen = function() {
         alert("Web socket has been opened");
     };
-
     ws.onmessage = function (evt) {
         var received_msg = evt.data;
         var obj = JSON.parse(received_msg);
         if (obj.GetDeviceID) {
             var deviceID = obj.GetDeviceID; //trim();
-            /*if (deviceID === '' || deviceID === null) {
-                alert("empty deviceid");
-            }*/
             if (isNaN(parseInt(deviceID))) {
                 alert("Message Received: " + received_msg);
             } else {
@@ -36,7 +32,6 @@ function OpenWebSocket() {
             alert("Message Received: " + received_msg);
         }
     };
-
     ws.onclose = function() {
         alert("Connection is closed");
     };
