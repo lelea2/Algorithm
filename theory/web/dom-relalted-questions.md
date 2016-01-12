@@ -259,3 +259,5 @@ $(<root-element>).delegate(<selector>, <event>, <event-handler>)
 
 * **async:** If possible, set the execution of the script, asynchronously. async keyword has no effect on inline script
 Readmore on: https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/
+
+### 17.

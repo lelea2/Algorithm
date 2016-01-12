@@ -3,7 +3,7 @@
  */
 
 //Idea: find 2 largest number in the array and return them
-
+//Run time complexity: O(n)
 function largestSum(arr) {
     var biggest = arr[0],
         second = arr[1],
