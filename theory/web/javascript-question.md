@@ -5,6 +5,16 @@ Reference from: https://medium.com/javascript-scene/10-interview-questions-every
 * OOP programming -- Prototypal inheritance (also: prototypes, OLOO).
 * Functional programming (also: closures, first class functions, lambdas).
 
+Type that used in JS
+
+* String
+* Number
+* Boolean
+* Function
+* Object
+* Null
+* Undefined
+
 ### 2. Functional Progamming in JavaScript
 
 * Pure functions / function purity.
@@ -202,6 +212,36 @@ App is made up of lots of smaller, independent applications capable of running i
 
 ### 12. null vs. undefined
 
+### 13. What is the difference between “==” and “===”?
+
+**==** checks equality only,
+
+**===** checks for equality as well as the type.
+
+### 14. currentTarget vs. target in JS?
+
+Eg: http://jsfiddle.net/misteroneill/kmn4A/3/ (Outer div always currentTarget since it listen to the event, while either innerdiv or outerdiv is target depends on where user click on)
+
+**target** -- element that triggered event
+
+**currentTarget** -- element that listens to event.
 
 
+```javascript
+//Define current target and handle for IE8 cases
+target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+```
+
+### 15. Why is document.write considered a “bad practice”?
+
+***Pro:**
+
+* Easiest way to embed inline content from an external (to your host/domain) script.
+* You can overwrite the entire content in a frame/iframe. I used to use this technique a lot for menu/navigation pieces before more modern Ajax techniques were widely available (1998-2002).
+
+**Con:**
+
+* does not work in XHTML
+* It serializes the rendering engine to pause until said external script is loaded, which could take much longer than an internal script. ==> eventually blocking your whole page
+* Script is placed within the content, which is considered bad-form.
 
