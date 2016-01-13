@@ -25,3 +25,24 @@ public static double pow(double x, int n) {
         return power(x, n);
     }
 }
+
+
+//Another solution, cleaner that combine the logic above
+public double pow2(double x, int n) {
+    if (n == 0) {
+        return 1;
+    }
+    if (n == 1) {
+        return x;
+    }
+    if (n == 2) {
+        return x * x;
+    }
+    if (n % 2 == 0) { //even pow number
+        return pow2(pow2(x, n / 2), 2);
+    } else if (n > 0) { //odd pow number
+        return x * pow2(pow2(x, n / 2), 2);
+    } else { //(n <0) //pow number < 1
+        return 1 / x * pow2(pow2(x, n / 2), 2);
+    }
+}
