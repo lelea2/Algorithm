@@ -6,6 +6,7 @@
 
 //Math method: https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method
 //n: number for be square-rooted
+//Recusion of squirt till g = ng
 function squirt(n, g) {
     if (!g) {
         // Take an initial guess at the square root
@@ -19,7 +20,7 @@ function squirt(n, g) {
         return g;
     }
     // Recursively solve for closer and closer approximations of the square root
-    return squirt(n, ng);
+    return squirt(n, ng); //Recursion till g === ng
 }
 
 console.log(squirt(42)); // 6.48074069840786
