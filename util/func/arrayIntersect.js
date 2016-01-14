@@ -11,9 +11,11 @@
 function arrayIntersect(arr1, arr2) {
     var hashArr = {}, //hash value obj
         arr = [];//result array
+    //create a hash table from array 2
     for (var i = 0; i < arr2.length; i++) {
         hashArr[arr2[i]] = true;
     }
+    //Loop through array 1 then check if index of array 1 is in hashed key
     for (var j = 0; j < arr1.length; j++) {
         if (hashArr[arr1[j]] === true && arr.indexOf(arr1[j]) < 0) {
             arr.push(arr1[j]);
