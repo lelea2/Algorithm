@@ -210,15 +210,23 @@ App is made up of lots of smaller, independent applications capable of running i
 ### 11. Concurrency model and Event Loop in Javascript
 
 
-### 12. null vs. undefined
+### 12.1 null vs. undefined
 
-### 13. What is the difference between “==” and “===”?
+### 12.2 Difference between undefined and not defined in JavaScript
+
+* In JavaScript if you try to use a variable that doesn't exist and has not been declared, then JavaScript will throw an error var name is not defined and the script will stop execute thereafter. But If you use typeof undeclared_variable then it will return undefined.
+
+
+### 13.Difference between Function, Method and Constructor calls in JavaScript?
+
+
+### 14. What is the difference between “==” and “===”?
 
 **==** checks equality only,
 
 **===** checks for equality as well as the type.
 
-### 14. currentTarget vs. target in JS?
+### 15. currentTarget vs. target in JS?
 
 Eg: http://jsfiddle.net/misteroneill/kmn4A/3/ (Outer div always currentTarget since it listen to the event, while either innerdiv or outerdiv is target depends on where user click on)
 
@@ -226,13 +234,12 @@ Eg: http://jsfiddle.net/misteroneill/kmn4A/3/ (Outer div always currentTarget si
 
 **currentTarget** -- element that listens to event.
 
-
 ```javascript
 //Define current target and handle for IE8 cases
 target = (event.currentTarget) ? event.currentTarget : event.srcElement;
 ```
 
-### 15. Why is document.write considered a “bad practice”?
+### 16. Why is document.write considered a “bad practice”?
 
 ***Pro:**
 
@@ -244,4 +251,41 @@ target = (event.currentTarget) ? event.currentTarget : event.srcElement;
 * does not work in XHTML
 * It serializes the rendering engine to pause until said external script is loaded, which could take much longer than an internal script. ==> eventually blocking your whole page
 * Script is placed within the content, which is considered bad-form.
+
+### 17. What is the drawback of creating true private in JavaScript
+
+* Memory inefficient because a new copy of the method would be created for each instance.
+* Should NOT use private method unless it's really necessary
+* Example of private vs. public method
+
+```javascript
+var Employee = function (name, company, salary) {
+  this.name = name || "";       //Public attribute default value is null
+  this.company = company || ""; //Public attribute default value is null
+  this.salary = salary || 5000; //Public attribute default value is null
+
+  // Private method
+  var increaseSlary = function () {
+    this.salary = this.salary + 1000;
+  };
+
+  // Public method
+  this.dispalyIncreasedSalary = function() {
+    increaseSlary();
+    console.log(this.salary);
+  };
+};
+
+// Create Employee class object
+var emp1 = new Employee("John","Pluto",3000);
+// Create Employee class object
+var emp2 = new Employee("Merry","Pluto",2000);
+// Create Employee class object
+var emp3 = new Employee("Ren","Pluto",2500);
+```
+
+### 18. Explain **delete** operator and what it do
+
+* delete operator is used to delete a property from an object.
+*
 
