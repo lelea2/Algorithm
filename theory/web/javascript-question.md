@@ -235,7 +235,7 @@ while(queue.waitForMessage()){
 
 ### 12.1 null vs. undefined
 
-***undefined** -- value of the variable is not defined, undefined is a type. Assigning a new value to it does not change the value of the type undefined.
+**undefined** -- value of the variable is not defined, undefined is a type. Assigning a new value to it does not change the value of the type undefined.
 
 **null** -- means empty or non-existent value ("no-value"), primitive value & can assign null to any variable. null is NOT object, but primitive value, typeof null is object though
 
@@ -331,7 +331,6 @@ At the time of execution of function, JavaScript engine sets a property to the f
 #### Host object
 
 * provided by the browser environment.
-
 * Eg: window, document, location, history, XMLHttpRequest, setTimeout, getElementsByTagName, querySelectorAll
 
 #### User object
@@ -346,11 +345,11 @@ Read: http://programmers.stackexchange.com/questions/104320/why-is-extending-the
 * Performance overhead (manual extension in older browser, slow, inconvenient & don't scale)
 * IE is really bad!
 
-### Why does nearly every object have a toString method?
+### 24. Why does nearly every object have a toString method?
 
 Most inherited from Object.prototype or define it on its own (or inherit it from their custom prototype). ==> inherit toString() method from the interface/parent
 
-### 24. How would you apply asynchronous call without any help of library?
+### 25. How would you apply asynchronous call without any help of library?
 Read: http://krasimirtsonev.com/blog/article/7-lines-JavaScript-library-for-calling-asynchronous-functions
 
 ```javascript
@@ -382,7 +381,7 @@ queue([
 ], obj);
 ```
 
-### 25. What is the difference between slice, substr, substring?
+### 26. What is the difference between slice, substr, substring?
 
 * String.slice( begin [, end ] ) ==> result of substring will NOT contain character at final index
 * String.substring( from [, to ] ) ==> result of substring will NOT contain character at final index

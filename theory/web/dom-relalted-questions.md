@@ -275,10 +275,10 @@ target = (event.currentTarget) ? event.currentTarget : event.srcElement;
 
 ### 18. Why is document.write considered a “bad practice”?
 
-***Pro:**
+**Pro:**
 
 * Easiest way to embed inline content from an external (to your host/domain) script.
-* You can overwrite the entire content in a frame/iframe. I used to use this technique a lot for menu/navigation pieces before more modern Ajax techniques were widely available (1998-2002).
+* You can overwrite the entire content in a frame/iframe. (when needed)
 
 **Con:**
 
