@@ -309,4 +309,52 @@ var emp3 = new Employee("Ren","Pluto",2500);
 ### 20. What are the way by which we can create object in JavaScript ?
 
 
+### 21. What is "this" in JS?
+
+At the time of execution of function, JavaScript engine sets a property to the function called "this" which refer to the current execution context. this is **always** refer to an object and depends on how function is called.
+
+* In the global context or inside a function this refers to the window object.
+* Inside IIFE (immediate invoking function) if you use "use strict", value of this is undefined. To pass access window inside IIFE with "use strict", you have to pass this.
+* While executing a function in the context of an object, the object becomes the value of this
+* Inside a setTimeout function, the value of this is the window object.
+* If you use a constructor (by using new keyword) to create an object, the value of this will refer to the newly created object.
+* You can set the value of this to any arbitrary object by passing the object as the first parameter of bind, call or apply
+* For dom event handler, value of this would be the element that fired the event
+
+### 22. What are differences between host object and native object?
+
+#### Native object
+
+* core predefined objects always available in JavaScript. Defined in the ECMAScript spec.
+* Eg: Object (constructor), Date, Math, parseInt, eval, string methods like indexOf and replace, array methods, ...
+
+#### Host object
+
+* provided by the browser environment.
+
+* Eg: window, document, location, history, XMLHttpRequest, setTimeout, getElementsByTagName, querySelectorAll
+
+#### User object
+
+* objects defined in JavaScript code
+
+### 23. Why extending build in JavaScript object is a bad idea?
+Read: http://programmers.stackexchange.com/questions/104320/why-is-extending-the-dom-built-in-object-prototypes-a-bad-idea
+* Lack of specification
+* Host objects have no rules
+* Chance of collisions
+* Performance overhead (manual extension in older browser, slow, inconvenient & don't scale)
+* IE is really bad!
+
+### Why does nearly every object have a toString method?
+
+Most inherited from Object.prototype or define it on its own (or inherit it from their custom prototype). ==> inherit toString() method from the interface/parent
+
+### 24. How would you apply asynchronous call without any help of library?
+Read: http://krasimirtsonev.com/blog/article/7-lines-JavaScript-library-for-calling-asynchronous-functions
+
+```javascript
+
+
+```
 
