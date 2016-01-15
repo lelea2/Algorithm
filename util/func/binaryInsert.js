@@ -6,6 +6,7 @@
 //In this problem solving, no duplicated record will be insert,
 //if element already existed in the array, then we don't insert that anymore
 //Recursive solution
+//Run time: O(log(n))
 
 function binaryInsert(value, array, startVal, endVal) {
     var length = array.length;
@@ -33,12 +34,12 @@ function binaryInsert(value, array, startVal, endVal) {
         return;
     }
     //Walk the binary tree as following
-    //Walk left
+    //Walk left array portion
     if(value < array[m]) {
         binaryInsert(value, array, start, m - 1);
         return;
     }
-    //Walk right
+    //Walk right array portion
     if(value > array[m]) {
         binaryInsert(value, array, m + 1, end);
         return;

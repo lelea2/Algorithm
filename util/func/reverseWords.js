@@ -23,7 +23,7 @@ function reverseWords2(str) {
         wordLen = 1;
     for (var i = str.length - 1; i >= 0; i--) {
         if (str[i] === ' ' || i === 0) { //If encounter white space or first index
-            revArr.push(str.subStr(i, wordLen + 1));
+            revArr.push(str.subStr(i, wordLen + 1)); //push string into array
             wordLen = 0;
         } else { //If have not encounter white space or last index, increment wordLen
             wordLen++;

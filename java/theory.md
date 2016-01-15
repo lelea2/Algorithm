@@ -33,3 +33,17 @@ class TreeNode {
 
 ```
 
+### 3. Java Map
+
+```java
+//Get key from hashmap that contains value
+public Character getKey(HashMap<Character,Character> map, Character target) {
+    //Checking for loop
+    for (Map.Entry<Character,Character> entry : map.entrySet()) {
+        if (entry.getValue().equals(target)) { //if value === target given, then return the key
+            return entry.getKey();
+        }
+    }
+    return null;
+}
+```

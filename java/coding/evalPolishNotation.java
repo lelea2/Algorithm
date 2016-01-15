@@ -12,30 +12,34 @@ public static int evalRPN(String[] tokens) {
     int returnValue = 0;
     String operators = "+-*/"; //Store allowed operations
     Stack<String> stack = new Stack<String>(); //Create stack
-    for (String t : tokens) { //Loop through array of char given
-        if (!operators.contains(t)) { //push to stack if it is a number
-            stack.push(t);
-        } else {//pop numbers from stack if it is an operator
-            int a = Integer.valueOf(stack.pop());
-            int b = Integer.valueOf(stack.pop());
-            switch (t) { //String statement (JDK 1.7)
-            case "+":
-                stack.push(String.valueOf(a + b));
-                break;
-            case "-":
-                stack.push(String.valueOf(b - a));
-                break;
-            case "*":
-                stack.push(String.valueOf(a * b));
-                break;
-            case "/":
-                stack.push(String.valueOf(b / a));
-                break;
+    try {
+        for (String t : tokens) { //Loop through array of char given
+            if (!operators.contains(t)) { //push to stack if it is a number
+                stack.push(t);
+            } else {//pop numbers from stack if it is an operator
+                int a = Integer.valueOf(stack.pop());
+                int b = Integer.valueOf(stack.pop());
+                switch (t) { //String statement (JDK 1.7)
+                case "+":
+                    stack.push(String.valueOf(a + b));
+                    break;
+                case "-":
+                    stack.push(String.valueOf(b - a));
+                    break;
+                case "*":
+                    stack.push(String.valueOf(a * b));
+                    break;
+                case "/":
+                    stack.push(String.valueOf(b / a));
+                    break;
+                }
             }
         }
+        returnValue = Integer.valueOf(stack.pop());
+    } catch(Exception ex) {
+        //We should catch for exception, case that array given is not valid format, and action cannot be perform
+        System.out.println("Exception evaluate the expression");
     }
-
-    returnValue = Integer.valueOf(stack.pop());
 
     return returnValue;
 }
