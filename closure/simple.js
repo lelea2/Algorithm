@@ -9,6 +9,6 @@
     })(2)
 })(1);
 
-//The value in console.log will be 1
+//RESULT: 1
 //Reason: in closure, inner function still have access to outer function variable, therefore, x is defined,
 //since it is considered as outer function variable for inner function
