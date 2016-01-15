@@ -363,7 +363,7 @@ var emp3 = new Employee("Ren","Pluto",2500);
 
 ```
 
-### 17. Explain **delete** operator and what it do
+### 17. Explain **delete** operator and what it does
 
 * delete operator is used to delete a property from an object
 * delete operator DOES NOT affect local/or global variable
@@ -435,7 +435,64 @@ Read: http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-an
 
 ### 19.2 How to check if an object is an array or not?
 
-### 19.3 What are the way by which we can create object in JavaScript?
+* The best way to find whether an object is instance of a particular class or not using **toString** method from Object.prototype
+```javascript
+if(Object.prototype.toString.call(arrayList) === '[object Array]') {
+    console.log('Array!');
+}
+```
+With mordern browser, **Array.isArray()** method can also be used
+
+### 19.3 What are the way by which we can create object in JavaScript? - 3 ways
+
+#### (1) Function Based
+```javascript
+  function Employee(fName, lName, age, salary) {
+    this.firstName = fName;
+    this.lastName = lName;
+    this.age = age;
+    this.salary = salary;
+  }
+
+  // Creating multiple object which have similar property but diff value assigned to object property.
+  var employee1 = new Employee('John', 'Moto', 24, '5000$');
+  var employee2 = new Employee('Ryan', 'Jor', 26, '3000$');
+}
+```
+
+#### (2) Object Literal
+* Object Literal is best way to create an object and this is used frequently.
+```javascript
+var employee = {
+    name : 'Nishant',
+    salary : 245678,
+    getName : function(){
+        return this.name;
+    }
+}
+//or nested object
+var employee = {
+    name : 'Nishant',
+    salary : 245678,
+    address : {
+        addressLine1 : 'BITS Pilani',
+        addressLine2 : 'Vidya Vihar'.
+        phoneNumber: {
+          workPhone: 7098889765,
+          homePhone: 1234567898
+        }
+    }
+}
+```
+
+#### (3) Using JavaScript new keyword
+```javscript
+var employee = new Object(); // Created employee object using new keywords and Object()
+employee.name = 'Nishant';
+employee.getName = function(){
+    return this.name;
+}
+```
 
 ### 19.4 How to empty an array in JavaScript?
 
@@ -536,4 +593,13 @@ Enforce stricter parsing and error handling on your JavaScript code at runtime. 
 
 **Throws error on invalid usage of delete.** -- The delete operator (used to remove properties from objects) cannot be used on non-configurable properties of the object. Non-strict code will fail silently when an attempt is made to delete a non-configurable property, whereas strict mode will throw an error in such a case.
 
+### 28. What is a closure in JS?
+* function defined inside another function (called parent function) and has access to the variable which is declared and defined in parent function scope. (Inner function vs. outer function)
+
+**The closure has access to variable in three scopes:**
+* Variable declared in his own scope
+* Variable declared in parent function scope
+* Variable declared in global namespace
+
+### 29. Name function expression
 
