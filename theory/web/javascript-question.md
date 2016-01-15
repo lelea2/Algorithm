@@ -354,7 +354,36 @@ Most inherited from Object.prototype or define it on its own (or inherit it from
 Read: http://krasimirtsonev.com/blog/article/7-lines-JavaScript-library-for-calling-asynchronous-functions
 
 ```javascript
-
-
+var queue = function(funcs, scope) {
+    (function next() {
+          if(funcs.length > 0) {
+              funcs.shift().apply(scope || {}, [next].concat(Array.prototype.slice.call(arguments, 0)));
+          }
+    })();
+};
+var obj = {
+    value: null
+};
+queue([
+    function(callback) {
+        var self = this;
+        setTimeout(function() {
+            self.value = 10;
+            callback(20);
+        }, 200);
+    },
+    function(callback, add) {
+        console.log(this.value + add);
+        callback();
+    },
+    function() {
+        console.log(obj.value);
+    }
+], obj);
 ```
 
+### 25. What is the difference between slice, substr, substring?
+
+* String.slice( begin [, end ] ) ==> result of substring will NOT contain character at final index
+* String.substring( from [, to ] ) ==> result of substring will NOT contain character at final index
+* String.substr( start [, length ] )
