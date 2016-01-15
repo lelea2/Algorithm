@@ -328,7 +328,7 @@ emp1.age; // 28
 
 **===** checks for equality as well as the type.
 
-### 15. What is the drawback of creating true private in JavaScript
+### 15. What is the drawback of creating true private in JavaScript? -- NOT RECOMMENDED
 
 * Memory inefficient because a new copy of the method would be created for each instance.
 * Should NOT use private method unless it's really necessary
@@ -358,6 +358,9 @@ var emp1 = new Employee("John","Pluto",3000);
 var emp2 = new Employee("Merry","Pluto",2000);
 // Create Employee class object
 var emp3 = new Employee("Ren","Pluto",2500);
+
+//Result: Here each instance variable emp1, emp2, emp3 has own copy of increaseSalary private method.
+
 ```
 
 ### 17. Explain **delete** operator and what it do
