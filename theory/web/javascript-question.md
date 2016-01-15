@@ -362,9 +362,52 @@ var emp3 = new Employee("Ren","Pluto",2500);
 
 ### 17. Explain **delete** operator and what it do
 
-* delete operator is used to delete a property from an object.
-*
+* delete operator is used to delete a property from an object
+* delete operator DOES NOT affect local/or global variable
+* delete operator DOSE NOT delete prototype property.
 
+DOES NOT delete local variable
+```javascript
+var output = (function(x) {
+  delete x;
+  return x;
+})(0);
+
+console.log(output); //Output: 0
+```
+
+DOES NOT delete local variable
+```javascript
+var x = 1;
+var output = (function() {
+  delete x;
+  return x;
+})();
+
+console.log(output); //Output: 1
+```
+
+DELETE property from object
+```javascript
+var x = { foo : 1};
+var output = (function() {
+  delete x.foo;
+  return x.foo;
+})();
+
+console.log(output); //Output: undefined
+```
+
+DOES NOT delete prototype property
+```javascript
+var Employee = {
+  company: 'xyz'
+};
+var emp1 = Object.create(Employee); //emp1 object doesn't have company as its own property
+delete emp1.company;
+console.log(emp1.company); //Output: 'xyz'
+
+```
 
 ### 18. What is JavaScript Self-Invoking anonymous function or Self-Executing anonymous function.
 (notice: these 2 names are meant for the same thing!!!)
@@ -383,12 +426,15 @@ var emp3 = new Employee("Ren","Pluto",2500);
 })();
 ```
 
-### 19. What is the difference between array vs. object?
+### 19.1 What is the difference between array vs. object?
 
 Read: http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/
 
-### 20. What are the way by which we can create object in JavaScript ?
+### 19.2 How to check if an object is an array or not?
 
+### 19.3 What are the way by which we can create object in JavaScript?
+
+### 19.4 How to empty an array in JavaScript?
 
 ### 21. What is "this" in JS?
 
