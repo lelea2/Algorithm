@@ -208,14 +208,50 @@ App is made up of lots of smaller, independent applications capable of running i
 
 
 ### 11. Concurrency model and Event Loop in Javascript
+Read: https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
 
+* JavaScript has a concurrency model based on an "event loop"
+
+**Runtime conception:**
+
+* stack: Function calls form a stack of frames.
+* heap: Objects are allocated in a heap which is just a name to denote a large mostly unstructured region of memory.
+* queue: A JavaScript runtime contains a message queue, which is a list of messages to be processed. When the stack is empty, a message is taken out of the queue and processed. The processing consists of calling the associated function (and thus creating an initial stack frame). The message processing ends when the stack becomes empty again
+
+#### Eventloop
+* Each message is processed completely before any other message is processed
+* messages are added any time an event occurs and there is an event listener attached to it. If there is no listener, the event is lost
+* execution depends on the number of awaiting tasks in the queue
+* A web worker or a cross-origin iframe has its own stack, heap, and message queue. Two distinct runtimes can only communicate through sending messages via the postMessage method
+
+```
+while(queue.waitForMessage()){
+  queue.processNextMessage();
+}
+```
+
+#### Non-blocking I/O
+* Handling I/O is typically performed via events and callbacks, so when the application is waiting for an IndexedDB query to return or an XHR request to return, it can still process other things like user input.
 
 ### 12.1 null vs. undefined
+
+***undefined** -- value of the variable is not defined, undefined is a type. Assigning a new value to it does not change the value of the type undefined.
+
+**null** -- means empty or non-existent value ("no-value"), primitive value & can assign null to any variable. null is NOT object, but primitive value, typeof null is object though
 
 ### 12.2 Difference between undefined and not defined in JavaScript
 
 * In JavaScript if you try to use a variable that doesn't exist and has not been declared, then JavaScript will throw an error var name is not defined and the script will stop execute thereafter. But If you use typeof undeclared_variable then it will return undefined.
+```javascript
+var x; // declaring x
+console.log(x); //output: undefined
 
+var x; // Declaration
+if(typeof x === 'undefined') // Will return true
+
+console.log(y);  // Output: ReferenceError: y is not defined
+
+```
 
 ### 13.Difference between Function, Method and Constructor calls in JavaScript?
 
@@ -226,33 +262,7 @@ App is made up of lots of smaller, independent applications capable of running i
 
 **===** checks for equality as well as the type.
 
-### 15. currentTarget vs. target in JS?
-
-Eg: http://jsfiddle.net/misteroneill/kmn4A/3/ (Outer div always currentTarget since it listen to the event, while either innerdiv or outerdiv is target depends on where user click on)
-
-**target** -- element that triggered event
-
-**currentTarget** -- element that listens to event.
-
-```javascript
-//Define current target and handle for IE8 cases
-target = (event.currentTarget) ? event.currentTarget : event.srcElement;
-```
-
-### 16. Why is document.write considered a “bad practice”?
-
-***Pro:**
-
-* Easiest way to embed inline content from an external (to your host/domain) script.
-* You can overwrite the entire content in a frame/iframe. I used to use this technique a lot for menu/navigation pieces before more modern Ajax techniques were widely available (1998-2002).
-
-**Con:**
-
-* does not work in XHTML
-* It serializes the rendering engine to pause until said external script is loaded, which could take much longer than an internal script. ==> eventually blocking your whole page
-* Script is placed within the content, which is considered bad-form.
-
-### 17. What is the drawback of creating true private in JavaScript
+### 15. What is the drawback of creating true private in JavaScript
 
 * Memory inefficient because a new copy of the method would be created for each instance.
 * Should NOT use private method unless it's really necessary
@@ -284,8 +294,19 @@ var emp2 = new Employee("Merry","Pluto",2000);
 var emp3 = new Employee("Ren","Pluto",2500);
 ```
 
-### 18. Explain **delete** operator and what it do
+### 17. Explain **delete** operator and what it do
 
 * delete operator is used to delete a property from an object.
 *
+
+
+### 18. What is JavaScript Self-Invoking anonymous function or Self-Executing anonymous function.
+
+
+### 19. What is the difference between array vs. object?
+
+
+### 20. What are the way by which we can create object in JavaScript ?
+
+
 

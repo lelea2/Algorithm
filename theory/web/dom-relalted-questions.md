@@ -260,4 +260,28 @@ $(<root-element>).delegate(<selector>, <event>, <event-handler>)
 * **async:** If possible, set the execution of the script, asynchronously. async keyword has no effect on inline script
 Readmore on: https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/
 
-### 17.
+### 17. currentTarget vs. target in JS?
+
+Eg: http://jsfiddle.net/misteroneill/kmn4A/3/ (Outer div always currentTarget since it listen to the event, while either innerdiv or outerdiv is target depends on where user click on)
+
+**target** -- element that triggered event
+
+**currentTarget** -- element that listens to event.
+
+```javascript
+//Define current target and handle for IE8 cases
+target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+```
+
+### 18. Why is document.write considered a “bad practice”?
+
+***Pro:**
+
+* Easiest way to embed inline content from an external (to your host/domain) script.
+* You can overwrite the entire content in a frame/iframe. I used to use this technique a lot for menu/navigation pieces before more modern Ajax techniques were widely available (1998-2002).
+
+**Con:**
+
+* does not work in XHTML
+* It serializes the rendering engine to pause until said external script is loaded, which could take much longer than an internal script. ==> eventually blocking your whole page
+* Script is placed within the content, which is considered bad-form.
