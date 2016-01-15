@@ -8,9 +8,9 @@ function formatDate(userDate) {
     var m = returnDate.getMonth() + 1;
     var d = returnDate.getDay();
 
-    y = y.toString();
-    m = m.toString();
-    d = d.toString();
+    y = y.toString(); //convert to string
+    m = m.toString(); //convert to string
+    d = d.toString(); //convert to string
     if (m.length == 1) {
         m = '0' + m;
     }

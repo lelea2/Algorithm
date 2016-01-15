@@ -68,7 +68,6 @@ Helpful document: http://www.symkat.com/understanding-http-caching
 
 **Diff. between Expires, Date, Age and If-Modified-...**
 
-
 **Do Not Track**
 * HTTP header, enables users to opt out of tracking by websites they do not visit, including analytics services, advertising networks, and social platforms
 
@@ -79,11 +78,24 @@ Provides a mechanism for a server to give caching information about an asset to 
 * s-age
 * must-revalidate
 
-**Transfer-Encoding**
+**Transfer-Encoding -- Transfer-Encoding: chunked**
+* data transfer mechanism, data is sent in series of "chunk"
+* isn't needed for progressive rendering. However, it is needed when the total content length is unknown before the first bytes are sent.
+* Because the Content-Length header is not used, the sender does not need to know the length of the content before it starts transmitting a response to the receiver. Senders can begin transmitting dynamically-generated content before knowing the total size of that content.
+* The size of each chunk is sent right before the chunk itself so that the receiver can tell when it has finished receiving data for that chunk. The data transfer is terminated by a final chunk of length zero.
 
 **ETag**
+* response-header field provides the current value of the entity tag for the requested variant
+* If-not-match check
 
 **X-Frame-Options**
+* indicate whether or not a browser should be allowed to render a page in a <frame>, <iframe> or <object> . Sites can use this to avoid clickjacking attacks, by ensuring that their content is not embedded into other sites
+
+**Possible value**
+
+* DENY: The page cannot be displayed in a frame, regardless of the site attempting to do so.
+* SAMEORIGIN - The page can only be displayed in a frame on the same origin as the page itself.
+* ALLOW-FROM uri -- The page can only be displayed in a frame on the specified origin.
 
 ### 5. What are HTTP actions? List all HTTP actions that you know, and explain them.
 

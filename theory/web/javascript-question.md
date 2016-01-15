@@ -1,4 +1,8 @@
-Reference from: https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95#.gh7cuu59z
+--Reference from:
+
+https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95#.gh7cuu59z
+
+https://github.com/nishant8BITS/123-Essential-JavaScript-Interview-Question
 
 ### 1. Name two programming paradigms important for JavaScript app developers?
 
@@ -207,7 +211,7 @@ App is made up of lots of smaller, independent applications capable of running i
 * A single program thread can handle many concurrent operations.
 
 
-### 11. Concurrency model and Event Loop in Javascript
+### 11.1 Concurrency model and Event Loop in Javascript
 Read: https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
 
 * JavaScript has a concurrency model based on an "event loop"
@@ -233,6 +237,27 @@ while(queue.waitForMessage()){
 #### Non-blocking I/O
 * Handling I/O is typically performed via events and callbacks, so when the application is waiting for an IndexedDB query to return or an XHR request to return, it can still process other things like user input.
 
+### 11.2 Trick to eliminate stackoverflow on loop function
+
+```javascript
+var list = readHugeList();
+
+var nextListItem = function() {
+    var item = list.pop();
+
+    if (item) {
+        // process the list item...
+        //If we don't have setTimeout yet just call nextListItem(), stackoverflow might happen
+        //callstack need to remain clear ==> so use event loop concept here
+        setTimeout( nextListItem, 0);
+    }
+};
+```
+* The stack overflow is eliminated because the **event loop** handles the recursion, not the call stack.
+* When nextListItem runs, if item is not null, the timeout function (nextListItem) is pushed to the event queue and the function exits, thereby leaving the call stack clear.
+* When the event queue runs its timed-out event, the next item is processed and a timer is set to again invoke nextListItem.
+* Accordingly, the method is processed from start to finish **without a direct recursive call**, so the call stack remains clear, regardless of the number of iterations.
+
 ### 12.1 null vs. undefined
 
 **undefined** -- value of the variable is not defined, undefined is a type. Assigning a new value to it does not change the value of the type undefined.
@@ -253,8 +278,49 @@ console.log(y);  // Output: ReferenceError: y is not defined
 
 ```
 
-### 13.Difference between Function, Method and Constructor calls in JavaScript?
+### 13. Difference between Function, Method and Constructor calls in JavaScript? (OOP concept)
 
+**functions** -- not associated with object hence not invoked through any object.
+
+```javascript
+function helloWorld(name) {
+    return "hello world, " + name;
+}
+
+helloWorld("JS Geeks"); // "hello world JS Geeks"
+```
+
+**method** -- object properties that reference to a function
+
+```javascript
+var obj = {
+    helloWorld : function() {
+      return "hello world, " + this.name;
+    },
+    name: 'John Carter'
+}
+obj.helloWorld(); // // "hello world John Carter"
+
+//can copy a reference to the same function helloWorld in another object and get a difference answer
+var obj2 = {
+    helloWorld : obj.helloWorld,
+    name: 'John Doe'
+}
+obj2.helloWorld(); // "hello world John Doe"
+```
+
+**constructors** -- defined with function, primary role is to define the object. Unlike function or method call, constructor call create brand new object and pass it as the value of this, implicitly returns **new object** as its result
+
+```javascript
+function Employee(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+var emp1 = new Employee('John Doe', 28);
+emp1.name; // "John Doe"
+emp1.age; // 28
+```
 
 ### 14. What is the difference between “==” and “===”?
 
@@ -301,10 +367,25 @@ var emp3 = new Employee("Ren","Pluto",2500);
 
 
 ### 18. What is JavaScript Self-Invoking anonymous function or Self-Executing anonymous function.
+(notice: these 2 names are meant for the same thing!!!)
 
+* Runs immediately/automatically when we define it and self-invoking anonymous function doesn't have any name at all.
+
+```javascript
+// Named Self-invoking Function
+(function myFunc() {
+  // Do some stuff;
+})();
+
+// Anonymous Self-invoking Function
+(function() {
+  // Do some stuff;
+})();
+```
 
 ### 19. What is the difference between array vs. object?
 
+Read: http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/
 
 ### 20. What are the way by which we can create object in JavaScript ?
 
