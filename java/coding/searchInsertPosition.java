@@ -12,4 +12,15 @@
 //Walk array left if the midpoint > given value
 //Walk array right if midpoint < given value
 
-
+public static int searchInsert(int[] A, int target, int start, int end) {
+    int startIndex = (start == null) ? 0 : start;
+    int endIndex = (end == null) ? (A.length - 1) : end;
+    int mid = (startIndex + endIndex)/2;
+    if (target == A[mid]) {
+        return mid;
+    } else if(target < A[mid]) { //return 0 if mid index is < startIndex
+        return (startIndex < mid) ? searchInsert(A, target, startIndex, mid-1) : startIndex;
+    } else { //return endIndex+1 if mid index > endIndex
+        return (endIndex > mid) ? searchInsert(A, target, mid+1, endIndex) : (endIndex+1);
+    }
+}
