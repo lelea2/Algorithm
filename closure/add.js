@@ -9,6 +9,17 @@ function sum(a) {
 }
 //Test: sum(1)(2);
 
+function sum3(a) {
+    return function(b) {
+        return function(c) {
+            return a + b + c;
+        };
+    };
+}
+//Test: sum3(1)(2)(3)
+
+
+//COMMON CASES (handle as many as possible arguments)
 /**
  * 2. Create a function sum that will work like that: sum(a)(b) = a+b and accepts any number of brackets.
  * @method sumAll
