@@ -11,7 +11,7 @@
 function arrayIntersect(arr1, arr2) {
     var hashArr = {}, //hash value obj
         arr = [];//result array
-    //create a hash table from array 2, assume that array 2 is larger
+    //create a hash table from array 2, assume that array 2 is smaller
     for (var i = 0; i < arr2.length; i++) {
         hashArr[arr2[i]] = true;
     }
@@ -23,3 +23,13 @@ function arrayIntersect(arr1, arr2) {
     }
     return arr;
 }
+
+//Alternavtive
+//We could also use array.filter to do this
+function arrayIntersect2(a, b) {
+    return a.filter(function(i) {
+        return b.indexOf(i) > -1;
+    });
+}
+
+result = arrayIntersect2(alpha, beta);

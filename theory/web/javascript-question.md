@@ -609,4 +609,4 @@ Enforce stricter parsing and error handling on your JavaScript code at runtime. 
 ### 29. Name function expression
 
 
-### 30. Difference between setTimeout() and setInterval()?
+### 30. Javascript Timer -- Difference between setTimeout() and setInterval()?

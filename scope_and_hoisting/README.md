@@ -37,3 +37,15 @@ foo();//?
 **Result:** 8
 
 * As function declaration is get hoisted. the first bar is at the top and second bar after the return will also be hoisted. Since there is already a bar (first function declaration), the second one will replace the first one. As there could be one function for a single name and the last one stays. Hence, when you executing bar, you are executed the second one (after hoisting) and you get.
+
+#### Example3
+
+```javascript
+var foo = "hello";
+function fxn() {
+    alert(foo); //undefined
+    var foo = "bai";
+}
+fxn();
+alert(foo); //foo
+```

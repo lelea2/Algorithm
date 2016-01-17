@@ -1,4 +1,6 @@
-Referenced from http://www.toptal.com/sql/interview-questions
+Referenced
+* http://www.toptal.com/sql/interview-questions
+* http://www.techrepublic.com/blog/software-engineer/sql-server-database-developer-interview-questions-and-answers/
 
 ### 1. What does UNION do? What is the difference between UNION and UNION ALL?
 

@@ -63,24 +63,19 @@ function cloneObj(obj) {
  * This function will only extend the first level
  * @method extendObj
  */
-function extendObj(obj1, obj2, clone) {
+function extendObj(obj1, obj2) {
     var origObj;
     // Don't do anything if add isn't an object
     if (!obj2 || typeof obj2 !== 'object') {
         return obj1;
     }
-    if (clone === true) { //if cloneObj set to true, clone initial object first before extend it
-        origObj = cloneObj(obj1);
-    } else {
-        origObj = obj1;
-    }
 
     var keys = Object.keys(obj2),
         i = keys.length;
     while (i--) {
-        origObj[keys[i]] = obj2[keys[i]];
+        obj1[keys[i]] = obj2[keys[i]];
     }
-    return origObj;
+    return obj1;
 }
 
 /**
