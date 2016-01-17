@@ -431,7 +431,12 @@ console.log(emp1.company); //Output: 'xyz'
 
 ### 19.1 What is the difference between array vs. object?
 
-Read: http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/
+* Read: http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/
+
+#### Object
+
+
+#### Array
 
 ### 19.2 How to check if an object is an array or not?
 
@@ -603,3 +608,5 @@ Enforce stricter parsing and error handling on your JavaScript code at runtime. 
 
 ### 29. Name function expression
 
+
+### 30. Difference between setTimeout() and setInterval()?

@@ -285,3 +285,14 @@ target = (event.currentTarget) ? event.currentTarget : event.srcElement;
 * does not work in XHTML
 * It serializes the rendering engine to pause until said external script is loaded, which could take much longer than an internal script. ==> eventually blocking your whole page
 * Script is placed within the content, which is considered bad-form.
+
+### 19. Detect Javascript On/Off, With Notification?
+
+```html
+<!-- Have script enabled -->
+<script type="text/javascript">
+   document.write("Welcome, you have Javascript on.")
+</script>
+<!-- Have script disabled -->
+<noscript>JavaScript is off. Please enable to view full site.</noscript>
+```

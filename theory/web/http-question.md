@@ -4,7 +4,6 @@
 * Web are restricted to download several items at once, so the more you use resource hosted on external domains, the faster the page will load
 * Help request for static resource parallize and balanced across the host name
 
-
 ### 2. What will happen when you type in an URL in browser?
 (Credited to http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser)
 
@@ -20,7 +19,6 @@
 * 10. browser decodes response (e.g. if it's gzipped)
 * 11. browser determines what to do with response (e.g. is it a HTML page, is it an image, is it a sound clip?)
 * 12. browser renders response, or offers a **download dialog** for unrecognized types
-
 
 ### 3. What are the differences between Long-Polling, Websockets and Server-Sent Events
 

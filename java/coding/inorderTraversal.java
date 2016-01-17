@@ -34,12 +34,11 @@ public class Solution {
         TreeNode current = root.left;
         stack.push(root);
 
-        while(!stack.empty() || current != null){
-            if(current != null){
+        while(!stack.empty() || current != null) {
+            if(current != null) {
                 stack.push(current);
                 current = current.left;
-            }
-            else{
+            } else {
                 current = stack.peek();
                 re.add(current.val);
                 stack.pop();
@@ -50,4 +49,3 @@ public class Solution {
         return re;
     }
 }
-Status API Training Shop Blog About Pricing
