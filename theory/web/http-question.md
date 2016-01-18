@@ -1,3 +1,7 @@
+Referenced:
+
+http://dglobaltech.com/front-end-developer-software-engineer-interview-questions-and-answers-10-commonly-asked-front-end-developer-questions/
+
 ### 1. Traditionally, why has it been better to serve site assets from multiple domains?
 * Always better to load static files (Images, JS, CSS) through CDN (Content Delivery Network)
 * Provide **Domain Sharding** benefits
@@ -119,3 +123,19 @@ Provides a mechanism for a server to give caching information about an asset to 
 
 **POST**
 * pass sensitive data as it’s not appended and displayed within the URL; no limitation as to how much data can be passed using a POST method.
+
+### 7. How you can optimize the page using front end code or technology?
+* 1.Improve server response by reducing resource usage per page
+    * Combine all external CSS files into one file
+    * Combine all external JS files into one file
+* 2. Use responsive design instead of making device based redirects
+* 3. Use asynchronous Javascript and remove block level Javascript
+* 4. Use Minify version of stylesheet and javascript.
+* 5. Optimize Image and use correct format of Image. Use the lazy loading design pattern for large size of images.
+* 6. Use browser side cache with Cache control
+* 7. Avoid plugins to drive functionality
+* 8. Configure view port and use CSS best practices
+* 9. Prioritize visible content
+* 10. Load style-sheets in header and script in footer.
+
+### 8. What is lazy loading

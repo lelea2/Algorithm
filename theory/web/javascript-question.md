@@ -495,7 +495,7 @@ eight.addto(9);  // works
 
 #### Array
 * Type of object used for storing multiple values in a single variable. Each value gets **numeric index** and may be any data type
-* **lengt** property ==> how many items are in the array, automatically updated when add/remove items to the array.
+* **length** property ==> how many items are in the array, automatically updated when add/remove items to the array.
 * Can use the following functions: push(), pop(), sort(), slice(), splice(), ...
 
 ### 19.2 How to check if an object is an array or not?
@@ -661,6 +661,8 @@ queue([
 
 ### 26.1 What is the difference between slice, substr, substring?
 
+NON OF THEM MUTATES
+
 * String.slice( begin [, end ] ) ==> result of substring will NOT contain character at final index
 * String.substring( from [, to ] ) ==> result of substring will NOT contain character at final index
 * String.substr( start [, length ] )
@@ -793,8 +795,34 @@ Read: https://jvaneyck.wordpress.com/2014/01/07/cross-domain-requests-in-javascr
 #### JSONP
 
 
-#### WEB PROXY
+#### SERVER-SIDE PROXY
 
 ### 33. Function declaration (Defined at run time vs. defined at parse time)
 
+* One of the advantages of run time **function declaration** is that you can declare function based on certain condition.
+* We COULD NOT do the same thing if using functiong defined at parse time
 
+```javascript
+// Run-Time function declaration
+<script>
+if(testCondition) {// If testCondition is true then
+  var foo = function() {
+    console.log("inside Foo with testCondition True value");
+  };
+} else {
+  var foo = function() {
+    console.log("inside Foo with testCondition false value");
+  };
+}
+</script>
+```
+
+```javascript
+// Parse-Time function declaration
+<script>
+bar(); // Call bar function here, It will not give an Error
+function bar() {
+  console.log("Hi I am inside Foo");
+};
+</script>
+```
