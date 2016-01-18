@@ -110,3 +110,5 @@ Provides a mechanism for a server to give caching information about an asset to 
 **HEAD**
 
 **OPTIONS**
+
+### 6. What is the difference between GET and POST methods in HTML form?

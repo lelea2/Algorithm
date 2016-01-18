@@ -369,6 +369,8 @@ var emp3 = new Employee("Ren","Pluto",2500);
 * delete operator DOES NOT affect local/or global variable
 * delete operator DOSE NOT delete prototype property.
 
+==> often has **unexpected behaviour** and can only be safely used to delete explicitly set properties on normal objects.
+
 DOES NOT delete local variable
 ```javascript
 var output = (function(x) {
@@ -610,3 +612,87 @@ Enforce stricter parsing and error handling on your JavaScript code at runtime. 
 
 
 ### 30. Javascript Timer -- Difference between setTimeout() and setInterval()?
+
+Referenced from:
+https://web.archive.org/web/20130101080638/http://bonsaiden.github.com/JavaScript-Garden/
+
+* A string should **NEVER** be used as the parameter of setTimeout or setInterval (evil "eval)
+* An anonymous function should be passed that then takes care of the actual call.
+* **setInterval** should be avoided because its scheduler is not blocked by executing JavaScript.
+
+#### setTimeout()/clearTimeout()
+==> executes a function, once, after waiting a specified number of milliseconds
+
+* Execute only ONCE
+* Depending on the timer resolution of the JS engine running the code, as well as the fact that JavaScript is single threaded and other code that gets executed might block the thread, it is by **no means a safe bet** that one will get the exact delay specified in the setTimeout call.
+* The function that was passed as the first parameter will get called by the global object, which means that this inside the called function refers to the global object.
+* setTimeout(foo(), 1000) ==> Should be "foo" only, silent error, since when the function returns undefined setTimeout will not raise any error.
+
+Eg:
+```javascript
+function Foo() {
+    this.value = 42;
+    this.method = function() {
+        // this refers to the global object
+        console.log(this.value); // will log undefined
+    };
+    setTimeout(this.method, 500);
+}
+new Foo();
+```
+
+#### setInterval()/clearInterval()
+==> executes a function, over and over again, at specified time intervals
+
+* Different from setTimeout, it will execute the function every X milliseconds, but its use is discouraged.
+* With small time interval, setInterval() might result in function calls stacking up.
+
+```javascript
+function foo() {
+    // something that blocks for 1 second
+}
+setInterval(foo, 1000);
+
+//foo will get called once and will then block for one second.
+//While foo blocks the code, setInterval will still schedule further calls to it.
+//Now, when foo has finished, there will already be ten further calls to it waiting for execution.
+
+```
+* To prevent function stacking up, the closet solution is to use setTimeout()
+```javascript
+function foo(){
+    // something that blocks for 1 second
+    setTimeout(foo, 1000);
+}
+foo();
+```
+
+### 31. Graceful Degradation vs. Progressive Enhancement?
+
+**Graceful Degradation**
+* Building a web site or application so it provides a good level of user experience in modern browsers. However, it will degrade gracefully for those using older browsers. The system may not be as pleasant or as pretty, but the basic functionality will work on older systems.
+
+**Progressive Enhancement**
+* The web site or application would establish a base-level of user experience for most browsers. More advanced functionality would then be added when a browser supports it.
+
+### 32. How are errors gracefully handled in JavaScript?
+* handled via try/catch/finally blocks; this allows you to avoid those unfriendly error messages
+* **window.onerror** event -- monitor all errors on a page, code syntax errors and runtime exceptions.
+
+```javascript
+window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
+    alert('Error: ' + errorMsg + ' Script: ' + url + ' Line: ' + lineNumber
+    + ' Column: ' + column + ' StackTrace: ' +  errorObj);
+}
+```
+
+### 33. How to handle cross domain request in JavaScript?
+Read: https://jvaneyck.wordpress.com/2014/01/07/cross-domain-requests-in-javascript/
+
+#### CORS
+
+
+#### JSONP
+
+
+#### WEB PROXY
