@@ -138,4 +138,24 @@ Provides a mechanism for a server to give caching information about an asset to 
 * 9. Prioritize visible content
 * 10. Load style-sheets in header and script in footer.
 
-### 8. What is lazy loading
+### 8. What is lazy loading?
+* Design pattern used to defer initialization of an object until the point at which it is needed.
+* loading code only once user needs it. Eg:there is a button on the page, which shows different layout once user pressed it. So there is no need to load code for that layout on initial page load.
+
+### 9. Difference between cookies and localStorage?
+
+==> Cookies are primarily for reading server-side, localStorage and sessionStorage can only be read client-side.
+
+**localStorage**
+* stores data with no expiration date, and gets cleared only through JavaScript, or clearing the Browser Cache / Locally Stored Data
+
+**sessionStorage**
+* similar to localStorage but expires when the browser closed (not the tab).
+
+**cookies**
+* normally stores data that has to be sent back to the server with subsequent requests.
+
+### 10. Why do we recommend external CSS or Javascript versus inline?
+* HTML code will weigh more as you use inline scripts, whereas external scripts   reduces HTML file size which helps fast rendering of webpage.
+* HTML code will never be cached so inline scripts. Contrary to that, external dependencies, such as CSS and JavaScript files, will be cached by the visitor’s web browser. So it reduces https requests each time user click through web pages.
+* Easy to maintain/update

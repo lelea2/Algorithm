@@ -777,6 +777,22 @@ foo();
 
 ### 31. How are errors gracefully handled in JavaScript?
 * handled via try/catch/finally blocks; this allows you to avoid those unfriendly error messages
+
+```javascript
+try {
+    somefunction();
+} catch(error) {
+    if (error instanceof TypeError) {
+        // Handle type Error
+    } else if (error instanceof ReferenceError) {
+        // Handle ReferenceError
+    } else {
+        // Handle all other error types
+    }
+}
+
+```
+
 * **window.onerror** event -- monitor all errors on a page, code syntax errors and runtime exceptions.
 
 ```javascript
