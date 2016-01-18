@@ -279,11 +279,24 @@ console.log(y);  // Output: ReferenceError: y is not defined
 ```
 
 ### 12.3 Best way to detect undefined object property in JavaScript
-* could use typeof() operator
+* could use **typeof()** operator
 ```javascript
 if(typeof someProperty === 'undefined'){
     console.log('something is undefined here');
 }
+```
+* **instanceof** operator checks the current object and return true if the object is of the specified type.
+```javascript
+//Example1:
+var dog = new Animal();
+dog instanceof Animal; // Output : true
+
+//Example2:
+function foo() {
+  return foo;
+}
+new foo() instanceof foo; //==> false
+
 ```
 
 ### 13. Difference between Function, Method and Constructor calls in JavaScript? (OOP concept)
@@ -696,10 +709,7 @@ Enforce stricter parsing and error handling on your JavaScript code at runtime. 
 * Variable declared in parent function scope
 * Variable declared in global namespace
 
-### 29. Name function expression
-
-
-### 30. Javascript Timer -- Difference between setTimeout() and setInterval()?
+### 29. Javascript Timer -- Difference between setTimeout() and setInterval()?
 
 Referenced from:
 https://web.archive.org/web/20130101080638/http://bonsaiden.github.com/JavaScript-Garden/
@@ -755,7 +765,7 @@ function foo(){
 foo();
 ```
 
-### 31. Graceful Degradation vs. Progressive Enhancement?
+### 30. Graceful Degradation vs. Progressive Enhancement?
 
 **Graceful Degradation**
 * Building a web site or application so it provides a good level of user experience in modern browsers. However, it will degrade gracefully for those using older browsers. The system may not be as pleasant or as pretty, but the basic functionality will work on older systems.
@@ -763,7 +773,7 @@ foo();
 **Progressive Enhancement**
 * The web site or application would establish a base-level of user experience for most browsers. More advanced functionality would then be added when a browser supports it.
 
-### 32. How are errors gracefully handled in JavaScript?
+### 31. How are errors gracefully handled in JavaScript?
 * handled via try/catch/finally blocks; this allows you to avoid those unfriendly error messages
 * **window.onerror** event -- monitor all errors on a page, code syntax errors and runtime exceptions.
 
@@ -774,7 +784,7 @@ window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
 }
 ```
 
-### 33. How to handle cross domain request in JavaScript?
+### 32. How to handle cross domain request in JavaScript?
 Read: https://jvaneyck.wordpress.com/2014/01/07/cross-domain-requests-in-javascript/
 
 #### CORS
@@ -785,6 +795,6 @@ Read: https://jvaneyck.wordpress.com/2014/01/07/cross-domain-requests-in-javascr
 
 #### WEB PROXY
 
-### 34. Function declaration (Defined at run time vs. defined at parse time)
+### 33. Function declaration (Defined at run time vs. defined at parse time)
 
 
