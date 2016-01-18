@@ -9,7 +9,7 @@ https://github.com/nishant8BITS/123-Essential-JavaScript-Interview-Question
 * OOP programming -- Prototypal inheritance (also: prototypes, OLOO).
 * Functional programming (also: closures, first class functions, lambdas).
 
-Type that used in JS
+7 Types that used in JS
 
 * String
 * Number
@@ -278,6 +278,14 @@ console.log(y);  // Output: ReferenceError: y is not defined
 
 ```
 
+### 12.3 Best way to detect undefined object property in JavaScript
+* could use typeof() operator
+```javascript
+if(typeof someProperty === 'undefined'){
+    console.log('something is undefined here');
+}
+```
+
 ### 13. Difference between Function, Method and Constructor calls in JavaScript? (OOP concept)
 
 **functions** -- not associated with object hence not invoked through any object.
@@ -435,10 +443,47 @@ console.log(emp1.company); //Output: 'xyz'
 
 * Read: http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/
 
-#### Object
+#### Object / Associative Array
 
+```javascript
+var fancyObj = {
+    favoriteFood: "pizza",
+    add: function(a, b){
+        return a + b;
+    }
+};
+
+fancyObj.add(2,3); // returns 5
+
+//Example for associated array in JS
+fancyObj['add'](2,3); // ditto.
+
+```
+
+* Everything in javascript is an object. Everything. Arrays, functions, even numbers! Because of this, you can do some really interesting things, such as modifying the prototypes of Objects, Arrays, etc.
+
+```javascript
+Number.prototype.addto = function(x){
+    return this + x;
+}
+
+(8).addto(9); // returns 17
+
+// other variations:
+
+8.addto(9);  // gives a syntax error, because the dot is assumed to be a decimal point
+
+8['addto'](9);  // works but is kind of ugly compared to the first method
+
+var eight = 8;
+eight.addto(9);  // works
+
+```
 
 #### Array
+* Type of object used for storing multiple values in a single variable. Each value gets **numeric index** and may be any data type
+* **lengt** property ==> how many items are in the array, automatically updated when add/remove items to the array.
+* Can use the following functions: push(), pop(), sort(), slice(), splice(), ...
 
 ### 19.2 How to check if an object is an array or not?
 
@@ -501,7 +546,33 @@ employee.getName = function(){
 }
 ```
 
-### 19.4 How to empty an array in JavaScript?
+### 19.4 How to empty an array in JavaScript? -- 4 methods
+
+* (1)
+```javascript
+arrayList = [];
+//only use this if you have only referenced the array by its original variable arrayList
+//otherwise, the original array will remain unchanged
+```
+* (2)
+```javascript
+arrayList.length = 0;
+//clear all references and set length to 0
+//useful when you want to update all the another reference variable which pointing to arrayList.
+```
+
+* (3)
+```javascript
+arrayList.splice(0, arrayList.length);
+//update all the references
+```
+
+* (4) ==> loop through array to remove elements (NOT RECOMMENDED)
+```javascript
+while(arrayList.length) {
+  arrayList.pop();
+}
+```
 
 ### 21. What is "this" in JS?
 
@@ -575,11 +646,28 @@ queue([
 ], obj);
 ```
 
-### 26. What is the difference between slice, substr, substring?
+### 26.1 What is the difference between slice, substr, substring?
 
 * String.slice( begin [, end ] ) ==> result of substring will NOT contain character at final index
 * String.substring( from [, to ] ) ==> result of substring will NOT contain character at final index
 * String.substr( start [, length ] )
+
+### 26.2 What is differences between Array.slice() and Array.splice()?
+Read: http://ariya.ofilabs.com/2014/02/javascript-array-slice-vs-splice.html
+
+**slice()** -- return a new array containing the elements from the given start index up the one right before the specified end index, DOES NOT CHANGE the array which invokes it
+```javascript
+'abc'.slice(1,2)           // "b"
+[14, 3, 77].slice(1, 2)    //  [3]
+```
+
+**splice()** -- MUTATES the array that calls it.
+```javascript
+var x = [14, 3, 77]
+var y = x.splice(1, 2)
+console.log(x)           // [14]
+console.log(y)           // [3, 77]
+```
 
 ### 27. What is the reason for wrapping the entire content of a JavaScript source file in a function block?
 * Creates a private namespace and thereby helps avoid potential name clashes between different JavaScript modules and libraries.
@@ -696,3 +784,7 @@ Read: https://jvaneyck.wordpress.com/2014/01/07/cross-domain-requests-in-javascr
 
 
 #### WEB PROXY
+
+### 34. Function declaration (Defined at run time vs. defined at parse time)
+
+

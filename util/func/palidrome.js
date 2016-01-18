@@ -14,7 +14,7 @@ function isPalidrome(str) {
 }
 
 //Alternate solution,
-//Using string split, reverse array and re-join
+//Using string split, reverse array and re-join, ignore all the spaces
 function isPalidrome2(str) {
     str = str.replace(/\W/g, '').toLowerCase(); //case insensitive
     return (str == str.split('').reverse().join(''));

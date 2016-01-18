@@ -112,3 +112,10 @@ Provides a mechanism for a server to give caching information about an asset to 
 **OPTIONS**
 
 ### 6. What is the difference between GET and POST methods in HTML form?
+
+**GET**
+* key and values will be appended at the end of the URL as a query string, length of a URL is limited. Maximum URL length is 2048 characters supported by latest browsers.
+* NOT recommended to use when you are passing sensitive data over the internet.
+
+**POST**
+* pass sensitive data as it’s not appended and displayed within the URL; no limitation as to how much data can be passed using a POST method.
