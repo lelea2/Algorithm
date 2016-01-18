@@ -789,13 +789,60 @@ window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
 ### 32. How to handle cross domain request in JavaScript?
 Read: https://jvaneyck.wordpress.com/2014/01/07/cross-domain-requests-in-javascript/
 
-#### CORS
+#### CORS (Cross-Origin Resource Sharing)
+* Support all type of HTTP requests
+* Server need to return additional HTTP headers
+* Not supported on older versions of Internet Explorer. For “complex” requests, needs to make an extra HTTP call (preflighted requests). Some firewalls strip CORS headers.
+```
+//Response example
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: http://localhost:3000
+Content-Type: application/json; charset=utf-8
+Content-Length: 62
 
+{
+"response": "This is data returned from the CORS server"
+}
 
-#### JSONP
+```
 
+#### JSONP (JavaScript Object Notation with Padding)
+* only be used to perform Cross-Domain GET requests
+* Server side must support JSONP. JSONP could expose your website to a plethora of security vulnerabilities if the server is compromised
+
+```
+//Server request
+GET /?callback=myCallbackFunction HTTP/1.1
+
+//Response
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+
+myCallbackFunction({'response': 'hello world from JSONP!'});
+
+//Script block that get evaluated as soon as browser receive it
+<script>
+    function myCallbackFunction(data){
+        $('body').text(data.response);
+    }
+</script>
+
+```
 
 #### SERVER-SIDE PROXY
+* No server-side modification required (but you need an extra proxy component in your origin)
+* Back-end performs the request instead of the browser. Could prove problematic for authentication
+
+```
+//Example request
+GET /proxy?urlToFetch=http%3A%2F%2Flocalhost%3A3001 HTTP/1.1
+
+//Example response
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{ "response": "This is data returned from the server, proxy style!" }
+```
 
 ### 33. Function declaration (Defined at run time vs. defined at parse time)
 
