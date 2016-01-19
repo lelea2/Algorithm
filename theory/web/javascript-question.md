@@ -299,7 +299,7 @@ new foo() instanceof foo; //==> false
 
 ```
 
-### 13. Difference between Function, Method and Constructor calls in JavaScript? (OOP concept)
+### 13.1 Difference between Function, Method and Constructor calls in JavaScript? (OOP concept)
 
 **functions** -- not associated with object hence not invoked through any object.
 
@@ -341,7 +341,14 @@ function Employee(name, age) {
 var emp1 = new Employee('John Doe', 28);
 emp1.name; // "John Doe"
 emp1.age; // 28
+
 ```
+
+### 13.2 Differences between function Person(){}, var person = Person(), and var person = new Person()?
+
+* Function declaration
+* Function expression
+* function constructors
 
 ### 14. What is the difference between “==” and “===”?
 
