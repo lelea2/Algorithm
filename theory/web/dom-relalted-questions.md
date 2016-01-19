@@ -312,6 +312,26 @@ window.onclick =function(e){
 
 ```
 
-### 21. How to create customed event in javascript?
+### 21. How to create customed event in javascript? -- use Javascript CustomEvent() object
 
 Reference: https://davidwalsh.name/customevent
+
+```javascript
+//Create customed events
+var myEvent = new CustomEvent("userLogin", {
+  detail: {
+    username: "davidwalsh"
+  },
+  bubbles: true,
+  cancelable: false
+});
+
+// Trigger it!
+myElement.dispatchEvent(myEvent);
+
+//Listen to customed events
+myElement.addEventListener("userLogin", function(e) {
+  console.info("Event is: ", e);
+  console.info("Custom data is: ", e.detail);
+});
+```
