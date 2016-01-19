@@ -335,3 +335,24 @@ myElement.addEventListener("userLogin", function(e) {
   console.info("Custom data is: ", e.detail);
 });
 ```
+### 22. Miscellaneous
+
+##### 1. How could you prevent a click on an anchor from going to the link?
+* preventDefault() inside event handler. However, this doesnt stop further propagation.
+
+
+##### 2. How could you stop further propagation of an event?
+* event.stopPropagation();
+
+##### 3. Can you remove an event handler from an element?
+* target.removeEventListener('click', handler)
+
+##### 4. How could you run event handler in the capturing phase not in bubble phase?
+* There is a third (optional) parameter in addEventListener and removeEventLister. You can pass true or false to useCapture phase.
+
+##### 5. How could you prevent multiple event handler to be fired for an event?
+* If event listeners are attached for the same type event (click, keydown, etc.) of an element for the same event type, you can call event.stopImmediatePropagation() in the first event handler. No other event handler will be executed.
+
+##### 6. Is there anything you have to be careful when using node.cloneNode()?
+* While cloning, make sure you didnt duplicate ID.
+
