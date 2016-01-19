@@ -1,3 +1,4 @@
+//From two sorted array how would you find common number
 //Compare performance
 //(1) Set based comparison - O(nlogn) - Relatively slow, very simple, use if there are no performance concerns. Simplicity wins.
 //(2) Merge join + Filter - O(n) - Fast, prone to coding error, use if performance is an issue. Ideally try to leverage an existing library to do this, or perhaps even use a database if appropriate.

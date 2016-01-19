@@ -296,3 +296,18 @@ target = (event.currentTarget) ? event.currentTarget : event.srcElement;
 <!-- Have script disabled -->
 <noscript>JavaScript is off. Please enable to view full site.</noscript>
 ```
+
+### 20. How to capture all click on the page?
+Leverage event bubble to capture all click, all click event could be bubbled up to <body>
+
+```javaScript
+document.querySelector('body').addEventListener('click', function(e){
+  console.log('body clicked', e.target);
+});
+
+//or
+window.onclick =function(e){
+  console.log('someone clicked', e.target)
+}
+
+```
