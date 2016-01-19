@@ -311,3 +311,7 @@ window.onclick =function(e){
 }
 
 ```
+
+### 21. How to create customed event in javascript?
+
+Reference: https://davidwalsh.name/customevent

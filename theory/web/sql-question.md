@@ -67,5 +67,6 @@ SELECT * FROM runners WHERE id NOT IN (SELECT winner_id FROM races WHERE winner_
 
 * **Delete** is used to delete one or more rows in the table and CAN be rolled back.
 
-### 7.
+### 7. SQL .vs NoSQL database
+Referenced: http://www.thegeekstuff.com/2014/01/sql-vs-nosql-db/
 
