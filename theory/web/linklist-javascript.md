@@ -82,3 +82,15 @@ LinkedList.prototype.remove = function(val) {
     }
 }
 ```
+
+### 4. Reverse Singly Linked List
+
+
+### 5. Reverse Doubly LL
+
+
+### 6. Find kth node from the end
+
+
+### 7. Length of a Singly LL
+
