@@ -896,3 +896,59 @@ function bar() {
 };
 </script>
 ```
+
+### 34. What is difference between private variable, public variable and static variable? How we achieve this in JS?
+
+Read: http://robertnyman.com/2008/10/14/javascript-how-to-get-private-privileged-public-and-static-members-properties-and-methods/
+
+* Create a full JS object that contains private, priviledge, static, public variable as following
+```javascript
+// Constructor
+function Kid (name) {
+  // Private
+  var idol = "Paris Hilton"; //Cannot access private property
+
+  // Privileged
+  this.getIdol = function () {
+    return idol;
+  };
+
+  // Public
+  this.name = name;
+}
+
+// Public
+Kid.prototype.getName = function () {
+  return this.name;
+};
+
+// Static property
+Kid.town = "South Park"; //cannot access static from a new instance created
+
+```
+
+* The following is result when you try to access the property
+
+```javascript
+// Create a new instance
+var cartman = new Kid("Cartman");
+
+// Access private property
+cartman.idol; // undefined
+
+// Access privileged method
+cartman.getIdol(); // "Paris Hilton"
+
+// Access public property
+cartman.name; // "Cartman"
+
+// Access public method
+cartman.getName(); // "Cartman"
+
+// Access static property on an instance
+cartman.town; // undefined
+
+// Access static property on the constructor object
+Kid.town; // "South Park"
+
+```

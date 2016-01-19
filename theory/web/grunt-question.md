@@ -19,7 +19,7 @@ Once installed, you need to add 2 files to setup Grunt.
 ### 4. What is --save-dev option while installing the grunt?
 
 "package.json" file holds the metadata for grunt plugins. So when grunt is installed using --save-dev option, the metadata is added to package.json. So you don’t have to add it manually. And this is how your package.json will look like,
-```
+```javascript
 {
   "name": "my-project-name",
   "version": "0.1.0",
@@ -42,7 +42,7 @@ Once installed, you need to add 2 files to setup Grunt.
 - Eg: unit testing, packaging scripts, documentation generation, etc. where dependencies are required for production use, and assumed required for dev as well. As for example, you can include some plugin which you require during development like (for debugging or unit testing) but you don’t need them on production.
 
 So **--save** adds packages under dependencies and **--save-dev** adds under devdependencies section.
-```
+```javascript
 {
   "name": "my-project-name",
   "version": "0.1.0",
