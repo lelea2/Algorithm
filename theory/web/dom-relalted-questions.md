@@ -1,4 +1,6 @@
-Referenced from: http://thatjsdude.com/interview/dom.html
+Referenced from:
+
+* http://www.thatjsdude.com/interview/dom.html
 
 ### 1. window vs. document
 * **window** is JS global object that holds global variables, global functions, location, history everything is under it. Besides, setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window.
