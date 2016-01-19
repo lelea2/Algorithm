@@ -55,4 +55,30 @@ DoublyLinkedList.prototype.push = function(val) {
 
 ```
 
-### 3.
+### 3. Remove node from Singly LinkedList
+
+* Need to account for 3 scenarios, remove first node, remove last node, and remove node in the middle
+
+```javascript
+LinkedList.prototype.remove = function(val) {
+    var current = this.head;
+    //case-1
+    if(current.value == val) { //If the first node to be deleted, change next node to be head of the list
+       this.head = current.next;
+    } else { //Remove middle element
+        var previous = current;
+        while(current.next) { //while not a lats node
+            if(current.value == val) {
+                previous.next = current.next;
+                break;
+            }
+            previous = current;
+            current = current.next;
+        }
+        //case -2, last element in list, then need to set the endpoint
+        if(current.value == val) { //last node
+            previous.next == null;
+        }
+    }
+}
+```
