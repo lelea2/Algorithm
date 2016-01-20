@@ -315,7 +315,7 @@ var nextListItem = function() {
 
 ### 12.2 Difference between undefined and not defined in JavaScript
 
-* In JavaScript if you try to use a variable that doesn't exist and has not been declared, then JavaScript will throw an error var name is not defined and the script will stop execute thereafter. But If you use typeof undeclared_variable then it will return undefined.
+* In JavaScript if you try to use a variable that doesn't exist and has not been declared, then JavaScript will throw an error var name is not defined and the script will STOP execute thereafter. But If you use typeof undeclared_variable then it will return undefined.
 ```javascript
 var x; // declaring x
 console.log(x); //output: undefined
