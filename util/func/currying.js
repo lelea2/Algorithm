@@ -4,7 +4,7 @@
  */
 
 Function.prototype.curry = function() {
-    if (arguments.length<1) {
+    if (arguments.length < 1) {
         return this; //nothing to curry. return function
     }
     var self = this;

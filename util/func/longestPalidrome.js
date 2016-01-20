@@ -4,9 +4,9 @@ function isPalindrome(s) {
   return s === rev;
 }
 
-function longestPalind(s){
-  var maxp_length = 0,
-      maxp = '';
+function longestPalind(s) {
+  var maxp_length = 0, //local variable to keep track of longest palidrome length
+      maxp = ''; //local variable to keep track of actual string which is longest palidrome
 
   for(var i=0; i < s.length; i++) {
     var subs = s.substr(i, s.length);

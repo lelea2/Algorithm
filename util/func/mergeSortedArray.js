@@ -15,7 +15,7 @@ function mergeSortedArray(arr1, arr2) {
     //result arr is concatenation of 2 given array
     var i = 0,
         j = 0,
-        mergedArr = [];
+        mergedArr = []; //result array
     //continue to loop to finish the array
     while (i < arr1.length || j < arr2.length) {
         if (arr1[i] <= arr2[j]) { //arr1 has smaller value

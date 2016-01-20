@@ -11,7 +11,7 @@
 //Thats how you will get in the more zeros in one number like (100, 200, 1000)
 function countZero(n) {
     var count = 0;
-    while(n>0) {
+    while(n > 0) {
         count += Math.floor(n/10);
         n = n/10; //re-duce range of number and continue to add
     }

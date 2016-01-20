@@ -6,7 +6,7 @@
 //In this problem solving, no duplicated record will be insert,
 //if element already existed in the array, then we don't insert that anymore
 //Recursive solution
-//Run time: O(log(n))
+//Run time: O(nlog(n)) //binary tree
 
 function binaryInsert(value, array, startVal, endVal) {
     var length = array.length;

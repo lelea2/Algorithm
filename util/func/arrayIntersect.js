@@ -1,5 +1,6 @@
 /**
  * Find intersection between 2 array with pure js
+ * Assume these arrays are not sorted
  */
 
 //Idea: create a hashvalue to check for existing variable
