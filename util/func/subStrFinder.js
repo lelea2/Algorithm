@@ -10,6 +10,8 @@ function subStringFinder(str, subStr){
         j = 0,
         len = str.length,
         subLen = subStr.length;
+    //Walk the string, and start the substr
+    //If match character of substr, increment substr index
     for(var i = 0; i<len; i++) {
         if(str[i] == subStr[j]) {
             j++;

@@ -23,7 +23,6 @@ LinkedList.prototype.push = function(val) {
 }
 ```
 
-
 ### 2. Create double linkedlist in JS
 
 ```javascript

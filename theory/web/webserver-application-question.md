@@ -11,5 +11,5 @@ Referenced from:
 * Uses various scalability and fault-tolerance techniques.
 
 #### Application Server
-* Exposes business logic and dynamic content to a client through various protocols such as HTTP, TCP/IP, IIOP, JRMP etc.
+* Exposes business logic and dynamic content to a client through various protocols such as HTTP, TCP/IP, IIOP, JRMP etc
 * Uses various scalability and fault-tolerance techniques. In addition provides resource pooling, component life cycle management, transaction management, messaging, security etc.

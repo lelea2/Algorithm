@@ -356,5 +356,5 @@ myElement.addEventListener("userLogin", function(e) {
 * If event listeners are attached for the same type event (click, keydown, etc.) of an element for the same event type, you can call event.stopImmediatePropagation() in the first event handler. No other event handler will be executed.
 
 ##### 6. Is there anything you have to be careful when using node.cloneNode()?
-* While cloning, make sure you didnt duplicate ID.
+* While cloning, make sure you didn't duplicate ID.
 

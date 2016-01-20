@@ -64,5 +64,11 @@ readFileStub.restore();
 
 ```
 
+### 8. Checking package dependencies for your app?
+* Under your app directory, execute
+
+```
+npm ls
+```
 
 
