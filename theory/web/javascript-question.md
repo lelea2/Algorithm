@@ -952,3 +952,19 @@ cartman.town; // undefined
 Kid.town; // "South Park"
 
 ```
+### 35. CommonJS vs. AMD
+
+Read: http://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
+
+**AMD (Asynchrounous Module definition)**
+* browser-first approach
+* Opting for asynchronous behavior and simplified backwards compatibility
+* doesn't have any concept of File I/O.
+* It supports objects, functions, constructors, strings, JSON and many other types of modules.
+
+**CommonJS**
+* server-first approach
+* Assuming synchronous behavior
+* Cover a broader set of concerns such as I/O, File system, Promises and more.
+* Supports unwrapped modules, it can feel a little more close to the ES.next/Harmony specifications, freeing you of the define() wrapper that AMD enforces.
+* **Only support objects as modules**
