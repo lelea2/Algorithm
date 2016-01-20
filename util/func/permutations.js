@@ -6,7 +6,7 @@
 // We will convert the string to an array.
 // from the array we will pick one character and then permute rest of it. After getting the permutation of the rest of the characters, we will concatenate each of them with the character we have picked.
 //Test your capability on recursive logic
-//
+
 function permutations(str) {
     var arr = str.split(''),
         len = arr.length,

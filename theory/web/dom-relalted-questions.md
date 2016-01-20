@@ -149,7 +149,7 @@ function isDescendant(parent, child) {
 **innerHTML**
 
 * Browser removes all the current children of the elements. Parse the string and assign the parsed string to the element as children.
-* nnerHTML could be slow while parsing a string. Browser has to deal with the string (invalid html)
+* innerHTML could be slow while parsing a string. Browser has to deal with the string (invalid html)
 
 ```javascript
 var ul = document.getElementById('myList');
