@@ -91,7 +91,7 @@ Provides a mechanism for a server to give caching information about an asset to 
 * If-not-match check
 
 **X-Frame-Options**
-* indicate whether or not a browser should be allowed to render a page in a <frame>, <iframe> or <object> . Sites can use this to avoid clickjacking attacks, by ensuring that their content is not embedded into other sites
+* indicate whether or not a browser should be allowed to render a page in a ```<frame>, <iframe> or <object>``` . Sites can use this to avoid clickjacking attacks, by ensuring that their content is not embedded into other sites
 
 **Possible value**
 

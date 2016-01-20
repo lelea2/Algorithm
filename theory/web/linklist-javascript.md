@@ -100,23 +100,22 @@ LinkedList.prototype.remove = function(val) {
 function findLoopStart(sll){
     var slow = sll.head,
         fast = sll.head;
-    while(slow && fast){
-       slow = slow.next;
+    while(slow && fast) {
+        slow = slow.next;
 
-       //if hits null, then there is no loop
-       if(!fast.next){
-          return null;
-       }
-
-       fast = fast.next.next;
-       if(slow == fast){
-           slow = sll.head;
-           while(slow != fast){
-              slow = slow.next;
-              fast = fast.next;
-           }
-           return slow;
-       }
-   }
+        //if hits null, then there is no loop
+        if(!fast.next.next) {
+            return null;
+        }
+        fast = fast.next.next;
+        if(slow == fast) {
+            slow = sll.head;
+            while(slow != fast){
+                slow = slow.next;
+                fast = fast.next;
+            }
+            return slow;
+        }
+    }
 }
 ```
