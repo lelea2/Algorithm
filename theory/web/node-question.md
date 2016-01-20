@@ -71,4 +71,13 @@ readFileStub.restore();
 npm ls
 ```
 
+* To check if specific package is install globally
+
+```
+npm list -g [package-name]
+
+//or checking exsiting status to see if package is installed or not
+npm list --depth 1 --global packagename > /dev/null 2>&1
+
+```
 

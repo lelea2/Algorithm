@@ -19,7 +19,7 @@ isTowPassed(5,3,1,2) //true
  */
 function decorateLog(string) {
     var originalFunc = console.log;
-    console.log = function(){
+    console.log = function() {
         originalFunc.apply(console, [string].concat([].slice.call(arguments))); //passing array argument, concat array here
     }
 }

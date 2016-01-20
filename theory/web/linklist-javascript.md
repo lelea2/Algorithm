@@ -79,10 +79,11 @@ LinkedList.prototype.remove = function(val) {
             previous.next == null;
         }
     }
-}
+};
 ```
 
 ### 4. Reverse Singly Linked List
+* Idea: Walk through the LL and put the nodes in an array. This would be easier other than using remove function (if LL have one), because to remove a single item from the end of the SLL you have to walk all way to the end of the SLL every single time. Here you are just walking once.
 
 
 ### 5. Reverse Doubly LL

@@ -62,3 +62,19 @@ h2:before {
   counter-increment: subheading;
 }
 ```
+
+### 5. What is the difference between static, fixed, relative and absolute?
+
+Read: https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/
+
+**static**
+* default for every single page element
+
+**Relative**
+* "relative to itself". If you set position: relative; on an element but no other positioning attributes (top, left, bottom or right), it will no effect on it's positioning at all, it will be exactly as it would be if you left it as position: static; But if you DO give it some other positioning attribute, say, top: 10px;, it will shift it's position 10 pixels DOWN from where it would NORMALLY be.
+
+**Absolute**
+* relative to the next parent element with relative (or absolute) positioning. If there is no such parent, it will default all the way back up to the <html> element itself meaning it will be placed relatively to the page itself.
+
+**Fixed**
+* positioned relative to the viewport, or the browser window itself. The viewport doesn't change when the window is scrolled, so a fixed positioned element will stay right where it is when the page is scrolled

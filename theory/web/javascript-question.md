@@ -519,16 +519,16 @@ With mordern browser, **Array.isArray()** method can also be used
 
 #### (1) Function Based
 ```javascript
-  function Employee(fName, lName, age, salary) {
+function Employee(fName, lName, age, salary) {
     this.firstName = fName;
     this.lastName = lName;
     this.age = age;
     this.salary = salary;
-  }
+}
 
-  // Creating multiple object which have similar property but diff value assigned to object property.
-  var employee1 = new Employee('John', 'Moto', 24, '5000$');
-  var employee2 = new Employee('Ryan', 'Jor', 26, '3000$');
+// Creating multiple object which have similar property but diff value assigned to object property.
+var employee1 = new Employee('John', 'Moto', 24, '5000$');
+var employee2 = new Employee('Ryan', 'Jor', 26, '3000$');
 }
 ```
 
