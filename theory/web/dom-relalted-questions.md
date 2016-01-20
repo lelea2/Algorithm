@@ -373,3 +373,8 @@ myElement.addEventListener("userLogin", function(e) {
 * The event is cancelable if it is possible to prevent the events default action.
 * To cancel an event, use the preventDefault() method.
 
+### 23. What is shadow DOM?
+
+Read: http://glazkov.com/2011/01/14/what-the-heck-is-shadow-dom/
+
+

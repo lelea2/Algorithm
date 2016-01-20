@@ -1,6 +1,7 @@
+//Helper function checking for palidrome string
 function isPalindrome(s) {
   var rev = s.split("").reverse().join("");
-  return s == rev;
+  return s === rev;
 }
 
 function longestPalind(s){
