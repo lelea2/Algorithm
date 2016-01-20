@@ -418,12 +418,12 @@ var Employee = function (name, company, salary) {
   this.salary = salary || 5000; //Public attribute default value is null
 
   // Private method
-  var increaseSlary = function () {
+  var increaseSalary = function () {
     this.salary = this.salary + 1000;
   };
 
   // Public method
-  this.dispalyIncreasedSalary = function() {
+  this.displayIncreasedSalary = function() {
     increaseSlary();
     console.log(this.salary);
   };
@@ -578,7 +578,7 @@ function Employee(fName, lName, age, salary) {
 // Creating multiple object which have similar property but diff value assigned to object property.
 var employee1 = new Employee('John', 'Moto', 24, '5000$');
 var employee2 = new Employee('Ryan', 'Jor', 26, '3000$');
-}
+
 ```
 
 #### (2) Object Literal
