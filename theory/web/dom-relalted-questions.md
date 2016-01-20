@@ -234,7 +234,7 @@ After an event triggers on the deepest possible element, it then triggers on par
 The event first goes down - that’s called capturing, and then bubbles up. This behavior is standartized in W3C specification.
 
 
-### 15. Event delegation vs. direct binding
+### 15.1 Event delegation vs. direct binding
 
 * Talk about adding complexity of elements on the page
 * CPU time effect
@@ -250,6 +250,16 @@ $(<root-element>).delegate(<selector>, <event>, <event-handler>)
 
 * **Delegate** saves CPU when binding event handlers. Since it binds to "root" element, instead of potentially many more single descendant elements. Delegate will incur more CPU overhead when actual events occurs, since they have to bubble up to the DOM of the root element
 * **Bind** saves CPU when events trigger
+
+### 15.2 How to destroy multiple items with one click ==> apply event delegate
+* To **destroy** an element, in JS, we could use removeChild
+```javascript
+document.getElementById('listToDestroy').addEventListener('click', function (e) {
+    var elm = e.target.parentNode;
+    elm.parentNode.removeChild(elm);
+    e.preventDefault();
+});
+```
 
 ### 16. Defer vs Async in JS tag
 
@@ -357,4 +367,9 @@ myElement.addEventListener("userLogin", function(e) {
 
 ##### 6. Is there anything you have to be careful when using node.cloneNode()?
 * While cloning, make sure you didn't duplicate ID.
+
+##### 7. What is cancelable event?
+* The cancelable event property returns a Boolean value indicating whether or not an event is a cancelable event.
+* The event is cancelable if it is possible to prevent the events default action.
+* To cancel an event, use the preventDefault() method.
 

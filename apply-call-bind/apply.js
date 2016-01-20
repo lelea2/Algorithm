@@ -7,3 +7,17 @@
 function getMax(arr) {
     return Math.max.apply(null, arr);
 }
+
+
+//Using apply with function call
+function sum() {
+    var i, l, result = 0;
+    for (i = 0, l = arguments.length; i < l; i++) {
+        result += arguments[i];
+    }
+    return result;
+}
+sum(1,2,3); // 6
+
+var data = [1,2,3];
+sum.apply(null, data); // 6
