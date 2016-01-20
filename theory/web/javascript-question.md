@@ -4,7 +4,7 @@ https://medium.com/javascript-scene/10-interview-questions-every-javascript-deve
 
 https://github.com/nishant8BITS/123-Essential-JavaScript-Interview-Question
 
-### 1. Name two programming paradigms important for JavaScript app developers?
+### 1.1 Name two programming paradigms important for JavaScript app developers?
 
 * OOP programming -- Prototypal inheritance (also: prototypes, OLOO).
 * Functional programming (also: closures, first class functions, lambdas).
@@ -19,12 +19,61 @@ https://github.com/nishant8BITS/123-Essential-JavaScript-Interview-Question
 * Null
 * Undefined
 
-### 2. Functional Progamming in JavaScript
+### 1.2 Functional Progamming in JavaScript
 
 * Pure functions / function purity.
 * Avoid side-effects.
 * Simple function composition.
 * Feature support Functional programming: first-class functions, higher order functions, functions as arguments/values.
+
+### 2. OOP in javascript
+Read: http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/
+
+* **Inheritance** -- objects can inherit features from other objects
+* **Polymorphism** -- objects can share the same interface—how they are accessed and used—while their underlying implementation of the interface may differ)
+* **Encapsulation** -- each object is responsible for specific tasks.
+
+==> The two important principles with OOP in JavaScript are Object Creation patterns **(Encapsulation)** and Code Reuse patterns **(Inheritance)**.
+
+* Encapsulation - mixture of constructor/prototype pattern for DRY
+```javascript
+function User (theName, theEmail) {
+    this.name = theName;
+    this.email = theEmail;
+    this.quizScores = [];
+    this.currentScore = 0;
+}
+​
+User.prototype = {
+    constructor: User,
+    saveScore:function (theScoreToAdd)  {
+        this.quizScores.push(theScoreToAdd)
+    },
+    showNameAndScores:function ()  {
+        var scores = this.quizScores.length > 0 ? this.quizScores.join(",") : "No Scores Yet";
+        return this.name + " Scores: " + scores;
+    },
+    changeEmail:function (newEmail)  {
+        this.email = newEmail;
+        return "New Email Saved: " + this.email;
+    }
+}
+```
+
+* Inheritance - Object.create()
+```javascript
+function inheritPrototype(childObject, parentObject) {
+    // As discussed above, we use the Crockford’s method to copy the properties and methods from the parentObject onto the childObject​
+​    // So the copyOfParent object now has everything the parentObject has ​
+    var copyOfParent = Object.create(parentObject.prototype);
+​
+    //Then we set the constructor of this new object to point to the childObject.​
+    copyOfParent.constructor = childObject;
+​
+    //Then we set the childObject prototype to copyOfParent, so that the childObject can in turn inherit everything from copyOfParent (from parentObject)​
+    childObject.prototype = copyOfParent;
+}
+```
 
 ### 3. What is the difference between classical inheritance and prototypal inheritance?
 

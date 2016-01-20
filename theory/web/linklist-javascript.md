@@ -94,3 +94,29 @@ LinkedList.prototype.remove = function(val) {
 
 ### 7. Length of a Singly LL
 
+### 8. Detect where loop start in circular linkedlist
+
+```javascript
+function findLoopStart(sll){
+    var slow = sll.head,
+        fast = sll.head;
+    while(slow && fast){
+       slow = slow.next;
+
+       //if hits null, then there is no loop
+       if(!fast.next){
+          return null;
+       }
+
+       fast = fast.next.next;
+       if(slow == fast){
+           slow = sll.head;
+           while(slow != fast){
+              slow = slow.next;
+              fast = fast.next;
+           }
+           return slow;
+       }
+   }
+}
+```
