@@ -3,8 +3,8 @@
 //Note: also don't use array.map since it's relatively slow down the performace
 
 function findMostCommon(arr) {
-    var table = {},
-        max = 0,
+    var table = {}, //hash table to store repeative char
+        max = 0, //keep flag for max repeative number
         word,
         i;
     for (var j = 0; j < arr.length; j++) {
