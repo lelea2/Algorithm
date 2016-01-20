@@ -377,4 +377,6 @@ myElement.addEventListener("userLogin", function(e) {
 
 Read: http://glazkov.com/2011/01/14/what-the-heck-is-shadow-dom/
 
+### 24. React and Flux intro
 
+Read: https://www.quora.com/What-are-the-pros-and-cons-of-React-js-and-Flux-Are-they-the-future-of-front-end-development
