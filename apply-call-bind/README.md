@@ -14,7 +14,7 @@ someFunction.call(objectToUseAsThis, arg1, arg2);
 someFunction.apply(objectToUseAsThis, [arg1, arg2]);
 ```
 
-**.bind()**  - creates a new function with the same function body, with a preset value of this (the first argument) and returns that function.
+**.bind()**  - creates a new function with the same function body, with a pre-set value of this (the first argument) and returns that function.
 ```javascript
 var obj = {
    x: 81,

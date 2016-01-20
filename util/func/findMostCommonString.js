@@ -1,5 +1,6 @@
 //Note: don't do double loop
 //Loop through array of string character and keep track of max value
+//Note: also don't use array.map since it's relatively slow down the performace
 
 function findMostCommon(arr) {
     var table = {},

@@ -1,8 +1,8 @@
 ### JS closure
 
-Playing with closure in JS
-
 #### Definition:
+* A closure is an inner function that has access to the outer (enclosing) function's variables—scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function's variables, and it has access to the global variables.
+
 - a closure is a function, along with all variables or functions that were in-scope
 - a closure is implemented as an “inner function”;
   Eg: a function defined within the body of another function.
