@@ -46,11 +46,11 @@ public static int findKth(int A[], int B[], int k, int aStart, int aEnd, int bSt
     aMid = aMid + aStart;
     bMid = bMid + bStart;
 
-    if (A[aMid] > B[bMid]) {
+    if (A[aMid] > B[bMid]) { //aEnd, bStart
         k = k - (bMid - bStart + 1);
         aEnd = aMid;
         bStart = bMid + 1;
-    } else {
+    } else { //(A[mid] <= B[mid]) => bEnd, aStart
         k = k - (aMid - aStart + 1);
         bEnd = bMid;
         aStart = aMid + 1;
