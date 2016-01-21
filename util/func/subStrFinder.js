@@ -1,5 +1,5 @@
 /**
- * How can you match substring of a sting?
+ * How can you match substring of a string?
  */
 
 //Idea: Will use to pointer (one for string and another for the substring) while iterating the string. And will have another variable to hold the starting index of the initial match.
