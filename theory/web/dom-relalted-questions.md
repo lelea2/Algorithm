@@ -310,7 +310,7 @@ target = (event.currentTarget) ? event.currentTarget : event.srcElement;
 ```
 
 ### 20. How to capture all click on the page?
-Leverage event bubble to capture all click, all click event could be bubbled up to <body>
+Leverage event bubble to capture all click, all click event could be bubbled up to ```<body>```
 
 ```javaScript
 document.querySelector('body').addEventListener('click', function(e){
