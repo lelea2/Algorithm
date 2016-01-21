@@ -380,3 +380,12 @@ Read: http://glazkov.com/2011/01/14/what-the-heck-is-shadow-dom/
 ### 24. React and Flux intro
 
 Read: https://www.quora.com/What-are-the-pros-and-cons-of-React-js-and-Flux-Are-they-the-future-of-front-end-development
+
+### 25. What is DOCTYPE?
+* The <!DOCTYPE> declaration must be the very first thing in your HTML document, before the <html> tag.
+* The <!DOCTYPE> declaration is not an HTML tag; it is an instruction to the web browser about what version of HTML the page is written in.
+* In HTML 4.01, the <!DOCTYPE> declaration refers to a DTD, because HTML 4.01 was based on SGML. The DTD specifies the rules for the markup language, so that the browsers render the content correctly.
+* HTML5 is not based on SGML, and therefore does not require a reference to a DTD.
+**Tip: Always add the <!DOCTYPE> declaration to your HTML documents, so that the browser knows what type of document to expect.**
+
+

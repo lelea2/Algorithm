@@ -40,9 +40,9 @@ public boolean canFinish(int numCourses, int[][] prerequisites) {
         int top = queue.remove();
         for(int i=0; i<len; i++) {
             // if a course's prerequisite can be satisfied by a course in queue
-            if(prerequisites[i][1]==top){
+            if(prerequisites[i][1]==top) {
                 pCounter[prerequisites[i][0]]--;
-                if(pCounter[prerequisites[i][0]]==0){
+                if(pCounter[prerequisites[i][0]]==0) {
                     numNoPre++;
                     queue.add(prerequisites[i][0]);
                 }

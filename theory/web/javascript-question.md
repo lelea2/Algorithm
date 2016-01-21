@@ -1,8 +1,9 @@
 --Reference from:
 
-https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95#.gh7cuu59z
-
-https://github.com/nishant8BITS/123-Essential-JavaScript-Interview-Question
+* https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95#.gh7cuu59z
+* https://github.com/nishant8BITS/123-Essential-JavaScript-Interview-Question
+* http://ejohn.org/apps/learn/
+* http://eloquentjavascript.net/
 
 ### 1.1 Name two programming paradigms important for JavaScript app developers?
 
@@ -398,6 +399,19 @@ emp1.age; // 28
 * Function declaration
 * Function expression
 * function constructors
+
+### 13.3 What is Context?
+
+* Determined by how a function is invoked. When a function is called as a method of an object, **this** is set to the object the method is called on
+* The below is how to change a context of function ==> using call()
+```javascript
+var object = {};
+function fn(){
+  return this;
+}
+assert( fn() == this, "The context is the global object." );
+assert( fn.call(object) == object, "The context is changed to a specific object." );
+```
 
 ### 14. What is the difference between “==” and “===”?
 
@@ -1017,3 +1031,29 @@ Read: http://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-
 * Cover a broader set of concerns such as I/O, File system, Promises and more.
 * Supports unwrapped modules, it can feel a little more close to the ES.next/Harmony specifications, freeing you of the define() wrapper that AMD enforces.
 * **Only support objects as modules**
+
+
+### 36. Function length and method overloading
+
+* We could use function length to get number of arguments passed in function call
+* Can use this to leverage method overloading
+```javascript
+//Apply different function call based on function length
+function addMethod(object, name, fn){
+  // Save a reference to the old method
+  var old = object[ name ];
+
+  // Overwrite the method with our new one
+  object[ name ] = function(){
+    // Check the number of incoming arguments,
+    // compared to our overloaded function
+    if ( fn.length == arguments.length )
+      // If there was a match, run the function
+      return fn.apply( this, arguments );
+
+    // Otherwise, fallback to the old method
+    else if ( typeof old === "function" )
+      return old.apply( this, arguments );
+  };
+}
+```
