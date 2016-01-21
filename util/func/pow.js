@@ -1,6 +1,5 @@
 
 //Pow function in javascript
-//
 function pow(a, b) {
     if (b === 0) {
         return 0;
