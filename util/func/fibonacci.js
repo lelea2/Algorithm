@@ -6,7 +6,7 @@
 //Runtime: O(n)
 function fibonacci(n) {
     var fibo = [0, 1];
-    if (n <=2) {
+    if (n <= 2) {
         return 1;
     }
     for (var i = 2; i <= n; i++) {

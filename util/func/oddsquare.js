@@ -10,3 +10,15 @@ function OddSquare(n) {
     }
     return result;
 }
+
+alert(OddSquare(0));
+alert(OddSquare(1));
+alert(OddSquare(2));
+alert(OddSquare(3));
+alert(OddSquare(4));
+alert(OddSquare(5));
+alert(OddSquare(6));
+alert(OddSquare(7));
+alert(OddSquare(8));
+alert(OddSquare(9));
+alert(OddSquare(10));

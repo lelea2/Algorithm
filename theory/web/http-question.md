@@ -26,6 +26,8 @@ http://dglobaltech.com/front-end-developer-software-engineer-interview-questions
 
 ### 3. What are the differences between Long-Polling, Websockets and Server-Sent Events
 
+Read: http://stackoverflow.com/questions/10028770/html5-websocket-vs-long-polling-vs-ajax-vs-webrtc-vs-server-sent-events
+
 **Long-Polling (Ajax Polling)**
 
 * Client send HTTP request to server
