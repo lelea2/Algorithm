@@ -6,6 +6,7 @@
 //Function will take the array, start and end index and the number we want to look for
 
 //return the index that has the requested value
+//Runtime: O(logn)
 public static int binarySearch(int arr[], int low, int high, int num) {
     if (high < low) { //return -1 for invalid cases
         return -1;
