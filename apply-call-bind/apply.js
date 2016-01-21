@@ -21,3 +21,13 @@ sum(1,2,3); // 6
 
 var data = [1,2,3];
 sum.apply(null, data); // 6
+
+
+function smallest(){
+  return Math.min.apply( Math, arguments );
+}
+function largest(){
+  return Math.max.apply( Math, arguments );
+}
+assert(smallest(0, 1, 2, 3) == 0, "Locate the smallest value.");
+assert(largest(0, 1, 2, 3) == 3, "Locate the largest value.");

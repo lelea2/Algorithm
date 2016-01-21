@@ -23,3 +23,12 @@ function printNum() {
 for (var j = 0; j < 10; j++) {
     setTimeout(console.log.bind(console, i), 10);
 }
+
+
+//Another example, calling closure in loop
+var count = 0;
+for ( var i = 0; i < 4; i++ ) (function(i){
+  setTimeout(function(){
+    assert( i == count++, "Check the value of i." );
+  }, i * 200);
+})(i);
