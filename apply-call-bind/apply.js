@@ -31,3 +31,11 @@ function largest(){
 }
 assert(smallest(0, 1, 2, 3) == 0, "Locate the smallest value.");
 assert(largest(0, 1, 2, 3) == 3, "Locate the largest value.");
+
+
+//Prefix string in console.log
+function log(){
+    var args = Array.prototype.slice.call(arguments);
+    args.unshift('(app)');
+    console.log.apply(console, args);
+};
