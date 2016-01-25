@@ -1,5 +1,5 @@
-
 //Pow function in javascript
+//Runtime: O(logn)
 function pow(a, b) {
     if (b === 0) {
         return 0;
