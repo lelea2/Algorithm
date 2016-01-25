@@ -24,3 +24,9 @@ String.prototype.repeatify = String.prototype.repeatify || function(times) {
 
    return str;
 };
+
+//Referenced from: http://blog.sourcing.io/interview-questions
+//hello world ==> 'h e l l o  w o r l d'
+String.prototype.spacify = function(){
+    return this.split('').join(' ');
+};

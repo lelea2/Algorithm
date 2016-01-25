@@ -400,7 +400,39 @@ emp1.age; // 28
 * Function expression
 * function constructors
 
-### 13.3 What is Context?
+### 13.3 Function Declarations vs. Function Expressions
+
+Read: https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/
+
+**Function Declaration**
+* defines a named function variable without requiring variable assignment
+* standalone constructs and cannot be nested within non-function blocks.
+```javascript
+function bar() {
+    return 3;
+}
+```
+**Function Expressions**
+* defines a function as a part of a larger expression syntax (typically a variable assignment ). Functions defined via Functions Expressions can be named or anonymous
+```javascript
+//anonymous function expression
+var a = function() {
+    return 3;
+}
+
+//named function expression
+var a = function bar() {
+    return 3;
+}
+
+//self invoking function expression
+(function sayHello() {
+    alert("hello!");
+})();
+
+```
+
+### 13.4 What is Context?
 
 * Determined by how a function is invoked. When a function is called as a method of an object, **this** is set to the object the method is called on
 * The below is how to change a context of function ==> using call()
