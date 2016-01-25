@@ -701,6 +701,25 @@ At the time of execution of function, JavaScript engine sets a property to the f
 * You can set the value of this to any arbitrary object by passing the object as the first parameter of bind, call or apply
 * For dom event handler, value of this would be the element that fired the event
 
+```javascript
+var User = {
+  count: 1,
+
+  getCount: function() {
+    return this.count;
+  }
+};
+
+console.log(User.getCount()); //Answer: 1
+
+var func = User.getCount;
+console.log(func()); //Answer: undefined
+
+//To get a correct answer, use function.bind method as following
+var func = User.getCount.bind(User);
+console.log(func());
+```
+
 ### 22. What are differences between host object and native object?
 
 #### Native object
