@@ -36,3 +36,18 @@ Function.prototype.bind = Function.prototype.bind || function(context) {
     };
 };
 ```
+
+### Why “foo”.toString() is not the same as toString.call(“foo”)?
+
+```javascript
+var toString = Object.prototype.toString;
+
+"foo".toString(); // "foo"
+toString.call("foo"); // [object String]
+
+[].toString(); // ""
+toString.call([]); // [object Array]
+
+{}.toString(); // syntax error
+toString.call({}); // [object Object]
+```
