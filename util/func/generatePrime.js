@@ -1,6 +1,7 @@
 //Generate prime number up to n
 
 //Prime number is number divisible by 1 and by itself
+//Runtime: max O(n^2)
 function printPrime(n) {
     var arr = [2, 3],
         counter = 0; //counter is number of digit that given number can be devided to
