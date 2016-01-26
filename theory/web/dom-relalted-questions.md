@@ -388,4 +388,38 @@ Read: https://www.quora.com/What-are-the-pros-and-cons-of-React-js-and-Flux-Are-
 * HTML5 is not based on SGML, and therefore does not require a reference to a DTD.
 **Tip: Always add the <!DOCTYPE> declaration to your HTML documents, so that the browser knows what type of document to expect.**
 
+### 25.  How many times would `addEventListener('scroll   ', handleScroll);` run as the user looks at their News Feed? And what would be user experience if the `handleScroll` function takes 100ms to execute?
+
+* Answer: Hundreds of times since the `handleScroll` method will be called over and over again. The user will experience very choppy scrolling through their News Feed.
+
+* We could handle it a little better with setTimeout(), aka Javacript debouncing
+```javascript
+(function waitHandleScroll(){
+  handleScroll();
+  setTimeout(waitHandleScroll, 200);
+})();
+```
+
+#### Javacript debouncing
+Read: https://davidwalsh.name/javascript-debounce-function
+```javascript
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+};
+```
 
