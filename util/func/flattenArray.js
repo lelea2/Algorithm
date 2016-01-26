@@ -16,7 +16,6 @@ function flatten (arr, resultArr) {
     return result;
 }
 
-
 //Flatten the array, linear time
 // This is done in a linear time O(n) without recursion
 // memory complexity is O(1) or O(n) if mutable param is set to false
@@ -45,4 +44,5 @@ function flatten(array, mutable) {
     result.reverse(); // we reverse result to restore the original order
     return result;
 }
+
 
