@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <style>
+      div > div {
+        display: inline-block;
+        margin: 10px;
+        background: white;
+        border: 1px solid #ccc;
+        width: 20px;
+        height: 20px;
+      }
+      div > div.green {
+        background: green;
+      }
+      </style>
+    </head>
+    <body>
+      <div>
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+        <div id="div5"></div>
+        <div id="div6"></div>
+        <div id="div7"></div>
+      </div>
+      <script>
+      jQuery(function() {
+        var hashElement = []; //keep track of the id that we click on in order
+        jQuery('div > div').click(function(e) {
+          e.preventDefault();
+          if (jQuery(this).hasClass('green')) {
+          } else {
+            jQuery(this).addClass('green');
+            hashElement.push(jQuery(this).attr('id'));
+            if (hashElement.length === 7) { //if array is 7, then all div fulfilled, now turn red from reverse order
+              for(var i = hashElement.length - 1; i >=0; i--) {
+                setTimeout(function(i) {
+                  jQuery('#' + hashElement[i]).toggleClass('green').toggleClass('red');
+                }, i * 200, i);
+              }
+            };
+          }
+        });
+      }());
+      </script>
+    </body>
+</html>
