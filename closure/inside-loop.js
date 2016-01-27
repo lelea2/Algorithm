@@ -25,8 +25,9 @@ for (var j = 0; j < 10; j++) {
 }
 
 //An example of closure setTimeout()
-for(var i = hashElement.length - 1; i >=0; i--) {
+//Print out index in backward sequence, has a little time wait
+for(var i = 10; i >=0; i--) {
     setTimeout(function(i) {
-      jQuery('#' + hashElement[i]).toggleClass('green').toggleClass('red');
+        console.log('Print i=' + i);
     }, i * 200, i);
 }
