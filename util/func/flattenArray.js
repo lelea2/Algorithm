@@ -33,16 +33,24 @@ function flatten(array, mutable) {
 
     node = nodes.pop();
 
-    do {
+    while (nodes.length && (node = nodes.pop()) !== undefined) {
         if (toString.call(node) === arrayTypeStr) {
             nodes.push.apply(nodes, node);
         } else {
             result.push(node);
         }
-    } while (nodes.length && (node = nodes.pop()) !== undefined);
+    }
 
     result.reverse(); // we reverse result to restore the original order
     return result;
 }
+
+//Usage of array.reduce, array.concat (notice: this is also recursive call)
+function flatten(arr) {
+    return arr.reduce(function (flat, toFlatten) {
+        return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+    }, []);
+}
+
 
 
