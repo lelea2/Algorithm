@@ -16,35 +16,6 @@ function flatten (arr, resultArr) {
     return result;
 }
 
-//Flatten the array, linear time
-// This is done in a linear time O(n) without recursion
-// memory complexity is O(1) or O(n) if mutable param is set to false
-function flatten(array, mutable) {
-    var toString = Object.prototype.toString;
-    var arrayTypeStr = '[object Array]';
-
-    var result = [];
-    var nodes = (mutable && array) || array.slice();
-    var node;
-
-    if (!array.length) {
-        return result;
-    }
-
-    node = nodes.pop();
-
-    while (nodes.length && (node = nodes.pop()) !== undefined) {
-        if (toString.call(node) === arrayTypeStr) {
-            nodes.push.apply(nodes, node);
-        } else {
-            result.push(node);
-        }
-    }
-
-    result.reverse(); // we reverse result to restore the original order
-    return result;
-}
-
 //Usage of array.reduce, array.concat (notice: this is also recursive call)
 function flatten(arr) {
     return arr.reduce(function (flat, toFlatten) {
@@ -52,5 +23,26 @@ function flatten(arr) {
     }, []);
 }
 
+//Flatten array given certain depth
 
+/**
+ * Flatten an array with depth.
+ *
+ * @param  {Array}  array
+ * @param  {Array}  result
+ * @param  {number} depth
+ * @return {Array}
+ */
+function flattenDownDepth (array, result, depth) {
+    depth--;
+    for (var i = 0; i < array.length; i++) {
+        var value = array[i];
 
+        if (depth > -1 && Array.isArray(value)) {
+            flattenDownDepth(value, result, depth);
+        } else {
+            result.push(value);
+        }
+    }
+    return result;
+}
