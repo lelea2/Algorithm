@@ -1,5 +1,7 @@
 //Referenced: https://github.com/trusktr/list-flatten/blob/master/src/index.js
 
+//Keep track of current array
+//If current index is an array, do a push
 function flatten(array) {
     var currentArray = Array.from(array); // ES2015, in case we pass an array-like thing.
     var breadcrumbs = [];
@@ -10,7 +12,7 @@ function flatten(array) {
 
         if (currentArray[i] instanceof Array) {
             breadcrumbs.push({currentArray, i});
-            currentArray = currentArray[i];
+            currentArray = currentArray[i]; //switch current array to inner array
             i = -1;
         } else {
             result.push(currentArray[i]);
