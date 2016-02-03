@@ -431,3 +431,9 @@ Read: http://searchsoa.techtarget.com/definition/Document-Type-Definition
 ### 27. How to find all images in DOM, include background images
 
 To find just ```<image>``` tag on dom, we could use **document.images**, however to include also background image, we ndd to traverse through the DOM tree and look for css attribute "background-image"
+
+### 28. How will you make my site accessible to all users?
+Read: http://biz.webstandards.org/interview-guide/accessibility
+* Tools: Voice Over, JAWS(window)
+* We strive to ensure your website will be available to all users, regardless of how they are accessing your website or what disabilities they may have. Content is the essential aspect of your site that needs to be accessible and by using web standards we can ensure the widest possible audience can access your site. There may be some complex content, like video, that will need additional work to ensure it is made accessible (for example, using captioning).
+
