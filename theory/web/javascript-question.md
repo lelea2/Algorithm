@@ -764,7 +764,7 @@ Object.prototype.toString.call(new Date()).slice(8, -1)   === "Date";
 Object.prototype.toString.call(new RegExp()).slice(8, -1) === "RegExp";
 ```
 
-### 25. How would you apply asynchronous call without any help of library?
+### 25.1 How would you apply asynchronous call without any help of library?
 Read: http://krasimirtsonev.com/blog/article/7-lines-JavaScript-library-for-calling-asynchronous-functions
 
 ```javascript
@@ -796,6 +796,23 @@ queue([
 ], obj);
 ```
 
+### 25.2 Write async function in JS (This is my interview question at Yahoo)
+```javascript
+var remoteData = {'test': 'hi'};
+var getData = function () {
+    return new Promise(function (resolve, reject) {
+      resolve(remoteData);
+   });
+}
+
+getData().then(function(data) {
+    alert(data);
+});
+
+//Using ES6 arrow function
+getData().then(data => alert(data));
+```
+
 ### 26.1 What is the difference between slice, substr, substring?
 
 NON OF THEM MUTATES
@@ -819,6 +836,71 @@ var x = [14, 3, 77]
 var y = x.splice(1, 2)
 console.log(x)           // [14]
 console.log(y)           // [3, 77]
+```
+
+### 26.3 Differences between array.map(), array.reduce(), array.filter(). Example for function chain call
+
+Read: http://cryto.net/~joepie91/blog/2015/05/04/functional-programming-in-javascript-map-filter-reduce/
+
+* **array.map**
+forEach() loop transforming the array, NOT mutate, and don't cause side effects (only modify new array, original array not affected)
+```javascript
+var numbers = [1, 2, 3, 4];
+
+var newNumbers = numbers.map(function(number){
+    return number * 2;
+}).map(function(number){
+    return number + 1;
+});
+
+console.log("The doubled and incremented numbers are", newNumbers); // [3, 5, 7, 9]
+```
+
+* **array.filter()**
+Manipulate some value in array, the callback function in filter() should return boolean value, NOT mutate, and not cause side-effects
+
+```javascript
+var numbers = [1, 2, 3, 4];
+
+var newNumbers = numbers.filter(function(number){
+    return (number % 2 !== 0);
+}).map(function(number){
+    return number * 2;
+});
+
+console.log("The doubled numbers are", newNumbers); // [2, 6]
+```
+
+* **array.reduce()**
+mostly for combining value in the array. Or adding certain value in array (eg: adding extra even number in array)
+```javascript
+var numbers = [1, 2, 3, 4];
+
+var totalNumber = numbers.map(function(number){
+    return number * 2;
+}).reduce(function(total, number){
+    return total + number;
+}, 0);
+
+console.log("The total number is", totalNumber); // 20
+```
+
+```javascript
+//Walk through array, and add "even" value follow right after even value in array
+var numbers = [1, 2, 3, 4];
+
+var newNumbers = numbers.reduce(function(newArray, number){
+    newArray.push(number);
+
+    if(number % 2 == 0) {
+        /* Add it a second time. */
+        newArray.push(number);
+    }
+
+    return newArray; /* This is important! */
+}, []);
+
+console.log("The final numbers are", newNumbers); // [1, 2, 2, 3, 4, 4]
 ```
 
 ### 27. What is the reason for wrapping the entire content of a JavaScript source file in a function block?

@@ -1,10 +1,10 @@
-### 1. CSS Box Model
+#### 1. CSS Box Model
 * Content
 * Padding
 * Border
 * Margin
 
-### 2. Explain what elements will match each of the following CSS selectors:
+#### 2. Explain what elements will match each of the following CSS selectors:
 ```
 **div, p** - Selects all <div> elements and all <p> elements
 
@@ -17,7 +17,7 @@
 **div ~ p** - Selects all <p> elements that are anywhere preceded by a <div> element
 ```
 
-### 3. CSS selectors (Begin with, end with, contains)
+#### 3. CSS selectors (Begin with, end with, contains)
 
 ```css
 a[href^="https"] /** <a> tag with href begins with https **/
@@ -28,7 +28,7 @@ a[href*="css"] /** <a> tag contains substring css **/
 
 ```
 
-### 4. CSS automatic numbering
+#### 4. CSS automatic numbering
 * Technique: using **counter-** property
 Eg:
 Markup
@@ -63,7 +63,7 @@ h2:before {
 }
 ```
 
-### 5. What is the difference between static, fixed, relative and absolute?
+#### 5. What is the difference between static, fixed, relative and absolute?
 
 Read: https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-differ/
 
@@ -78,3 +78,41 @@ Read: https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-di
 
 **Fixed**
 * positioned relative to the viewport, or the browser window itself. The viewport doesn't change when the window is scrolled, so a fixed positioned element will stay right where it is when the page is scrolled
+
+#### Display box inline, using "display: table" or "display: flex"
+
+```
+<div class="container">
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</div>
+
+```
+
+```css
+//CSS for display: table
+.container {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+.box {
+  vertical-align: middle;
+  display: table-cell;
+  height: 100%;
+}
+```
+
+```js
+//CSS for display: flex
+.container {
+  display: flex;
+}
+
+.box {
+  flex: 1;
+}
+
+```
+
