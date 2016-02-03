@@ -14,7 +14,7 @@ function zip() {
     var args = [].slice.call(arguments);
     //Find the longer array to map
     var longest = args.reduce(function(a,b) {
-        return a.length>b.length ? a : b;
+        return (a.length > b.length) ? a : b;
     }, []);
 
     return longest.map(function(_, i) {

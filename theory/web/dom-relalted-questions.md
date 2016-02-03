@@ -423,3 +423,11 @@ function debounce(func, wait, immediate) {
 };
 ```
 
+### 26. What is DTD?
+Read: http://searchsoa.techtarget.com/definition/Document-Type-Definition
+* A Document Type Definition (DTD) is a specific document defining and constraining definition or set of statements that follow the rules of the Standard Generalized Markup Language (SGML) or of the Extensible Markup Language (XML), a subset of SGML. A DTD is a specification that accompanies a document and identifies what the funny little codes (or markup) are that, in the case of a text document, separate paragraphs, identify topic headings, and so forth and how each is to be processed. By mailing a DTD with a document, any location that has a DTD "reader" (or "SGML compiler") will be able to process the document and display or print it as intended. This means that a single standard SGML compiler can serve many different kinds of documents that use a range of different markup codes and related meanings. The compiler looks at the DTD and then prints or displays the document accordingly.
+
+
+### 27. How to find all images in DOM, include background images
+
+To find just ```<image>``` tag on dom, we could use **document.images**, however to include also background image, we ndd to traverse through the DOM tree and look for css attribute "background-image"
