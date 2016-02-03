@@ -39,7 +39,7 @@ console.log('foo', 'bar'); //=> Test: foo bar
 //input in console log, console.log with take list of array argument
 function log() {
     var args = Array.prototype.slice.call(arguments);
-    args.unshift('(app)');
+    args.unshift('(app)'); //mutate array
     console.log.apply(console, args); //passing array argument, therefore use apply
 }
 
