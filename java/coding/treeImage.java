@@ -14,10 +14,7 @@ public static TreeNode mirrorBinaryTree(TreeNode root) {
 
     mirrorBinaryTree(root.left);
     mirrorBinaryTree(root.right);
-
-
     return root;
-
 }
 
 

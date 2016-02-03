@@ -1,4 +1,7 @@
-public void recursiveReverse(Node currentNode ) {
+/**
+ * Function to reverse list recursively
+ */
+public void recursiveReverse(Node currentNode) {
     //check for empty list
     if(currentNode == NULL) {
         return;
