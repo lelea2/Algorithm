@@ -32,3 +32,10 @@ Pick any 10 coins and make a small pile. You now have 90 coins in a pile (call i
 - the rest tails, 10-(10-n) = n tails.
 
 Pile A has n heads, and pile B has n tails; So we know that there are always the same number of heads in pile A as there are tails in pile B. Flip over all the coins in pile B. We now have the same number of heads in both piles.
+
+### 4. You have a bag containing an unlimited amount of tennis   balls and five boxes which you are trying to throw then into. For every throw you are guaranteed to get a ball in one box. What is the minimum probability of getting 11 balls in any one box.
+
+* **Best case:** you throw 11 balls and by chance they all end up in just one of the boxes. So the best case scenario requires 11 throws.
+
+* **Worst case:** Your throws go one box after the other, i.e., first throw; box 1, second throw; box 2,... 6th throw in box 1. In such case, you throw 10 balls into each box and then the 51st throw will ensure that one of the boxes does have 11 balls in it.
+
