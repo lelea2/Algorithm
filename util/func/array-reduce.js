@@ -3,7 +3,7 @@
 
 //Calculate SUM
 var calculateSum = function (a) {
-    return a.reduce(function  (i,c) {
+    return a.reduce(function (i,c) {
         return i+c
     });
 }
@@ -12,8 +12,8 @@ console.log(calculateSum([1,2,3,4])); // <= 10
 
 
 //Calculate the product of all the elements of the array (mutliplication)
-var calculateProduct = function  (a) {
-    return a.reduce(function  (i,c) {
+var calculateProduct = function (a) {
+    return a.reduce(function (i,c) {
         return i*c;
     });
 }
@@ -23,19 +23,19 @@ console.log(calculateProduct([1,2,3,4])); <= 24
 //Calculate the sum of even elements
 /* This can be achieved better by using filter Ex.5 */
 
-[1,2,3,4].reduce(function(a,b,i){
-  if(i%2 === 0){
-   return a+b;
-  }else{
-   return a;
-  }
+[1,2,3,4].reduce(function(a,b,i) {
+    if(i%2 === 0) {
+        return a+b;
+    } else {
+        return a;
+    }
 }); //<= 4
 
 //Using array.filter to solve the problem above
-var filterEvenSum = function  (arr) {
-    return arr.filter(function  (a,i) {
+var filterEvenSum = function (arr) {
+    return arr.filter(function (a,i) {
         return !(i%2);
-    }).reduce(function  (a,b) {
+    }).reduce(function (a,b) {
         return a+b;
     });
 }
@@ -55,6 +55,8 @@ var b = [[1,2,3],[2,3,4],[4,5,6]];
 console.log(flattenArray(b)); //<= [ 1, 2, 3, 2, 3, 4, 4, 5, 6 ]
 
 //Flatten array in recursive level (this is solved for all nested array)
+//Note:
+//using array.push is faster than array.concat since internal array.concat itself will do an interative walk through of the array
 var b = [2,[1,2,[3,4]],[2,3,4],[4,5,6]];
 
 var flattenRecursive = function  (arr) {

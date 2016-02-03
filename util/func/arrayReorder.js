@@ -6,6 +6,8 @@ sort(A, B);
 // A is now [D, F, G, C, E];
 */
 
+//Same concept as array-mutate.js
+
 var A = ['C', 'D', 'E', 'F', 'G'];
 var B = [3, 0, 4, 1, 2];
 var C = A.forEach(function(value, index) {

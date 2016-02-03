@@ -22,3 +22,5 @@ var indices = [2, 3, 4, 0, 5, 1];
 arr = indices.map(function(item, index) {
     return arr[indices.indexOf(index)];
 });
+
+console.log(arr);
