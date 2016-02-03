@@ -19,7 +19,7 @@ function zip() {
 
     return longest.map(function(_, i) {
         return args.map(function(array){
-            return array[i]
+            return array[i];
         });
     });
 }
