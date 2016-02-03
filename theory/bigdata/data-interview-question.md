@@ -4,7 +4,7 @@ http://www.entrepreneur.com/article/245020
 
 http://www.businessinsider.com/apple-brain-busting-interview-questions-answers-2012-6?op=1
 
-### 1. If you have 2 eggs, and you want to figure out what's the highest floor from which you can drop the egg without breaking it, how would you do it? What's the optimal solution?
+#### 1. If you have 2 eggs, and you want to figure out what's the highest floor from which you can drop the egg without breaking it, how would you do it? What's the optimal solution?
 
 http://datagenetics.com/blog/july22012/index.html
 
@@ -12,14 +12,28 @@ http://www.programmerinterview.com/index.php/puzzles/2-eggs-100-floors-puzzle/
 
 * One egg: start at first floor, floor by floor
 * Many egg: can walk binary-tree, devide posibility in half
-* 2 eggs:
+* 2 eggs: Optimize and go with x + (x-1) + (x-2) + (x-3) + ... + 1 calculation, which is x(x+1)/2 = 100.
+* When the sum of the series above equals 100, we get x = 13.651, which rounds up to 14. This means that we should start from floor 14 (which is our x) and then move up x-1 (13) floors to floor 27 if the egg doesn’t break and then move up x-2 (12) floors to floor 39 and so on if the egg still does not break.
 
+Drop    Floor
+#1      14
+#2      27
+#3      39
+#4      50
+#5      60
+#6      69
+#7      77
+#8      84
+#9      90
+#10     95
+#11     99
+#12     100
 
-### 2. How many tenis balls fit in the bus?
+#### 2. How many tenis balls fit in the bus?
 
 * Calculate volume of the bus and volume of the tennis ball and do divison accordingly
 
-### 3. You have 100 coins laying flat on a table, each with a head side and a tail side. 10 of them are heads up, 90 are tails up. You can't feel, see or in any other way find out which side is up. Split the coins into two piles such that there are the same number of heads facing up in each pile. How did you do it?
+#### 3. You have 100 coins laying flat on a table, each with a head side and a tail side. 10 of them are heads up, 90 are tails up. You can't feel, see or in any other way find out which side is up. Split the coins into two piles such that there are the same number of heads facing up in each pile. How did you do it?
 
 Pick any 10 coins and make a small pile. You now have 90 coins in a pile (call it pile A), and 10 coins in a new pile (call it pile B).  You don't know where the heads are, but you do know that there are 10 of them in total, and therefore however many heads there are in pile A, there is 10 minus this many in pile B.
 
@@ -33,7 +47,7 @@ Pick any 10 coins and make a small pile. You now have 90 coins in a pile (call i
 
 Pile A has n heads, and pile B has n tails; So we know that there are always the same number of heads in pile A as there are tails in pile B. Flip over all the coins in pile B. We now have the same number of heads in both piles.
 
-### 4. You have a bag containing an unlimited amount of tennis   balls and five boxes which you are trying to throw then into. For every throw you are guaranteed to get a ball in one box. What is the minimum probability of getting 11 balls in any one box.
+#### 4. You have a bag containing an unlimited amount of tennis   balls and five boxes which you are trying to throw then into. For every throw you are guaranteed to get a ball in one box. What is the minimum probability of getting 11 balls in any one box.
 
 * **Best case:** you throw 11 balls and by chance they all end up in just one of the boxes. So the best case scenario requires 11 throws.
 
