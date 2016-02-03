@@ -2,6 +2,8 @@
 
 The headline says it all. We will experiment with JS apply(), call(), bind() and compare the differences here
 
+Read: http://javascriptissexy.com/javascript-apply-call-and-bind-methods-are-essential-for-javascript-professionals/
+
 #### Definition
 
 **.call()**  - calls the same function with the specified arguments
@@ -51,3 +53,24 @@ toString.call([]); // [object Array]
 {}.toString(); // syntax error
 toString.call({}); // [object Object]
 ```
+
+### Difference between Object.prototype.toString.call(arrayObj) and arrayObj.toString()
+
+Read: http://stackoverflow.com/questions/30010996/difference-between-object-prototype-tostring-callarrayobj-and-arrayobj-tostrin
+
+
+* Since toString is defined in Object.prototype, whoever inherits Object, will by default get the toString method.
+* But, Array objects, override the default toString method to print the array elements as comma separated string.
+* Object.prototype.toString doesn't know what type of Object it actually deals with. So, it is intentionally kept generic and it always prints the actual type of the Object.
+
+```javascript
+console.log(Object.prototype.toString.call(arrObj));
+//[object Array]
+
+//This is different from toString() method, which is overriden in Array objects
+Array.prototype.toString.call(arrObj); // Gives "1,2,3"
+
+```
+
+
+

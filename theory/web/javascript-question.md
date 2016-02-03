@@ -744,9 +744,25 @@ Read: http://programmers.stackexchange.com/questions/104320/why-is-extending-the
 * Performance overhead (manual extension in older browser, slow, inconvenient & don't scale)
 * IE is really bad!
 
-### 24. Why does nearly every object have a toString method?
+### 24.1 Why does nearly every object have a toString method?
 
 Most inherited from Object.prototype or define it on its own (or inherit it from their custom prototype). ==> inherit toString() method from the interface/parent
+
+### 24.2 what's different between Object.prototype.toString.call and typeof?
+
+* toString() is a method, that returns a string that represents the current object (ex: Function), can override it to return anything you want.
+
+* typeof is an operator. You use it to get the type of object (as a string), CANNOT change (overloading) it like some other languages.
+
+```javascript
+typeof(new Array())  === "object";
+typeof(new Date())   === "object";
+typeof(new RegExp()) === "object";
+
+Object.prototype.toString.call(new Array()).slice(8, -1)  === "Array";
+Object.prototype.toString.call(new Date()).slice(8, -1)   === "Date";
+Object.prototype.toString.call(new RegExp()).slice(8, -1) === "RegExp";
+```
 
 ### 25. How would you apply asynchronous call without any help of library?
 Read: http://krasimirtsonev.com/blog/article/7-lines-JavaScript-library-for-calling-asynchronous-functions

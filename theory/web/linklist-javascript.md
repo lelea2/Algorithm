@@ -114,7 +114,7 @@ function kthFromEnd(sll, k){
 ### 8. Detect where loop start in circular linkedlist
 
 ```javascript
-function findLoopStart(sll){
+function findLoopStart(sll) {
     var slow = sll.head,
         fast = sll.head;
     while(slow && fast) {
