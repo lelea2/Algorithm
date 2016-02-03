@@ -16,18 +16,18 @@ http://www.programmerinterview.com/index.php/puzzles/2-eggs-100-floors-puzzle/
 * When the sum of the series above equals 100, we get x = 13.651, which rounds up to 14. This means that we should start from floor 14 (which is our x) and then move up x-1 (13) floors to floor 27 if the egg doesn’t break and then move up x-2 (12) floors to floor 39 and so on if the egg still does not break.
 
 Drop    Floor
-#1      14
-#2      27
-#3      39
-#4      50
-#5      60
-#6      69
-#7      77
-#8      84
-#9      90
-#10     95
-#11     99
-#12     100
+*1      14
+*2      27
+*3      39
+*4      50
+*5      60
+*6      69
+*7      77
+*8      84
+*9      90
+*10     95
+*11     99
+*12     100
 
 #### 2. How many tenis balls fit in the bus?
 
