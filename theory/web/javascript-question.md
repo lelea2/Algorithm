@@ -1124,3 +1124,7 @@ function addMethod(object, name, fn){
   };
 }
 ```
+
+### 37. What is XSS attack?
+
+Referenced: http://www.veracode.com/security/xss
