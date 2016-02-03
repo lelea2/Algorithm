@@ -427,7 +427,6 @@ function debounce(func, wait, immediate) {
 Read: http://searchsoa.techtarget.com/definition/Document-Type-Definition
 * A Document Type Definition (DTD) is a specific document defining and constraining definition or set of statements that follow the rules of the Standard Generalized Markup Language (SGML) or of the Extensible Markup Language (XML), a subset of SGML. A DTD is a specification that accompanies a document and identifies what the funny little codes (or markup) are that, in the case of a text document, separate paragraphs, identify topic headings, and so forth and how each is to be processed. By mailing a DTD with a document, any location that has a DTD "reader" (or "SGML compiler") will be able to process the document and display or print it as intended. This means that a single standard SGML compiler can serve many different kinds of documents that use a range of different markup codes and related meanings. The compiler looks at the DTD and then prints or displays the document accordingly.
 
-
 ### 27. How to find all images in DOM, include background images
 
 To find just ```<image>``` tag on dom, we could use **document.images**, however to include also background image, we ndd to traverse through the DOM tree and look for css attribute "background-image"
@@ -437,3 +436,28 @@ Read: http://biz.webstandards.org/interview-guide/accessibility
 * Tools: Voice Over, JAWS(window)
 * We strive to ensure your website will be available to all users, regardless of how they are accessing your website or what disabilities they may have. Content is the essential aspect of your site that needs to be accessible and by using web standards we can ensure the widest possible audience can access your site. There may be some complex content, like video, that will need additional work to ensure it is made accessible (for example, using captioning).
 
+### 29. What does window.getComputedStyle() do?
+Read: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
+* The Window.getComputedStyle() method gives the values of all the CSS properties of an element after applying the active stylesheets and resolving any basic computation those values may contain.
+```
+<style>
+ #elem-container{
+   position: absolute;
+   left:     100px;
+   top:      200px;
+   height:   100px;
+ }
+</style>
+
+<div id="elem-container">dummy</div>
+<div id="output"></div>
+
+<script>
+  function getTheStyle(){
+    var elem = document.getElementById("elem-container");
+    var theCSSprop = window.getComputedStyle(elem,null).getPropertyValue("height");
+    document.getElementById("output").innerHTML = theCSSprop;
+   }
+  getTheStyle();
+</script>
+```

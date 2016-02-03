@@ -23,7 +23,7 @@ function pascalLines(n) {
     return lines;
 }
 
-//Stack
+//Stacktrace
 //1 => [1]
 //2 => getPasalLine([1]) => [1, 1] ==> [[1], [1, 1]]
 //3 => getPascalLine([1, 1]) => (i=0) => [1, 2] => [1, 2, 1] ==> [[1], [1, 1], [1, 2, 1]]
