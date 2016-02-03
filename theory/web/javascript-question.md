@@ -652,7 +652,7 @@ var employee = {
 }
 ```
 
-#### (3) Using JavaScript new keyword
+#### (3) Using JavaScript "new" keyword
 ```javscript
 var employee = new Object(); // Created employee object using new keywords and Object()
 employee.name = 'Nishant';
