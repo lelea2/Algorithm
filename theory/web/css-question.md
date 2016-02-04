@@ -79,7 +79,7 @@ Read: https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-di
 **Fixed**
 * positioned relative to the viewport, or the browser window itself. The viewport doesn't change when the window is scrolled, so a fixed positioned element will stay right where it is when the page is scrolled
 
-#### Display box inline, using "display: table" or "display: flex"
+#### 6. Display box inline, using "display: table" or "display: flex"
 
 ```
 <div class="container">
@@ -116,3 +116,8 @@ Read: https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-di
 
 ```
 
+#### 7. Quirks mode and strict mode
+
+* Quirks mode and strict mode are the two ’modes’ modern browsers can use to interpret your CSS
+
+Read: http://www.quirksmode.org/css/quirksmode.html
