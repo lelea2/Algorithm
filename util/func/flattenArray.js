@@ -17,11 +17,13 @@ function flatten (arr, resultArr) {
 }
 
 //Usage of array.reduce, array.concat (notice: this is also recursive call)
-function flatten(arr) {
+//Syntax: arr.reduce(callback[, initialValue])
+function flatten2(arr) {
     return arr.reduce(function (flat, toFlatten) {
-        return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+        return flat.concat(Array.isArray(toFlatten) ? flatten2(toFlatten) : toFlatten);
     }, []);
 }
+flatten2([1, [2, [ [3, 4], 5], 6]]);
 
 //Flatten array given certain depth
 
