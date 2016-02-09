@@ -797,7 +797,9 @@ queue([
 ```
 
 #### 25.2 Pure JS Promise -- Write async function in JS (This is my interview question at Yahoo)
-Read: https://ponyfoo.com/articles/understanding-javascript-async-await
+Read:
+* https://ponyfoo.com/articles/understanding-javascript-async-await
+* https://ponyfoo.com/articles/es6-promises-in-depth
 
 ```javascript
 var remoteData = {'test': 'hi'};
