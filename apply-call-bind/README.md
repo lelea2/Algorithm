@@ -59,7 +59,7 @@ toString.call({}); // [object Object]
 Read: http://stackoverflow.com/questions/30010996/difference-between-object-prototype-tostring-callarrayobj-and-arrayobj-tostrin
 
 
-* Since toString is defined in Object.prototype, whoever inherits Object, will by default get the toString method.
+* Since toString is defined in Object.prototype, whoever inherits Object, will by default get the toString() method.
 * But, Array objects, override the default toString method to print the array elements as comma separated string.
 * Object.prototype.toString doesn't know what type of Object it actually deals with. So, it is intentionally kept generic and it always prints the actual type of the Object.
 

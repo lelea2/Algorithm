@@ -817,6 +817,29 @@ getData().then(function(data) {
 getData().then(data => alert(data));
 ```
 
+* Creating Promise from scratch, using ES6 arrow function. Note: only the first call made to either of these methods will have an impact – once a promise is settled, it’s result can’t change.
+```javascript
+new Promise(resolve => resolve()) // promise is fulfilled
+new Promise((resolve, reject) => reject()) // promise is rejected
+
+```
+
+```javascript
+//a promise that’s fulfilled in the alloted time or rejected after a generous timeout
+function resolveUnderThreeSeconds (delay) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(resolve, delay)
+    setTimeout(reject, 3000)
+  })
+}
+resolveUnderThreeSeconds(2000) // resolves!
+resolveUnderThreeSeconds(7000) // fulfillment took so long, it was rejected.
+
+```
+
+#### 25.3 Promise.all and Promise.race
+
+
 #### 26.1 What is the difference between slice, substr, substring?
 
 NON OF THEM MUTATES
