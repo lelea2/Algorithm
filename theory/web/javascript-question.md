@@ -1284,4 +1284,16 @@ function displaySearch() {
 * Concept of associative arrays
 * Read: https://gist.github.com/alexhawkins/f6329420f40e5cafa0a4
 
+#### 40. Writing shim for Object.keys() function
 
+```javascript
+
+Object.prototype.keys = Object.prototype.keys || function(obj) {
+    var keys = [];
+    for (var key in obj) {
+      keys.push(key);
+    }
+    return keys;
+}
+
+```

@@ -1,5 +1,7 @@
-Referenced from: https://web.archive.org/web/20130106160004/http://addyosmani.com/resources/essentialjsdesignpatterns/book#decoratorpatternjavascript
+Referenced from:
 
+* https://web.archive.org/web/20130106160004/http://addyosmani.com/resources/essentialjsdesignpatterns/book#decoratorpatternjavascript
+* http://code.tutsplus.com/tutorials/understanding-design-patterns-in-javascript--net-25930
 
 ### 1. What is pattern?
 
