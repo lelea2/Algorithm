@@ -10,8 +10,7 @@
 * OOP programming -- Prototypal inheritance (also: prototypes, OLOO).
 * Functional programming (also: closures, first class functions, lambdas).
 
-7 Types that used in JS
-
+**7 Types that used in JS**
 * String
 * Number
 * Boolean

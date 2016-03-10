@@ -161,3 +161,22 @@ Provides a mechanism for a server to give caching information about an asset to 
 * HTML code will weigh more as you use inline scripts, whereas external scripts   reduces HTML file size which helps fast rendering of webpage.
 * HTML code will never be cached so inline scripts. Contrary to that, external dependencies, such as CSS and JavaScript files, will be cached by the visitor’s web browser. So it reduces https requests each time user click through web pages.
 * Easy to maintain/update
+
+
+### 11. Explain how the internet works in 3 sentences?
+
+Referened from https://www.themuse.com/advice/4-insanely-tough-interview-questions-and-how-to-nail-them
+
+* What? --  “The Internet is a series of tubes.”
+* How? -- “The tubes connect information that is stored on computers throughout the world.”
+* Why? -- “It helps people to access global information quickly and easily.”
+
+### 12. Router vs Switch vs Hub
+##### Router
+* A device that forwards data packets along networks. A router is connected to at least two networks, commonly two LANs or WANs or a LAN and its ISP.s network. Routers are located at gateways, the places where two or more networks connect. Routers use headers and forwarding tables to determine the best path for forwarding the packets, and they use protocols such as ICMP to communicate with each other and configure the best route between any two hosts.
+
+##### Switch
+* In networks, a device that filters and forwards packets between LAN segments. Switches operate at the data link layer (layer 2) and sometimes the network layer (layer 3) of the OSI Reference Model and therefore support any packet protocol. LANs that use switches to join segments are called switched LANs or, in the case of Ethernet networks, switched Ethernet LANs.
+
+##### Hub
+* A common connection point for devices in a network. Hubs are commonly used to connect segments of a LAN. A hub contains multiple ports. When a packet arrives at one port, it is copied to the other ports so that all segments of the LAN can see all packets.
