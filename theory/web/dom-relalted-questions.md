@@ -373,6 +373,30 @@ myElement.addEventListener("userLogin", function(e) {
 * The event is cancelable if it is possible to prevent the events default action.
 * To cancel an event, use the preventDefault() method.
 
+###### 8. preventDefault vs. stopPropagation vs. stopImmediatePropagation
+
+* preventDefault: Cancels the event if it is cancelable, without stopping further propagation of the event.
+* stopPropagation: will prevent any parent handlers from being executed
+* stopImmediatePropagation: will do the same but also prevent other handlers from executing.
+
+```javascript
+$("p").click(function(event){
+  event.stopImmediatePropagation();
+});
+$("p").click(function(event){
+  // This function won't be executed
+  $(this).css("background-color", "#f00");
+});
+```
+
+```javascript
+$('a').on('click', function(e) {
+    e.preventDefault(); // Now link won't go anywhere
+    e.stopPropagation(); // Now the event won't bubble up
+    console.log('element was clicked');
+});
+```
+
 #### 23. What is shadow DOM?
 
 Read: http://glazkov.com/2011/01/14/what-the-heck-is-shadow-dom/
