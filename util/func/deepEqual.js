@@ -1,9 +1,9 @@
 /**
- * Checking deepEqaul object in JS
+ * Checking deepEqual object in JS
  */
 
 function deepEqual (x, y) {
-    if ((typeof x == "object" && x != null) && (typeof y == "object" && y != null)) {
+    if ((typeof x == "object" && x !== null) && (typeof y == "object" && y !== null)) {
         if (Object.keys(x).length != Object.keys(y).length) {
             return false;
         }
