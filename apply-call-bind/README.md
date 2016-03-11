@@ -71,6 +71,3 @@ console.log(Object.prototype.toString.call(arrObj));
 Array.prototype.toString.call(arrObj); // Gives "1,2,3"
 
 ```
-
-
-

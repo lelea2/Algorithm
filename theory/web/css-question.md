@@ -71,7 +71,7 @@ Read: https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-di
 * default for every single page element
 
 **Relative**
-* "relative to itself". If you set position: relative; on an element but no other positioning attributes (top, left, bottom or right), it will no effect on it's positioning at all, it will be exactly as it would be if you left it as position: static; But if you DO give it some other positioning attribute, say, top: 10px;, it will shift it's position 10 pixels DOWN from where it would NORMALLY be.
+* "relative to itself". If you set position: relative; on an element but no other positioning attributes (top, left, bottom or right), it will not effect on it's positioning at all, it will be exactly as it would be if you left it as position: static; But if you DO give it some other positioning attribute, say, top: 10px;, it will shift it's position 10 pixels DOWN from where it would NORMALLY be.
 
 **Absolute**
 * relative to the next parent element with relative (or absolute) positioning. If there is no such parent, it will default all the way back up to the <html> element itself meaning it will be placed relatively to the page itself.
@@ -121,3 +121,42 @@ Read: https://css-tricks.com/absolute-relative-fixed-positioining-how-do-they-di
 * Quirks mode and strict mode are the two ’modes’ modern browsers can use to interpret your CSS
 
 Read: http://www.quirksmode.org/css/quirksmode.html
+
+
+#### 8. How to center an element in CSS
+
+* Read: https://www.w3.org/Style/Examples/007/center.en.html
+
+```html
+<div class="container">
+  <p>This paragraph…
+</div>
+```
+
+```css
+/** Using position and css transform */
+div.container {
+  height: 10em;
+  position: relative; /* 1 */
+}
+div.container p {
+  margin: 0;
+  position: absolute;               /* 2 */
+  top: 50%;                         /* 3 */
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) }
+}
+```
+
+```css
+div.container {
+  height: 10em;
+  display: flex;
+  align-items: center; //align vertically
+  justify-content: center; //align horizonally
+}
+div.container p {
+  margin: 0 auto;
+}
+```

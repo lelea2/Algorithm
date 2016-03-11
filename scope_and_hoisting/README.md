@@ -9,7 +9,7 @@ function b() {
     function a() {}
 }
 b();
-console.log(a);
+console.log(a); //1
 ```
 
 **Result:** 1
@@ -31,7 +31,7 @@ function foo(){
         return 8;
     }
 }
-foo();//?
+foo();//? === 8
 ```
 
 **Result:** 8
@@ -47,5 +47,5 @@ function fxn() {
     var foo = "bai";
 }
 fxn();
-alert(foo); //foo
+alert(foo); //'hello'
 ```
