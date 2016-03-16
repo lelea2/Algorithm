@@ -160,3 +160,14 @@ div.container p {
   margin: 0 auto;
 }
 ```
+
+#### 9. How to deal with Retina image
+https://css-tricks.com/snippets/css/retina-display-media-query/
+
+```css
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    /* Retina-specific stuff here */
+}
+```

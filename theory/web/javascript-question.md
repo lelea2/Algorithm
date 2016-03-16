@@ -19,6 +19,17 @@
 * Null
 * Undefined
 
+Eg: What is a potential pitfall with using typeof bar === "object" to determine if bar is an object? How can this pitfall be avoided?
+
+```javascript
+var bar = null;
+console.log(typeof bar === "object");  // logs true! ==> null is a special object
+
+/** correct way **/
+console.log((bar !== null) && (typeof bar === "object"));  // logs false
+
+```
+
 #### 1.2 Functional Progamming in JavaScript
 
 * Pure functions / function purity.
@@ -75,7 +86,7 @@ function inheritPrototype(childObject, parentObject) {
 }
 ```
 
-#### 3. What is the difference between classical inheritance and prototypal inheritance?
+#### 3.1 What is the difference between classical inheritance and prototypal inheritance?
 
 First of, interesting comparison
 
@@ -164,15 +175,39 @@ var b = new B();
 b.doSomething();
 ```
 
-#### 4. When is classical inheritance an appropriate choice?
+#### 3.2 When is classical inheritance an appropriate choice?
 
 Boo, the answer is rarely, almost never. “Favor object composition over class inheritance.”
 
-#### 5. When is prototypal inheritance an appropriate choice? (whenever you need inheritance)
+#### 4 When is prototypal inheritance an appropriate choice? (whenever you need inheritance)
 Useful for:
 * Delegation (i.e., the prototype chain).
 * Concatenative (i.e. mixins, `Object.assign()`).
 * Functional (Not to be confused with functional programming. A function used to create a closure for private state/encapsulation).
+
+#### 5. Use of 'prototype' vs. 'this' in JavaScript?
+http://stackoverflow.com/questions/310870/use-of-prototype-vs-this-in-javascript
+
+```javascript
+//Note: Method invocations are very slightly faster for this one
+var A = function () {
+    this.x = function () {
+        //do something
+    };
+};
+
+/******** vs. *********/
+
+var A = function () { };
+A.prototype.x = function () {
+    //do something
+};
+
+```
+
+Prototype pattern is good for
+* Faster to create instances (jsperf)
+* Uses less memory
 
 #### 6. What are the pros and cons of functional programming vs object-oriented programming?
 
@@ -651,7 +686,7 @@ var employee = {
 }
 ```
 
-##### (3) Using JavaScript "new" keyword
+##### (3) Using JavaScript "new" keyword (constructor way)
 ```javscript
 var employee = new Object(); // Created employee object using new keywords and Object()
 employee.name = 'Nishant';
