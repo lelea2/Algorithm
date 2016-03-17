@@ -485,3 +485,18 @@ Read: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
   getTheStyle();
 </script>
 ```
+
+#### 30. List HTML5 Input types (13 types)
+* color
+* date
+* datetime
+* datetime-local
+* email
+* month
+* number
+* range
+* search
+* tel
+* time
+* url
+* week
