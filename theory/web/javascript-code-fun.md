@@ -86,3 +86,20 @@ $('#resume').on( 'change', function() {
 });
 </script>
 ```
+
+#### Fade in component in React
+
+```javascript
+componentDidMount: function() {
+    // Get the components DOM node
+    var elem = this.getDOMNode();
+    // Set the opacity of the element to 0
+    elem.style.opacity = 0;
+    window.requestAnimationFrame(function() {
+        // Now set a transition on the opacity
+        elem.style.transition = "opacity 250ms";
+        // and set the opacity to 1
+        elem.style.opacity = 1;
+    });
+}
+```
