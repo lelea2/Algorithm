@@ -87,7 +87,7 @@ $('#resume').on( 'change', function() {
 </script>
 ```
 
-#### Fade in component in React
+#### 6. Fade in component in React
 
 ```javascript
 componentDidMount: function() {
@@ -103,3 +103,26 @@ componentDidMount: function() {
     });
 }
 ```
+
+#### 7. What does the following return?
+
+* "complete" return first the "here" returned after 1000ms
+
+```javascript
+function b(callback) {
+  setTimeout(function() {
+    callback();
+  },
+  1000);
+}
+function a(callback) {
+  b(function() {
+    console.log('here');
+  });
+  callback();
+}
+a(function() {
+  console.log('complete');
+});
+```
+

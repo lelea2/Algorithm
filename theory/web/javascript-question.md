@@ -999,6 +999,7 @@ https://web.archive.org/web/20130101080638/http://bonsaiden.github.com/JavaScrip
 * A string should **NEVER** be used as the parameter of setTimeout or setInterval (evil "eval)
 * An anonymous function should be passed that then takes care of the actual call.
 * **setInterval** should be avoided because its scheduler is not blocked by executing JavaScript.
+* Timers can be tricky to use since they operate within a single thread, the events queue up waiting to execute.  Multiple setTimeouts firing around the same time, you cannot guarantee sequential execution.
 
 ##### setTimeout()/clearTimeout()
 ==> executes a function, once, after waiting a specified number of milliseconds
@@ -1331,3 +1332,7 @@ Object.prototype.keys = Object.prototype.keys || function(obj) {
 }
 
 ```
+
+#### 41. What is the difference between declaring methods on the prototype level or in the constructor?
+
+* Declaring methods on the prototype more efficient, especially for large number of objects because the method declaration will only exists in the prototype. However all methods will be public. Declaring it in the constructor method does not have this advantage but we can make methods private or public as we needed. This help to fulfill OO principle: Encapsulation.

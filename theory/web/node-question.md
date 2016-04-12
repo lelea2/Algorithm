@@ -81,3 +81,5 @@ npm list --depth 1 --global packagename > /dev/null 2>&1
 
 ```
 
+### 9. Explain how NodeJS work?
+* It uses Google V8 Javascript engine to execute code. It contains built-in asynchronous I/O library for file, socket and HTTP communication.  Node encapsulates libuv to handle asynchronous events.
