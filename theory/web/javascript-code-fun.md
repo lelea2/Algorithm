@@ -126,3 +126,14 @@ a(function() {
 });
 ```
 
+#### Addition in JS
+
+```
+Number + Number -> Addition
+Boolean + Number -> Addition
+Boolean + Number -> Addition
+Number + String -> Concatenation
+String + Boolean -> Concatenation
+String + String -> Concatenation
+```
+

@@ -1,5 +1,7 @@
 Reference:
 * https://blog.risingstack.com/node-js-interview-questions/
+* https://www.toptal.com/nodejs/top-10-common-nodejs-developer-mistakes
+* https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions/
 
 ### 1. What is an error-first callback?
 * first argument is always an error object that the programmer has to check if something went wrong
