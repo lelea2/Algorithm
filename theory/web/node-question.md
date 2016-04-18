@@ -3,7 +3,7 @@ Reference:
 * https://www.toptal.com/nodejs/top-10-common-nodejs-developer-mistakes
 * https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions/
 
-### 1. What is an error-first callback?
+#### 1. What is an error-first callback?
 * first argument is always an error object that the programmer has to check if something went wrong
 
 ```javascript
@@ -15,13 +15,13 @@ fs.readFile(filePath, function(err, data) {
 });
 ```
 
-### 2. How can you avoid callback hells?
+#### 2. How can you avoid callback hells?
 
 * modularization: break callbacks into independent functions
 * use Promises
 * use yield with Generators and/or Promises
 
-### 3. How can you listen on port 80 with Node?
+#### 3. How can you listen on port 80 with Node?
 * Set what port you have to listen to on app start
 ```javascript
 app.listen(port, function (err) {
@@ -30,27 +30,27 @@ app.listen(port, function (err) {
 
 ```
 
-### 4. What's the event loop?
+#### 4. What's the event loop?
 * Node.js runs using a single thread. Under the hood Node.js uses many threads through **libuv**
 
 * Every I/O requires a callback - once they are done they are pushed onto the event loop for execution.
 
-### 5. What tools can be used to assure consistent style?
+#### 5. What tools can be used to assure consistent style?
 
 * JSLint
 * JSHint
 * ESLint
 * JSCS ...
 
-### 6. What's the difference between operational and programmer errors?
+#### 6. What's the difference between operational and programmer errors?
 * Operation errors are not bugs, but problems with the system, like request timeout or hardware failure.
 * Programmer errors are actual bugs.
 
-### 7. Why npm shrinkwrap is useful?
+#### 7. Why npm shrinkwrap is useful?
 
 * Locks down the versions of a package's dependencies so that you can control exactly which versions of each dependency will be used when your package is installed.
 
-### 8. What's a stub? Name a use case?
+#### 8. What's a stub? Name a use case?
 * functions/programs that simulate the behaviours of components/modules.
 * Stubs provide canned answers to function calls made during test cases.
 
@@ -66,7 +66,7 @@ readFileStub.restore();
 
 ```
 
-### 8. Checking package dependencies for your app?
+#### 9. Checking package dependencies for your app?
 * Under your app directory, execute
 
 ```
@@ -83,5 +83,8 @@ npm list --depth 1 --global packagename > /dev/null 2>&1
 
 ```
 
-### 9. Explain how NodeJS work?
+#### 10. Explain how NodeJS work?
 * It uses Google V8 Javascript engine to execute code. It contains built-in asynchronous I/O library for file, socket and HTTP communication.  Node encapsulates libuv to handle asynchronous events.
+
+#### 11. Explain how session in NodeJS works?
+* https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions/
