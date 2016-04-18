@@ -15,6 +15,7 @@ The followings are good website for learning
 * http://thatjsdude.com/interview/
 * http://www.frontendjournal.com/javascript-es6-learn-important-features-in-a-few-minutes/
 * https://ponyfoo.com/ (lots of cool stuffs to reference)
+* https://github.com/sindresorhus/awesome-nodejs (NodeJS recommended third library)
 
 ####Important knowledge for FE
 
