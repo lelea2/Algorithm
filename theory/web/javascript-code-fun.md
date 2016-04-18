@@ -126,7 +126,7 @@ a(function() {
 });
 ```
 
-#### Addition in JS
+#### 8. Addition in JS and type resulted
 
 ```
 Number + Number -> Addition
@@ -135,5 +135,11 @@ Boolean + Number -> Addition
 Number + String -> Concatenation
 String + Boolean -> Concatenation
 String + String -> Concatenation
+```
+
+#### 9. How to access content within the iframe
+```javascript
+var iframe = document.getElementById('iframeId');
+var innerDoc = (iframe.contentDocument) ? iframe.contentDocument : iframe.contentWindow.document;
 ```
 
