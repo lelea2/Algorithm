@@ -1,4 +1,18 @@
-### 1. In JavaScript isNaN(undefined) returns true. how could you fix it?
+<!-- MarkdownTOC -->
+
+- 1. In JavaScript isNaN\(undefined\) returns true. how could you fix it?
+- 2. Check if given number is integer
+- 3. Fast Algorithm To Find Unique Items in JavaScript Array
+- 4. Object assignment \(object stringify the key\)
+- 5. How to upload a file by javascript
+- 6. Fade in component in React
+- 7. What does the following return?
+- 8. Addition in JS and type resulted
+- 9. How to access content within the iframe
+
+<!-- /MarkdownTOC -->
+
+#### 1. In JavaScript isNaN(undefined) returns true. how could you fix it?
 
 ```javascript
 function isReallyNaN (x){
@@ -6,7 +20,7 @@ function isReallyNaN (x){
 }
 ```
 
-### 2. Check if given number is integer
+#### 2. Check if given number is integer
 ```javascript
 function isInteger(x) {
     return (x % 1 === 0);
@@ -14,7 +28,7 @@ function isInteger(x) {
 
 ```
 
-### 3. Fast Algorithm To Find Unique Items in JavaScript Array
+#### 3. Fast Algorithm To Find Unique Items in JavaScript Array
 
 Classical method is running loop O(n^2) to find unique items, which is not a good thing for a large array
 

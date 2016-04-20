@@ -5,6 +5,88 @@
 * http://ejohn.org/apps/learn/
 * http://eloquentjavascript.net/
 
+<!-- MarkdownTOC -->
+
+- 1.1 Name two programming paradigms important for JavaScript app developers?
+- 1.2 Functional Progamming in JavaScript
+- 2. OOP in javascript
+- 3.1 What is the difference between classical inheritance and prototypal inheritance?
+- 3.2 When is classical inheritance an appropriate choice?
+- 4 When is prototypal inheritance an appropriate choice? \(whenever you need inheritance\)
+- 5. Use of 'prototype' vs. 'this' in JavaScript?
+- 6. What are the pros and cons of functional programming vs object-oriented programming?
+    - OOP
+    - Functional Programming
+- 7. What does “favor object composition over class inheritance” mean?
+- 8. What are two-way data binding and one-way data flow, and how are they different?
+- 9. What are the pros and cons of monolithic vs microservice architectures?
+    - onolithic
+    - icro Service
+- 10. What is asynchronous programming, and why is it important in JavaScript?
+- 11.1 Concurrency model and Event Loop in Javascript
+    - Eventloop
+    - Non-blocking I/O
+- 11.2 Trick to eliminate stackoverflow on loop function
+- 12.1 null vs. undefined
+- 12.2 Difference between undefined and not defined in JavaScript
+- 12.3 Best way to detect undefined object property in JavaScript
+- 13.1 Difference between Function, Method and Constructor calls in JavaScript? \(OOP concept\)
+- 13.2 Differences between function Person\(\){}, var person = Person\(\), and var person = new Person\(\)?
+- 13.3 Function Declarations vs. Function Expressions
+- 13.4 What is Context?
+- 14. What is the difference between “==” and “===”?
+- 15. What is the drawback of creating true private in JavaScript? -- NOT RECOMMENDED
+- 17. Explain **delete** operator and what it does
+- 18. What is JavaScript Self-Invoking anonymous function or Self-Executing anonymous function.
+- 19.1 What is the difference between array vs. object?
+    - Object / Associative Array
+    - Array
+- 19.2 How to check if an object is an array or not?
+- 19.3 What are the way by which we can create object in JavaScript? - 3 ways
+    - \(1\) Function Based
+    - \(2\) Object Literal
+    - \(3\) Using JavaScript "new" keyword \(constructor way\)
+- 19.4 How to empty an array in JavaScript? -- 4 methods
+- 21. What is "this" in JS?
+- 22. What are differences between host object and native object?
+    - Native object
+    - Host object
+    - User object
+- 23. Why extending build in JavaScript object is a bad idea?
+- 24.1 Why does nearly every object have a toString method?
+- 24.2 what's different between Object.prototype.toString.call and typeof?
+- 25.1 How would you apply asynchronous call without any help of library?
+- 25.2 Pure JS Promise -- Write async function in JS \(This is my interview question at Yahoo\)
+- 25.3 Promise.all and Promise.race
+- 26.1 What is the difference between slice, substr, substring?
+- 26.2 What is differences between Array.slice\(\) and Array.splice\(\)?
+- 26.3 Differences between array.map\(\), array.reduce\(\), array.filter\(\). Example for function chain call
+- 27. What is the reason for wrapping the entire content of a JavaScript source file in a function block?
+- 28. What are the benefits of including 'use strict' at the beginning of a JavaScript source file? -- Good practice
+- 28. What is a closure in JS?
+- 29. Javascript Timer -- Difference between setTimeout\(\) and setInterval\(\)?
+    - setTimeout\(\)/clearTimeout\(\)
+    - setInterval\(\)/clearInterval\(\)
+- 30. Graceful Degradation vs. Progressive Enhancement?
+- 31. How are errors gracefully handled in JavaScript?
+- 32. How to handle cross domain request in JavaScript?
+    - CORS \(Cross-Origin Resource Sharing\)
+    - JSONP \(JavaScript Object Notation with Padding\)
+    - SERVER-SIDE PROXY
+- 33. Function declaration \(Defined at run time vs. defined at parse time\)
+- 34. What is difference between private variable, public variable and static variable? How we achieve this in JS?
+- 35. CommonJS vs. AMD
+- 36. Function length and method overloading
+- 37.1 What is malicious JS and its consequences?
+    - Consequences:
+- 37.2 What is XSS attack?
+- 38. How to set delay time for autocomplete request? \(Apple Interview\)
+- 39. HashTable in JS
+- 40. Writing shim for Object.keys\(\) function
+- 41. What is the difference between declaring methods on the prototype level or in the constructor?
+
+<!-- /MarkdownTOC -->
+
 #### 1.1 Name two programming paradigms important for JavaScript app developers?
 
 * OOP programming -- Prototypal inheritance (also: prototypes, OLOO).
