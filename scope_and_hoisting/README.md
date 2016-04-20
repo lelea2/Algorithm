@@ -49,3 +49,19 @@ function fxn() {
 fxn();
 alert(foo); //'hello'
 ```
+
+#### Example 4
+
+```javascript
+(function() {
+    console.log(bar) //returns 'undefined'
+    console.log(baz) // return 2, baz is hoisted
+    foo(); // outputs 'aloha' to the console
+
+    function foo() {
+        console.log('aloha')
+    };
+    var bar = 1;
+    baz = 2
+})()
+```

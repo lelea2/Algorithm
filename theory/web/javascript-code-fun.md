@@ -9,6 +9,7 @@
 - 7. What does the following return?
 - 8. Addition in JS and type resulted
 - 9. How to access content within the iframe
+- 10. What type of pop-up boxes you can create in JS and how you create them?
 
 <!-- /MarkdownTOC -->
 
@@ -157,3 +158,22 @@ var iframe = document.getElementById('iframeId');
 var innerDoc = (iframe.contentDocument) ? iframe.contentDocument : iframe.contentWindow.document;
 ```
 
+
+#### 10. What type of pop-up boxes you can create in JS and how you create them?
+
+* Alert, prompt, and confirm boxes are the three main pop-up boxes that can be created in JavaScript.
+* Alert boxes are used to alert the user to important info regarding the site and require the user to click ‘OK’ in order to proceed.
+* Alert boxes are created using the following syntax:
+```javascript
+window.alert(“Text”);
+```
+* Prompt boxes prompt the user to input some form of data before proceeding.
+* Prompt boxes are created using the following syntax:
+```javascript
+window.prompt(“Prompt Text”,”Default value”);
+```
+* Confirm boxes are used when for verification, such as agreeing to a terms of service, rendering a TRUE value when the user clicks ‘OK’.
+* Confirm boxes are created with the following syntax:
+```
+window.confirm(“Confirm text here.”);
+```
