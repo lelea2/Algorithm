@@ -10,6 +10,7 @@
 - 8. Addition in JS and type resulted
 - 9. How to access content within the iframe
 - 10. What type of pop-up boxes you can create in JS and how you create them?
+- 11. Smart poller in jQuery
 
 <!-- /MarkdownTOC -->
 
@@ -176,4 +177,25 @@ window.prompt(“Prompt Text”,”Default value”);
 * Confirm boxes are created with the following syntax:
 ```
 window.confirm(“Confirm text here.”);
+```
+
+#### 11. Smart poller in jQuery
+
+```javascript
+(function($) {
+    $.smartPoller = function(wait, poller) {
+        if ($.isFunction(wait)) {
+            poller = wait;
+            wait = 1000;
+        }
+
+        (function startPoller() {
+            setTimeout(function() {
+                poller.call(this, startPoller);
+            }, wait);
+            // for polling that increases after no change, uncomment below
+            // wait = wait * 1.5
+        })();
+    };
+})(jQuery);
 ```
