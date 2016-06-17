@@ -23,7 +23,7 @@ function getGreatestCommonDivisor(n1, n2) {
 module.exports = getGreatestCommonDivisor;
 
 
-/** I still it from online note, using recursion */
+/** I stole it from online note, using recursion */
 //Shorter version, using recursive
 function greatestCommonDivisor2(a, b) {
     if(b == 0) {

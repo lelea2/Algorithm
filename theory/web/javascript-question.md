@@ -78,7 +78,7 @@
 - 35. CommonJS vs. AMD
 - 36. Function length and method overloading
 - 37.1 What is malicious JS and its consequences?
-    - Consequences:
+        - Consequences:
 - 37.2 What is XSS attack?
 - 38. How to set delay time for autocomplete request? \(Apple Interview\)
 - 39. HashTable in JS
@@ -139,7 +139,7 @@ function User (theName, theEmail) {
 ​
 User.prototype = {
     constructor: User,
-    saveScore:function (theScoreToAdd)  {
+    saveScore:function (theScoreToAdd) {
         this.quizScores.push(theScoreToAdd)
     },
     showNameAndScores:function ()  {

@@ -7,9 +7,8 @@ function flatten(array) {
     var breadcrumbs = [];
     var result = [];
 
-    var i=0
+    var i = 0;
     while (currentArray) {
-
         if (currentArray[i] instanceof Array) {
             breadcrumbs.push({currentArray, i});
             currentArray = currentArray[i]; //switch current array to inner array
@@ -17,16 +16,13 @@ function flatten(array) {
         } else {
             result.push(currentArray[i]);
         }
-
         var crumb = null;
         while ( currentArray && i === currentArray.length - 1 ) {
             crumb = breadcrumbs.pop();
             currentArray = crumb ? crumb.currentArray : null;
             i = crumb ? crumb.i : null;
         }
-
-        i+=1;
+        i += 1;
     }
-
     return result;
 }
