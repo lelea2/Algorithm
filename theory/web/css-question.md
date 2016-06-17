@@ -129,7 +129,7 @@ Read: http://www.quirksmode.org/css/quirksmode.html
 
 ```html
 <div class="container">
-  <p>This paragraph…
+  <p>This paragraph…</p>
 </div>
 ```
 
