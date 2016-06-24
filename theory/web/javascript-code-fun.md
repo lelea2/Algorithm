@@ -11,6 +11,7 @@
 - 9. How to access content within the iframe
 - 10. What type of pop-up boxes you can create in JS and how you create them?
 - 11. Smart poller in jQuery
+- 12. Common pattern for writing a JS plugin to work with browserify, requireJS and so..
 
 <!-- /MarkdownTOC -->
 
@@ -199,3 +200,25 @@ window.confirm(“Confirm text here.”);
     };
 })(jQuery);
 ```
+
+#### 12. Common pattern for writing a JS plugin to work with browserify, requireJS and so..
+
+```javascript
+(function(root, factory) {
+    /* istanbul ignore next */
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define([], factory);
+    } else if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node.
+        module.exports = factory();
+    } else {
+        // Browser globals (root is window)
+        root.StringMask = factory();
+    }
+}(this, function() {
+  //Your code handler here
+  return YourObject;
+}());
