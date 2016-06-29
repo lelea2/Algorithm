@@ -84,6 +84,7 @@
 - 39. HashTable in JS
 - 40. Writing shim for Object.keys\(\) function
 - 41. What is the difference between declaring methods on the prototype level or in the constructor?
+- 42. Checking idle time on browser
 
 <!-- /MarkdownTOC -->
 
@@ -1418,3 +1419,41 @@ Object.prototype.keys = Object.prototype.keys || function(obj) {
 #### 41. What is the difference between declaring methods on the prototype level or in the constructor?
 
 * Declaring methods on the prototype more efficient, especially for large number of objects because the method declaration will only exists in the prototype. However all methods will be public. Declaring it in the constructor method does not have this advantage but we can make methods private or public as we needed. This help to fulfill OO principle: Encapsulation.
+
+
+#### 42. Checking idle time on browser
+
+* The idea of checking idle time is checking if onmouse/onkey event has not been active for certain amount of time
+
+````javascript
+var IDLE_TIMEOUT = 60; //seconds
+var _idleSecondsTimer = null;
+var _idleSecondsCounter = 0;
+
+document.onclick = function() {
+    _idleSecondsCounter = 0;
+};
+
+document.onmousemove = function() {
+    _idleSecondsCounter = 0;
+};
+
+document.onkeypress = function() {
+    _idleSecondsCounter = 0;
+};
+
+//polling for idle time
+_idleSecondsTimer = window.setInterval(CheckIdleTime, 1000);
+
+function CheckIdleTime() {
+     _idleSecondsCounter++;
+     var oPanel = document.getElementById("SecondsUntilExpire");
+     if (oPanel)
+         oPanel.innerHTML = (IDLE_TIMEOUT - _idleSecondsCounter) + "";
+    if (_idleSecondsCounter >= IDLE_TIMEOUT) {
+        window.clearInterval(_idleSecondsTimer);
+        alert("Time expired!");
+        document.location.href = "logout.html";
+    }
+}
+```
