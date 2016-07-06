@@ -1461,7 +1461,7 @@ function CheckIdleTime() {
 
 #### 43. Javascript performance testing
 
-Discuss about ```performance.timing```, object could be accessed from any browser's console
+Discuss about ```performance.timing```, object could be accessed from any browser's console. Good read from: http://analyticsdemystified.com/google-analytics/hard-truth-measuring-page-load-time/
 
 * redirectStart and redirectEnd: If your site uses a lot of redirects, it could definitely be useful to include that in your page load time calculation. I’ve only seen these values populated in rare cases – but they’re worth considering.
 fetchStart: This marks the time when the browser first starts the process of loading the next page.
