@@ -100,3 +100,19 @@ function isEqual(a, b) {
     return true;
 }
 
+/**
+ * Helper function to remove empty value in object
+ * @method removeEmptyValues
+ */
+
+function removeEmptyValues(obj) {
+    for (var propName in obj) {
+        if (typeof propName === 'object') {
+            removeEmptyValues(propName);
+        } else if (!obj[propName] || obj[propName].length === 0) {
+            delete obj[propName];
+        }
+    }
+    return obj;
+}
+
