@@ -86,6 +86,7 @@
 - 41. What is the difference between declaring methods on the prototype level or in the constructor?
 - 42. Checking idle time on browser
 - 43. Javascript performance testing
+- 44. Parsing XML DOM
 
 <!-- /MarkdownTOC -->
 
@@ -1496,3 +1497,23 @@ function getPageLoadTime() {
 }
 
 ```
+
+#### 44. Parsing XML DOM
+
+```javascript
+//From DOM to String
+var XMLS = new XMLSerializer();
+var elem = document;
+var xml_str = XMLS.serializeToString(elem);
+console.log(xml_str);
+
+
+/************** OR *******************/
+
+//Parsing from String to DOM
+var parser = new DOMParser();
+var doc = parser.parseFromString(xml_str, "application/xml");
+console.log(doc);
+
+```
+

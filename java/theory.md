@@ -63,3 +63,6 @@ Now our next query will look like this
 ```
 "from Students s join fetch s.Books b"
 ```
+
+#### 5. Differences between Abstract and Interface class
+
