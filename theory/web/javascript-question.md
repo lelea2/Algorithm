@@ -84,6 +84,9 @@
 - 39. HashTable in JS
 - 40. Writing shim for Object.keys\(\) function
 - 41. What is the difference between declaring methods on the prototype level or in the constructor?
+- 42. Checking idle time on browser
+- 43. Javascript performance testing
+- 44. Parsing XML DOM
 
 <!-- /MarkdownTOC -->
 
@@ -1418,3 +1421,99 @@ Object.prototype.keys = Object.prototype.keys || function(obj) {
 #### 41. What is the difference between declaring methods on the prototype level or in the constructor?
 
 * Declaring methods on the prototype more efficient, especially for large number of objects because the method declaration will only exists in the prototype. However all methods will be public. Declaring it in the constructor method does not have this advantage but we can make methods private or public as we needed. This help to fulfill OO principle: Encapsulation.
+
+
+#### 42. Checking idle time on browser
+
+* The idea of checking idle time is checking if onmouse/onkey event has not been active for certain amount of time
+
+````javascript
+var IDLE_TIMEOUT = 60; //seconds
+var _idleSecondsTimer = null;
+var _idleSecondsCounter = 0;
+
+document.onclick = function() {
+    _idleSecondsCounter = 0;
+};
+
+document.onmousemove = function() {
+    _idleSecondsCounter = 0;
+};
+
+document.onkeypress = function() {
+    _idleSecondsCounter = 0;
+};
+
+//polling for idle time
+_idleSecondsTimer = window.setInterval(CheckIdleTime, 1000);
+
+function CheckIdleTime() {
+     _idleSecondsCounter++;
+     var oPanel = document.getElementById("SecondsUntilExpire");
+     if (oPanel)
+         oPanel.innerHTML = (IDLE_TIMEOUT - _idleSecondsCounter) + "";
+    if (_idleSecondsCounter >= IDLE_TIMEOUT) {
+        window.clearInterval(_idleSecondsTimer);
+        alert("Time expired!");
+        document.location.href = "logout.html";
+    }
+}
+```
+
+#### 43. Javascript performance testing
+
+Discuss about ```performance.timing```, object could be accessed from any browser's console. Good read from: http://analyticsdemystified.com/google-analytics/hard-truth-measuring-page-load-time/
+
+* redirectStart and redirectEnd: If your site uses a lot of redirects, it could definitely be useful to include that in your page load time calculation. I’ve only seen these values populated in rare cases – but they’re worth considering.
+fetchStart: This marks the time when the browser first starts the process of loading the next page.
+* requestStart: This marks the time when the browser requests the next page, either from a remote server or from its local cache.
+responseEnd: This marks the time when the browser downloads the last byte of the page, but before the page is actually loaded into the DOM for the user.
+* domLoading: This marks the time when the browser starts loading the page into the DOM.
+* domInteractive: This marks the time when enough of the page has loaded for the user to begin interacting with it.
+* domContentLoaded: This marks the time when all HTML and CSS are parsed into the DOM. If you’re familiar with jQuery, this is basically the same as jQuery’s “ready” event (“ready” does a bit more, but it’s close enough).
+* domComplete: This marks the time when all images, iframes, and other resources are loaded into the DOM.
+* loadEventStart and loadEventComplete: These mean that the window’s “onload” event has started (and completed), and indicate that the page is finally, officially loaded.
+
+```javascript
+function getPageLoadTime() {
+    if (typeof(performance) !== 'undefined' && typeof(performance.timing) == 'object') {
+        var timing = performance.timing;
+
+        // fall back to less accurate milestones
+        var startTime = performance.timing.redirectStart ||
+                performance.timing.fetchStart ||
+                performance.timing.requestStart;
+        var endTime = performance.timing.domContentLoadedEventEnd ||
+                performance.timing.domInteractive ||
+                performance.timing.domComplete ||
+                performance.timing.loadEventComplete;
+
+        if (startTime && endTime && (startTime < endTime)) {
+            return (endTime - startTime);
+        }
+    }
+
+    return 'data not available';
+}
+
+```
+
+#### 44. Parsing XML DOM
+
+```javascript
+//From DOM to String
+var XMLS = new XMLSerializer();
+var elem = document;
+var xml_str = XMLS.serializeToString(elem);
+console.log(xml_str);
+
+
+/************** OR *******************/
+
+//Parsing from String to DOM
+var parser = new DOMParser();
+var doc = parser.parseFromString(xml_str, "application/xml");
+console.log(doc);
+
+```
+
