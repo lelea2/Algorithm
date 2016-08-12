@@ -23,6 +23,69 @@ http://stackoverflow.com/questions/32461229/why-use-redux-over-facebook-fluxJ
 * Mixins
 
 ```javascript
+import React from 'react'
+import ReactDOM from 'react-dom'
 
+class Greeting extends React.Component {
+  render() {
+    return <div>Hello {this.props.name}</div>
+  }
+}
+const mountNode = document.getElementById('app')
+
+ReactDOM.redner(<Greeting name='John' />, mountNode)
 ```
 
+##### 2. What is JSX
+* JS synteac extension
+* look like xml/html
+* react doesn't use templating languages
+* embed jsx directly js code
+* JSX is more powerful because of js
+* JSX is concise & familiar syntax for define tree structure
+
+```javascript
+<button className='btn btn-primary'>
+  {{text}}
+</button>
+```
+
+##### 3. Declarative components
+* Define how UI should look for given data
+* don't worry much about DOM manipulations
+* As developer we focus on 2 things
+  * Define out UI as components
+  * Manage state of application
+* React take care of updating DOM based on state changes
+
+```javascript
+//CommentList
+<div className="comment-list">
+  {comments.map((comment) => {
+    return <Comment key={comment.id} comment={comment} />
+  })}
+</div>
+```
+
+**Advantages**
+* More predictable code
+* Easier to debug
+* Abstract DOM manipulations
+* Efficient DOM updates
+
+**Building components**
+* Build encapsulated components
+  * Each component should have single responsibility
+  * Break complex components in smaller components
+  * Build re-usable components
+    * Identify & abstract repeated patterns
+    * Use props to make components configurable
+
+##### 4. Whats is one-way dataflow?
+* Data flows from top to bottom of the component hierarchy
+* 2 types of data: props & state
+
+** Advantage **
+* More explicit code
+* Easy to debug
+* Better performance
