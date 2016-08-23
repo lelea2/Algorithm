@@ -883,6 +883,27 @@ Object.prototype.toString.call(new Date()).slice(8, -1)   === "Date";
 Object.prototype.toString.call(new RegExp()).slice(8, -1) === "RegExp";
 ```
 
+#### 24.3 Difference between Object.prototype.toString.call(arrayObj) and arrayObj.toString()
+
+```javascript
+var toString = Object.prototype.toString;
+
+"foo".toString(); // "foo"
+toString.call("foo"); // [object String]
+
+[].toString(); // ""
+toString.call([]); // [object Array]
+
+{}.toString(); // syntax error
+toString.call({}); // [object Object]
+```
+
+When the toString method is called, the following steps are taken:
+* Let O be the result of calling ToObject passing the this value as the argument.
+* Let class be the value of the [[Class]] internal property of O.
+* Return the String value that is the result of concatenating the three Strings "[object ", class, and "]".
+
+
 #### 25.1 How would you apply asynchronous call without any help of library?
 Read: http://krasimirtsonev.com/blog/article/7-lines-JavaScript-library-for-calling-asynchronous-functions
 
