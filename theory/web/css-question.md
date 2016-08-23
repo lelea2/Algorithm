@@ -171,3 +171,20 @@ https://css-tricks.com/snippets/css/retina-display-media-query/
     /* Retina-specific stuff here */
 }
 ```
+
+#### 10. HTML5 input to manage number step
+
+```html
+<div class="container">
+  <label for="without-step">Without Step Attribute</label>
+  <input type="number" pattern="[0-9]+([\,|\.][0-9]+)?" name="my-num"
+  title="The number input must start with a number and use either comma or a dot as a decimal character."
+  id="without-step"/>
+  <div id="test1"></div>
+  <label for="with-step">With a step attribute set to 0.01</label>
+  <input type="number" pattern="[0-9]+([\,|\.][0-9]+)?" name="my-num"
+    step="0.01"
+    title="The number input must start with a number and use either comma or a dot as a decimal character." id="with-step"/>
+  <div id="test2"></div>
+</div>
+```
