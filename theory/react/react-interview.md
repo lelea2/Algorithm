@@ -89,3 +89,15 @@ ReactDOM.redner(<Greeting name='John' />, mountNode)
 * More explicit code
 * Easy to debug
 * Better performance
+
+##### 4. Trick for better server rendering with React
+
+https://www.youtube.com/watch?v=PnpfGy7q96U
+
+* Production Mode
+* Minified React (use React.min of browser version)
+* Babel Transform
+* ES6 classes and stateless components (require refactoring your code, outbound func support)
+* Streaming (maybe) ==> look at React dom string
+* Caching ==> not yet with React
+
