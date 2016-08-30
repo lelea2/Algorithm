@@ -14,6 +14,9 @@ React.createClass vs. React.createComponent
 Why choosing redux over flux?
 http://stackoverflow.com/questions/32461229/why-use-redux-over-facebook-fluxJ
 
+Perfomance:
+* http://benchling.engineering/performance-engineering-with-react/
+
 #### 1. React.createClass versus extends React.Component (ES6 module)
 
 * Syntax difference
