@@ -42,7 +42,7 @@ ReactDOM.redner(<Greeting name='John' />, mountNode)
 ##### 2. What is JSX
 * JS synteac extension
 * look like xml/html
-* react doesn't use templating languages
+* react does not use templating languages
 * embed jsx directly js code
 * JSX is more powerful because of js
 * JSX is concise & familiar syntax for define tree structure
@@ -65,7 +65,9 @@ ReactDOM.redner(<Greeting name='John' />, mountNode)
 //CommentList
 <div className="comment-list">
   {comments.map((comment) => {
-    return <Comment key={comment.id} comment={comment} />
+    return (
+      <Comment key={comment.id} comment={comment} />
+    );
   })}
 </div>
 ```
@@ -103,4 +105,28 @@ https://www.youtube.com/watch?v=PnpfGy7q96U
 * ES6 classes and stateless components (require refactoring your code, outbound func support)
 * Streaming (maybe) ==> look at React dom string
 * Caching ==> not yet with React
+
+##### 5. What is flux?
+
+Action -> Dispatcher -> Store -> View -> Action -> Dispatcher
+
+**Action**
+* Pass data to dispatcher
+
+**Dispatcher**
+* Handle page intialization
+* Communicate with service
+* Dispatch data to Stores
+
+**Store**
+* Hold application data & state
+* Contain app UI logic
+* Emit change events
+
+**View**
+* Render data from stores as HTML
+* invoke actions
+* re-render on stores change events
+
+
 
