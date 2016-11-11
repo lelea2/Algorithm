@@ -1264,7 +1264,7 @@ Content-Type: application/json; charset=utf-8
 #### 33. Function declaration (Defined at run time vs. defined at parse time)
 
 * One of the advantages of run time **function declaration** is that you can declare function based on certain condition.
-* We COULD NOT do the same thing if using functiong defined at parse time
+* We COULD NOT do the same thing if using functioning defined at parse time
 
 ```javascript
 // Run-Time function declaration
@@ -1370,7 +1370,7 @@ Read: http://stackoverflow.com/questions/16521471/relation-between-commonjs-amd-
 * Can use this to leverage method overloading
 ```javascript
 //Apply different function call based on function length
-function addMethod(object, name, fn){
+function addMethod(object, name, fn) {
   // Save a reference to the old method
   var old = object[ name ];
 
@@ -1483,10 +1483,10 @@ document.onkeypress = function() {
 _idleSecondsTimer = window.setInterval(CheckIdleTime, 1000);
 
 function CheckIdleTime() {
-     _idleSecondsCounter++;
-     var oPanel = document.getElementById("SecondsUntilExpire");
-     if (oPanel)
-         oPanel.innerHTML = (IDLE_TIMEOUT - _idleSecondsCounter) + "";
+    _idleSecondsCounter++;
+    var oPanel = document.getElementById("SecondsUntilExpire");
+    if (oPanel)
+        oPanel.innerHTML = (IDLE_TIMEOUT - _idleSecondsCounter) + "";
     if (_idleSecondsCounter >= IDLE_TIMEOUT) {
         window.clearInterval(_idleSecondsTimer);
         alert("Time expired!");

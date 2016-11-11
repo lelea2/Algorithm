@@ -71,11 +71,13 @@ querySlectorAll is a generic purpose method. It is optimized for different kinds
 #### 6. How come, I can't use forEach or similar array methods on a NodeList?
 
 Not the same object,
+
 ```javascript
 
 myArray --> Array.prototype --> Object.prototype --> null
 
 myNodeList --> NodeList.prototype --> Object.prototype --> null
+
 ```
 
 Loop through nodelist as following

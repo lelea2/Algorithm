@@ -8,10 +8,10 @@
 //Idea: testing JS recursive call
 //Traverse tree DFS (Depth first search)
 function Traverse(element, callback) {
-   callback(element);
-   var list = element.children;
-   //If element has children, continuously traverse each children node
-   for (var i = 0; i < list.length; i++) {
-       Traverse(list[i], callback);  // recursive call
-   }
+  callback(element);
+  var list = element.children;
+  //If element has children, continuously traverse each children node
+  for (var i = 0; i < list.length; i++) {
+    Traverse(list[i], callback);  // recursive call
+  }
 }
