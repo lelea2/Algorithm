@@ -20,8 +20,8 @@
 - 7. What does “favor object composition over class inheritance” mean?
 - 8. What are two-way data binding and one-way data flow, and how are they different?
 - 9. What are the pros and cons of monolithic vs microservice architectures?
-    - onolithic
-    - icro Service
+    - Monolithic
+    - Micro Service
 - 10. What is asynchronous programming, and why is it important in JavaScript?
 - 11.1 Concurrency model and Event Loop in Javascript
     - Eventloop
@@ -55,6 +55,7 @@
 - 23. Why extending build in JavaScript object is a bad idea?
 - 24.1 Why does nearly every object have a toString method?
 - 24.2 what's different between Object.prototype.toString.call and typeof?
+- 24.3 Difference between Object.prototype.toString.call\(arrayObj\) and arrayObj.toString\(\)
 - 25.1 How would you apply asynchronous call without any help of library?
 - 25.2 Pure JS Promise -- Write async function in JS \(This is my interview question at Yahoo\)
 - 25.3 Promise.all and Promise.race
@@ -831,6 +832,7 @@ var User = {
 
 console.log(User.getCount()); //Answer: 1
 
+/// BUT!
 var func = User.getCount;
 console.log(func()); //Answer: undefined
 
@@ -910,9 +912,9 @@ Read: http://krasimirtsonev.com/blog/article/7-lines-JavaScript-library-for-call
 ```javascript
 var queue = function(funcs, scope) {
     (function next() {
-          if(funcs.length > 0) {
-              funcs.shift().apply(scope || {}, [next].concat(Array.prototype.slice.call(arguments, 0)));
-          }
+        if(funcs.length > 0) {
+            funcs.shift().apply(scope || {}, [next].concat(Array.prototype.slice.call(arguments, 0)));
+        }
     })();
 };
 var obj = {
@@ -1096,6 +1098,18 @@ Enforce stricter parsing and error handling on your JavaScript code at runtime. 
 * Variable declared in his own scope
 * Variable declared in parent function scope
 * Variable declared in global namespace
+
+```javascript
+var obj1 = {
+   printThis: function() {
+      console.log(this);
+   }
+};
+
+var func1 = obj1.printThis;
+obj1.printThis(); //line 1 ==> print out obj1
+func1(); //line 2 ==> print out window
+```
 
 #### 29. Javascript Timer -- Difference between setTimeout() and setInterval()?
 
