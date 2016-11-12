@@ -6,13 +6,13 @@
 //Using method toString in JS to do this.
 //Closure concept
 function mul(a) {
-    var result = a;
-    function f(b) {
-        result *= b;
-        return f;
-    }
-    f.toString = function() {
-        return result;
-    };
+  var result = a;
+  function f(b) {
+    result *= b;
     return f;
+  }
+  f.toString = function() {
+    return result;
+  };
+  return f;
 }

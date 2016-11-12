@@ -88,6 +88,7 @@
 - 42. Checking idle time on browser
 - 43. Javascript performance testing
 - 44. Parsing XML DOM
+- 45. What is hoisting in JS
 
 <!-- /MarkdownTOC -->
 
@@ -1550,5 +1551,17 @@ var parser = new DOMParser();
 var doc = parser.parseFromString(xml_str, "application/xml");
 console.log(doc);
 
+```
+
+#### 45. What is hoisting in JS
+Hoisting is JavaScript's default behavior of moving declarations to the top.
+
+```javascript
+x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x;                     // Display x in the element
+
+var x; // Declare x
 ```
 

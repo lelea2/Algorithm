@@ -36,11 +36,11 @@ class Greeting extends React.Component {
 }
 const mountNode = document.getElementById('app')
 
-ReactDOM.redner(<Greeting name='John' />, mountNode)
+ReactDOM.render(<Greeting name='John' />, mountNode)
 ```
 
 ##### 2. What is JSX
-* JS synteac extension
+* JS syntax extension
 * look like xml/html
 * react does not use templating languages
 * embed jsx directly js code
@@ -127,6 +127,3 @@ Action -> Dispatcher -> Store -> View -> Action -> Dispatcher
 * Render data from stores as HTML
 * invoke actions
 * re-render on stores change events
-
-
-
