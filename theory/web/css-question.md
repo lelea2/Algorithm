@@ -188,3 +188,44 @@ https://css-tricks.com/snippets/css/retina-display-media-query/
   <div id="test2"></div>
 </div>
 ```
+
+#### 11.Box stacking question (Walmart)
+
+```
+<div class="container">
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+</div>
+
+.container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border: 1px solid red;
+}
+.box1 {
+    top: 0;
+    left: 0;
+    position: fixed;
+    backgroud-color: absolute;
+    z-index:2;
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.box2 {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.box3 {
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+```
