@@ -1,0 +1,10 @@
+load("bubble-sort.js");
+var numElements = 10;
+var mynums = new CArray(numElements);
+mynums.setData();
+print(mynums.toString());
+print();
+print("bubble sort");
+mynums.bubbleSort();
+print();
+print(mynums.toString());

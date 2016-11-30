@@ -1,0 +1,10 @@
+load("insertion-sort.js");
+var numElements = 10;
+var mynums = new CArray(numElements);
+mynums.setData();
+print(mynums.toString());
+print();
+print("insertion sort");
+mynums.insertionSort();
+print();
+print(mynums.toString());

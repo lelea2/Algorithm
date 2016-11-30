@@ -1,0 +1,10 @@
+load("selection-sort.js");
+var numElements = 10;
+var mynums = new CArray(numElements);
+mynums.setData();
+print(mynums.toString());
+print();
+print("selection sort");
+mynums.selectionSort();
+print();
+print(mynums.toString());

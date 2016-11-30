@@ -1,0 +1,10 @@
+load("shell-sort.js");
+var numElements = 10;
+var mynums = new CArray(numElements);
+mynums.setData();
+print(mynums.toString());
+print();
+print("shell sort");
+mynums.shellSort();
+print();
+print(mynums.toString());
