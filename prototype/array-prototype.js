@@ -14,3 +14,15 @@ if (!Array.prototype.indexOf) {
         return -1;
     };
 }
+
+//2. Extend the JavaScript Array object by adding a method that removes duplicates.
+Array.prototype.unique = function(){
+  var array = [], old_array = this;
+
+  for(var i = 0; i< old_array.length; i++) {
+    if(array.indexOf(old_array[i])===-1) {
+      array.push(old_array[i]);
+    }
+  }
+  return array;
+}
