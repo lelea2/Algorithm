@@ -89,6 +89,7 @@
 - 43. Javascript performance testing
 - 44. Parsing XML DOM
 - 45. What is hoisting in JS
+- 46. Is JavaScript a pass-by-reference or pass-by-value language?
 
 <!-- /MarkdownTOC -->
 
@@ -1565,3 +1566,49 @@ elem.innerHTML = x;                     // Display x in the element
 var x; // Declare x
 ```
 
+
+#### 46. Is JavaScript a pass-by-reference or pass-by-value language?
+
+* Passed By Value: Number, string (primitive types), Object (sometimes)
+* Passed By Referenced: Object
+
+```javascript
+function changeStuff(a, b, c) {
+  a = a * 10;
+  b.item = "changed"; //pass by referenced
+  c = {item: "changed"};
+}
+
+var num = 10;
+var obj1 = {item: "unchanged"};
+var obj2 = {item: "unchanged"};
+
+changeStuff(num, obj1, obj2);
+
+console.log(num); //10
+console.log(obj1.item); //changed
+console.log(obj2.item); //unchanged
+```
+
+```javascript
+function changeObject(x) {
+  x = {member:"bar"};
+  alert("in changeObject: " + x.member);
+}
+
+function changeMember(x) {
+  x.member = "bar";
+  alert("in changeMember: " + x.member);
+}
+
+var x = {member:"foo"};
+
+alert("before changeObject: " + x.member); //foo
+changeObject(x); //bar
+alert("after changeObject: " + x.member); /* change did not persist */ //foo
+
+alert("before changeMember: " + x.member); //foo
+changeMember(x); //var
+alert("after changeMember: " + x.member); /* change persists */ //bar
+
+```
