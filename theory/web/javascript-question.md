@@ -439,6 +439,7 @@ var nextListItem = function() {
 #### 12.2 Difference between undefined and not defined in JavaScript
 
 * In JavaScript if you try to use a variable that doesn't exist and has not been declared, then JavaScript will throw an error var name is not defined and the script will STOP execute thereafter. But If you use typeof undeclared_variable then it will return undefined.
+
 ```javascript
 var x; // declaring x
 console.log(x); //output: undefined
@@ -452,12 +453,15 @@ console.log(y);  // Output: ReferenceError: y is not defined
 
 #### 12.3 Best way to detect undefined object property in JavaScript
 * could use **typeof()** operator
+
 ```javascript
 if(typeof someProperty === 'undefined'){
     console.log('something is undefined here');
 }
 ```
+
 * **instanceof** operator checks the current object and return true if the object is of the specified type.
+
 ```javascript
 //Example1:
 var dog = new Animal();
@@ -529,6 +533,7 @@ Read: https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs
 **Function Declaration**
 * defines a named function variable without requiring variable assignment
 * standalone constructs and cannot be nested within non-function blocks.
+
 ```javascript
 function bar() {
     return 3;
@@ -536,6 +541,7 @@ function bar() {
 ```
 **Function Expressions**
 * defines a function as a part of a larger expression syntax (typically a variable assignment ). Functions defined via Functions Expressions can be named or anonymous
+
 ```javascript
 //anonymous function expression
 var a = function() {
@@ -558,6 +564,7 @@ var a = function bar() {
 
 * Determined by how a function is invoked. When a function is called as a method of an object, **this** is set to the object the method is called on
 * The below is how to change a context of function ==> using call()
+
 ```javascript
 var object = {};
 function fn(){
@@ -617,6 +624,7 @@ var emp3 = new Employee("Ren","Pluto",2500);
 ==> often has **unexpected behaviour** and can only be safely used to delete explicitly set properties on normal objects.
 
 DOES NOT delete local variable
+
 ```javascript
 var output = (function(x) {
   delete x;
@@ -627,6 +635,7 @@ console.log(output); //Output: 0
 ```
 
 DOES NOT delete local variable
+
 ```javascript
 var x = 1;
 var output = (function() {
@@ -638,6 +647,7 @@ console.log(output); //Output: 1
 ```
 
 DELETE property from object
+
 ```javascript
 var x = { foo : 1};
 var output = (function() {
@@ -649,6 +659,7 @@ console.log(output); //Output: undefined
 ```
 
 DOES NOT delete prototype property
+
 ```javascript
 var Employee = {
   company: 'xyz'
@@ -751,6 +762,7 @@ var employee2 = new Employee('Ryan', 'Jor', 26, '3000$');
 
 ##### (2) Object Literal
 * Object Literal is best way to create an object and this is used frequently.
+
 ```javascript
 var employee = {
     name : 'Nishant',
@@ -775,6 +787,7 @@ var employee = {
 ```
 
 ##### (3) Using JavaScript "new" keyword (constructor way)
+
 ```javscript
 var employee = new Object(); // Created employee object using new keywords and Object()
 employee.name = 'Nishant';
@@ -786,12 +799,14 @@ employee.getName = function(){
 #### 19.4 How to empty an array in JavaScript? -- 4 methods
 
 * (1)
+
 ```javascript
 arrayList = [];
 //only use this if you have only referenced the array by its original variable arrayList
 //otherwise, the original array will remain unchanged
 ```
 * (2)
+
 ```javascript
 arrayList.length = 0;
 //clear all references and set length to 0
@@ -799,12 +814,14 @@ arrayList.length = 0;
 ```
 
 * (3)
+
 ```javascript
 arrayList.splice(0, arrayList.length);
 //update all the references
 ```
 
 * (4) ==> loop through array to remove elements (NOT RECOMMENDED)
+
 ```javascript
 while(arrayList.length) {
   arrayList.pop();
@@ -996,12 +1013,14 @@ NON OF THEM MUTATES
 Read: http://ariya.ofilabs.com/2014/02/javascript-array-slice-vs-splice.html
 
 **slice()** -- return a new array containing the elements from the given start index up the one right before the specified end index, DOES NOT CHANGE the array which invokes it
+
 ```javascript
 'abc'.slice(1,2)           // "b"
 [14, 3, 77].slice(1, 2)    //  [3]
 ```
 
 **splice()** -- MUTATES the array that calls it.
+
 ```javascript
 var x = [14, 3, 77]
 var y = x.splice(1, 2)
