@@ -24,7 +24,7 @@ console.log(calculateProduct([1,2,3,4])); <= 24
 /* This can be achieved better by using filter Ex.5 */
 
 [1,2,3,4].reduce(function(a,b,i) {
-    if(i%2 === 0) {
+    if (i%2 === 0) {
         return a+b;
     } else {
         return a;
