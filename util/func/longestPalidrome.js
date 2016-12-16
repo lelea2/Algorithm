@@ -14,8 +14,9 @@ function longestPalind(s) {
 
     for(var j=subs.length; j>=0; j--) {
       var sub_subs = subs.substr(0, j);
-      if (sub_subs.length <= 1) //if substr <=1, then it's not a palidrome, just loop the outer loop, ignore checking
-          continue;
+      if (sub_subs.length <= 1) { //if substr <=1, then it's not a palidrome, just loop the outer loop, ignore checking
+        continue;
+      }
 
       //console.log('checking: '+ sub_subs);
       if (isPalindrome(sub_subs)) {
