@@ -4,7 +4,7 @@
 //Calculate SUM
 var calculateSum = function (a) {
     return a.reduce(function (i,c) {
-        return i+c
+        return i+c;
     });
 }
 
@@ -63,7 +63,7 @@ var flattenRecursive = function  (arr) {
     return arr.reduce(function  (a,b) {
         if (b instanceof Array) {
             return a.concat(flattenRecursive(b));
-        }else{
+        } else {
             return a.concat(b);
         }
     },[]);

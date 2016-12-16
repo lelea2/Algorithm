@@ -41,7 +41,7 @@ HashTable.prototype.insert = function(key, value) {
     //bucket because their keys all equate to the same numeric index when
     //passing through our hash function.
     bucket.push([key, value]);
-    this._count++
+    this._count++;
       //now that we've added our new key/val pair to our storage
       //let's check to see if we need to resize our storage
       if (this._count > this._limit * 0.75) {

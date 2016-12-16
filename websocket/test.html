@@ -13,6 +13,7 @@ if ("WebSocket" in window) { //Checking websocket is supported by browser
 }
 
 function OpenWebSocket() {
+
     ws = new WebSocket("ws://127.0.0.1:2687"); //connect websocket to service
     //ws = new WebSocket("wss://printer.cpnprt.com:4004");
     ws.onopen = function() {

@@ -1,3 +1,5 @@
+//Given array
+//Return if elemnt in array return given sum
 
 let givenSum = (arr, sum) => {
   // For each pair of results we need to return,
