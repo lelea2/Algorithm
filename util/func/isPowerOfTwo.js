@@ -6,12 +6,12 @@
 //Continuously divided given number for the "powered" number given
 //until the result reach 1
 function IsPowerOf(n, b) {
-    if (n > 1) {
-        while (n % b === 0) {
-            n /= b;
-        }
+  if (n > 1) {
+    while (n % b === 0) {
+      n /= b;
     }
-    return (n === 1);
+  }
+  return (n === 1);
 }
 
 

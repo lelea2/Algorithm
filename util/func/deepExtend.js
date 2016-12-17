@@ -32,7 +32,7 @@ function deepmerge(target, src) {
       if (typeof src[key] !== 'object' || !src[key]) {
         dst[key] = src[key];
       } else {
-        if (!target[key]) {
+        if (!target[key]) { //not define sort ket yet
           dst[key] = src[key];
         } else {
           dst[key] = deepmerge(target[key], src[key]);

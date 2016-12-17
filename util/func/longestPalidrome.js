@@ -22,8 +22,8 @@ function longestPalind(s) {
       if (isPalindrome(sub_subs)) {
         //console.log('palindrome: '+ sub_subs);
         if (sub_subs.length > maxp_length) {
-            maxp_length = sub_subs.length;
-            maxp = sub_subs;
+          maxp_length = sub_subs.length;
+          maxp = sub_subs;
         }
       }
     }

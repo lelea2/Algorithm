@@ -1,6 +1,14 @@
 /** Playing with array.reduce() function in JS */
 /** Referenced: http://blog.jaykanakiya.com/javascript-reduce-method/ */
 
+//JS method applies a function against an accumulator and each value the array has
+//to reduce it into 1 single value
+
+//Syntax
+// array.reduce(function(accumulator, currentValue, currentIndex, array) {
+
+// });
+
 //Calculate SUM
 var calculateSum = function (a) {
     return a.reduce(function (i,c) {
