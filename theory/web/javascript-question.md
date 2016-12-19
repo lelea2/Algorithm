@@ -1636,4 +1636,82 @@ alert("after changeMember: " + x.member); /* change persists */ //bar
 #### 47. What could cause JS memory leak?
 * Referenced from: https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/
 
+1. Accidental global variable ==> Add **use strict** at the beginning of JS files to enable stricter mode and prevent accidental globals
 
+```javascript
+function foo(arg) {
+    bar = "this is a hidden global variable";
+}
+
+//OR
+function foo() {
+    this.variable = "potential accidental global";
+}
+
+//Similar to
+function foo(arg) {
+    window.bar = "this is an explicit global variable";
+}
+
+```
+
+2. Forgotten times or callbacks
+
+```javascript
+var someResource = getData();
+setInterval(function() {
+    var node = document.getElementById('Node'); //unused "node" should be destroyed
+    if(node) {
+        // Do stuff with node and someResource.
+        node.innerHTML = JSON.stringify(someResource);
+    }
+}, 1000);
+```
+
+Best practice in this case is unbind/destroy node when not used
+
+```javascript
+var element = document.getElementById('button');
+
+function onClick(event) {
+    element.innerHtml = 'text';
+}
+
+element.addEventListener('click', onClick);
+// Do stuff
+element.removeEventListener('click', onClick);
+element.parentNode.removeChild(element);
+// Now when element goes out of scope,
+// both element and onClick will be collected even in old browsers that don't
+// handle cycles well.
+```
+
+3. Out of DOM references
+* When 2 refences to the sam DOM element are kept
+* Suppose you keep a reference to a specific cell of a table (a <td> tag) in your JavaScript code. At some point in the future you decide to remove the table from the DOM but keep the reference to that cell. Intuitively one may suppose the GC will collect everything but that cell. In practice this won't happen: the cell is a child node of that table and children keep references to their parents. In other words, the reference to the table cell from JavaScript code causes the whole table to stay in memory. Consider this carefully when keeping references to DOM elements.
+
+4. Closure
+
+** Google Chrome profiling test code **
+
+```javascript
+var x = [];
+
+function createSomeNodes() {
+    var div,
+        i = 100,
+        frag = document.createDocumentFragment();
+    for (;i > 0; i--) {
+        div = document.createElement("div");
+        div.appendChild(document.createTextNode(i + " - "+ new Date().toTimeString()));
+        frag.appendChild(div);
+    }
+    document.getElementById("nodes").appendChild(frag);
+}
+function grow() {
+    x.push(new Array(1000000).join('x'));
+    createSomeNodes();
+    setTimeout(grow,1000);
+}
+
+```
