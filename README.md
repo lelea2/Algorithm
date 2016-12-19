@@ -17,6 +17,9 @@ The followings are good website for learning
 * https://ponyfoo.com/ (lots of cool stuffs to reference)
 * https://github.com/sindresorhus/awesome-nodejs (NodeJS recommended third library)
 
+Algorithm website
+* http://www.programming-algorithms.net/article/40348/Interpolation-search
+
 ####Important knowledge for FE
 
 * prototype - inheritance in js, how it differs from other languages

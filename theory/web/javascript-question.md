@@ -90,6 +90,7 @@
 - 44. Parsing XML DOM
 - 45. What is hoisting in JS
 - 46. Is JavaScript a pass-by-reference or pass-by-value language?
+- 47. What could cause JS memory leak?
 
 <!-- /MarkdownTOC -->
 
@@ -1631,3 +1632,8 @@ changeMember(x); //var
 alert("after changeMember: " + x.member); /* change persists */ //bar
 
 ```
+
+#### 47. What could cause JS memory leak?
+* Referenced from: https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/
+
+
