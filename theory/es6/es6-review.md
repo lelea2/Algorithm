@@ -129,7 +129,7 @@ var [col1, col2]  = $('.column'),
 #### 9. Classes in ES6
 
 ```javascript
-//ES5
+//ES5 - Not existing
 ```
 
 ```javascript
@@ -140,8 +140,30 @@ var [col1, col2]  = $('.column'),
 
 ```javascript
 //ES5
+module.exports = {
+  port: 3000,
+  getAccounts: function() {
+    ...
+  }
+}
+
+//Require module in ES5
+var service = require('module.js');
+console.log(service.port); // 3000
 ```
 
 ```javascript
 //ES6
+export var port = 3000
+export function getAccounts(url) {
+  ...
+}
+
+//Require module in ES6
+import {port, getAccounts} from 'module'
+console.log(port) // 3000
+
+//or
+import * as service from 'module'
+console.log(service.port) // 3000
 ```
