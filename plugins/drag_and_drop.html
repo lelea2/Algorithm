@@ -1,6 +1,6 @@
 <!-- Experiment with drag and drop html5 -->
 <!-- Experienced with the following event usages:
-    * on drop
+    * ondrop
     * ondragover
     * ondragstart
     * dataTransfer
@@ -9,7 +9,32 @@
 <html>
     <head>
         <title>Drag and drop</title>
-        <link rel="stylesheet" type="text/css" href="css/drag_and_drop.css">
+<!--         <link rel="stylesheet" type="text/css" href="css/drag_and_drop.css"> -->
+        <style>
+        .box1, .box2 {
+            width: 48%;
+            padding: 10px;
+            color: white;
+            display: inline-block;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+        .box1 {
+            background-color: red;
+        }
+        .box2 {
+            background-color: pink;
+        }
+        .draggable {
+            background-color: orange;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid white;
+        }
+        .last {
+            background-color: lightblue;
+        }
+        </style>
     </head>
     <body>
         <!-- Region 1 -->
@@ -35,7 +60,7 @@
         }
         //Usage for dataTransfer: https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer
         function drag(ev) {
-            ev.dataTransfer.setData("Text",ev.target.id);
+            ev.dataTransfer.setData("Text", ev.target.id);
         }
         function drop(ev) { //Drop handling
             ev.preventDefault();
