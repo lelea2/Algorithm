@@ -12,7 +12,6 @@
 ![alt tag](https://github.com/lelea2/Algorithm/blob/master/theory/web/images/big-o-2.png)
 
 
-
 #### Big-O cheat sheet
 
 ![alt tag](https://github.com/lelea2/Algorithm/blob/master/theory/web/images/big-o-4.png)

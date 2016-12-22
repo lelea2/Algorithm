@@ -40,6 +40,7 @@ ReactDOM.render(<Greeting name='John' />, mountNode)
 ```
 
 ##### 2. What is JSX
+
 * JS syntax extension
 * look like xml/html
 * react does not use templating languages
@@ -70,6 +71,7 @@ ReactDOM.render(<Greeting name='John' />, mountNode)
     );
   })}
 </div>
+
 ```
 
 **Advantages**
