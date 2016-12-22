@@ -3,7 +3,8 @@
     * ondrop
     * ondragover
     * ondragstart
-    * dataTransfer
+    * dataTransfer: The DataTransfer object is used to hold the data that is being dragged during a drag and drop operation.
+                    It may hold one or more data items, each of one or more data types. For more information about drag and drop, see HTML Drag and Drop API.
     -->
 <!DOCTYPE html>
 <html>
@@ -60,7 +61,7 @@
         }
         //Usage for dataTransfer: https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer
         function drag(ev) {
-            ev.dataTransfer.setData("Text", ev.target.id);
+            ev.dataTransfer.setData("Text", ev.target.id); //get id of element you current drag on
         }
         function drop(ev) { //Drop handling
             ev.preventDefault();
@@ -70,7 +71,7 @@
                 elem.className = elem.className.replace('last',"");
             }
             var data = ev.dataTransfer.getData("Text");
-            ev.target.appendChild(document.getElementById(data));
+            ev.target.appendChild(document.getElementById(data)); //get object of element you currently drag on
             document.getElementById(data).className += " last";
         }
         </script>
