@@ -1,0 +1,56 @@
+<!-- Pure implementation for draggable object -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Draggable element</title>
+    <style>
+      #draggable-element {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        color: white;
+        padding: 10px 12px;
+        cursor: move;
+        position: relative; /* important (all position that's not `static`) */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="draggable-element">Drag meee!!</div>
+    <script>
+      var selected = null, // Object of the element to be moved
+          x_pos = 0, y_pos = 0, // Stores x & y coordinates of the mouse pointer
+          x_elem = 0, y_elem = 0; // Stores top, left values (edge) of the element
+      // Will be called when user starts dragging an element
+      function drag_init(elem) {
+        // Store the object of the element which needs to be moved
+        selected = elem;
+        x_elem = x_pos - selected.offsetLeft;
+        y_elem = y_pos - selected.offsetTop;
+      }
+      // Will be called when user dragging an element
+      function move_elem(e) {
+        x_pos = document.all ? window.event.clientX : e.pageX;
+        y_pos = document.all ? window.event.clientY : e.pageY;
+        if (selected !== null) {
+          selected.style.left = (x_pos - x_elem) + 'px';
+          selected.style.top = (y_pos - y_elem) + 'px';
+        }
+      }
+      // Destroy the object when we are done
+      function destroy() {
+        selected = null;
+      }
+
+      // Bind the functions...
+      document.getElementById('draggable-element').onmousedown = function () {
+        drag_init(this);
+        return false;
+      };
+      document.onmousemove = move_elem;
+      document.onmouseup = destroy;
+      //End bind element to function
+    </script>
+  </body>
+</html>
