@@ -17,7 +17,7 @@
  * @param to last index that might be touched
  * @return index index of the searched value in the array, -1 if not found
  */
-public static int interpolationSearch(int[] array, int value, int from, int to){
+public static int interpolationSearch(int[] array, int value, int from, int to) {
     if(array[from] == value) {
       return from;
     } else if(from == to || array[from] ==  array[to]) {

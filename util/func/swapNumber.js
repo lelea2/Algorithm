@@ -4,16 +4,16 @@
 
 //With temp
 function swapNumber(a, b) {
-    var temp = a;
-    a = b;
-    b = temp;
+  var temp = a;
+  a = b;
+  b = temp;
 }
 
 //Without temp
 function swapNumber(a, b) {
-    b = b - a; //-a
-    a = a + b; //a + b - a = b
-    b = a - b; //b - (b - a) == +a = a
+  b = b - a; //-a
+  a = a + b; //a + b - a = b
+  b = a - b; //b - (b - a) == +a = a
 }
 
 
@@ -24,9 +24,9 @@ function swapNumber(a, b) {
  * Right side: a to b
  */
 function swapNumber2(a, b) {
-    a = a ^ b;
-    b = a ^ b;
-    a = a ^ b;
+  a = a ^ b;
+  b = a ^ b;
+  a = a ^ b;
 }
 
 module.exports = swapNumber;
