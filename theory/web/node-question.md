@@ -1,7 +1,9 @@
 Reference:
+
 * https://blog.risingstack.com/node-js-interview-questions/
 * https://www.toptal.com/nodejs/top-10-common-nodejs-developer-mistakes
 * https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions/
+* http://a4academics.com/interview-questions/79-web/802-nodejs-interview?showall=&start=3
 
 #### 1. What is an error-first callback?
 * first argument is always an error object that the programmer has to check if something went wrong
@@ -124,3 +126,16 @@ exports.handler = (event, context, callback) => {
     req.end();
 };
 ```
+
+#### 13.  How Node.js can be made more scalable?
+
+* Node.js works good for I/O bound and not CPU bound work.
+* If there is a function to read a file, file reading will be started during that instruction and then it moves onto next instruction and once the I/O is done or completed it will call the callback function. So there will not be any blocking.
+
+#### 14.Explain Child process module?
+
+Child process module has following three major ways to create child processes –
+
+* spawn  - child_process.spawn launches a new process with a given command.
+* exec  - child_process.exec method runs a command in a shell/console and buffers the output.
+* fork - The child_process.fork method is a special case of the spawn() to create child processes.

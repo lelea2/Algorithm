@@ -16,6 +16,8 @@ The followings are good website for learning
 * http://www.frontendjournal.com/javascript-es6-learn-important-features-in-a-few-minutes/
 * https://ponyfoo.com/ (lots of cool stuffs to reference)
 * https://github.com/sindresorhus/awesome-nodejs (NodeJS recommended third library)
+* https://o2js.com/assets/javascript-interview-questions.pdf
+* http://a4academics.com/interview-questions/79-web/802-nodejs-interview?showall=&limitstart=
 
 Algorithm website
 * http://www.programming-algorithms.net/article/40348/Interpolation-search
