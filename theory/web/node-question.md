@@ -4,6 +4,7 @@ Reference:
 * https://www.toptal.com/nodejs/top-10-common-nodejs-developer-mistakes
 * https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions/
 * http://a4academics.com/interview-questions/79-web/802-nodejs-interview?showall=&start=3
+* http://www.lazyquestion.com/interview-questions-and-answer/nodejs
 
 #### 1. What is an error-first callback?
 * first argument is always an error object that the programmer has to check if something went wrong
@@ -25,6 +26,7 @@ fs.readFile(filePath, function(err, data) {
 
 #### 3. How can you listen on port 80 with Node?
 * Set what port you have to listen to on app start
+
 ```javascript
 app.listen(port, function (err) {
     console.log('[%s] Listening on http://localhost:%d', app.settings.env, port);
