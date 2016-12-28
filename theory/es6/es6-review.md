@@ -3,6 +3,7 @@ Read:
 * https://github.com/pedronauck/algorithms-with-es6
 * https://webapplog.com/es6/
 * https://github.com/lukehoban/es6features
+* http://bjorn.tipling.com/maps-sets-and-iterators-in-javascript
 
 #### 1. Default Parameters in ES6
 
