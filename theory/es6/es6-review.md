@@ -4,6 +4,8 @@ Read:
 * https://webapplog.com/es6/
 * https://github.com/lukehoban/es6features
 * http://bjorn.tipling.com/maps-sets-and-iterators-in-javascript
+* https://github.com/addyosmani/es6-equivalents-in-es5
+* http://es6-features.org/#Constants
 
 #### 1. Default Parameters in ES6
 
