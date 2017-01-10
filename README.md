@@ -9,7 +9,7 @@ Keep in place algorithms that I found useful for implementation
 * HTML5 playground
 
 
-The followings are good website for learning
+The followings are good website for learning or for references
 
 * http://www.frontendhandbook.com/practice/interview-q.html
 * http://thatjsdude.com/interview/
@@ -20,6 +20,7 @@ The followings are good website for learning
 * http://a4academics.com/interview-questions/79-web/802-nodejs-interview?showall=&limitstart=
 * https://github.com/MaximAbramchuck/awesome-interview-questions
 * http://www.geeksforgeeks.org/top-10-algorithms-in-interview-questions/
+* https://www.linkedin.com/pulse/preparing-front-end-web-development-interview-2017-david-shariff
 
 Algorithm website
 * http://www.programming-algorithms.net/article/40348/Interpolation-search
