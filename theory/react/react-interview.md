@@ -22,6 +22,11 @@ Handle Ajax on React
 
 * http://stackoverflow.com/questions/35411423/how-to-dispatch-a-redux-action-with-a-timeout/35415559#35415559
 
+Framework helper
+* https://github.com/brillout/awesome-react-components
+
+* https://github.com/enaqx/awesome-react
+
 #### 1. React.createClass versus extends React.Component (ES6 module)
 
 * Syntax difference
@@ -42,6 +47,7 @@ class Greeting extends React.Component {
 const mountNode = document.getElementById('app')
 
 ReactDOM.render(<Greeting name='John' />, mountNode)
+
 ```
 
 ##### 2. What is JSX
@@ -57,6 +63,7 @@ ReactDOM.render(<Greeting name='John' />, mountNode)
 <button className='btn btn-primary'>
   {{text}}
 </button>
+
 ```
 
 ##### 3. Declarative components
@@ -69,6 +76,7 @@ ReactDOM.render(<Greeting name='John' />, mountNode)
 
 ```javascript
 //CommentList
+
 <div className="comment-list">
   {comments.map((comment) => {
     return (
