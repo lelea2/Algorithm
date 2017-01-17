@@ -101,7 +101,7 @@ Provides a mechanism for a server to give caching information about an asset to 
 * SAMEORIGIN - The page can only be displayed in a frame on the same origin as the page itself.
 * ALLOW-FROM uri -- The page can only be displayed in a frame on the specified origin.
 
-### 5. What are HTTP actions? List all HTTP actions that you know, and explain them.
+### 5.1 What are HTTP actions? List all HTTP actions that you know, and explain them.
 
 **GET**
 
@@ -116,6 +116,20 @@ Provides a mechanism for a server to give caching information about an asset to 
 **HEAD**
 
 **OPTIONS**
+
+### 5.2 Differences between PUT vs. POST vs. PATCH
+
+**POST**
+
+HTTP.POST can be used when the client is sending data to the server and the server will decide the URI for the newly created resource. The POST method is used to request that the origin server accept the entity enclosed in the request as a new subordinate of the resource identified by the Request-URI in the Request-Line.
+
+**PUT**
+
+HTTP.PUT can be used when the client is sending data to the the server and the client is determining the URI for the newly created resource. The PUT method requests that the enclosed entity be stored under the supplied Request-URI. If the Request-URI refers to an already existing resource, the enclosed entity SHOULD be considered as a modified version of the one residing on the origin server. If the Request-URI does not point to an existing resource, and that URI is capable of being defined as a new resource by the requesting user agent, the origin server can create the resource with that URI.
+
+**PATCH**
+
+HTTP.PATCH can be used when the client is sending one or more changes to be applied by the the server. The PATCH method requests that a set of changes described in the request entity be applied to the resource identified by the Request-URI. The set of changes is represented in a format called a patch document.
 
 ### 6. What is the difference between GET and POST methods in HTML form?
 
