@@ -220,3 +220,94 @@ server.listen(8084);
 console.log('Server is running on port 8084');
 
 ```
+
+##### 17. Simple application to get list of IP addesses from local machine (os and networkInterfaces())
+
+```javascript
+var os = require('os');
+var interfaces = os.networkInterfaces();
+for (item in interfaces) {
+    console.log('Network interface name: ' + item);
+    for (att in interfaces[item]) {
+        var address = interfaces[item][att];
+        console.log('Family: ' + address.family);
+        console.log('IP Address: ' + address.address);
+        console.log('Is Internal: ' + address.internal);
+        console.log('');
+    }
+    console.log('==================================');
+}
+
+```
+
+##### 18. Creating Client/Server Socket
+
+**Server Socket**
+
+```javascript
+//Server socket
+var serverPort = 9099;
+var net = require('net');
+var server = net.createServer(function(client) {
+    console.log('client connected');
+    console.log('client IP Address: ' + client.remoteAddress);
+    console.log('is IPv6: ' + net.isIPv6(client.remoteAddress));
+    console.log('total server connections: ' + server.connections);
+    // Waiting for data from the client.
+    client.on('data', function(data) {
+        console.log('received data: ' + data.toString());
+        // Write data to the client socket.
+        client.write('hello from server');
+    });
+    // Closed socket event from the client.
+    client.on('end', function() {
+        console.log('client disconnected');
+    });
+});
+
+server.on('error',function(err) {
+    console.log(err);
+    server.close();
+});
+
+server.listen(serverPort, function() {
+    console.log('server started on port ' + serverPort);
+});
+
+```
+
+**Client Socket**
+
+A client socket is a client application that connects to the server and then sends and receives
+data from the server. We should know the IP address and port from the target server. We can
+call connect() to connect to the server. Use write() for sending data. To wait for incoming
+data from the server, we can use the data event.
+
+
+```javascript
+var serverPort = 9099;
+var server = 'localhost';
+var net = require('net');
+console.log('connecting to server...');
+
+var client = net.connect({server:server,port:serverPort}, function() {
+    console.log('client connected');
+    // send data
+    console.log('send data to server');
+    client.write('greeting from client socket');
+});
+
+client.on('data', function(data) {
+    console.log('received data: ' + data.toString());
+    client.end();
+});
+
+client.on('error',function(err){
+    console.log(err);
+});
+
+client.on('end', function() {
+    console.log('client disconnected');
+});
+
+```
