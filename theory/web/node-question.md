@@ -6,7 +6,7 @@ Reference:
 * http://a4academics.com/interview-questions/79-web/802-nodejs-interview?showall=&start=3
 * http://www.lazyquestion.com/interview-questions-and-answer/nodejs
 
-#### 1. What is an error-first callback?
+##### 1. What is an error-first callback?
 * first argument is always an error object that the programmer has to check if something went wrong
 
 ```javascript
@@ -18,13 +18,13 @@ fs.readFile(filePath, function(err, data) {
 });
 ```
 
-#### 2. How can you avoid callback hells?
+##### 2. How can you avoid callback hells?
 
 * modularization: break callbacks into independent functions
 * use Promises
 * use yield with Generators and/or Promises
 
-#### 3. How can you listen on port 80 with Node?
+##### 3. How can you listen on port 80 with Node?
 * Set what port you have to listen to on app start
 
 ```javascript
@@ -34,27 +34,27 @@ app.listen(port, function (err) {
 
 ```
 
-#### 4. What's the event loop?
+##### 4. What's the event loop?
 * Node.js runs using a single thread. Under the hood Node.js uses many threads through **libuv**
 
 * Every I/O requires a callback - once they are done they are pushed onto the event loop for execution.
 
-#### 5. What tools can be used to assure consistent style?
+##### 5. What tools can be used to assure consistent style?
 
 * JSLint
 * JSHint
 * ESLint
 * JSCS ...
 
-#### 6. What's the difference between operational and programmer errors?
+##### 6. What's the difference between operational and programmer errors?
 * Operation errors are not bugs, but problems with the system, like request timeout or hardware failure.
 * Programmer errors are actual bugs.
 
-#### 7. Why npm shrinkwrap is useful?
+##### 7. Why npm shrinkwrap is useful?
 
 * Locks down the versions of a package's dependencies so that you can control exactly which versions of each dependency will be used when your package is installed.
 
-#### 8. What's a stub? Name a use case?
+##### 8. What's a stub? Name a use case?
 * functions/programs that simulate the behaviours of components/modules.
 * Stubs provide canned answers to function calls made during test cases.
 
@@ -70,7 +70,7 @@ readFileStub.restore();
 
 ```
 
-#### 9. Checking package dependencies for your app?
+##### 9. Checking package dependencies for your app?
 * Under your app directory, execute
 
 ```
@@ -87,14 +87,14 @@ npm list --depth 1 --global packagename > /dev/null 2>&1
 
 ```
 
-#### 10. Explain how NodeJS work?
+##### 10. Explain how NodeJS work?
 * It uses Google V8 Javascript engine to execute code. It contains built-in asynchronous I/O library for file, socket and HTTP communication.  Node encapsulates libuv to handle asynchronous events.
 
-#### 11. Explain how session in NodeJS works?
+##### 11. Explain how session in NodeJS works?
 * https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions/
 
 
-#### 12. NodeJS Http service (ES6)
+##### 12. NodeJS Http service (ES6)
 
 ```javascript
 'use strict';
@@ -129,15 +129,94 @@ exports.handler = (event, context, callback) => {
 };
 ```
 
-#### 13.  How Node.js can be made more scalable?
+##### 13.  How Node.js can be made more scalable?
 
 * Node.js works good for I/O bound and not CPU bound work.
 * If there is a function to read a file, file reading will be started during that instruction and then it moves onto next instruction and once the I/O is done or completed it will call the callback function. So there will not be any blocking.
 
-#### 14.Explain Child process module?
+##### 14.Explain Child process module?
 
 Child process module has following three major ways to create child processes –
 
 * spawn  - child_process.spawn launches a new process with a given command.
 * exec  - child_process.exec method runs a command in a shell/console and buffers the output.
 * fork - The child_process.fork method is a special case of the spawn() to create child processes.
+
+##### 15. Events
+
+* Events enable an object to notify other objects when something of interest occurs. (EventEmitter)
+
+```javascript
+var EventEmitter = require('events').EventEmitter;
+var myEmitter = new EventEmitter;
+var connection = function(id){
+    // do something
+    console.log('client id: ' + id);
+};
+myEmitter.on('connection', connection);
+myEmitter.on('message', function(msg) { //listing to event forever until application closed
+    // do something
+    console.log('message: ' + msg);
+});
+
+//If you plan to listen for the event once, you can use the once() method.
+
+//Testing
+myEmitter.emit('connection', 6); //client id: 6
+myEmitter.emit('connection', 8); //client id 8
+myEmitter.emit('message', 'this is the first message'); //message: this is the first message
+myEmitter.emit('message', 'this is the second message'); //message: this is the second message
+myEmitter.emit('message', 'welcome to nodejs'); //message: welcome to nodejs
+
+//Remove event
+// send message
+myEmitter.emit('connection', 6); //client id: 6
+// remove event
+myEmitter.removeListener('connection',connection);
+// test to send message
+myEmitter.emit('connection', 10); //none, event is removed already
+myEmitter.emit('message', 'welcome to nodejs');
+
+```
+
+##### 16. Start web application
+
+```javascript
+var http = require('http');
+var server = http.createServer(function (req, res) {
+    console.log(req.url);
+    if(req.url=='/'){
+        res.write('Welcome to http nodejs');
+        res.end();
+    } else if(req.url=='/customer') {
+        res.write('Welcome to Customer page');
+        res.end();
+    } else {
+        res.write('Page not found');
+        res.end();
+    }
+});
+
+server.listen(8084);
+console.log('Server is running on port 8084');
+
+```
+
+**Working with HTTPS example**
+
+```javascript
+var https = require('https');
+var fs = require('fs');
+var options = {
+    key: fs.readFileSync('e:/ssl/myserver.key'),
+    cert: fs.readFileSync('e:/ssl/myserver.crt'),
+    passphrase: '1234'
+};
+var server = https.createServer(options,function (req, res) {
+    res.write('Welcome to http nodejs');
+    res.end();
+});
+server.listen(8084);
+console.log('Server is running on port 8084');
+
+```
