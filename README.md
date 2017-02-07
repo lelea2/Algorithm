@@ -23,6 +23,7 @@ The followings are good website for learning or for references
 * https://www.linkedin.com/pulse/preparing-front-end-web-development-interview-2017-david-shariff
 * http://htchttp.s3.amazonaws.com/books/professional_node.js.pdf
 * http://pepa.holla.cz/wp-content/uploads/2016/01/Nodejs_Succinctly.pdf
+* http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
 
 Algorithm website
 * http://www.programming-algorithms.net/article/40348/Interpolation-search
