@@ -314,6 +314,8 @@ client.on('end', function() {
 
 ##### 19. Storing data with Node.js writable streams
 
+Refereced: http://codewinds.com/blog/2013-08-19-nodejs-writable-streams.html
+
 **Writing text file**
 
 ```javascript
