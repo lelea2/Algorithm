@@ -24,6 +24,7 @@ The followings are good website for learning or for references
 * http://htchttp.s3.amazonaws.com/books/professional_node.js.pdf
 * http://pepa.holla.cz/wp-content/uploads/2016/01/Nodejs_Succinctly.pdf
 * http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
+* https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror.html
 
 Algorithm website
 * http://www.programming-algorithms.net/article/40348/Interpolation-search

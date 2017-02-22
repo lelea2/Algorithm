@@ -108,24 +108,24 @@ let https = require('https');
  * Will succeed with the response body.
  */
 exports.handler = (event, context, callback) => {
-    const req = https.request(event.options, (res) => {
-        let body = '';
-        console.log('Status:', res.statusCode);
-        console.log('Headers:', JSON.stringify(res.headers));
-        res.setEncoding('utf8');
-        res.on('data', (chunk) => body += chunk);
-        res.on('end', () => {
-            console.log('Successfully processed HTTPS response');
-            // If we know it's JSON, parse it
-            if (res.headers['content-type'] === 'application/json') {
-                body = JSON.parse(body);
-            }
-            callback(null, body);
-        });
+  const req = https.request(event.options, (res) => {
+    let body = '';
+    console.log('Status:', res.statusCode);
+    console.log('Headers:', JSON.stringify(res.headers));
+    res.setEncoding('utf8');
+    res.on('data', (chunk) => body += chunk);
+    res.on('end', () => {
+      console.log('Successfully processed HTTPS response');
+      // If we know it's JSON, parse it
+      if (res.headers['content-type'] === 'application/json') {
+        body = JSON.parse(body);
+      }
+      callback(null, body);
     });
-    req.on('error', callback);
-    req.write(JSON.stringify(event.data));
-    req.end();
+  });
+  req.on('error', callback);
+  req.write(JSON.stringify(event.data));
+  req.end();
 };
 ```
 
@@ -150,13 +150,13 @@ Child process module has following three major ways to create child processes â€
 var EventEmitter = require('events').EventEmitter;
 var myEmitter = new EventEmitter;
 var connection = function(id){
-    // do something
-    console.log('client id: ' + id);
+  // do something
+  console.log('client id: ' + id);
 };
 myEmitter.on('connection', connection);
 myEmitter.on('message', function(msg) { //listing to event forever until application closed
-    // do something
-    console.log('message: ' + msg);
+  // do something
+  console.log('message: ' + msg);
 });
 
 //If you plan to listen for the event once, you can use the once() method.
@@ -184,17 +184,17 @@ myEmitter.emit('message', 'welcome to nodejs');
 ```javascript
 var http = require('http');
 var server = http.createServer(function (req, res) {
-    console.log(req.url);
-    if(req.url=='/'){
-        res.write('Welcome to http nodejs');
-        res.end();
-    } else if(req.url=='/customer') {
-        res.write('Welcome to Customer page');
-        res.end();
-    } else {
-        res.write('Page not found');
-        res.end();
-    }
+  console.log(req.url);
+  if(req.url=='/'){
+    res.write('Welcome to http nodejs');
+    res.end();
+  } else if(req.url=='/customer') {
+    res.write('Welcome to Customer page');
+    res.end();
+  } else {
+    res.write('Page not found');
+    res.end();
+  }
 });
 
 server.listen(8084);
@@ -208,13 +208,13 @@ console.log('Server is running on port 8084');
 var https = require('https');
 var fs = require('fs');
 var options = {
-    key: fs.readFileSync('e:/ssl/myserver.key'),
-    cert: fs.readFileSync('e:/ssl/myserver.crt'),
-    passphrase: '1234'
+  key: fs.readFileSync('e:/ssl/myserver.key'),
+  cert: fs.readFileSync('e:/ssl/myserver.crt'),
+  passphrase: '1234'
 };
 var server = https.createServer(options,function (req, res) {
-    res.write('Welcome to http nodejs');
-    res.end();
+  res.write('Welcome to http nodejs');
+  res.end();
 });
 server.listen(8084);
 console.log('Server is running on port 8084');
@@ -227,15 +227,15 @@ console.log('Server is running on port 8084');
 var os = require('os');
 var interfaces = os.networkInterfaces();
 for (item in interfaces) {
-    console.log('Network interface name: ' + item);
-    for (att in interfaces[item]) {
-        var address = interfaces[item][att];
-        console.log('Family: ' + address.family);
-        console.log('IP Address: ' + address.address);
-        console.log('Is Internal: ' + address.internal);
-        console.log('');
-    }
-    console.log('==================================');
+  console.log('Network interface name: ' + item);
+  for (att in interfaces[item]) {
+    var address = interfaces[item][att];
+    console.log('Family: ' + address.family);
+    console.log('IP Address: ' + address.address);
+    console.log('Is Internal: ' + address.internal);
+    console.log('');
+  }
+  console.log('==================================');
 }
 
 ```
@@ -249,29 +249,29 @@ for (item in interfaces) {
 var serverPort = 9099;
 var net = require('net');
 var server = net.createServer(function(client) {
-    console.log('client connected');
-    console.log('client IP Address: ' + client.remoteAddress);
-    console.log('is IPv6: ' + net.isIPv6(client.remoteAddress));
-    console.log('total server connections: ' + server.connections);
-    // Waiting for data from the client.
-    client.on('data', function(data) {
-        console.log('received data: ' + data.toString());
-        // Write data to the client socket.
-        client.write('hello from server');
-    });
-    // Closed socket event from the client.
-    client.on('end', function() {
-        console.log('client disconnected');
-    });
+  console.log('client connected');
+  console.log('client IP Address: ' + client.remoteAddress);
+  console.log('is IPv6: ' + net.isIPv6(client.remoteAddress));
+  console.log('total server connections: ' + server.connections);
+  // Waiting for data from the client.
+  client.on('data', function(data) {
+      console.log('received data: ' + data.toString());
+      // Write data to the client socket.
+      client.write('hello from server');
+  });
+  // Closed socket event from the client.
+  client.on('end', function() {
+      console.log('client disconnected');
+  });
 });
 
 server.on('error',function(err) {
-    console.log(err);
-    server.close();
+  console.log(err);
+  server.close();
 });
 
 server.listen(serverPort, function() {
-    console.log('server started on port ' + serverPort);
+  console.log('server started on port ' + serverPort);
 });
 
 ```
@@ -291,23 +291,78 @@ var net = require('net');
 console.log('connecting to server...');
 
 var client = net.connect({server:server,port:serverPort}, function() {
-    console.log('client connected');
-    // send data
-    console.log('send data to server');
-    client.write('greeting from client socket');
+  console.log('client connected');
+  // send data
+  console.log('send data to server');
+  client.write('greeting from client socket');
 });
 
 client.on('data', function(data) {
-    console.log('received data: ' + data.toString());
-    client.end();
+  console.log('received data: ' + data.toString());
+  client.end();
 });
 
 client.on('error',function(err){
-    console.log(err);
+  console.log(err);
 });
 
 client.on('end', function() {
-    console.log('client disconnected');
+  console.log('client disconnected');
 });
+
+```
+
+##### 19. Storing data with Node.js writable streams
+
+**Writing text file**
+
+```javascript
+var fs = require('fs');
+var wstream = fs.createWriteStream('myOutput.txt');
+wstream.write('Hello world!\n');
+wstream.write('Another line\n');
+wstream.end();
+
+/********** Encoding text **********/
+var options = { encoding: 'utf16le' };
+var wstream = fs.createWriteStream('foo', options);
+// OR add the encoding to each write
+wstream.write(str, 'utf16le');
+
+
+```
+
+**Writing binary**
+
+```javascript
+var crypto = require('crypto');
+var fs = require('fs');
+var wstream = fs.createWriteStream('myBinaryFile');
+// creates random Buffer of 100 bytes
+var buffer = crypto.randomBytes(100);
+wstream.write(buffer);
+// create another Buffer of 100 bytes and write
+wstream.write(crypto.randomBytes(100));
+wstream.end();
+
+
+```
+
+**Knowing when file has been written**
+
+```javascript
+var fs = require('fs');
+var wstream = fs.createWriteStream('myOutput.txt');
+
+// Node.js 0.10+ emits finish when complete
+// The finish event (added in Node.js v0.10) indicates that all data has been flushed to the underlying system.
+wstream.on('finish', function () {
+  console.log('file has been written');
+});
+wstream.write('Hello world!\n');
+wstream.write('Another line');
+
+//get an indication of when stream had been flushed
+wstream.end(function () { console.log('done'); });
 
 ```
