@@ -89,7 +89,7 @@
                     var listElem = document.createElement("li");
                     var node = document.createTextNode(countries_to_show[i]);
                     listElem.addEventListener('click', function(e) {
-                        handleListOnClick(e)
+                        handleListOnClick(e);
                     });
                     listElem.appendChild(node);
                     resultElem.appendChild(listElem);

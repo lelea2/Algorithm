@@ -1,5 +1,6 @@
 Referenced:
 * https://www.toptal.com/react?utm_campaign=hiring_guide_react&utm_medium=email&utm_source=blog_subscribers#hiring-guide
+* https://www.toptal.com/react/interview-questions
 
 React inline CSS benchmark
 * http://ctheu.com/2015/08/17/react-inline-styles-vs-css-stupid-benchmark/
@@ -35,7 +36,7 @@ Framework helper
 * "this" is different
 * Mixins
 
-```javascript
+```
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -44,9 +45,9 @@ class Greeting extends React.Component {
     return <div>Hello {this.props.name}</div>
   }
 }
-const mountNode = document.getElementById('app')
+const mountNode = document.getElementById('app');
 
-ReactDOM.render(<Greeting name='John' />, mountNode)
+ReactDOM.render(<Greeting name='John' />, mountNode);
 
 ```
 
@@ -59,7 +60,7 @@ ReactDOM.render(<Greeting name='John' />, mountNode)
 * JSX is more powerful because of js
 * JSX is concise & familiar syntax for define tree structure
 
-```javascript
+```
 <button className='btn btn-primary'>
   {{text}}
 </button>
@@ -74,7 +75,7 @@ ReactDOM.render(<Greeting name='John' />, mountNode)
   * Manage state of application
 * React take care of updating DOM based on state changes
 
-```javascript
+```
 //CommentList
 
 <div className="comment-list">

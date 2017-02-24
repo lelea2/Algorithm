@@ -5,28 +5,28 @@
 
 //1. string.trim() not working on older browser
 if (!String.prototype.trim) {
-    (function() {
-        // Make sure we trim BOM and NBSP
-        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-        String.prototype.trim = function() {
-            return this.replace(rtrim, '');
-        };
-    })();
+  (function() {
+    // Make sure we trim BOM and NBSP
+    var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+    String.prototype.trim = function() {
+      return this.replace(rtrim, '');
+    };
+  })();
 }
 
 
 String.prototype.repeatify = String.prototype.repeatify || function(times) {
-   var str = '';
+  var str = '';
 
-   for (var i = 0; i < times; i++) {
-      str += this;
-   }
+  for (var i = 0; i < times; i++) {
+    str += this;
+  }
 
-   return str;
+  return str;
 };
 
 //Referenced from: http://blog.sourcing.io/interview-questions
 //hello world ==> 'h e l l o  w o r l d'
 String.prototype.spacify = function(){
-    return this.split('').join(' ');
+  return this.split('').join(' ');
 };

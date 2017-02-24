@@ -26,3 +26,16 @@ function flatten(array) {
     }
     return result;
 }
+
+
+// var flattenRecursive = function  (arr) {
+//     return arr.reduce(function  (a,b) {
+//         if (b instanceof Array) {
+//             return a.concat(flattenRecursive(b));
+//         } else {
+//             return a.concat(b);
+//         }
+//     },[]);
+// }
+
+// console.log(flattenRecursive(b)); //<= [ 2, 1, 2, 3, 4, 2, 3, 4, 4, 5, 6 ]
