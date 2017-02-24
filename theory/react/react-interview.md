@@ -143,3 +143,37 @@ Action -> Dispatcher -> Store -> View -> Action -> Dispatcher
 * Render data from stores as HTML
 * invoke actions
 * re-render on stores change events
+
+##### 6. React PropTypes
+
+* React.PropTypes.array,
+* React.PropTypes.bool,
+* React.PropTypes.func,
+* React.PropTypes.number,
+* React.PropTypes.object,
+* React.PropTypes.string,
+* React.PropTypes.symbol
+* React.PropTypes.node,
+* React.PropTypes.element,
+
+* React.PropTypes.instanceOf(Message),
+* React.PropTypes.oneOf(['News', 'Photos']),
+* React.PropTypes.oneOfType([ React.PropTypes.string, React.PropTypes.number, React.PropTypes.instanceOf(Message)])
+* React.PropTypes.arrayOf(React.PropTypes.number),
+* React.PropTypes.shape({ color: React.PropTypes.string, fontSize: React.PropTypes.number })
+
+##### 7. React Router
+
+```
+DOM.render(
+  <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <Route path="about" component={About}/>
+        <Route path="users" component={Users}>
+          <Route path="/user/:userId" component={User}/>
+        </Route>
+        <Route path="*" component={NoMatch}/>
+      </Route>
+  </Router>
+, document.body)
+```
