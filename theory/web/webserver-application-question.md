@@ -13,3 +13,10 @@ Referenced from:
 #### Application Server
 * Exposes business logic and dynamic content to a client through various protocols such as HTTP, TCP/IP, IIOP, JRMP etc
 * Uses various scalability and fault-tolerance techniques. In addition provides resource pooling, component life cycle management, transaction management, messaging, security etc.
+
+
+### 2. JWT token
+
+* https://www.pluralsight.com/guides/ruby-ruby-on-rails/token-based-authentication-with-ruby-on-rails-5-api
+
+![alt tag](http://i.imgur.com/xkvip2y.jpg)
