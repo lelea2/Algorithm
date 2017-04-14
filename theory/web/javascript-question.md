@@ -93,6 +93,7 @@
 - 47. What could cause JS memory leak?
 - 48. Detect when image fails to load in Javascript
 - 49. Event Bus vs. Mediator pattern in JS
+- 50. Reduce Procedure
 
 <!-- /MarkdownTOC -->
 
@@ -1847,4 +1848,27 @@ addEvent(window, "load", function() {
     // Attach the dispatcher methods to $.dispatcher
     $.extend(true, $.dispatcher, dispatcherMethods);
 })(jQuery);
+```
+
+#### 50. Reduce Procedure
+
+```javascript
+var initialState = 0;
+
+var sum = [1,2,3,4,5].reduce(add, initialState); // => 15
+
+function add(a, b) {
+    // the reduce method with apply arguments to this method as follows:
+    // `a` the previous state
+    // `b` the current item in the list
+    return a + b;
+}
+
+// when `.reduce` is called `add` is recursively evaluated as follows:
+// add(0, 1)  => 1
+// add(1, 2)  => 3
+// add(3, 3)  => 6
+// add(6, 4)  => 10
+// add(10, 5) => 15
+
 ```
