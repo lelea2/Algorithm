@@ -31,3 +31,11 @@ for(var i = 10; i >=0; i--) {
         console.log('Print i=' + i);
     }, i * 200, i);
 }
+
+//IFFE
+(function() {
+ var a = b = 6
+}());
+
+typeof a; //undefined
+typeof b; //number
