@@ -94,6 +94,7 @@
 - 48. Detect when image fails to load in Javascript
 - 49. Event Bus vs. Mediator pattern in JS
 - 50. Reduce Procedure
+- 51. Weakmap
 
 <!-- /MarkdownTOC -->
 
@@ -1871,4 +1872,63 @@ function add(a, b) {
 // add(6, 4)  => 10
 // add(10, 5) => 15
 
+```
+
+#### 51. Weakmap
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap
+
+```javascript
+var wm1 = new WeakMap(),
+    wm2 = new WeakMap(),
+    wm3 = new WeakMap();
+var o1 = {},
+    o2 = function() {},
+    o3 = window;
+
+wm1.set(o1, 37);
+wm1.set(o2, 'azerty');
+wm2.set(o1, o2); // a value can be anything, including an object or a function
+wm2.set(o3, undefined);
+wm2.set(wm1, wm2); // keys and values can be any objects. Even WeakMaps!
+
+wm1.get(o2); // "azerty"
+wm2.get(o2); // undefined, because there is no key for o2 on wm2
+wm2.get(o3); // undefined, because that is the set value
+
+wm1.has(o2); // true
+wm2.has(o2); // false
+wm2.has(o3); // true (even if the value itself is 'undefined')
+
+wm3.set(o1, 37);
+wm3.get(o1); // 37
+
+wm1.has(o1); // true
+wm1.delete(o1);
+wm1.has(o1); // false
+
+```
+
+```javascript
+class ClearableWeakMap {
+  constructor(init) {
+    this._wm = new WeakMap(init)
+  }
+  clear() {
+    this._wm = new WeakMap()
+  }
+  delete(k) {
+    return this._wm.delete(k)
+  }
+  get(k) {
+    return this._wm.get(k)
+  }
+  has(k) {
+    return this._wm.has(k)
+  }
+  set(k, v) {
+    this._wm.set(k, v)
+    return this
+  }
+}
 ```
