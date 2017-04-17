@@ -1932,3 +1932,58 @@ class ClearableWeakMap {
   }
 }
 ```
+
+Extending prototypes of built-ins is indeed a bad idea. ES2015 introduce `WeakMap`
+
+```javascript
+// new types
+
+const AddMonoid = {
+  empty: () => 0,
+  concat: (x, y) => x + y,
+};
+
+const ArrayMonoid = {
+  empty: () => [],
+  concat: (acc, x) => acc.concat(x),
+};
+
+const ArrayFold = {
+  reduce: xs => xs.reduce(
+   type(xs[0]).monoid.concat,
+   type(xs[0]).monoid.empty()
+)};
+
+
+// the WeakMap that associates types to prototpyes
+
+types = new WeakMap();
+
+types.set(Number.prototype, {
+  monoid: AddMonoid
+});
+
+types.set(Array.prototype, {
+  monoid: ArrayMonoid,
+  fold: ArrayFold
+});
+
+
+// auxiliary helpers to apply functions of the extended prototypes
+
+const genericType = map => o => map.get(o.constructor.prototype);
+const type = genericType(types);
+
+
+// mock data
+
+xs = [1,2,3,4,5];
+ys = [[1],[2],[3],[4],[5]];
+
+
+// and run
+
+console.log("reducing an Array of Numbers:", ArrayFold.reduce(xs) );
+console.log("reducing an Array of Arrays:", ArrayFold.reduce(ys) );
+console.log("built-ins are unmodified:", Array.prototype.empty);
+```
