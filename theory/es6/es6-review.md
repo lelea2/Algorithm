@@ -311,3 +311,52 @@ console.log(port) // 3000
 import * as service from 'module'
 console.log(service.port) // 3000
 ```
+
+#### 11. Import
+
+* The import statement is used to import functions, objects or primitives that have been exported from an external module, another script, etc.
+
+
+```javascript
+
+// name: Name of the object that will refer to the imports.
+// member, memberN: Name of the exported members to be imported.
+// defaultMember: Name which will refer to the default export from the module.
+// alias, aliasN: Names which will refer to the named imports.
+// module-name: The name of the module to import.
+
+import defaultMember from "module-name";
+import * as name from "module-name";
+import { member } from "module-name";
+import { member as alias } from "module-name";
+import { member1 , member2 } from "module-name";
+import { member1 , member2 as alias2 , [...] } from "module-name";
+import defaultMember, { member [ , [...] ] } from "module-name";
+import defaultMember, * as name from "module-name";
+import "module-name";
+```
+
+* Example
+
+```javascript
+// --file.js--
+function getJSON(url, callback) {
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function () {
+    callback(this.responseText)
+  };
+  xhr.open('GET', url, true);
+  xhr.send();
+}
+
+export function getUsefulContents(url, callback) {
+  getJSON(url, data => callback(JSON.parse(data)));
+}
+
+// --main.js--
+import { getUsefulContents } from 'file';
+getUsefulContents('http://www.example.com', data => {
+  doSomethingUseful(data);
+});
+
+```
