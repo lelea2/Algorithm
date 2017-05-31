@@ -95,6 +95,7 @@
 - 49. Event Bus vs. Mediator pattern in JS
 - 50. Reduce Procedure
 - 51. Weakmap
+- 52. Google Chrome vs. NodeJS V8
 
 <!-- /MarkdownTOC -->
 
@@ -996,10 +997,10 @@ function resolveUnderThreeSeconds (delay) {
   return new Promise(function (resolve, reject) {
     setTimeout(resolve, delay)
     setTimeout(reject, 3000)
-  })
+  });
 }
-resolveUnderThreeSeconds(2000) // resolves!
-resolveUnderThreeSeconds(7000) // fulfillment took so long, it was rejected.
+resolveUnderThreeSeconds(2000); // resolves!
+resolveUnderThreeSeconds(7000); // fulfillment took so long, it was rejected.
 
 ```
 
@@ -1987,3 +1988,31 @@ console.log("reducing an Array of Numbers:", ArrayFold.reduce(xs) );
 console.log("reducing an Array of Arrays:", ArrayFold.reduce(ys) );
 console.log("built-ins are unmodified:", Array.prototype.empty);
 ```
+
+#### 52. Google Chrome vs. NodeJS V8
+
+* Its all due to SCOPE and SCOPING in JavaScript is done by functions
+* https://stackoverflow.com/questions/29387950/performance-of-google-chrome-vs-nodejs-v8
+
+```javascript
+console.time("Test");
+for(var i=0; i <2500000; i +=1 ){
+  // loop around
+}
+console.timeEnd("Test");
+```
+
+```javascript
+// Boot performance on the above func
+(function(){
+console.time("Test");
+for(var i=0; i <10000000000; i +=1 ){
+  // loop around
+}
+console.timeEnd("Test");
+}).call(this);
+```
+
+* In a web browser(Chrome), declaring the variable i outside of any function scope makes it global and therefore binds to window object. As a result, running this code in a web browser requires repeatedly resolving the property within the heavily populated window namespace in each iteration of the for loop.
+
+* In Node.js however, declaring any variable outside of any function’s scope binds it only to the module scope (not the window object) which therefore makes it much easier and faster to resolve.
