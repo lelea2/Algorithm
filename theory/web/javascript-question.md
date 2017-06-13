@@ -96,6 +96,7 @@
 - 50. Reduce Procedure
 - 51. Weakmap
 - 52. Google Chrome vs. NodeJS V8
+- 53. Object.freeze
 
 <!-- /MarkdownTOC -->
 
@@ -2004,11 +2005,11 @@ console.timeEnd("Test");
 
 ```javascript
 // Boot performance on the above func
-(function(){
-console.time("Test");
-for(var i=0; i <10000000000; i +=1 ){
-  // loop around
-}
+(function() {
+  console.time("Test");
+  for(var i=0; i <10000000000; i +=1 ){
+    // loop around
+  }
 console.timeEnd("Test");
 }).call(this);
 ```
@@ -2016,3 +2017,49 @@ console.timeEnd("Test");
 * In a web browser(Chrome), declaring the variable i outside of any function scope makes it global and therefore binds to window object. As a result, running this code in a web browser requires repeatedly resolving the property within the heavily populated window namespace in each iteration of the for loop.
 
 * In Node.js however, declaring any variable outside of any function’s scope binds it only to the module scope (not the window object) which therefore makes it much easier and faster to resolve.
+
+#### 53. Object.freeze
+
+The Object.freeze() method freezes an object: that is, prevents new properties from being added to it; prevents existing properties from being removed; and prevents existing properties, or their enumerability, configurability, or writability, from being changed.  The method returns the object in a frozen state.
+
+```javascript
+var obj = {
+  prop: function() {},
+  foo: 'bar'
+};
+
+// New properties may be added, existing properties may be
+// changed or removed
+obj.foo = 'baz';
+obj.lumpy = 'woof';
+delete obj.prop;
+
+// Both the object being passed as well as the returned
+// object will be frozen. It is unnecessary to save the
+// returned object in order to freeze the original.
+var o = Object.freeze(obj);
+
+o === obj; // true
+Object.isFrozen(obj); // === true
+
+// Now any changes will fail
+obj.foo = 'quux'; // silently does nothing
+// silently doesn't add the property
+obj.quaxxor = 'the friendly duck';
+
+// In strict mode such attempts will throw TypeErrors
+function fail(){
+  'use strict';
+  obj.foo = 'sparky'; // throws a TypeError
+  delete obj.quaxxor; // throws a TypeError
+  obj.sparky = 'arf'; // throws a TypeError
+}
+
+fail();
+
+// Attempted changes through Object.defineProperty;
+// both statements below throw a TypeError.
+Object.defineProperty(obj, 'ohai', { value: 17 });
+Object.defineProperty(obj, 'foo', { value: 'eit' });
+
+```
