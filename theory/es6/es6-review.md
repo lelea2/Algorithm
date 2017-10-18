@@ -360,3 +360,67 @@ getUsefulContents('http://www.example.com', data => {
 });
 
 ```
+
+#### 12. Rewrite set timeout in promise
+
+```javascript
+setTimeout(() => {
+  console.log('Hello Khanh!');
+  setTimeout(() => {
+    console.log('Hello Bob!');
+  }, 1000)
+}, 1000)
+
+// New promise example
+
+const wait1000 = () => new Promise((resolve, reject)=> {
+  setTimeout(resolve, 1000)
+});
+
+wait1000()
+  .then(() => {
+    console.log('Yay!');
+    return wait1000();
+  })
+  .then(() => {
+    console.log('Wheeyee!')
+  });
+```
+
+#### 13. What's the correct way to use Destructuring Assignment in ES6?
+
+```javascript
+// In ES5 e.g.
+var jsonMiddleware = require('body-parser').json
+var body = req.body, // body has username and password
+    username = body.username,
+    password = body.password;
+
+// In ES6:
+var {jsonMiddleware} = require('body-parser');
+var {username, password} = req.body;
+
+```
+
+#### 14. How would you sort an ES6 Map Object?
+
+```javascript
+var map = new Map();
+map.set('2-1', "foo");
+map.set('0-1', "bar");
+map.set('3-1', "baz");
+var mapAsc = new Map([...map.entries()].sort());
+console.log(mapAsc);
+
+```
+
+#### 15. Map features on ES6
+
+```javascript
+const hash = new Map()
+hash.set("hello", 42)
+hash.set(1, 34);
+
+console.log(hash); //Map {"hello" => 42, 1 => 34}
+
+```

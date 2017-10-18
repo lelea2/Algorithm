@@ -56,7 +56,6 @@ public class Solution {
       } else {
         stack.peek().list.add(new Node(c));
       }
-
       i++;
     }
     return getString(stack.peek());
