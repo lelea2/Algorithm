@@ -4,13 +4,16 @@
 
 //Idea: using Array.prototype.slice.call to convert arguments list into array list to check
 function isTwoPassed() {
-    var args = Array.prototype.slice.call(arguments);
-    return (args.indexOf(2) > -1);
+  var args = Array.prototype.slice.call(arguments);
+  return (args.indexOf(2) > -1);
 }
 
+function isTwoPassed(...arr) {
+  return (args.indexOf(2) > -1);
+}
 //Test case
 isTwoPassed(1,4) //false
-isTowPassed(5,3,1,2) //true
+isTwoPassed(5,3,1,2) //true
 
 
 /**
