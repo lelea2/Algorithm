@@ -29,6 +29,9 @@ The followings are good website for learning or for references
 Algorithm website
 * http://www.programming-algorithms.net/article/40348/Interpolation-search
 
+CryptoJS
+* https://runkit.com/wimpyprogrammer/aws-sdk-vs-cryptojs
+
 ####Important knowledge for FE
 
 * prototype - inheritance in js, how it differs from other languages
