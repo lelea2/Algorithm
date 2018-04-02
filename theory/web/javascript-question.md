@@ -2063,3 +2063,96 @@ Object.defineProperty(obj, 'ohai', { value: 17 });
 Object.defineProperty(obj, 'foo', { value: 'eit' });
 
 ```
+
+#### 53. Object.freeze() vs. Object.seal() vs. Object.assign() vs. Object.spread() property vs. JSON.parse(JSON.stringify())
+
+Eg:
+```
+const hero = {
+  name: 'Daredevil',
+  location: {
+    city: 'New York',
+    district: 'Kitchen Hell'
+  }
+}
+```
+* Object.freeze(): freeze the given object (only the first level)
+
+```
+Object.freeze(hero)
+
+hero.name = 'Jessica Jones'
+console.log(hero.name === 'Jessica Jones') // false (hero is unchanged)
+
+hero.location.city = 'Dublin'
+console.log(hero.location.city === 'Dublin') // true (hero.location has been changed)
+```
+* Object.seal(): prevent adding new properties to a given object
+
+```
+Object.seal(hero)
+
+hero.weapon = 'staff'
+console.log(hero.weapon) // undefined (hero is unchanged)
+
+hero.name = 'Jessica Jones'
+console.log(hero.name === 'Jessica Jones') // true (hero.name has been changed)
+```
+
+* Object.assign(): create copy of a given object
+
+```
+const newHero = Object.assign({}, hero)
+
+newHero.name = 'Jessica Jones'
+console.log(hero.name === 'Jessica Jones') // false (hero is unchanged)
+
+newHero.location.city = 'Dublin'
+console.log(hero.location.city === 'Dublin') // true (hero.location has been changed)
+```
+
+* JSON.parse(JSON.stringify()) => use with extreme precautious
+
+```
+const hero = {
+  name: 'Daredevil',
+  location: {
+    city: 'New York',
+    district: 'Kitchen Hell'
+  }
+}
+const newHero = JSON.parse(JSON.stringify(hero)) // "{"name":"Daredevil", {...}}"
+
+newHero.name = 'Jessica Jones'
+console.log(hero.name === 'Daredevil') // true (hero in unchanged)
+
+newHero.location.city = 'Dublin'
+console.log(hero.location.city === 'Dublin') // true (hero.location in unchanged)
+
+```
+
+** How are handle non-stringifiable types? => it will get removed. 
+```
+const hero = {
+  name: 'Daredevil',
+  birthdate: new Date(1989, 4, 11),
+  sayHello: () => 'hello',
+  symbol: Symbol(),
+  banana: undefined
+}
+JSON.parse(JSON.stringify(hero)) // "{"name":"Daredevil", birthdate: "1989-05-10T23:00:00.000Z"}"
+```
+
+** How are handle circular references => will throw error
+
+```
+const daredevil = {
+    friends: [daredevil]
+}
+
+JSON.parse(JSON.stringify(daredevil))
+// Uncaught TypeError: Converting circular structure to JSON
+```
+
+
+

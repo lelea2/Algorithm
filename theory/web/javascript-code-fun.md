@@ -222,3 +222,72 @@ window.confirm(“Confirm text here.”);
   //Your code handler here
   return YourObject;
 }());
+```
+
+#### 13. Debugging (using proptotype or class)
+
+The following return undefined instead
+
+```javascript
+function Dog (name) {
+  this.name = name;
+}
+Dog.bark = function () {
+  console.log(this.name + ' says woof');
+}
+let fido = new Dog('fido');
+fido.bark();
+```
+
+**Solution1**
+
+```javascript
+function Dog (name) {
+  this.name = name;
+}
+
+Dog.prototype.bark = function () {
+  console.log(this.name + ' says woof');
+}
+
+let fido = new Dog('fido');
+fido.bark() // "fido says woof";
+```
+
+**Solution2**
+
+```javascript
+class Dog {
+  constructor (name) {
+    this.name = name;
+  }
+
+  bark () {
+    console.log(this.name + ' says woof');
+  }
+}
+
+let fido = new Dog('fido');
+fido.bark() // "fido says woof";
+```
+
+#### 14. Persistent data structure (using Object.assign)
+
+```
+const heroes = [
+  ⋮
+  { name: 'Wolverine', isReady: false, /* ... others properties ... */ },
+  { name: 'Deadpool', isReady: false,  /* ... others properties ... */ },
+  { name: 'Magneto', isReady: false,   /* ... others properties ... */ },
+  { name: 'Gandalf', isReady: true,   /* ... others properties ... */ },
+  ⋮
+  (100 000 heroes)
+]
+
+// Solution
+heroes.map(h => {
+  const newHero = Object.assign({}, hero)
+  newHero.isReady = true
+  return newHero
+});
+```

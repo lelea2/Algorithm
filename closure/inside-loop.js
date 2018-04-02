@@ -32,6 +32,7 @@ for(var i = 10; i >=0; i--) {
     }, i * 200, i);
 }
 
+
 //IFFE
 (function() {
  var a = b = 6
@@ -39,3 +40,16 @@ for(var i = 10; i >=0; i--) {
 
 typeof a; //undefined
 typeof b; //number
+
+
+// Event loop, using IIFE
+for (let i = 0; i < 4; i++) {
+    (function (i) {
+      setTimeout(() => console.log(i), 0)
+    })(i)
+}
+
+// Event loop, leverage let
+for (let i = 0; i < 4; i++) {
+    setTimeout(() => console.log(i), 0)
+}

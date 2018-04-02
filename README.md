@@ -25,6 +25,10 @@ The followings are good website for learning or for references
 * http://pepa.holla.cz/wp-content/uploads/2016/01/Nodejs_Succinctly.pdf
 * http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html
 * https://blog.sentry.io/2016/01/04/client-javascript-reporting-window-onerror.html
+* https://github.com/getify/You-Dont-Know-JS
+* http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3
+* https://performancejs.com/post/hde6d32/The-Best-Frontend-JavaScript-Interview-Questions-%28written-by-a-Frontend-Engineer%29
+* https://www.maxpou.fr/immutability-js-without-library/
 
 Algorithm website
 * http://www.programming-algorithms.net/article/40348/Interpolation-search

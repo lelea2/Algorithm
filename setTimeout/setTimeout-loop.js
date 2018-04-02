@@ -19,5 +19,3 @@ function startTimer() {
     startTimer();
   }, thisDelay);
 }
-
-
