@@ -236,7 +236,7 @@ Dog.bark = function () {
   console.log(this.name + ' says woof');
 }
 let fido = new Dog('fido');
-fido.bark();
+fido.bark(); // undefined
 ```
 
 **Solution1**

@@ -2153,6 +2153,3 @@ const daredevil = {
 JSON.parse(JSON.stringify(daredevil))
 // Uncaught TypeError: Converting circular structure to JSON
 ```
-
-
-
