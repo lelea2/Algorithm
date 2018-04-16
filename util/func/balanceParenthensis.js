@@ -30,6 +30,9 @@ function isParanthesis(char) {
   }
 }
 
+// store token of parenthensis in array
+const tokens = [ ['{','}'] , ['[',']'] , ['(',')'] ];
+
 function isOpenParenthesis(parenthesisChar) {
   for (var j = 0; j < tokens.length; j++) {
     if (tokens[j][0] === parenthesisChar) {
@@ -39,3 +42,12 @@ function isOpenParenthesis(parenthesisChar) {
   return false;
 }
 
+function matches(topOfStack, closedParenthesis) {
+  for (var k = 0; k < tokens.length; k++) {
+    if (tokens[k][0] === topOfStack && 
+        tokens[k][1] === closedParenthesis) {
+      return true;
+    }
+  }
+  return false;
+}
