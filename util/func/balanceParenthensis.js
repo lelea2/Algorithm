@@ -8,13 +8,15 @@ function isBalanced(inputStr) {
     if (isParanthesis(expression[i])) {
       if (isOpenParenthesis(expression[i])) {
         stack.push(expression[i]);
-      } else {
+      } else { // close parenthensis
         if (stack.length === 0) {
-          return console.log(false);
+          // return console.log(false);
+          return false;
         }
         var top = stack.pop(); // pop off the top element from stack
         if (!matches(top, expression[i])) {
-          return console.log(false);
+          // return console.log(false);
+          return false;
         }
       }
     }
