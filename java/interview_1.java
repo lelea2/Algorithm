@@ -13,7 +13,7 @@ public static void main (String [] args) {
 // Problem: Write a function that splits a text into single words, without using split() or StringTokenizer etc that does the same job.
 public static void main (String[] args) {
   System.out.println(“Please enter your text: “);
-  Scanner in = new Scanner (System.in);
+  Scanner in = new Scanner(System.in);
   while (in.hasNext())
   {
     System.out.println(in.next());
@@ -47,7 +47,7 @@ for (int =0; j<myarr.size(); j++)
 
 public static void main (String[] args) {
   System.out.println (“Please enter your text: “);
-  Scanner in = new Scanner (System.in);
+  Scanner in = new Scanner(System.in);
   String mystr = in.nextln();
   ArrayList<String> myarr = new ArrayList<String>();
   while (mystr.indexOf (“ “) != -1)

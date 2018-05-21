@@ -1,3 +1,5 @@
+* From: https://thatjsdude.com/interview/linkedList.html
+
 ### 1. Create a singly-linkelist in JS
 
 ```javascript
