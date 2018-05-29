@@ -45,7 +45,7 @@ const stringify = (obj, pretty, level, spacing) => {
     return (typeof obj[k] === 'function') ? null : `${newLine}${spacing}"${k}": ${getValues(obj[k], pretty, level, spacing)}`;
   }).filter((i) => i);
   
-  let result = `{${spacing}${data}${newLine}${spacing.replace(' . ', '')}}`;
+  let result = `{${data}${newLine}${spacing.replace(' . ', '')}}`;
   result = result.replace(/:(\s)+/g, ': ');
   return result;
 };
