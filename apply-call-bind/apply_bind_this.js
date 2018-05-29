@@ -63,7 +63,7 @@ function bind() {
   var self = this;
   var args = Array.prototype.slice.call(arguments);
   return function() {
-     return fn.apply(args[1], args.splice(2, args.length));
+    return fn.apply(args[1], args.splice(2, args.length));
   }
   /* return fn.apply(args.splice(1, args,length)) */;
 }
