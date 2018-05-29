@@ -1,5 +1,5 @@
 class Account {
- 
+
   constructor(name, type, openDate, balance) {
      this.name = name;
      this.type = type;
@@ -24,7 +24,7 @@ class Account {
   }
   
   getOpenDate() {
-      return this.openDate; 
+      return this.openDate;
   }
   
   isMatchAccount(name, type, openDate) {
