@@ -8,13 +8,13 @@
  */
 
 Function.prototype.curry = function() {
-    if (arguments.length < 1) {
-        return this; //nothing to curry. return function
-    }
-    var self = this;
-    var args = Array.prototype.slice.call(args);
-    return function() {
-        return self.apply(this, args.concat(Array.prototype.slice.call(arguments)));
-    }
+  if (arguments.length < 1) {
+    return this; //nothing to curry. return function
+  }
+  var self = this;
+  var args = Array.prototype.slice.call(args);
+  return function() {
+    return self.apply(this, args.concat(Array.prototype.slice.call(arguments)));
+  }
 }
 

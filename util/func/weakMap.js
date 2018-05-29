@@ -15,26 +15,26 @@ const Wizard = (function() {
   };
 
   class Wizard {
-      constructor(name, house) {
-          internal(this).name = name;
-          internal(this).house = house;
-      }
+    constructor(name, house) {
+      internal(this).name = name;
+      internal(this).house = house;
+    }
 
-      getName() {
-          return internal(this).name;
-      }
+    getName() {
+      return internal(this).name;
+    }
 
-      setName(name) {
-          internal(this).name = name;
-      }
+    setName(name) {
+      internal(this).name = name;
+    }
 
-      getHouse() {
-          return internal(this).house;
-      }
+    getHouse() {
+      return internal(this).house;
+    }
 
-      setHouse(house) {
-          internal(this).house = house;
-      }
+    setHouse(house) {
+      internal(this).house = house;
+    }
   }
 
   return Wizard;

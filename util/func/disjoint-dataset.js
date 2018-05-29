@@ -23,9 +23,7 @@ groups:
 3-8-5
 4-9
 
-The number of people in smaller group is 2 i.e. 4-9. 
-
-
+The number of people in smaller group is 2 i.e. 4-9.
  */
 const data = {
   "1": [ "5", "6"],
