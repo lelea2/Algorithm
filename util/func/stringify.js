@@ -35,7 +35,7 @@ const stringify = (obj, pretty, level, spacing) => {
   if (spacing) {
     spacing = `  ${spacing}`;
   } else {
-    spacing = (pretty === true) ? ` . ${new Array(level + 1).join(' . ')}` : '';
+    spacing = (pretty === true) ? ` . ${new Array(level + 1).join('. ')}` : '';
   }
   if (typeof obj !== 'object' || obj === null || obj instanceof Array) {
     return getValues(obj);
@@ -45,7 +45,7 @@ const stringify = (obj, pretty, level, spacing) => {
     return (typeof obj[k] === 'function') ? null : `${newLine}${spacing}"${k}": ${getValues(obj[k], pretty, level, spacing)}`;
   }).filter((i) => i);
   
-  let result = `{${data}${newLine}${spacing.replace(' . ', '')}}`;
+  let result = `{${data}${newLine}${spacing.replace('. ', '')}}`;
   result = result.replace(/:(\s)+/g, ': ');
   return result;
 };
