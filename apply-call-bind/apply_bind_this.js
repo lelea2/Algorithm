@@ -1,13 +1,13 @@
 // Q1. What is "this"?
 console.log(this);
 var foo = {
-  prop: 'hello',
+  prop: 'hello', // window
   method: function () {
     // Q2. What is "this"?
-    console.log(this);
+    console.log(this); // foo object
     setTimeout(function () {
       // Q3. What is "this"?
-      console.log(this);
+      console.log(this); // window
     });
   }
 };
@@ -21,7 +21,7 @@ var foo = {
       // Q1: Does this work?
       // Q2: Why doesn't this work?
       // Q3: How do we make this work
-      console.log(_this.prop);
+      console.log(_this.prop); // to prefer foo object props, should prefer to this outside setTimeout
     });
   }
 };

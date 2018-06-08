@@ -26,7 +26,7 @@ module.exports = getGreatestCommonDivisor;
 /** I stole it from online note, using recursion */
 //Shorter version, using recursive
 function greatestCommonDivisor2(a, b) {
-    if(b == 0) {
+    if (b == 0) {
         return a;
     } else {
         return greatestCommonDivisor2(b, a%b);
