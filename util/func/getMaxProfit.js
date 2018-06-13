@@ -16,7 +16,7 @@ function getMaxProfit(arr) {
   var maxProfit = 0;
 
   if(arr.length < 2) {
-    throw new Error("Need atleast two time periods to be profitable!");
+    throw new Error("Need at least two time periods to be profitable!");
   }
   for(var i = 1; i < arr.length; i++) {
     // new current min.

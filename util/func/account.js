@@ -6,29 +6,29 @@ class Account {
      this.openDate = openDate;
      this.balance = balance;
   }
-  
+
   setBalance(balance) {
-      this.balance = balance;
+    this.balance = balance;
   }
-  
+
   getBalance() {
-      return this.balance; 
+    return this.balance;
   }
-  
+
   getName() {
-    return this.name; 
+    return this.name;
   }
-  
+
   getType() {
-     return this.type; 
+    return this.type;
   }
-  
+
   getOpenDate() {
-      return this.openDate;
+    return this.openDate;
   }
   
   isMatchAccount(name, type, openDate) {
-    return (this.name === name && this.type === type && this.openDate === openDate);    
+    return (this.name === name && this.type === type && this.openDate === openDate);
   }
   
   getKey() {
@@ -57,11 +57,11 @@ function createAccount(name, type, balance, openDate) {
 
 
 const findByName = (arr, account) => {
-   for (let i = 0; i < arr.length; i++) {
-      if (arr[i].isMatchAccount(account.getName(), account.getType(), account.getOpenDate())) {
-         return arr[i]; 
-      }
-   }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].isMatchAccount(account.getName(), account.getType(), account.getOpenDate())) {
+      return arr[i];
+    }
+  }
   return null;
 };
 
