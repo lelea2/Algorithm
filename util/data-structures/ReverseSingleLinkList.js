@@ -1,4 +1,4 @@
-function reversesll(sll){
+function reversesll(sll) {
   
   if(!sll.head || !sll.head.next) return sll;
 

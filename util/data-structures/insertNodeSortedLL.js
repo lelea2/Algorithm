@@ -3,7 +3,7 @@ function pushSorted(sll, val) {
       current = head,
       previous;
   //value lower than head value
-  if(val < sll.head.value){
+  if(val < sll.head.value) {
     sll.head = {value: val, next: head};
     return sll;
   }

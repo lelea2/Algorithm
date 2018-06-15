@@ -1,4 +1,4 @@
-function deleteNodeDLL(val){
+function deleteNodeDLL(val) {
   var current = dll.head,
       previous;
 

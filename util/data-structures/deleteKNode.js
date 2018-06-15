@@ -1,4 +1,4 @@
-function deleteKthFromEnd(sll, k){
+function deleteKthFromEnd(sll, k) {
   var node = sll.head,
       i = 1,
       kthNode,
