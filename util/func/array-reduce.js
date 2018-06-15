@@ -55,7 +55,7 @@ console.log(filterEvenSum([1,2,3,4])); //<= 4
 var flattenArray = function (a) {
     return a.reduce(function  (i,c) {
         return i.concat(c);
-    })
+    });
 }
 
 var b = [[1,2,3],[2,3,4],[4,5,6]];
