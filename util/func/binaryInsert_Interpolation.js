@@ -8,8 +8,7 @@ function interpolationSearch(value, array, from, to) {
         return -1; //not found
     }
     //probable position of the searched value
-
-    int index = from + ((to - from)/(array[to] - array[from])) * (value - array[from]);
+    let index = from + ((to - from)/(array[to] - array[from])) * (value - array[from]);
 
     if(array[index] === value) {
         return index;//found

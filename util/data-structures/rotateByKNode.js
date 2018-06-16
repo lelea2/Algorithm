@@ -4,7 +4,7 @@ function rotateByKthNode(sll, k) {
       current = sll.head,
       i = 1;
   while(current.next) {
-    if (i==k+1) {
+    if (i == k+1) {
       sll.head = current;
       previous.next = null;
     }

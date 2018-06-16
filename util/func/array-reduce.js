@@ -67,8 +67,8 @@ console.log(flattenArray(b)); //<= [ 1, 2, 3, 2, 3, 4, 4, 5, 6 ]
 //using array.push is faster than array.concat since internal array.concat itself will do an interative walk through of the array
 var b = [2,[1,2,[3,4]],[2,3,4],[4,5,6]];
 
-var flattenRecursive = function  (arr) {
-    return arr.reduce(function  (a,b) {
+var flattenRecursive = function(arr) {
+    return arr.reduce(function(a,b) {
         if (b instanceof Array) {
             return a.concat(flattenRecursive(b));
         } else {

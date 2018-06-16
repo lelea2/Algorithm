@@ -21,7 +21,9 @@ function deterministicDecirc (val, k, stack, parent) {
     } else {
       // Create a temporary object in the required way
       let tmp = {};
-      const keys = Object.keys(val).sort(compareFunction);
+      const keys = Object.keys(val).sort((a, b) => {
+        return a > b;
+      });
       for (i = 0; i < keys.length; i++) {
         const key = keys[i];
         deterministicDecirc(val[key], key, stack, val);

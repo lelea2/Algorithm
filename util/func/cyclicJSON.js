@@ -45,7 +45,7 @@ input.a = input;
 
 // O(n^2)
 const isCyclic = (obj) => {
-  const seenObjects = [];
+  const seenObjects = []; // create hash for store object
   const detectCycle = (obj) => {
     if (obj && typeof obj === 'object') {
       if (seenObjects.indexOf(obj) !== -1) {
@@ -53,6 +53,7 @@ const isCyclic = (obj) => {
       }
       seenObjects.push(obj);
       for (let key in obj) {
+        // nested object detect cycle
         if (obj.hasOwnProperty(key) && detectCycle(obj[key])) {
           console.log(obj, 'cycle at ' + key);
           return true;
