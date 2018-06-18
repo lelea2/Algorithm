@@ -19,10 +19,10 @@ someFunction.apply(objectToUseAsThis, [arg1, arg2]);
 **.bind()**  - creates a new function with the same function body, with a pre-set value of this (the first argument) and returns that function.
 ```javascript
 var obj = {
-   x: 81,
-   getX: function() {
-     console.log( this.x)
-   }
+  x: 81,
+  getX: function() {
+    console.log( this.x)
+  }
 };
 obj.getX.bind(obj); //Create new function with same function body here
 ```

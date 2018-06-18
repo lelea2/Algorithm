@@ -21,10 +21,10 @@ isTwoPassed(5,3,1,2) //true
  * @param: {String}: decorating message, which is append infront of console log message
  */
 function decorateLog(string) {
-    var originalFunc = console.log;
-    console.log = function() {
-        originalFunc.apply(console, [string].concat([].slice.call(arguments))); //passing array argument, concat array here
-    }
+  var originalFunc = console.log;
+  console.log = function() {
+    originalFunc.apply(console, [string].concat([].slice.call(arguments))); //passing array argument, concat array here
+  }
 }
 
 decorateLog('Info: ');

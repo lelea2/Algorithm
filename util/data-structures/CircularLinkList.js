@@ -2,8 +2,7 @@ function CircularLinkedList(){
   this.head = null;
 }
 
-
-CircularLinkedList.prototype.push = function(val){
+CircularLinkedList.prototype.push = function(val) {
   var head = this.head,
       current = head,
       node = {value: val, next: null, previous: null};

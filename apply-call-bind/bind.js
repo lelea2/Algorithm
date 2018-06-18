@@ -5,7 +5,7 @@
 var monica = {
   name: 'Monica Geller',
   total: 400,
-  deductMontlyFee: function(fee){
+  deductMontlyFee: function(fee) {
     this.total = this.total - fee;
     return this.name + ' remaining balance is '+ this.total;
   }
