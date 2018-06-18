@@ -2,7 +2,13 @@
 
 // Time complexity: O(1)
 // Space complexity: O(n)
-// This is achieved by having the doubly-linked list manage when we have to rearrange the elements while the map gives us direct access to the resource. Look-up in a map is O(1) by providing the key. We introduce the concept of the “head”, which is the least recently used entry, and the “tail”, which is the most recently used entry, to keep track of the order when elements are retrieved or added. There are two pointers per node which is relatively low cost to manage the ordering.
+// This is achieved by having the doubly-linked list manage
+// when we have to rearrange the elements while the map gives us direct access to the resource.
+// Look-up in a map is O(1) by providing the key. We introduce the concept of the “head”, 
+// which is the least recently used entry, and the “tail”, 
+// which is the most recently used entry,
+// to keep track of the order when elements are retrieved or added. 
+// There are two pointers per node which is relatively low cost to manage the ordering.
 
 /* Initialize LRU cache with default limit being 10 items */
 function lru(limit) {

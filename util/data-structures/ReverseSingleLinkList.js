@@ -12,7 +12,7 @@ function reversesll(sll) {
   var reversedLL = new LinkedList();
   reversedLL.head = nodes.pop(); // stack of nodes
   current = reversedLL.head;
-  var node = nodes.pop();
+  var node = nodes.pop(); // pop seconde node
   //make sure to make next of the newly inserted node to be null
   //other wise the last node of your SLL will retain its old next.
   while(node) {

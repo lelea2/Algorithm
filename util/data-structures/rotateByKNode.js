@@ -1,6 +1,6 @@
 function rotateByKthNode(sll, k) {
   var prevHead = sll.head,
-      previous = sll.head, 
+      previous = sll.head,
       current = sll.head,
       i = 1;
   while(current.next) {

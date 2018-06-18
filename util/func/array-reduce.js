@@ -22,7 +22,7 @@ console.log(calculateSum([1,2,3,4])); // <= 10
 //Calculate the product of all the elements of the array (mutliplication)
 var calculateProduct = function (a) {
     return a.reduce(function (i,c) {
-        return i*c;
+        return i * c;
     });
 }
 

@@ -1,10 +1,10 @@
 class Account {
 
   constructor(name, type, openDate, balance) {
-     this.name = name;
-     this.type = type;
-     this.openDate = openDate;
-     this.balance = balance;
+    this.name = name;
+    this.type = type;
+    this.openDate = openDate;
+    this.balance = balance;
   }
 
   setBalance(balance) {

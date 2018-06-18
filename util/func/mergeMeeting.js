@@ -15,7 +15,7 @@ function mergeRanges(meetings) {
       // add the current meeting since it doesn't overlap
     } else {
       mergedMeetings.push(currentMeeting);
-      }
+    }
   }
   return mergedMeetings;
 }

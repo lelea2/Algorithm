@@ -8,7 +8,7 @@
 function deepmerge(target, src) {
   var array = Array.isArray(src); //checking if sort is array
   var dst = array ? [] : {}; //assign destination variable
-  if (array) {
+  if (array) { // if target is array
     target = target || [];
     dst = dst.concat(target);
     src.forEach(function(e, i) {
@@ -22,7 +22,7 @@ function deepmerge(target, src) {
         }
       }
     });
-  } else {
+  } else { // not array
     if (target && typeof target === 'object') {
       Object.keys(target).forEach(function (key) {
         dst[key] = target[key];
