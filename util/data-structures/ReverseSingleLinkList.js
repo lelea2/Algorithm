@@ -1,29 +1,25 @@
 function reversesll(sll) {
-  
-  if(!sll.head || !sll.head.next) return sll;
-
-  var nodes=[], 
-    current = sll.head;
+  if(!sll.head || !sll.head.next) {
+    return sll;
+  }
+  var nodes=[],
+      current = sll.head;
   //storing all the nodes in an array
-  while(current){
+  while(current) {
     nodes.push(current);
     current = current.next;
   }
-    
   var reversedLL = new LinkedList();
-  
-  reversedLL.head = nodes.pop();
+  reversedLL.head = nodes.pop(); // stack of nodes
   current = reversedLL.head;
-  
-  var node = nodes.pop();  
+  var node = nodes.pop();
   //make sure to make next of the newly inserted node to be null
   //other wise the last node of your SLL will retain its old next.
-  while(node){
-     node.next = null;
-     current.next = node;
-     
-     current = current.next;
-     node = nodes.pop();
+  while(node) {
+    node.next = null;
+    current.next = node;
+    current = current.next;
+    node = nodes.pop();
   }
   return reversedLL;
 }

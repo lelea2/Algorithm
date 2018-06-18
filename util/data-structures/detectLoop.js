@@ -28,8 +28,8 @@ function findLoopStart(sll) {
       return null;
     }
     fast = fast.next.next;
-    if(slow == fast) {
-      slow = sll.head;
+    if(slow == fast) { // loop meet
+      slow = sll.head; // slow back to head
       while(slow != fast) {
         slow = slow.next;
         fast = fast.next;

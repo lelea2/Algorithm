@@ -6,7 +6,7 @@ CircularLinkedList.prototype.push = function(val) {
   var head = this.head,
       current = head,
       node = {value: val, next: null, previous: null};
-  if (!head) {
+  if (!head) { // head does not there
     node.next = node;
     node.previous = node;
     this.head = node;
