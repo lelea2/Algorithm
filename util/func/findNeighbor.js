@@ -44,7 +44,7 @@
 
 function assignNeighbors(root, leftmost) {
   // your code here
-  if (root.children[0] && root.children[1]) {
+  if (root.children[0] && root.children[1]) { // if both node exist
     root.children[0].neighbor = root.children[1];
     root.children[1].neighbor = leftmost;
     assignNeighbors(root.children[1], findClosetNeighbor(leftmost));

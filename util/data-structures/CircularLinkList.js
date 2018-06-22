@@ -1,4 +1,4 @@
-function CircularLinkedList(){  
+function CircularLinkedList() {
   this.head = null;
 }
 

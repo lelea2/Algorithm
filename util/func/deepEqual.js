@@ -7,7 +7,7 @@ function deepEqual (x, y) {
     if (Object.keys(x).length !== Object.keys(y).length) {
       return false;
     }
-    for (var prop in x) {
+    for (var prop in x) { // loop through key in object x
       if (y.hasOwnProperty(prop)) {
         if (!deepEqual(x[prop], y[prop])) {
           return false;

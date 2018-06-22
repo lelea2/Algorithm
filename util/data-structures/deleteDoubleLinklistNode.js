@@ -1,8 +1,8 @@
-function deleteNodeDLL(val) {
+function deleteNodeDLL(ddl, val) {
   var current = dll.head, // start with head
       previous = null; // previous start with null
   //delete head
-  if(current.value == val) {
+  if (current.value === val) {
     dll.head = current.next;
     //if there is only one node, then dll.head is null
     if(dll.head) {

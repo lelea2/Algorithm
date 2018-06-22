@@ -25,9 +25,11 @@ var binaryTreePaths = function(root) {
   var list = [];
   findPath(root, "");
   return list;
+
+  // This is helper function to find path of certain node
   function findPath(node, str) {
-    if(node.right == null && node.left == null) {
-      list.push(str + node.val);
+    if(node.right == null && node.left == null) { // end of node
+      list.push(str + node.val); // push to maintain list
     } else {
       if (node.left != null) { // if left node is not null
         findPath(node.left, str + node.val + "->" );

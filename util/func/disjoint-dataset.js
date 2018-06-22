@@ -40,7 +40,7 @@ const networkFunc = (friendArr, existingArr) => {
     if (existingArr.indexOf(friendArr[j]) < 0) {
       existingArr.push(friendArr[j]); // add friend node
       if (data[friendArr[j]] && data[friendArr[j]].length > 0) {
-        networkFunc(data[friendArr[j]], existingArr); 
+        networkFunc(data[friendArr[j]], existingArr);
       }
     }
   }
@@ -50,8 +50,8 @@ const networkFunc = (friendArr, existingArr) => {
 const getFriends = (id) => {
   const myArr = [];
   if (data[id]) {
-     networkFunc(data[id], myArr);
-  } 
+    networkFunc(data[id], myArr);
+  }
   return myArr;
 };
 
@@ -60,7 +60,7 @@ getFriends("1");
 const group = {};
 let min = 0;
 for (const key in data) {
-  const lengthGroup =  getFriends(key).length; //cache
+  const lengthGroup = getFriends(key).length; //cache
   if (min === 0) {
     min = lengthGroup;
   } else if (min > lengthGroup) {

@@ -1,7 +1,7 @@
 // Function to convert circular object to 'Circular'
 
 function deterministicDecirc (val, k, stack, parent) {
-  if (typeof val === 'object' && val !== null) {
+  if (typeof val === 'object' && val !== null) { // if type of val is object 
     for (let i = 0; i < stack.length; i++) {
       if (stack[i] === val) {
         parent[k] = '[Circular]';
@@ -9,7 +9,7 @@ function deterministicDecirc (val, k, stack, parent) {
         return;
       }
     }
-    if (typeof val.toJSON === 'function') {
+    if (typeof val.toJSON === 'function') { // if type of val is function
       return;
     }
     stack.push(val);

@@ -1,6 +1,6 @@
 function isBalanced(inputStr) {
   if (inputStr === null) {
-    console.log(true);
+    return true;
   }
   var expression = inputStr.split('');
   var stack = [];

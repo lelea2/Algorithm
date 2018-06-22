@@ -33,6 +33,7 @@ BinarySearchTree.prototype.add = function(data) {
     }
   }
 };
+
 BinarySearchTree.prototype.remove = function(data) {
   var that = this;
   var removeNode = function(node, data) {

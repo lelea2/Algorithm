@@ -14,10 +14,10 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-  if(root == null || (root.right == null && root.left == null)) {
+  if (root == null || (root.right == null && root.left == null)) {
     return true;
   }
-  // Find roogt depth
+  // Find root depth
   var dL = findDeep(root.left);
   var dR = findDeep(root.right);
 
@@ -36,5 +36,5 @@ function findDeep(root) {
   var deepL = 1 + findDeep(root.left);
   var deepR = 1 + findDeep(root.right);
 
-  return deepL > deepR ? deepL:deepR;
+  return deepL > deepR ? deepL : deepR;
 }

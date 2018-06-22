@@ -28,5 +28,5 @@ var isSameTree = function(p, q) {
     return false;
   }
   // find next level of tree (left and right)
-  return isSameTree(p.right, q.right)&&isSameTree(p.left, q.left);
+  return isSameTree(p.right, q.right) && isSameTree(p.left, q.left);
 };

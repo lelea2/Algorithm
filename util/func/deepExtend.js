@@ -11,7 +11,7 @@ function deepmerge(target, src) {
   if (array) { // if target is array
     target = target || [];
     dst = dst.concat(target);
-    src.forEach(function(e, i) {
+    src.forEach((e, i) => {
       if (typeof dst[i] === 'undefined') {
         dst[i] = e;
       } else if (typeof e === 'object') {
@@ -24,15 +24,15 @@ function deepmerge(target, src) {
     });
   } else { // not array
     if (target && typeof target === 'object') {
-      Object.keys(target).forEach(function (key) {
+      Object.keys(target).forEach((key) => {
         dst[key] = target[key];
       });
     }
-    Object.keys(src).forEach(function (key) {
-      if (typeof src[key] !== 'object' || !src[key]) {
+    Object.keys(src).forEach((key) => {
+      if (typeof src[key] !== 'object' || !src[key]) { // object and not null
         dst[key] = src[key];
       } else {
-        if (!target[key]) { //not define sort ket yet
+        if (!target[key]) { //not define sort key yet
           dst[key] = src[key];
         } else {
           dst[key] = deepmerge(target[key], src[key]);
