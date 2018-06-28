@@ -49,13 +49,13 @@ var isSymmetric = function(root) {
 
   // function checking similar tree
   function isSameTree(left,right) {
-    if(left == null && right== null) {
+    if (left == null && right== null) {
       return true;
     }
-    if(left == null && right != null || right == null &&left != null) {
+    if (left == null && right != null || right == null && left != null) {
       return false;
     }
-    if(left.val != right.val) {
+    if (left.val != right.val) {
       return false;
     }
     return isSameTree(left.right, right.right) && isSameTree(left.left, right.left);

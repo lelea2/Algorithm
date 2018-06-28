@@ -16,3 +16,5 @@ function invert(tree) {
 }
 
 var tree = [[['a'], 'b', ['c', 'd', null]], 'f', [['g'], 'h', ['i']]];
+
+console.log(invert(tree));
