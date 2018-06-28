@@ -30,6 +30,7 @@ The followings are good website for learning or for references
 * https://performancejs.com/post/hde6d32/The-Best-Frontend-JavaScript-Interview-Questions-%28written-by-a-Frontend-Engineer%29
 * https://www.maxpou.fr/immutability-js-without-library/
 * https://github.com/kennymkchan/interview-questions-in-javascript
+* https://js-algorithms.tutorialhorizon.com/2017/03/12/tic-tac-toe-winner/
 
 Algorithm website
 * http://www.programming-algorithms.net/article/40348/Interpolation-search
