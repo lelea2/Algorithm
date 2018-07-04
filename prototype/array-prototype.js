@@ -26,3 +26,15 @@ Array.prototype.unique = function() {
   }
   return array;
 }
+
+// 3. array concatAll
+Array.prototype.concatAll = function() {
+  var results = [];
+  this.forEach(function(subArray) {
+    if (Array.isArray(subArray))
+      subArray.forEach((item) => results.push(item))
+    else
+      throw new Error('Its not two dimensional array;');
+  });
+  return results;
+};
