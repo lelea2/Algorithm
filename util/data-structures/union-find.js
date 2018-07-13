@@ -42,7 +42,7 @@ function dfs(root, nodeMap, tree = []) {
   }
   tree.push(root);
   nodeMap[root].visited = true;
-  let connectedNodes = nodeMap[root]
+  let connectedNodes = nodeMap[root];
   for (let i = 0; i < connectedNodes.length; i++) {
     let connectedNode = connectedNodes[i];
     dfs(connectedNode, nodeMap, tree);

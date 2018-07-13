@@ -21,6 +21,7 @@ function isBalanced(inputStr) {
       }
     }
   }
+  return true;
 }
 
 function isParanthesis(char) {

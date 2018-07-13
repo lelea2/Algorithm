@@ -14,9 +14,9 @@ CircularLinkedList.prototype.push = function(val) {
     while(current.next != head) {
       current = current.next;
     }
-    node.next = head;
-    node.previous = current;
-    head.previous = node;
-    current.next = node;
+    node.next = head; // assign node link
+    node.previous = current; // assign node link
+    head.previous = node; // assign head previous
+    current.next = node; // assign current next
   }
 }

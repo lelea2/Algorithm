@@ -6,7 +6,7 @@
 // Time Complexity: O (n long n)
 
 const lengthofLargestSubarrayWithContinuousElements = (arr) => {
-  arr.sort();
+  arr.sort(); // sorted array
   let count = [];
   let inLen = arr.length;
   let j = 0;

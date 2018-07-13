@@ -1,6 +1,6 @@
 // Breadth First Search (BFS) Graph Traversal in Javascript
 
-var nodes = [
+const nodes = [
     {
         links: [ 1 ], // node 0 is linked to node 1
         visited: false
@@ -14,13 +14,13 @@ var nodes = [
 
 
 function bfs( start ) {
-    var listToExplore = [ start ];
+    let listToExplore = [ start ];
 
     nodes[ start ].visited = true;
 
     while ( listToExplore.length > 0 ) {
-        var nodeIndex = listToExplore.shift();
-        nodes[ nodeIndex ].links.forEach( function( childIndex ) {
+        let nodeIndex = listToExplore.shift(); // first of array
+        nodes[ nodeIndex ].links.forEach((childIndex) => {
             if ( !nodes[ childIndex ].visited ) {
                 nodes[ childIndex ].visited = true;
                 listToExplore.push( childIndex );

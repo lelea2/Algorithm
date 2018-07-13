@@ -29,7 +29,7 @@ var hasPathSum = function(root, sum) {
 
   var list = [];
   sumR2L(root, 0);
-  return sumR2L(root, 0);
+  return sumR2L(root, 0); // original sum = 0
 
   function sumR2L(root, s) {
     if(root.left == null && root.right == null) { // if root does not have child 

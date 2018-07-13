@@ -16,7 +16,7 @@ const dfs = start => {
   nodes[ start ].visited = true;
 
   while ( listToExplore.length ) {
-    const nodeIndex = listToExplore.pop();
+    const nodeIndex = listToExplore.pop(); // last node
 
     nodes[ nodeIndex ].links.forEach( childIndex => {
       if ( !nodes[ childIndex ].visited ) listToExplore.push( childIndex );
