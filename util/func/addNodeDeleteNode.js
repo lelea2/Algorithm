@@ -52,15 +52,15 @@ console.log('addNode', storeTree);
 const deleteNode = (id) => {
   const nodeKey = `${id}`;
   if (storeTree[nodeKey] && storeTree[nodeKey].children.length > 0) {
-     return; // delete node but node already has children.  
+    return; // delete node but node already has children.  
   } else if (storeTree[nodeKey] && storeTree[nodeKey].children.length === 0) {
-     const parentId = `${storeTree[nodeKey].parent}`;
+    const parentId = `${storeTree[nodeKey].parent}`;
     // console.log(parentId);
-     if (parentId && storeTree[parentId]) { // if parent Id exists
-       const index = storeTree[parentId].children.indexOf(id);
-       storeTree[parentId].children.splice(index, 1);
-     }
-     delete storeTree[nodeKey];
+    if (parentId && storeTree[parentId]) { // if parent Id exists
+      const index = storeTree[parentId].children.indexOf(id);
+      storeTree[parentId].children.splice(index, 1);
+    }
+    delete storeTree[nodeKey];
   }
   // console.log('>>>>>delete', storeTree);
 };
