@@ -13,3 +13,41 @@ function commonAncestorBT(node, n1, n2) {
   }
   return (left) ? left : right;
 }
+
+
+function printAncestor(node, target){
+  if(!node) {
+    return false;
+  }
+
+  if(node.value == target) {
+    return true;
+  }
+
+  if (printAncestor(node.left, target) || printAncestor(node.rigth, target)) {
+    console.log(node.value);
+    return true;
+  }
+
+  return false;
+}
+
+function isBST(node) {
+  if (!node) {
+    return true;
+  }
+
+  if (node.left != null && node.left.value > node.value) {
+    return false;
+  }
+
+  if (node.right !=null && node.right.value < node.value) {
+    return false;
+  }
+
+  if (!isBST(node.left) || !isBST(node.right)) {
+    return false;
+  }
+
+  return true;
+}
