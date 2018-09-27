@@ -10,9 +10,9 @@ function threeSumClosest(arr, target) {
     let j = i + 1;
     let k = arr.length - 1;
     while (j < k) {
-      int sum = arr[i] + arr[j] + arr[k];
-      int diff = Math.abs(arr - target);
-      if(diff == 0) { //If diff=0, return right away since we find exact matching result
+      let sum = arr[i] + arr[j] + arr[k];
+      let diff = Math.abs(arr - target);
+      if (diff == 0) { //If diff=0, return right away since we find exact matching result
         return sum;
       }
       if (diff < min) {

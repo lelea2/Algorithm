@@ -9,7 +9,7 @@ function mapNodes(edges) {
     if (!nodeMap[node1]) { // if not not existing
       nodeMap[node1] = [node2];
     } else {
-      else nodeMap[node1].push(node2);
+      nodeMap[node1].push(node2);
     }
     if (!nodeMap[node2]) {
       nodeMap[node2] = [node1];
@@ -54,9 +54,9 @@ function dfs(root, nodeMap, tree = []) {
 // Performance test
 let edges = [];
 for (let i = 0; i < 5000; i++) {
-    let node1 = Math.floor(Math.random() * 30000);
-    let node2 = Math.floor(Math.random() * 30000);
-    edges.push([node1, node2])
+  let node1 = Math.floor(Math.random() * 30000);
+  let node2 = Math.floor(Math.random() * 30000);
+  edges.push([node1, node2])
 }
 let start = performance.now();
 let nodeMap = mapNodes(edges);
