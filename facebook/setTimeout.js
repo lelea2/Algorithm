@@ -36,8 +36,9 @@
   function removeCacheItem(id) {
     var idx = cache.indexOf(id);
 
-    if (idx > -1)
-      cache = cache.filter(n => n != id)
+    if (idx > -1) {
+      cache = cache.filter(n => n != id);
+    }
   }
 
 })(window);
