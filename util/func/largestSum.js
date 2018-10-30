@@ -25,3 +25,16 @@ function largestSum(arr) {
     }
     return biggest + second; //Largest sum will be the sum of 2 largest number
 }
+
+// Second solution
+Array.prototype.largestSum = function maxSubArraySum() {
+    var maximumSoFar = this[0],
+        currentMaximum = this[0];
+    for (var i = 0; i < this.length; i++) {
+        currentMaximum = this[i] >= (currentMaximum + this[i]) ?
+                         this[i] : currentMaximum + this[i];
+        maximumSoFar = maximumSoFar >= currentMaximum ?
+                       maximumSoFar : currentMaximum;
+    }
+    return maximumSoFar;
+}
