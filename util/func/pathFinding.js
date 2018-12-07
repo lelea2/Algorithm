@@ -91,8 +91,6 @@ function findShortestPath(grid, sx, sy, ex, ey) {
 /**
  * get a specific coordinate in the queue
  *
- * ! THIS CAN BE AN ASSUMED FUNCTION, IMPLEMENTATION NOT NEEDED !
- *
  */
 function getQueue(x, y) {
   for ( var i = 0, l = queue.length; i < l; i++ ) {
@@ -107,8 +105,6 @@ function getQueue(x, y) {
 /**
  * the position is valid if it is on the grid and is in the queue somewhere
  *
- * ! THIS CAN BE AN ASSUMED FUNCTION, IMPLEMENTATION NOT NEEDED !
- *
  */
 function isValid(x, y) {
   if ( grid[x] && grid[x][y] ) {
@@ -119,8 +115,6 @@ function isValid(x, y) {
 
 /**
  * see if a pair of coordinates are adjacent
- *
- * ! THIS CAN BE AN ASSUMED FUNCTION, IMPLEMENTATION NOT NEEDED !
  *
  */
 function isAdjacent(x0, y0, x1, y1) {
@@ -137,8 +131,6 @@ function isAdjacent(x0, y0, x1, y1) {
 
 /**
  * find the next distance down neighbor that we can traverse to
- *
- * ! THIS CAN BE AN ASSUMED FUNCTION, IMPLEMENTATION NOT NEEDED !
  *
  */
 function findLowestNeighbor(cx, cy, cd) {
