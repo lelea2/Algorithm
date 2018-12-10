@@ -30,8 +30,8 @@ function printMatrix(i, j, length) {
       if (j < length - 1) {
          j = j + jdir;
       } else { // j == y -1;
-         idir = -1;
-         i = i + idir;
+        idir = -1;
+        i = i + idir;
       }
     } else if (i === 0 && j > 0) {
       jdir = -1;
