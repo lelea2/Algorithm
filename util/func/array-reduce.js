@@ -26,7 +26,7 @@ var calculateProduct = function (a) {
     });
 }
 
-console.log(calculateProduct([1,2,3,4])); <= 24
+console.log(calculateProduct([1,2,3,4])); // <= 24
 
 //Calculate the sum of even elements
 /* This can be achieved better by using filter Ex.5 */

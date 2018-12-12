@@ -32,6 +32,7 @@ The followings are good website for learning or for references
 * https://github.com/kennymkchan/interview-questions-in-javascript
 * https://js-algorithms.tutorialhorizon.com/2017/03/12/tic-tac-toe-winner/
 * https://javascriptinterviewquestions.com/systems/
+* Algorithm: https://wdxtub.com/interview/14520604911019.html
 
 Algorithm website
 * http://www.programming-algorithms.net/article/40348/Interpolation-search
