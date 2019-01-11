@@ -16,7 +16,7 @@ function getDependencies(_package, currDep=[], parentDep=[]) {
       circular = true;
       return;
     } else {
-      if (item && currDep.indexOf(item) < 0) { // not exists yet 
+      if (item && currDep.indexOf(item) < 0) { // not exists yet
         currDep.push(item);
       }
       if (parentDep.indexOf(_package) < 0) {
@@ -30,3 +30,5 @@ function getDependencies(_package, currDep=[], parentDep=[]) {
 }
 
 console.log(getDependencies("A"));
+
+// [ 'B', 'E', 'K', 'F', 'C', 'D' ]

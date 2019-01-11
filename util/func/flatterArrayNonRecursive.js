@@ -28,8 +28,7 @@ function flatten(array) {
 }
 
 console.log(flatten([3, [3, 4, [2, 3]], 5, 3, [6, 7]]));
-
-
+// [ 3, 3, 4, 2, 3, 5, 3, 6, 7 ]
 
 // var flattenRecursive = function  (arr) {
 //     return arr.reduce(function  (a,b) {

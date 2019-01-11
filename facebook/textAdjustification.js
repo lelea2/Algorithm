@@ -84,8 +84,18 @@ function textJustify(input, L) {
   });
 }
 
-input = "Coursera provides universal access to the world's best education, partnering with top universities and organizations to offer courses online.";
+const input = "Coursera provides universal access to the world's best education, partnering with top universities and organizations to offer courses online.";
 // L = 30;
 // L = 27;
-L = 20;
+const L = 20;
 console.log(textJustify(input, L));
+
+// Coursera    provides
+// universal  access to
+// the   world's   best
+// education,
+// partnering  with top
+// universities     and
+// organizations     to
+// offer        courses
+// online.
