@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        color: white;
+        background: black;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .container {
+        min-height: 400px;
+        width: 200px;
+        max-width: 300px;
+        float: left;
+        margin-right: 10px;
+        border: 1px solid white;
+      }
+
+      .title {
+        font-weight: bold;
+        text-decoration: underline;
+        padding: 10px;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+
+      .item {
+        list-style-type: none;
+        padding: 10px;
+        border: 1px solid brown;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>Coffee Shop - React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <!--
+      Create a virtual coffee shop where orders can be submitted and picked up:
+
+      1. We should be able to submit an order by clicking on an item in the menu
+
+      (Note: Each drink has a specified "make" time. This decides how long it takes to finish creating the drink)
+
+      2. When we submit an order, the order should display in an "Orders In Progress" container by the order they are submitted
+
+      3. Each order gets moved to a "Finished" container once the barista finishes making them
+
+      4. All finished orders are removed from the "Finished" container after 3 seconds
+
+      Constraints:
+      - You only have 1 barista. A barista can only make 1 drink at a time
+    -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // drink data
+      const drinks = {
+        mocha: 1,
+        chai: 2,
+        latte: 4,
+        matcha: 5,
+      };
+
+      class App extends React.Component {
+        render() {
+          return (
+            <div>
+              <h1>Hello Coffee Lovers!</h1>
+              <Menu />
+            </div>
+          );
+        }
+      }
+
+      class Menu extends React.Component {
+
+        constructor(props) {
+          super(props);
+           this.state = {
+             listOrder: [],
+             listFinished: [],
+           };
+        }
+
+        handleSelect(item) {
+          const { listOrder } = this.state;
+          const key = this.uuidv4();
+          listOrder.push({
+            item,
+            key
+          });
+           this.setState({
+              listOrder
+           });
+          const timeToMake = drinks[item] * 1000;
+          // alert(timeToMake);
+          setTimeout(() => {
+            const currList = this.state.listOrder;
+            const result = [];
+            const listToFinish = this.state.listFinished;
+             for (let i = 0; i < currList.length; i ++) {
+               if (currList[i].key !== key) {
+                   result.push(currList[i]);
+               } else {
+                   listToFinish.push(currList[i]);
+               }
+            }
+            // alert(currList.length);
+            // alert(result.length);
+            // alert(listToFinish.length);
+            this.setState({
+              listOrder: result,
+              listFinished: listToFinish
+            });
+          }, timeToMake);
+        }
+
+        uuidv4() {
+          return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+          });
+        }
+
+        handleProgress(item, i) {
+          let { listOrder, listFinished } = this.state;
+          const key = this.uuidv4();
+          listFinished.push({
+            item,
+            key
+          });
+          listOrder.splice(i, 1); // remove at index
+          // const currIndex = listFinished.length - 1; // current index to remove
+          this.setState({
+            listOrder,
+            listFinished
+          });
+          setTimeout(() => {
+            const result = [];
+            let currList = this.state.listFinished;
+            for (let i = 0; i < currList.length; i ++) {
+               if (currList[i].key !== key) {
+                   result.push(currList[i]);
+               }
+            }
+            this.setState({
+              listFinished: result
+            });
+          }, 3000);
+        }
+
+        render() {
+          const { listOrder, listFinished } = this.state;
+          return (
+            <div>
+              <div className="container">
+                <h1 className="title">Menu</h1>
+                <ul>
+                  {Object.keys(drinks).map((item, i) => {
+                     return (
+                       <li className="item" key={item} onClick={this.handleSelect.bind(this, item)}>{item}</li>
+                     )
+                  })}
+                </ul>
+
+              </div>
+              <div className="container">
+                <h2 className="title">Order in progress</h2>
+                {listOrder.length > 0 && <ul>
+                    {listOrder.map((item, i) => {
+                       return (
+                         <li className="item" key={`${item}-progress-${i}`} onClick={this.handleProgress.bind(this, item, i)}>{item.item}-{item.key}</li>
+                        );
+                    })}
+                </ul>}
+              </div>
+              <div className="container">
+                <h2 className="title">Finished</h2>
+                {listFinished.length > 0 && <ul>
+                    {listFinished.map((item, i) => {
+                       return (
+                         <li className="item" key={`${item.item}-finished-${i}`}>{item.item}-{item.key}</li>
+                        );
+                    })}
+                </ul>}
+              </div>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
