@@ -116,16 +116,16 @@ function beautifyTheTask(currentTask, indexStart) {
   const level = str.substr(0, 2);
   const levelNum = 3;
   switch (level) {
-      case '[H]':
-          levelNum = 1;
-      case '[M]':
-          levelNum = 2;
-      case '[L]':
-          levelNum = 3;
+    case '[H]':
+      levelNum = 1;
+    case '[M]':
+      levelNum = 2;
+    case '[L]':
+      levelNum = 3;
   }
   return {
-      levelNum,
-      name: level.substr(3)
+    levelNum,
+    name: level.substr(3)
   };
 }
 
