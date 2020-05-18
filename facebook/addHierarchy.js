@@ -36,25 +36,25 @@ hdoan@chanzuckerberg.com
 
 class Task {
   constructor(name, priority, children) {
-      this.name = name;
-      this.priority = priority;
-      this.children = children || [];
+    this.name = name;
+    this.priority = priority;
+    this.children = children || [];
   }
 
   addChildren(task) {
-      this.children.push(task);
+    this.children.push(task);
   }
 
   getPriority() {
-      return this.priority;
+    return this.priority;
   }
 
   getChildren() {
-      return this.children;
+    return this.children;
   }
 
   setChildren(arr) {
-      this.children = arr;
+    this.children = arr;
   }
 }
 
@@ -66,8 +66,6 @@ const Task2 = new Task("xxx", 2, []);
 const Task3 = new Task("xxx", 3, []);
 const Task4 = new Task("xxx", 1, []);
 
-
-
 const arr = [Task1, Task2, Task3, Task4];
 
 function generateTask(arr, parentLevel, taskArr = []) {
@@ -76,16 +74,16 @@ function generateTask(arr, parentLevel, taskArr = []) {
   let currLevel = 0;
   let parentLevel = 0;
   for (let i = 0; arr.length; i++) {
-      if (parentLevel < currLevel) {
-          parentLevel = currLevel;
-      }
-      currLevel = checkLevelOfCurrentTask(arr[i]);
-      const myTask = beautifyTheTask(arr[i], currLevel);
-      if (currLevel - parentLevel === 0) { // parent
-          taskArr.push(new Task(myTask.name, myTask.levelNum, []));
-      } else { // children
-          taskArr.addChildren(new Task(myTask.name, myTask.levelNum, []));
-      }
+    if (parentLevel < currLevel) {
+      parentLevel = currLevel;
+    }
+    currLevel = checkLevelOfCurrentTask(arr[i]);
+    const myTask = beautifyTheTask(arr[i], currLevel);
+    if (currLevel - parentLevel === 0) { // parent
+      taskArr.push(new Task(myTask.name, myTask.levelNum, []));
+    } else { // children
+      taskArr.addChildren(new Task(myTask.name, myTask.levelNum, []));
+    }
   }
   return taskArr;
 }
@@ -93,12 +91,12 @@ function generateTask(arr, parentLevel, taskArr = []) {
 
 function sortTask(taskArr) {
   for (let i = 0; i < taskArr.length; i++) {
-      if (taskArr[i].getChildren().length > 0) {
-          taskArr[i].setChildren(sortTask(taskArr[i].getChildren()));
-      }
+    if (taskArr[i].getChildren().length > 0) {
+      taskArr[i].setChildren(sortTask(taskArr[i].getChildren()));
+    }
   }
   return taskArr.sort((a, b) => {
-      return a.getPriority() > b.getPriority();
+    return a.getPriority() > b.getPriority();
   });
 }
 
@@ -133,11 +131,11 @@ function beautifyTheTask(currentTask, indexStart) {
 function checkLevelOfCurrentTask(currentTask) {
   let level = 0;
   for (let i = 0; i < currentTask.length; i++) {
-      if (currentTask.indexOf(i) === '-') {
-          level += 1;
-      } else {
-          break;
-      }
+    if (currentTask.indexOf(i) === '-') {
+      level += 1;
+    } else {
+      break;
+    }
   }
   return Math.floor(level / 2);
 }
