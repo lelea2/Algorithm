@@ -103,7 +103,6 @@ function sortTask(taskArr) {
 const task = sortTask(arr);
 
 for (let i = 0; i < task; i++) {
-  if (task)
 }
 
 // Beautify the task
