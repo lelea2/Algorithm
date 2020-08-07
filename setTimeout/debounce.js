@@ -21,3 +21,15 @@ var myEfficientFn = debounce(function() {
 }, 250);
 
 window.addEventListener('resize', myEfficientFn);
+
+// ES6
+const debounce = (fn, time) => {
+  let timeout;
+
+  return function() {
+    const functionCall = () => fn.apply(this, arguments);
+
+    clearTimeout(timeout);
+    timeout = setTimeout(functionCall, time);
+  }
+}

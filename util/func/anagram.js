@@ -1,35 +1,24 @@
-// our array of words
-const words = ['map', 'pam', 'art', 'how', 'rat', 'tar', 'who', 'shoop'];
-
-// helper function
-function alphabetize(word) {
-    if (!word) {
-        return;
+// Run time: O(w * n * log(n))
+// Space O(w * n)
+// w- number of word
+// n - length of the longest word
+function groupAnagrams(words) {
+  const anagrams = {};
+  for (const word of words) {
+    const sortedWord = word.split('').sort().join();
+    if (sortedWord in anagrams) {
+      anagrams[sortedWord].push(word)
+    } else {
+      anagrams[sortedWord] = [word];
     }
-    word = word.split('');
-    word = word.sort();
-    word = word.join('');
-    return word;
+  }
+
+  return Object.values(anagrams);
 }
 
+// Do not edit the line below.
+exports.groupAnagrams = groupAnagrams;
 
-// main function
-function anagramGrouper(words){
-    const anagrams = {};
-    words.forEach((word)=>{
-        const sortedWord = alphabetize(word);
-        if (anagrams[sortedWord]) {
-            return anagrams[sortedWord].push(word);
-        }
-        anagrams[sortedWord] = [word];
-     });
-    return anagrams;
-}
-
-// store the result (anagrams object) in a variable called groupedAnagrams
-const groupedAnagrams = getGroupedAnagrams(words);
-
-// iterate over groupedAnagrams, printing out each key:value pair on an individual line
-for(const sortedWord in groupedAnagrams){
-    console.log(groupedAnagrams[sortedWord].toString());
-}
+// Eg
+// Input: {"words": ["yo", "act", "flop", "tac", "foo", "cat", "oy", "olfp"]}
+// Output [["yo", "oy"], ["act", "tac", "cat"], ["flop", "olfp"], ["foo"]]
