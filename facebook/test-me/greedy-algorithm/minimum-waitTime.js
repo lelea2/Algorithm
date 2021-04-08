@@ -10,7 +10,7 @@ function minimumWaitingTime(queries) {
   for (let i = 0; i < queries.length; i++) { // O(n) run time for the array
     const duration = queries[i];
     const queriesLeft = queries.length - (i + 1);
-    totalWaitingTime += duration + queriesLeft;
+    totalWaitingTime += duration * queriesLeft;
   }
   return totalWaitingTime;
 }
