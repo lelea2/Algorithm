@@ -1,3 +1,5 @@
+//Write a functiion that takes in an array of integers and return the length of longest peak in the array
+
 // Run time: O(n)
 // Space time O(1)
 
@@ -28,5 +30,8 @@ function longestPeak(array) {
   return longestPeakLength;
 }
 
-// Do not edit the line below.
-exports.longestPeak = longestPeak;
+// Input
+// [1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3]
+
+// Output:
+// 6
