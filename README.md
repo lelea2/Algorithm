@@ -40,7 +40,7 @@ Algorithm website
 CryptoJS
 * https://runkit.com/wimpyprogrammer/aws-sdk-vs-cryptojs
 
-####Important knowledge for FE
+#### Important knowledge for FE
 
 * prototype - inheritance in js, how it differs from other languages
 * scoping - functions as first class objects, closures, function vs block scoping
