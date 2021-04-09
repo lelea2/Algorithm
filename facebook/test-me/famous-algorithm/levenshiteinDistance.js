@@ -13,6 +13,8 @@
 // c  3
 // if str1[r - 1] === str2[c - 1]: E[r][c] = E[r - 1][c - 1]
 // else E[r][c] = 1 + min(E[r][c-1]), E[r -1][c], E[r-1][c-1])
+// O(nm) run time
+// O(nm) space time
 function levenshteinDistance(str1, str2) {
   // 2d array metrix
   const edits = [];
