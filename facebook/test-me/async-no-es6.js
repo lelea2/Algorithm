@@ -78,7 +78,7 @@ function combineFetchers(fetchers) {
   }
 }
 
-    Test Cases:
+// Test Cases:
 // all function successful
 // fruitFetcher faied, other 2 success // ex from fruitFetcher
 // fruitFetcher failed with timeout 5s, animalFetcher fialed timeout 2s -> ex should be animalFetcher
@@ -91,7 +91,7 @@ function combineFetchers(fetchers) {
 
 //  [fruitFetcher, animalFetcher, mineralFetcher]
 //  [fruitFetcher, animalFetcher, mineralFetcher].forEach(fetch => {
-    fruitFetcher(prefix, result -> 
- });
+ //   fruitFetcher(prefix, result -> 
+ //});
 const fetchAll = combineFetcher( [fruitFetcher, animalFetcher, mineralFetcher]);
 fetchAll(‘prefix’, …) 
