@@ -55,5 +55,5 @@ const peopleList = [
 	{ name: 'Jane',    birth: 2000, death: 2090 },
 ];
 
-getYearMostPeopleAreAlive(peopleList) => // 1980, 7
+getYearMostPeopleAreAlive(peopleList) // => 1980, 7
       
