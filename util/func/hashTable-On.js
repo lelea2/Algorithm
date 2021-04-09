@@ -16,7 +16,6 @@ class RandomHashMap {
   constructor() {
     this.hash = {};
     this.length = 0;
-    this.keys = [];
   }
 
   get(key) {
@@ -44,7 +43,7 @@ class RandomHashMap {
         const lastKey = this.key[this.keys.length - 1];
         const temp = key;
         this.keys[indexKey] = lastKey;
-        this.keys[lastKey] = temp;
+        this.keys[this.keys.length - 1] = temp;
         this.keys.pop(); // remove the last item (which is the key)
         // update the hashKey
         this.hash[lastKey].index = indexKey;
