@@ -64,4 +64,4 @@ const input = `( add 3 ( sub 5 ( add 1 ( add 1 1 ) ) ) 1 )`;
 console.log(JSON.stringify(
   parser(tokenizer(rules))(input)
 ));
-// ["first",["list",1,["+",2,["inc",3]],"'nine'",10,"'ele ven'"]]
+// ["add",3,["sub",3,1,1],1]
