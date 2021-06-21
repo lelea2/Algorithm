@@ -18,6 +18,7 @@
 // 6           | 2
 // 7           | 3
 
+// Run time: O(m * k)
 function findMinimumActivities(activities = [], target) {
 	// Used to record minimum # of activities to fully spend every hours
   // up to the given target.
