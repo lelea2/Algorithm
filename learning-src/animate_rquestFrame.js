@@ -1,3 +1,5 @@
+// https://javascript.info/js-animation
+
 function animate(element, duration, distance) {
   let left = 0;
   let start = performance.now();

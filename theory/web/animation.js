@@ -5,6 +5,9 @@
 //Question: how to do polling in JS
 //Answer: focus  on setInterval() and clearInterval() functions
 
+// https://javascript.info/js-animation
+// please use animate_requestFrame for better answer
+
 function moveLeft(elem, distance) { //distance is maximum distance to go
   var left = 0;
 
