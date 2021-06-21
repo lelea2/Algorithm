@@ -9,4 +9,4 @@
 ##### Helpful articles:
 
 * https://igotanoffer.com/blogs/tech/system-design-interviews
-* https://bigfrontend.dev/design/Design-an-API-progress-bar
+* https://bigfrontend.dev/design
