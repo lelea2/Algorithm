@@ -34,3 +34,28 @@ emmiter.subscribe("event1", (name, surname) => {
 emmiter.emit("event1", "Hello", "World");
 emmiter.unsubscribe("event1");
 emmiter.emit("event1", "Hello", "World");
+
+
+// class Emitter {
+//   constructor() {
+//     this.events = {};
+//   }
+
+//   on(name, handler) {
+//     (this.events[name] || (this.events[name] = [])).push(handler);
+//     return this.off.bind(this, name, handler);
+//   }
+
+//   off(name, handler) {
+//     this.events[name] && this.events[name].filter(handle => handle === handler);
+//   }
+
+//   emit(name, ...payload) {
+//     this.events[name].map(handler => handler(...payload));
+//   }
+// }
+
+// const emmiter = new Emitter();
+// emmiter.subscribe("event1", (name, surname) => {
+//   alert[name + " " + surname);
+// });

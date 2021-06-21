@@ -61,4 +61,43 @@ var removeInvalidParentheses = function(s) {
 	
 	return leftCount === 0;
 }
-      
+
+/*============================================================*/
+function isValidString(s) {
+  var count = 0;
+  for (let c of s) {
+      if (c === '(') {
+          count++;
+      }
+      else if (c === ')') {
+          count--;
+      }
+      if (count < 0) return false;
+  }
+  return count === 0;
+}
+
+function removeInvalidParentheses(s) {
+  let levels = [s];
+  while (true) {
+      let valid = levels.filter(isValidString);
+      if (valid.length > 0) {
+          return new Set(valid);
+      }
+
+      // check validity of all possible substrings with one character removed.
+      let nextlevels = [];
+      for (let s of levels) {
+          for (let i = 0; i < s.length; i++) {
+              nextlevels.push(s.substring(0, i) + s.substring(i + 1));
+          }
+      }
+      levels = nextlevels;
+  }
+}
+
+console.log(removeInvalidParentheses(')()()('));
+console.log(removeInvalidParentheses('(()))'));
+console.log(removeInvalidParentheses(')('));
+console.log(removeInvalidParentheses('()))(()'));
+console.log(removeInvalidParentheses('(()())'));
