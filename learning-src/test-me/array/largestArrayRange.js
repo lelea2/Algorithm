@@ -42,3 +42,5 @@ function largestRange(array) {
   }
   return bestRange;
 }
+
+console.log(largestRange([1, 11, 3, 0, 15, 5, 2, 4, 10, 7, 12, 6])); // [0, 7]
