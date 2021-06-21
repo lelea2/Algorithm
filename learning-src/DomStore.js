@@ -4,10 +4,10 @@
 // implement using ES6 Map
 class Store {
   constructor() {
-    this._map = new WeakMap();
+    this._map = new WeakMap(); // using weakMap to be able to set node as key
   }
   set(node, value) {
-    this._map.set(node,value);
+    this._map.set(node, value);
   }
   get(node) {
     return this._map.get(node);

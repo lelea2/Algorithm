@@ -97,6 +97,8 @@
 - 51. Weakmap
 - 52. Google Chrome vs. NodeJS V8
 - 53. Object.freeze
+- 54. What are the advantages of using ES6 maps over objects
+- 55. Map vs. WeakMap
 
 <!-- /MarkdownTOC -->
 
@@ -2153,3 +2155,83 @@ const daredevil = {
 JSON.parse(JSON.stringify(daredevil))
 // Uncaught TypeError: Converting circular structure to JSON
 ```
+
+#### 54. What are the advantages of using ES6 maps over objects?
+* Object: A data structure in which data is stored as key value pairs. 
+In an object the key has to be a number, string, or symbol. The value can be anything so also other objects, functions etc. 
+A object is an non ordered data structure, i.e. the sequence of insertion of key value pairs is not remembered
+
+* ES6 Map: A data structure in which data is stored as key value pairs. 
+In which a unique key maps to a value. Both the key and the value can be in any data type. 
+A map is a iterable data structure, this means that the sequence of insertion is remembered and that we can access the elements in e.g. a for..of loop
+
+```javascript
+let contacts = new Map()
+contacts.set('Jessie', {phone: "213-555-1234", address: "123 N 1st Ave"})
+contacts.has('Jessie') // true
+contacts.get('Hilary') // undefined
+contacts.set('Hilary', {phone: "617-555-4321", address: "321 S 2nd St"})
+contacts.get('Jessie') // {phone: "213-555-1234", address: "123 N 1st Ave"}
+contacts.delete('Raymond') // false
+contacts.delete('Jessie') // true
+console.log(contacts.size) // 1
+```
+
+**Key differences:**
+- A Map is ordered and iterable, whereas a objects is not ordered and not iterable
+- We can put any type of data as a Map key, whereas objects can only have a number, string, or symbol as a key.x
+- A Map inherits from Map.prototype. This offers all sorts of utility functions and properties which makes working with Map objects a lot easier.
+
+#### 55. Map vs. WeakMap
+1. One the above self invoked function is executed there is no way we can reference {x: 12} and {y: 12} anymore. G
+arbage collector goes ahead and deletes the key b pointer from “WeakMap” and also removes {y: 12} from memory. But in case of “Map”, the garbage collector doesn’t remove a pointer from “Map” and also doesn’t remove {x: 12} from memory.
+
+So “Map” can cause more garbages in memory. We can say that “Map” references are strong pointer whereas “WeakMap” references are weak pointers.
+
+```javascript
+var map = new Map();
+var weakmap = new WeakMap();
+
+(function(){
+    var a = {x: 12};
+    var b = {y: 12};
+
+    map.set(a, 1);
+    weakmap.set(b, 2);
+})();
+```
+
+2. “WeakMap” keys cannot be primitive types. Nor they can be created by an 2D array.
+
+```javascript
+map.set(44, 12);
+
+//throws invalid type error
+weakmap.set(44, 13);
+
+//doesn't work. throws errors
+var map_1 = new WeakMap([[1, 2], [4, 5]]); // will work in map
+```
+
+
+3. “WeakMap” doesn’t provide any methods or functions to work with the whole set of keys. For example: size, looping etc.
+
+```javascript
+console.log(weakmap.size); //undefined
+
+//loop through the keys in an map
+for(var i of map) {
+  console.log(i);
+}
+
+//loop through the keys in an weakmap doesn't work
+for(var i of weakmap) {
+  console.log(i);
+}
+
+//delete all keys
+map.clear();
+
+weakmap.clear(); //but this works
+```
+

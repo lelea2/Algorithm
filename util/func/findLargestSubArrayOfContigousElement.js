@@ -3,7 +3,7 @@
 // Iterate through the sorter array and keep track of the longest subarray with continuous elements in another array
 // Return the maximum number in the result array
 
-// Time Complexity: O (n long n)
+// Time Complexity: O (n log n)
 
 const lengthofLargestSubarrayWithContinuousElements = (arr) => {
   arr.sort(); // sorted array

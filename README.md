@@ -54,3 +54,7 @@ CryptoJS
 * build tools - webpack, grunt, etc
 * server side js - node.js, npm experience
 * currently popular frameworks/libraries
+
+#### Good resource
+
+* https://ttzztt.gitbooks.io/lc/content/design-tic-tac-toe.html

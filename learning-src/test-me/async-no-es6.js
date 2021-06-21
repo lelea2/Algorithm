@@ -87,7 +87,7 @@ function combineFetchers(fetchers) {
     
 //  [fruitFetcher, animalFetcher, mineralFetcher]
 // fruitFetcher () => success
-    animalFetcher () => 
+// animalFetcher () => 
 
 //  [fruitFetcher, animalFetcher, mineralFetcher]
 //  [fruitFetcher, animalFetcher, mineralFetcher].forEach(fetch => {

@@ -7,6 +7,8 @@
 // array = [1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19]
 // Result
 // [3, 9]
+
+// O(n) time, O(1) space
 function subArraySort(array) {
   let minOutOfOrder = Infinity;
   let maxOutOfOrder = -Infinity;
