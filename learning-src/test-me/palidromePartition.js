@@ -1,3 +1,11 @@
+// Input: "aab"
+// Output:
+// [
+//   ["aa","b"],
+//   ["a","a","b"]
+// ]
+
+
 const partition = (s) => {
   let result = [];
   generate(s, 0, [], result);
