@@ -1,7 +1,5 @@
 /*
 
-hdoan@chanzuckerberg.com
-
 "[H] Interview with Khanh",
 "--[H] write interview feedback",
 "--[M] reflect on my interviews",
