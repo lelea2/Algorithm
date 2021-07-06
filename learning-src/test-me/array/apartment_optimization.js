@@ -34,7 +34,16 @@
 // Space time: O(br)
 function apartmentHunting(blocks, reqs) {
   const minDistanceFromBlocks = reqs.map(req => getMinDistances(blocks, req));
+  console.log('>>> minDistanceFromBlocks', minDistanceFromBlocks);
+  // [ [ 0, 0, 0, 1, 2 ],                                  
+  // [ Infinity, 1, 0, 0, 0 ],                                                     
+  // [ Infinity, 0, 1, 1, 0 ] ] 
   const maxDistanceAtBlocks = getMaxDistanceAtBlocks(blocks, minDistanceFromBlocks);
+  console.log('>>> maxDistanceAtBlocks', minDistanceFromBlocks);
+  // [ [ 0, 0, 0, 1, 2 ],                                    
+  // [ Infinity, 1, 0, 0, 0 ],                                                     
+  // [ Infinity, 0, 1, 1, 0 ] ] 
+
   return getIdxAtMinValue(maxDistanceAtBlocks);
 }
 
