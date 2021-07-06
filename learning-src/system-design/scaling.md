@@ -80,6 +80,4 @@ Out-of-process caching gets around the above issues by storing cached values in 
 * Cache can be refreshed or invalided easily by updating central cache system.
 Persistent caches is used when it is important to recover from crash with cached values intact. It is achieved by re-loading cached data from disk.
 
-
-
 5) DB cache
