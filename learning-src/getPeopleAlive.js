@@ -56,4 +56,3 @@ const peopleList = [
 ];
 
 getYearMostPeopleAreAlive(peopleList) // => 1980, 7
-      
